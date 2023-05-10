@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="heesung.Quartz" %> <!-- Quartz.java 파일을 불러온다. -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,5 +35,7 @@
 			<input type="button" value="     회    원    가    입     ">
 		</div>
 	</form>
+	
+	<% Quartz.main(null); %>
 </body>
 </html>
