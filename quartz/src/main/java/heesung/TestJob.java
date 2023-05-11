@@ -1,5 +1,6 @@
 package heesung;
 
+import java.io.PrintWriter;
 import java.util.Date;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
@@ -17,7 +18,7 @@ public class TestJob implements Job {
     	
     	// 호출될 때의 시간 - 페이지 시작 시간 = (밀리세컨드 / 1000) + 1
         long elapsedTime = (currentTime - startTime) / 1000 + 1;
-    	
         System.out.println("홈페이지 접속 후 " + elapsedTime + "초 경과하였습니다.");
+        
     }
 }

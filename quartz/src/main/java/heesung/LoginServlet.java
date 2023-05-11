@@ -2,6 +2,7 @@ package heesung;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,21 +15,23 @@ public class LoginServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession();
+		
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id = req.getParameter("id");
-		String pwd = req.getParameter("pwd");
+		String password = req.getParameter("password");
 		
-		String loginResultPage = "/01/LoginResult.jsp";
+		String loginResult = "/01/loginResult.jsp";
 		HttpSession session = req.getSession();
-		if (id != null && pwd != null) {
-			if (id.equals("dongju") && pwd.equals("1004")) {
-				session.setAttribute("memid", id);
+		if (id != null && password != null) {
+			if (id.equals("dongju") && password.equals("1004")) {
+				session.setAttribute("memId", id);
 			}
 		}
+		RequestDispatcher rd = req.getRequestDispatcher(loginResult);
+		rd.forward(req, resp);
 	}
 	
 }

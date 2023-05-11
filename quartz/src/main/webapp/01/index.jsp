@@ -27,16 +27,14 @@
 	</div>
 	
 	<div id="div2">
-		<form action="<%= request.getContextPath() %>/LoginServlet.do">
-			<input type="text" width="500px" placeholder="아이디 입력"><br><br>
-			<input type="password" width="500px" placeholder="비밀번호 입력"><br><br>
-			<input type="button" value="로그인">
+		<form action="${pageContext.request.contextPath}/LoginServlet.do">
+			<input type="text" name="id" width="500px" placeholder="관리자 아이디"><br><br>
+			<input type="password" name="password" width="500px" placeholder="관리자 비밀번호"><br><br>
+			<input type="submit" value="로그인">
 			<input type="button" value="비밀번호 찾기"><br><br>
 			<input type="button" value="     회    원    가    입     ">
 		</form>
 	</div>
-	
-	<%-- <% Quartz.main(null); %> --%>
-	
+	<%Quartz.main(null);%>
 </body>
 </html>

@@ -31,13 +31,16 @@ public class Quartz {
                     .withIdentity("trigger1", "group1")
                     .startNow()
                     .withSchedule(SimpleScheduleBuilder.simpleSchedule()
-                            .withIntervalInSeconds(10)
-                            .repeatForever())
+                    .withIntervalInSeconds(10)
+                    .repeatForever())
                     .build();
             
             // 스케줄러를 통해 트리거가 동작되면 job이 실행되게 한다.
             scheduler.scheduleJob(job, trigger);
             scheduler.start();
+            
+            Thread.sleep(30000);
+            scheduler.shutdown();
         } catch(Exception e) {
             e.printStackTrace();
         }        
