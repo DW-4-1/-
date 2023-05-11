@@ -26,16 +26,17 @@
 		<h1>예시를 위한 로그인 페이지 입니다.</h1>
 	</div>
 	
-	<form>
-		<div id="div2">
+	<div id="div2">
+		<form action="<%= request.getContextPath() %>/LoginServlet.do">
 			<input type="text" width="500px" placeholder="아이디 입력"><br><br>
 			<input type="password" width="500px" placeholder="비밀번호 입력"><br><br>
 			<input type="button" value="로그인">
 			<input type="button" value="비밀번호 찾기"><br><br>
 			<input type="button" value="     회    원    가    입     ">
-		</div>
-	</form>
+		</form>
+	</div>
 	
-	<% Quartz.main(null); %>
+	<%-- <% Quartz.main(null); %> --%>
+	
 </body>
 </html>
