@@ -9,6 +9,7 @@
 <title>login result</title>
 </head>
 <body>
+	
 	<%
 		String memId = (String)session.getAttribute("memId");
 	
