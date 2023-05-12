@@ -2,14 +2,15 @@ package heesung;
 
 import static org.quartz.CronScheduleBuilder.cronSchedule;
 import static org.quartz.JobBuilder.newJob;
-import static org.quartz.TriggerBuilder.newTrigger;
 
+import org.quartz.DateBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerFactory;
 import org.quartz.SimpleScheduleBuilder;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
+import org.quartz.DateBuilder.IntervalUnit;
 import org.quartz.impl.StdSchedulerFactory;
 
 public class Quartz {
@@ -27,11 +28,12 @@ public class Quartz {
                 .build();
             
             // trigger는 job이 언제 실행될지 구성하는 객체이다.
-            Trigger trigger = TriggerBuilder.newTrigger()
+            Trigger trigger = (Trigger) TriggerBuilder.newTrigger()
                     .withIdentity("trigger1", "group1")
                     .startNow()
+                    .endAt(DateBuilder.futureDate(30, IntervalUnit.SECOND))
                     .withSchedule(SimpleScheduleBuilder.simpleSchedule()
-                    .withIntervalInSeconds(10)
+                    .withIntervalInSeconds(1)
                     .repeatForever())
                     .build();
             
@@ -39,8 +41,8 @@ public class Quartz {
             scheduler.scheduleJob(job, trigger);
             scheduler.start();
             
-            Thread.sleep(30000);
-            scheduler.shutdown();
+//            Thread.sleep(30000);
+//            scheduler.shutdown();
         } catch(Exception e) {
             e.printStackTrace();
         }        

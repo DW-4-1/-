@@ -4,13 +4,13 @@ import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
-public class SimpleTriggerJob implements Job{
+public class SimpleTriggerJob2 implements Job{
 
 	@Override
 	public void execute(JobExecutionContext arg0) throws JobExecutionException {
-		System.out.println("잡스케줄 실행");
-	}
-	
-	
 
+		System.out.println("SimpleTriggerJob2의 실행입니다!");
+	}
+
+	
 }

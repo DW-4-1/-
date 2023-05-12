@@ -27,7 +27,7 @@ public class CronTriggerTest {
 			Trigger tg1 = (Trigger) TriggerBuilder.newTrigger()
 					.withIdentity("CronTrigger1", "c_group1")
 					.startNow()
-					.withSchedule(CronScheduleBuilder.cronSchedule("0 * * * * ?"))
+					.withSchedule(CronScheduleBuilder.cronSchedule("0/5 0 5-6 * * ?"))
 //					.modifiedByCalendar("test")
 					.build();
 			sched.scheduleJob(job1, tg1);
@@ -38,7 +38,7 @@ public class CronTriggerTest {
 			Trigger tg2 = (Trigger) TriggerBuilder.newTrigger()
 					.withIdentity("CronTrigger2", "c_group2")
 					.startNow()
-					.withSchedule(CronScheduleBuilder.cronSchedule("30 * * * * ?"))
+					.withSchedule(CronScheduleBuilder.cronSchedule("0/10 * 5-6 * * ?"))
 					.build();
 					
 			sched.scheduleJob(job2, tg2);

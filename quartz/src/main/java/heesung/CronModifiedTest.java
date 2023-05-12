@@ -25,14 +25,13 @@ public class CronModifiedTest {
 		SchedulerFactory schedFact = new StdSchedulerFactory();
 		Scheduler sched = schedFact.getScheduler();
 		
-		Calendar c = new BaseCalendar();
 		HolidayCalendar hc = new HolidayCalendar();
-	
+
 		Date d = Date.valueOf("2023-05-12");
-		Timestamp t = Timestamp.valueOf("2023-05-12 01:33:00");
+//		Timestamp t = Timestamp.valueOf("2023-05-12 01:33:00");
 //		hc.addExcludedDate(new Date(3000));
-//		hc.addExcludedDate(d);
-		hc.addExcludedDate(t);
+		hc.addExcludedDate(d);
+//		hc.addExcludedDate(t);
 		
 		
 		// 파라미터(캘린더이름, 생성한 달력객체, 중복허용 안함, 등록된 트리거를 업데이트해야함 재시작시에도 유지함)
