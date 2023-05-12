@@ -20,10 +20,10 @@
 		</script>
 	<%
 		} else {
+			Quartz.main(null);
 	%>
 			<h1> 동주 왔니? </h1>
 	<%
-		Quartz.main(null);
 		}
 	%>
 	

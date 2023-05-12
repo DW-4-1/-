@@ -17,9 +17,11 @@ public class LoginServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 	}
-
+	
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// index.jsp 즉 로그인 페이지에서 
 		String id = req.getParameter("id");
 		String password = req.getParameter("password");
 		
