@@ -9,7 +9,9 @@
 <title>login result</title>
 </head>
 <body>
-	
+<!-- 1. LoginServlet.java 에서 요청받은 "memId"의 value값을 if문으로 비교한다. -->
+<!-- 2. 지정해둔 관리자의 id값과 일치하면 Quartz.java 파일을 통해 스케줄러가 실행된다. -->
+<!-- 3. id값이 일치하지 않으면 실패를 뜻하는 alert 창을 실행하고 페이지를 뒤로 이동시킨다. -->
 	<%
 		String memId = (String)session.getAttribute("memId");
 	
@@ -23,7 +25,7 @@
 		} else {
 			Quartz.main(null);
 	%>
-			<h1> 동주 왔니? </h1>
+			<h1>지정된 관리자 아이디로 로그인 되었습니다.</h1>
 	<%
 		}
 	%>

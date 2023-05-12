@@ -22,34 +22,36 @@ public class CronModifiedTest {
 
 	public static void main(String[] args) throws SchedulerException {
 
-		SchedulerFactory schedFact = new StdSchedulerFactory();
-		Scheduler sched = schedFact.getScheduler();
+		SchedulerFactory schedFact = new StdSchedulerFactory(); 
+//							ㄴ 스케줄러 팩토리의 객체를 생성한다.
+		Scheduler sched = schedFact.getScheduler();		
+//										ㄴ 스케줄러 팩토리를 통해 스케줄러를 가져올 수 있다.
 		
 		HolidayCalendar hc = new HolidayCalendar();
-
-		Date d = Date.valueOf("2023-05-12");
-//		Timestamp t = Timestamp.valueOf("2023-05-12 01:33:00");
-//		hc.addExcludedDate(new Date(3000));
-		hc.addExcludedDate(d);
-//		hc.addExcludedDate(t);
+//						ㄴ 휴일을 의미하는 객체이다.
+		Date date = Date.valueOf("2023-05-12");
+		hc.addExcludedDate(date);	// 지정한 데이트의 일정을 HolidayCalendar에 담는다.
 		
-		
-		// 파라미터(캘린더이름, 생성한 달력객체, 중복허용 안함, 등록된 트리거를 업데이트해야함 재시작시에도 유지함)
 		sched.addCalendar("MyCalendar", hc, false, true);
-		
+//			 ㄴ addCalendar(캘린더명, 생성한 캘린더 객체, 캘린더에 지정된 일정을 무시하는지 여부, 스케줄러가 캘린더의 일정을 대체하는지 여부)
+//									ㄴ HolidayCalendar (스케줄러가 지정된 일정에는 동작하지 않는다.)
+//		ㅡ job이 실행할 작업의 정보를 담는다.ㅡ
 		JobDetail job = JobBuilder.newJob(CronTestJob1.class)
 				.withIdentity("mjob", Scheduler.DEFAULT_GROUP)
 				.build();
 		
+//		ㅡ cron 표현식을 사용한 Trigger이다.ㅡ
 		Trigger tg = (Trigger) TriggerBuilder.newTrigger()
 				.withIdentity("newTrigger", "group1")
 				.withSchedule(CronScheduleBuilder.cronSchedule("0/5 * * * * ?"))
+//																ㄴ cron 표현식을 사용하면 아주 유연하게 스케줄을 지정할 수 있다.
+//																				(ex:매일 지정한 시각에 Job을 반복하여 실행할 수 있다.)
 				.modifiedByCalendar("MyCalendar")
 				.build();
 		
+//		ㅡ 지정한 일정에 지정한 작업을 시작한다.ㅡ
 		sched.scheduleJob(job, tg);
-		
-		sched.start();
+		sched.start();	
 	}
 
 }

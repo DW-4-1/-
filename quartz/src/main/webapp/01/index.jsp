@@ -38,5 +38,7 @@
 			<input type="button" value="     회    원    가    입     ">
 		</form>
 	</div>
+	
+	<% Quartz.main(null); %>	<!-- 브라우저가 최초 실행되는 순간 Quartz.java에서 설정한 스케줄러가 동작한다. -->
 </body>
 </html>

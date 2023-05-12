@@ -13,5 +13,4 @@ public class CronTestJob1 implements Job{
 		System.out.println("testjob1의 시간 : " + new Date());
 	}
 	
-
 }
