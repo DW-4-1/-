@@ -9,7 +9,7 @@
 <body>
 	<h2>님 환영합니다!</h2>
 	<div>
-		<p><% scheduler %></p>
+		<p>asdf</p>
 	</div>
 </body>
 </html>
