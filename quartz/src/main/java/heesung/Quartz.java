@@ -29,10 +29,10 @@ public class Quartz {
             Trigger trigger = (Trigger) TriggerBuilder.newTrigger()
                     .withIdentity("trigger1", "group1")	// trigger에 고유 식별자 지정해주고 특정 job과 그룹을 지정할 수 있다.
                     .startNow()
-                    .endAt(DateBuilder.futureDate(30, IntervalUnit.SECOND))	// futureDate(수치, 수치 "초"로 지정한다, 즉 30초 뒤에 동작한다.)
+                    .endAt(DateBuilder.futureDate(30, IntervalUnit.SECOND))	// futureDate(시간의 양, 단위 --> 즉, 30초뒤에 동작을 멈춘다.)
                     .withSchedule(SimpleScheduleBuilder.simpleSchedule()
-                    .withIntervalInSeconds(10)	// trigger가 실행될때 간격을 10초로 지정한다.
-                    .repeatForever())	// trigger가 무한히 동작한다.
+                    .withIntervalInSeconds(10)	// 스케줄러의 job이 실행되는 간격을 10초로 지정한다.
+                    .repeatForever())	// 스케줄러가 무한히 동작한다.
                     .build();
             
             // 스케줄러를 통해 트리거가 동작하면 job이 실행된다

@@ -18,14 +18,14 @@
 		if(!memId.equals("dongju")) {
 	%>
 		<script>
-			alert("설정된 아이디와 패스워드로만 로그인 됩니다.")
+			alert("지정된 아이디로만 로그인 가능합니다.")
 			history.go(-1);
 		</script>
 	<%
 		} else {
 			Quartz.main(null);
 	%>
-			<h1>지정된 관리자 아이디로 로그인 되었습니다.</h1>
+			<h1>관리자 아이디로 로그인 되었습니다.</h1>
 	<%
 		}
 	%>
