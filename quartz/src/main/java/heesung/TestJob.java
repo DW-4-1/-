@@ -1,7 +1,5 @@
 package heesung;
 
-import java.io.PrintWriter;
-import java.util.Date;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
