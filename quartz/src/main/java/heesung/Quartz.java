@@ -15,34 +15,30 @@ import org.quartz.impl.StdSchedulerFactory;
 
 public class Quartz {
     public static void main(String[] args) {
-    	// 스케줄러를 생성하는 데 사용된다.
-        SchedulerFactory schedulerFactory = new StdSchedulerFactory();
+    	
+    	
+        SchedulerFactory schedulerFactory = new StdSchedulerFactory(); 	// 스케줄러를 생성하는 데 사용된다.
         
         try {
-        	// 팩토리의 인스턴스를 통해 스케줄러를 생성한다.
-            Scheduler scheduler = schedulerFactory.getScheduler();
-            
-            // testjob 클래스의 작업을 정하기 위해 jobdetail 인스턴스를 생성한다.
-            JobDetail job = newJob(TestJob.class)
-                .withIdentity("jobName", Scheduler.DEFAULT_GROUP)
-                .build();
-            
-            // trigger는 job이 언제 실행될지 구성하는 객체이다.
+            Scheduler scheduler = schedulerFactory.getScheduler();	// 팩토리의 인스턴스를 통해 스케줄러를 생성한다.
+            JobDetail job = newJob(TestJob.class)	// testjob 클래스의 작업을 정하기 위해 jobdetail 인스턴스를 생성한다.
+			                .withIdentity("jobName", Scheduler.DEFAULT_GROUP)	// job에 고유 식별자와 그룹을 지정해준다.
+			                .build();
+	            
+//          ㅡ trigger는 job이 언제 실행될지 구성하는 객체이다.ㅡ
             Trigger trigger = (Trigger) TriggerBuilder.newTrigger()
-                    .withIdentity("trigger1", "group1")
+                    .withIdentity("trigger1", "group1")	// trigger에 고유 식별자 지정해주고 특정 job과 그룹을 지정할 수 있다.
                     .startNow()
-                    .endAt(DateBuilder.futureDate(30, IntervalUnit.SECOND))
+                    .endAt(DateBuilder.futureDate(30, IntervalUnit.SECOND))	// futureDate(시간의 양, 단위 --> 즉, 30초뒤에 동작을 멈춘다.)
                     .withSchedule(SimpleScheduleBuilder.simpleSchedule()
-                    .withIntervalInSeconds(1)
-                    .repeatForever())
+                    .withIntervalInSeconds(10)	// 스케줄러의 job이 실행되는 간격을 10초로 지정한다.
+                    .repeatForever())	// 스케줄러가 무한히 동작한다.
                     .build();
             
-            // 스케줄러를 통해 트리거가 동작되면 job이 실행되게 한다.
+            // 스케줄러를 통해 트리거가 동작하면 job이 실행된다
             scheduler.scheduleJob(job, trigger);
             scheduler.start();
             
-//            Thread.sleep(30000);
-//            scheduler.shutdown();
         } catch(Exception e) {
             e.printStackTrace();
         }        
