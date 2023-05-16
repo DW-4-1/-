@@ -30,10 +30,10 @@ public class CronTriggerTest {
 			Trigger tg1 = (Trigger) TriggerBuilder.newTrigger()
 					.withIdentity("CronTrigger1", "c_group1")
 					.startNow()
-					.withSchedule(CronScheduleBuilder.cronSchedule("0/5 0 5-6 * * ?"))
+					.withSchedule(CronScheduleBuilder.cronSchedule("0/5 10 10-11 * * ?"))
 //																		ㄴ 0/5가 속한 위치는 "초" 필드이며, 0부터 시작하여 5초 간격으로 실행됨을 의미한다.
 //																		ㄴ 0이 속한 위치는 "분" 필드이며, 매 시각 0분에 실행됨을 의미한다.
-//																		ㄴ 5-6이 속한 위치는 "시" 필드이며, 5시부터 6시까지 실행됨을 의미한다.
+//																		ㄴ 10-11이 속한 위치는 "시" 필드이며, 10시부터 11시까지 실행됨을 의미한다.
 //																		ㄴ 첫번째 * 이 속한 위치는 "일" 필드이며, * 이므로 해당 월의 모든 날에 실행된다.
 //																		ㄴ 두번째 * 이 속한 위치는 "월" 필드이며, * 이므로 모든 월에 작업이 실행된다.
 //																		ㄴ ?가 속한 위치는 "요일" 필드이며, 지정되지 않았다.
@@ -52,7 +52,7 @@ public class CronTriggerTest {
 			Trigger tg2 = (Trigger) TriggerBuilder.newTrigger()
 					.withIdentity("CronTrigger2", "c_group2")
 					.startNow()
-					.withSchedule(CronScheduleBuilder.cronSchedule("0/10 * 5-6 * * ?"))
+					.withSchedule(CronScheduleBuilder.cronSchedule("0/10 * 10-11 * * ?"))
 					.build();
 					
 			sched.scheduleJob(job2, tg2);

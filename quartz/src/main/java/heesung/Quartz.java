@@ -24,7 +24,7 @@ public class Quartz {
             JobDetail job = newJob(TestJob.class)	// testjob 클래스의 작업을 정하기 위해 jobdetail 인스턴스를 생성한다.
 			                .withIdentity("jobName", Scheduler.DEFAULT_GROUP)	// job에 고유 식별자와 그룹을 지정해준다.
 			                .build();
-	            
+            
 //          ㅡ trigger는 job이 언제 실행될지 구성하는 객체이다.ㅡ
             Trigger trigger = (Trigger) TriggerBuilder.newTrigger()
                     .withIdentity("trigger1", "group1")	// trigger에 고유 식별자 지정해주고 특정 job과 그룹을 지정할 수 있다.

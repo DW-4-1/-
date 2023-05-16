@@ -29,11 +29,12 @@ public class CronModifiedTest {
 		
 		HolidayCalendar hc = new HolidayCalendar();
 //						ㄴ 휴일을 의미하는 객체이다.
-		Date date = Date.valueOf("2023-05-12");
+		Date date = Date.valueOf("2023-05-16");
+//		Date date = Date.valueOf("2023-05-15");
 		hc.addExcludedDate(date);	// 지정한 데이트의 일정을 HolidayCalendar에 담는다.
 		
 		sched.addCalendar("MyCalendar", hc, false, true);
-//			 ㄴ addCalendar(캘린더명, 생성한 캘린더 객체, 캘린더에 지정된 일정을 무시하는지 여부, 스케줄러가 캘린더의 일정을 대체하는지 여부)
+//			 ㄴ addCalendar(캘린더명, 생성한 캘린더 객체, 캘린더에 지정된 일정을 공개 비공개 할지 여부, 스케줄러가 캘린더의 일정을 활성화 여부)
 //									ㄴ HolidayCalendar (스케줄러가 지정된 일정에는 동작하지 않는다.)
 //		ㅡ job이 실행할 작업의 정보를 담는다.ㅡ
 		JobDetail job = JobBuilder.newJob(CronTestJob1.class)
