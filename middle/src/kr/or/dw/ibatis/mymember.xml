@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="mymember">
+	
+	<select id="getAllMember" resultClass="memVO">
+		SELECT * 
+		  FROM mymember
+	</select>
+	
+	<select id="getMemberCount" parameterClass="String" resultClass="int">
+		SELECT COUNT(*)
+		FROM mymember
+		WHERE mem_id = #mem_id#
+	</select>
+	
+	<insert id="insertMember" parameterClass="memVO">
+		INSERT INTO mymember (mem_id, mem_name, mem_tel, mem_addr)
+		VALUES (#mem_id#, #mem_name#, #mem_tel#, #mem_addr#)
+	</insert>
+	
+	<select id="getMember" parameterClass="String" resultClass="memVO">
+		SELECT *
+		FROM mymember
+		WHERE mem_id = #mem_id#	
+	</select>
+	
+</sqlMap>
