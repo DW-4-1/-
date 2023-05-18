@@ -16,7 +16,8 @@
 		그렇게 되면 문장이 너무 길어질 수 있다. 그래서 전체 이름을 대신할 alias를 설정할 수 있다.
 		(형식) <typeAlias alias = "alias명" type = "클래스의 전체 이름"/> -->
 	<typeAlias alias = "memVO" type = "kr.or.dw.vo.MemberVO" />
-	<typeAlias alias = "LecVO" type = "kr.or.dw.vo.LectureVO" />
+	<typeAlias alias = "lecVO" type = "kr.or.dw.vo.LectureVO" />
+	<typeAlias alias = "stuVO" type = "kr.or.dw.vo.StudentVO" />
 	
 	<!-- DB와 연결을 처리하는 부분 -->
 	<transactionManager type="JDBC">
@@ -33,5 +34,6 @@
 	<!-- 형식) <sqlMap resource = "경로명/파일명.xml" /> -->
 	<sqlMap resource = "kr/or/dw/ibatis/mymember.xml" />
 	<sqlMap resource = "kr/or/dw/ibatis/lecture.xml" />
+	<sqlMap resource = "kr/or/dw/ibatis/student.xml" />
 	 
 </sqlMapConfig>

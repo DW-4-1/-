@@ -10,10 +10,21 @@
 </head>
 <body>
 	<h3>수강 강의</h3>
-	<table>
+	<select name="year"> 
+	<% List<LectureVO> lecList = (List)request.getAttribute("lecList");
+		for(LectureVO vo : lecList){%>
+			<option><%=vo.getStu_year() %></option>
+	<%	} %>
+
+	</select>
+	<br>
+	<br>
+	<table border="1">
 		<tr>
 			<th>강의코드</th>
 			<th>강의명</th>
+			<th>수강년도</th>
+			<th>수강학기</th>
 			<th>교수명</th>
 			<th>강의실</th>
 			<th>시간</th>
@@ -21,11 +32,13 @@
 			<th>학점</th>
 		</tr>
 		<%
-		List<LectureVO> lecList = (List)request.getAttribute("lecList");
+		
 		for(LectureVO vo : lecList){%>
 			<tr>
 				<td><%=vo.getLec_code() %></td>
 				<td><%=vo.getLec_name() %></td>
+				<td><%=vo.getStu_year() %></td>
+				<td><%=vo.getStu_term() %></td>
 				<td><%=vo.getLec_pro() %></td>
 				<td><%=vo.getLec_loc() %></td>
 				<td><%=vo.getLec_time() %></td>

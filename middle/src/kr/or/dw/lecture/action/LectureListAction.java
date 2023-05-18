@@ -24,6 +24,7 @@ public class LectureListAction implements IAction{
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		String stu_id = (String) session.getAttribute("stu_id");
+
 		ILectureService service = LectureServiceImpl.getInstance();
 		List<LectureVO> lecList = service.getAllLecture(stu_id);
 		
