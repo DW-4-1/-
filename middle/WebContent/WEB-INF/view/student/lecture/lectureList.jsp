@@ -30,6 +30,7 @@
 			<th>시간</th>
 			<th>구분</th>
 			<th>학점</th>
+			<th>강의계획서</th>
 		</tr>
 		<%
 		
@@ -44,6 +45,7 @@
 				<td><%=vo.getLec_time() %></td>
 				<td><%=vo.getLec_div() %></td>
 				<td><%=vo.getLec_credit() %></td>
+				<td><input type="button" value="강의계획서 보기"></td>
 			</tr>
 		
 		<%}%>
