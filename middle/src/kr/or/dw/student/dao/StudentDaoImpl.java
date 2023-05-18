@@ -38,4 +38,18 @@ private static StudentDaoImpl dao;
 	
 		return cnt;
 	}
+
+	@Override
+	public List<StudentVO> getAllStudentInfo() {
+		
+		List<StudentVO> stuInfo = null;
+		
+		try {
+			stuInfo = smc.queryForList("student.studentInfo");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }
