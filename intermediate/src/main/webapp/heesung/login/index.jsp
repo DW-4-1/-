@@ -32,6 +32,8 @@
 			<input type="button" value="비밀번호 찾기"><br><br>
 		</form>
 	</div>
-	
+<script>
+	location.href="<%=request.getContextPath()%>/member/memberList.do";
+</script>
 </body>
 </html>
