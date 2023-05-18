@@ -1,13 +1,14 @@
 package kr.or.dw.vo;
 
 public class LectureVO {
-	private int lec_code;
-	private String lec_name;
-	private String lec_pro;
-	private String lec_loc;
-	private String lec_time;
-	private String lec_div;
-	private int lec_credit;
+	private int lec_code;	//강의코드
+	private String lec_name;	//강의명
+	private String lec_pro;		//교수명
+	private String lec_loc;		//강의실
+	private String lec_time;	//강의시간
+	private String lec_div;		//구분(전공필수, 전공선택, 교양)
+	private int lec_credit;		//학점
+	
 	public int getLec_code() {
 		return lec_code;
 	}
