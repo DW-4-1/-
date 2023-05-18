@@ -9,6 +9,19 @@
 <body>
 	<h2>로그인 페이지입니다.</h2>
 	<form id="login" action="<%=request.getContextPath()%>/student/studentLogin.do" method="post">
+	<table>
+		<tr>
+			<td>아이디</td>
+			<td><input type="text" id="stu_id" name="stu_id"></td>
+		</tr>
+		<tr>
+			<td>비밀번호</td>
+			<td><input type="password" id="stu_pwd" name="stu_pwd"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="로그인"></td>
+		</tr>
+	</table>
 	</form>
 	
 </body>
