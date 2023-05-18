@@ -26,7 +26,6 @@ public class LectureServiceImpl implements ILectureService{
 
 		@Override
 		public List<LectureVO> getAllLecture(String stu_id) {
-			
 			return dao.getAllLecture(stu_id);
 		}
 }

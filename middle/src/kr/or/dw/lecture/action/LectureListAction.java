@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.or.dw.lecture.service.ILectureService;
 import kr.or.dw.lecture.service.LectureServiceImpl;
@@ -21,7 +22,8 @@ public class LectureListAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		String stu_id = (String) req.getAttribute("stu_id");
+		HttpSession session = req.getSession();
+		String stu_id = (String) session.getAttribute("stu_id");
 		ILectureService service = LectureServiceImpl.getInstance();
 		List<LectureVO> lecList = service.getAllLecture(stu_id);
 		

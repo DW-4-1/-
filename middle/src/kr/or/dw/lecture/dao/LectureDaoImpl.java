@@ -28,6 +28,7 @@ private static LectureDaoImpl dao;
 	@Override
 	public List<LectureVO> getAllLecture(String stu_id) {
 		List<LectureVO> lecList = null;
+
 		try {
 			lecList = smc.queryForList("lecture.getAllLecture", stu_id);
 		} catch (SQLException e) {

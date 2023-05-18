@@ -36,7 +36,6 @@ public class StudentLoginAction implements IAction{
 		stuVo.setStu_pwd(stu_pwd);
 		
 		cnt = service.stuLogin(stuVo);
-		System.out.println(cnt);
 		if(cnt == 1) {
 			HttpSession session = req.getSession();
 			session.setAttribute("stu_id", stu_id);
