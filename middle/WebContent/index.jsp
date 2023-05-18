@@ -21,6 +21,9 @@
 		<tr>
 			<td colspan="2"><input type="submit" value="로그인"></td>
 		</tr>
+		<tr>
+			<td colspan="2"><a href="/admin/adminLogin.do">관리자 로그인하기</a></td>
+		</tr>
 	</table>
 	</form>
 	
