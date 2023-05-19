@@ -14,7 +14,7 @@
 	</li>
 	<li id="lecture">강의관리
 		<ul><a href="<%=request.getContextPath()%>/lecture/lectureList.do">수강 강의 조회</a></ul>
-		<ul><a href="<%=request.getContextPath()%>">성적 조회</a></ul>
+		<ul><a href="<%=request.getContextPath()%>/lecture/gradeView.do">성적 조회</a></ul>
 	</li>
 	<li id="board">게시판
 		<ul><a href="<%=request.getContextPath()%>">공지사항</a></ul>
