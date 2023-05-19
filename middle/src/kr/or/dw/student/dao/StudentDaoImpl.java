@@ -50,6 +50,6 @@ private static StudentDaoImpl dao;
 			e.printStackTrace();
 		}
 		
-		return null;
+		return stuInfo;
 	}
 }

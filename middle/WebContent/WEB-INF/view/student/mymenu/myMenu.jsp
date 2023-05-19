@@ -59,7 +59,6 @@
 			<td><%=vo.getStu_email() %></td>
 		</tr>
 
-
 	<% 
 		}
 	%>			
