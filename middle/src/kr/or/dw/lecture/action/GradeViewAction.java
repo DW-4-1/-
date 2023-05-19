@@ -26,7 +26,7 @@ public class GradeViewAction implements IAction{
 		ILectureService service = LectureServiceImpl.getInstance();
 		HttpSession session = req.getSession();
 		String stu_id = (String) session.getAttribute("stu_id");
-		List<LectureVO> gradeList = service.getGrade(stu_id);
+//		List<LectureVO> gradeList = service.getGrade(stu_id);
 		
 		return "/student/lecture/gradeView.jsp";
 	}
