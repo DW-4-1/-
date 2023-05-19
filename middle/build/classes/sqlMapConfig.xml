@@ -16,7 +16,11 @@
 		그렇게 되면 문장이 너무 길어질 수 있다. 그래서 전체 이름을 대신할 alias를 설정할 수 있다.
 		(형식) <typeAlias alias = "alias명" type = "클래스의 전체 이름"/> -->
 	<typeAlias alias = "memVO" type = "kr.or.dw.vo.MemberVO" />
+<<<<<<< HEAD
 	<typeAlias alias = "LecVO" type = "kr.or.dw.vo.LectureVO" />
+=======
+	<typeAlias alias = "lecVO" type = "kr.or.dw.vo.LectureVO" />
+>>>>>>> e1f864d253099b1b8ae7216c6611e901d61a8b25
 	<typeAlias alias = "stuVO" type = "kr.or.dw.vo.StudentVO" />
 	
 	<!-- DB와 연결을 처리하는 부분 -->
