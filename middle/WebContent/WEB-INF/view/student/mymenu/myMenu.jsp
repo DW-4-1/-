@@ -14,7 +14,7 @@
 	<h2>나의 정보 확인하기</h2>
 	<table>
 	<%
-		List<StudentVO> stuVo = (List)request.getAttribute("stuInfo");
+		StudentVO stuVo = (StudentVO)request.getAttribute("stuInfo");
 		
 		for(StudentVO vo : stuVo){
 	%>

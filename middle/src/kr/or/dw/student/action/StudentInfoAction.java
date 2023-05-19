@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.or.dw.student.service.IStudentService;
 import kr.or.dw.student.service.StudentServiceImpl;
@@ -22,7 +23,13 @@ public class StudentInfoAction implements IAction{
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		IStudentService service = StudentServiceImpl.getInstance();
-		List<StudentVO> stuInfo = service.getAllStudentInfo();
+		HttpSession session = req.getSession();
+		
+		String stu_id = (String) session.getAttribute("stu_id");
+		
+		
+		StudentVO stuInfo = (StudentVO) service.getAllStudentInfo(stu_id);
+		
 		
 		req.setAttribute("stuInfo", stuInfo);
 		

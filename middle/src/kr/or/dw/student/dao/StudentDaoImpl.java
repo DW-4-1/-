@@ -40,12 +40,12 @@ private static StudentDaoImpl dao;
 	}
 
 	@Override
-	public List<StudentVO> getAllStudentInfo() {
+	public StudentVO getAllStudentInfo(String stu_id) {
 		
-		List<StudentVO> stuInfo = null;
+		StudentVO stuInfo = null;
 		
 		try {
-			stuInfo = smc.queryForList("student.studentInfo");
+			stuInfo = (StudentVO) smc.queryForList("student.studentInfo");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
