@@ -10,6 +10,10 @@
 		WHERE stu_id = #stu_id# AND stu_pwd = #stu_pwd#
 	</select>
 	
+	<select id="studentInfo" resultClass="stuVO">
+		SELECT *
+		  FROM students
+	</select>
 
 	
 </sqlMap>
