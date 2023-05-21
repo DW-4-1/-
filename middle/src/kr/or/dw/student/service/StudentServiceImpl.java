@@ -1,5 +1,7 @@
 package kr.or.dw.student.service;
 
+import java.util.List;
+
 import kr.or.dw.student.dao.IStudentDao;
 import kr.or.dw.student.dao.StudentDaoImpl;
 import kr.or.dw.vo.LectureVO;
@@ -25,5 +27,10 @@ public class StudentServiceImpl implements IStudentService{
 	@Override
 	public int stuLogin(StudentVO stuVo) {
 		return dao.stuLogin(stuVo);
+	}
+
+	@Override
+	public StudentVO getAllStudentInfo(String stu_id) {
+		return dao.getAllStudentInfo(stu_id);
 	}
 }

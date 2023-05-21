@@ -13,24 +13,22 @@ import kr.or.dw.lecture.service.LectureServiceImpl;
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.web.IAction;
 
-public class LectureListAction implements IAction{
+public class GradeViewAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
+		
 		return false;
 	}
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		ILectureService service = LectureServiceImpl.getInstance();
 		HttpSession session = req.getSession();
 		String stu_id = (String) session.getAttribute("stu_id");
-
-		ILectureService service = LectureServiceImpl.getInstance();
-		List<LectureVO> lecList = service.getAllLecture(stu_id);
+//		List<LectureVO> gradeList = service.getGrade(stu_id);
 		
-		req.setAttribute("lecList", lecList);
-		
-		return "/student/lecture/lectureList.jsp";
+		return "/student/lecture/gradeView.jsp";
 	}
 
 }
