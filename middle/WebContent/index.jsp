@@ -19,8 +19,8 @@
 			<td><input type="password" id="stu_pwd" name="stu_pwd"></td>
 		</tr>
 		<tr>
-			<td id="login" colspan="1"><input type="submit" value="로그인"></td>
-			<td id="findPassword"colspan="1"><input type="submit" value="비밀번호 찾기"></td>
+			<td colspan="1"><input type="submit" value="로그인" id="loginInformation"></td>
+			<td colspan="1"><input type="button" onclick="location.href='<%=request.getContextPath()%>/student/findPassword.jsp'" value="비밀번호 찾기" id="findPassword"></td>
 		</tr>
 		<tr>
 			<td colspan="2"><a href="/admin/adminLogin.do">관리자 로그인하기</a></td>
