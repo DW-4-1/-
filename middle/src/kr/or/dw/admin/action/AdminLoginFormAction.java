@@ -8,18 +8,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.dw.web.IAction;
 
-public class AdminLoginAction implements IAction{
+public class AdminLoginFormAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		return null;
+		return "/admin/adminLogin.jsp";
 	}
 
 }

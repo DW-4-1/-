@@ -4,9 +4,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>로그인</title>
 </head>
 <body>
-
+	<h2>로그인 페이지입니다. index.jsp</h2>
+	<form id="login" action="<%=request.getContextPath()%>/admin/adminLogin.do" method="post">
+	<table>
+		<tr>
+			<td>아이디</td>
+			<td><input type="text" id="ad_id" name="ad_id"></td>
+		</tr>
+		<tr>
+			<td>비밀번호</td>
+			<td><input type="password" id="ad_pwd" name="stu_pwd"></td>
+		</tr>
+		<tr>
+			<td colspan="1"><input type="submit" value="로그인" id="loginInformation"></td>
+			<td colspan="1"><input type="button" onclick="location.href='<%=request.getContextPath()%>/admin/findPassword.jsp'" value="비밀번호 찾기" id="findPassword"></td>
+		</tr>
+		<tr>
+		</tr>
+	</table>
+	</form>
+	
 </body>
+<script>
+	
+</script>
 </html>
