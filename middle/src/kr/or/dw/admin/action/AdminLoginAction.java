@@ -6,6 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.or.dw.admin.service.AdminServiceImpl;
+import kr.or.dw.admin.service.IAdminService;
 import kr.or.dw.web.IAction;
 
 public class AdminLoginAction implements IAction{
@@ -18,7 +20,7 @@ public class AdminLoginAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		IAdminService service = AdminServiceImpl.getInstance();
 		return null;
 	}
 
