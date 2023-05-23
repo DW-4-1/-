@@ -11,18 +11,18 @@
 <script>
 	$(function(){
 		$('#stuInfoUpdateBtn').on('click', function(){
-			location.href="<%=request.getContextPath()%>/student/stuInfoUpdate.do";
+			location.href="<%=request.getContextPath()%>/mymenu/updateInfo.jsp";
 		});
 	})
 </script>
 </head>
 <body>
 	<h2>나의 정보 확인하기</h2>
-	<table>
 	<%
 		StudentVO stu = (StudentVO)request.getAttribute("stu_id");
 		
 	%>
+	<table>
 		<tr>
 			<th>학번</th>
 			<td><%=stu.getStu_id() %></td>

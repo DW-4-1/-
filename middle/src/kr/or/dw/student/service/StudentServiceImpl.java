@@ -38,4 +38,9 @@ public class StudentServiceImpl implements IStudentService{
 	public StudentVO stdentInfoAction(String stu_id) {
 		return dao.studentInfo(stu_id);
 	}
+
+	@Override
+	public int StudentInfoUpdate(StudentVO stuVo) {
+		return dao.studentInfoUpdate(stuVo);
+	}
 }

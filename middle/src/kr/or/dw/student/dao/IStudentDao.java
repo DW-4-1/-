@@ -28,4 +28,11 @@ public interface IStudentDao {
 	 */
 	public StudentVO studentInfo(String stu_id);
 
+	/**
+	 * 학생의 정보를 수정하는 메서드
+	 * @param stuVo
+	 * @return
+	 */
+	public int studentInfoUpdate(StudentVO stuVo);
+
 }

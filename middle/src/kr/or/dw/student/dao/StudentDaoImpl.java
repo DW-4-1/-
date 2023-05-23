@@ -63,4 +63,18 @@ private static StudentDaoImpl dao;
 		
 		return stuVo;
 	}
+
+	@Override
+	public int studentInfoUpdate(StudentVO stuVo) {
+		int cnt = 0;
+		
+		try {
+			cnt = smc.update("student.stuInfoUpdate", stuVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return cnt;
+	}
 }
