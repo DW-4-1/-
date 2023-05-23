@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import kr.or.dw.staff.service.StaffServiceImpl;
 import kr.or.dw.staff.service.IStaffService;
+import kr.or.dw.vo.StaffVO;
 import kr.or.dw.vo.StudentVO;
 import kr.or.dw.web.IAction;
 
@@ -31,17 +32,17 @@ public class StaffLoginAction implements IAction{
 		String staff_id = req.getParameter("staff_id");
 		String staff_pwd = req.getParameter("staff_pwd");
 
-		StudentVO stuVo = new StudentVO();
-		stuVo.setStu_id(staff_id);
-		stuVo.setStu_pwd(staff_pwd);
+		StaffVO staVo = new StaffVO();
+		staVo.setStaff_id(staff_id);
+		staVo.setStaff_pwd(staff_pwd);
 		
-		cnt = service.stuLogin(stuVo);
+		cnt = service.staffLogin(staVo);
 		if(cnt == 1) {
 			HttpSession session = req.getSession();
 			session.setAttribute("staff_id", staff_id);
-			view = "/student/main.jsp";
+			view = "/staff/main.jsp";
 		}else {
-			view = "/index.jsp";
+			view = "/staff/staffLogin.jsp";
 		}
 		
 		return view;

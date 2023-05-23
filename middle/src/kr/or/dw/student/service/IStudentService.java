@@ -9,10 +9,10 @@ public interface IStudentService {
 
 	/**
 	 * 학생 로그인 메서드
-	 * @param stuVo(학생객체)
+	 * @param stu_id(학생아이디)
 	 * @return 위의 파라미터로 조회한 컬럼값
 	 */
-	public int stuLogin(StudentVO stuVo);
+	public StudentVO stuLogin(String stu_id);
 
 	/**
 	 * 학생의 정보를 가져오는 메서드
