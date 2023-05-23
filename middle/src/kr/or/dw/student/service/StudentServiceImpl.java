@@ -33,4 +33,9 @@ public class StudentServiceImpl implements IStudentService{
 	public StudentVO getAllStudentInfo(String stu_id) {
 		return dao.getAllStudentInfo(stu_id);
 	}
+
+	@Override
+	public StudentVO stdentInfoAction(String stu_id) {
+		return dao.studentInfo(stu_id);
+	}
 }

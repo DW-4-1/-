@@ -27,11 +27,10 @@ public class StudentInfoAction implements IAction{
 		
 		String stu_id = (String) session.getAttribute("stu_id");
 		
+		StudentVO stuVo = new StudentVO();
 		
-		StudentVO stuInfo = (StudentVO) service.getAllStudentInfo(stu_id);
-		
-		
-		req.setAttribute("stuInfo", stuInfo);
+		stuVo = service.stdentInfoAction(stu_id);
+		req.setAttribute("stu_id", stuVo);
 		
 		return "/student/mymenu/myMenu.jsp";
 	}
