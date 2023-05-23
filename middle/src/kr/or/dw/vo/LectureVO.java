@@ -9,7 +9,7 @@ public class LectureVO {
 	private String lec_div;		//구분(전공필수, 전공선택, 교양)
 	private int lec_credit;		//학점
 	private String stu_grade;	//성적(A,B,C,D,F)
-	private String stu_score;	//학점(4.5점 만점) A+가 4.5 A가 4, B+=3.5, B=3
+	private double stu_score;	//학점(4.5점 만점) A+가 4.5 A가 4, B+=3.5, B=3
 	private int stu_year;		//수강년도
 	private String stu_term;	//수강학기
 	
@@ -19,10 +19,10 @@ public class LectureVO {
 	public void setStu_grade(String stu_grade) {
 		this.stu_grade = stu_grade;
 	}
-	public String getStu_score() {
+	public double getStu_score() {
 		return stu_score;
 	}
-	public void setStu_score(String stu_score) {
+	public void setStu_score(double stu_score) {
 		this.stu_score = stu_score;
 	}
 	public String getLec_grade() {
