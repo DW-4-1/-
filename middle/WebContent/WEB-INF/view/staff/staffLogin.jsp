@@ -7,8 +7,8 @@
 <title>로그인</title>
 </head>
 <body>
-	<h2>로그인 페이지입니다. index.jsp</h2>
-	<form id="login" action="<%=request.getContextPath()%>/admin/adminLogin.do" method="post">
+	<h2>교직원 및 관리자 로그인 페이지입니다.</h2>
+	<form id="login" action="<%=request.getContextPath()%>/staff/staffLogin.do" method="post">
 	<table>
 		<tr>
 			<td>아이디</td>
@@ -20,7 +20,7 @@
 		</tr>
 		<tr>
 			<td colspan="1"><input type="submit" value="로그인" id="loginInformation"></td>
-			<td colspan="1"><input type="button" onclick="location.href='<%=request.getContextPath()%>/admin/findPassword.jsp'" value="비밀번호 찾기" id="findPassword"></td>
+			<td colspan="1"><input type="button" onclick="location.href='<%=request.getContextPath()%>/staff/findPassword.jsp'" value="비밀번호 찾기" id="findPassword"></td>
 		</tr>
 		<tr>
 		</tr>
