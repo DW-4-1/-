@@ -5,14 +5,29 @@ public class StudentVO {
 	private String stu_name;	//이름
 	private String stu_gender;	//성별
 	private String stu_resnum;	//주민번호
-	private String stu_addr;	//주소
-	private int stu_zipcode;	//우편번호
+	private String stu_addr;	//주소		변경가능
+	private int stu_zipcode;	//우편번호	변경가능
 	private int stu_deptcode;	//학과코드
 	private String stu_deptname;//학과명
-	private String stu_pwd;		//비밀번호
-	private String stu_tel;		//전화번호
-	private String stu_email;	//이메일
+	private String stu_pwd;		//비밀번호	변경가능	
+	private String stu_tel;		//전화번호	변경가능
+	private String stu_email;	//이메일		변경가능
+	private String stu_state;	//현재 상태 (재학, 휴학, 졸업)
+	private String stu_joinDate;	//가입일
 	
+	
+	public String getStu_state() {
+		return stu_state;
+	}
+	public void setStu_state(String stu_state) {
+		this.stu_state = stu_state;
+	}
+	public String getStu_joinDate() {
+		return stu_joinDate;
+	}
+	public void setStu_joinDate(String stu_joinDate) {
+		this.stu_joinDate = stu_joinDate;
+	}
 	public String getStu_id() {
 		return stu_id;
 	}
