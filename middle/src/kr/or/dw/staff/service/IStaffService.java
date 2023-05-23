@@ -6,9 +6,9 @@ public interface IStaffService {
 
 	/**
 	 * 교직원 로그인 메서드
-	 * @param staVo(교직원 객체)
-	 * @return 존재하는 컬럼수
+	 * @param staff_id(교직원 아이디)
+	 * @return staff객체
 	 */
-	int staffLogin(StaffVO staVo);
+	public StaffVO staffLogin(String staff_id);
 
 }

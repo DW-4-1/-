@@ -24,14 +24,14 @@ private static StaffDaoImpl dao;
 	}
 
 	@Override
-	public int staffLogin(StaffVO staVo) {
-		int cnt = 0;
+	public StaffVO staffLogin(String staff_id) {
+		StaffVO vo = null;
 		try {
-			cnt = (int) smc.queryForObject("staff.staffLogin", staVo);
+			vo = (StaffVO) smc.queryForObject("staff.staffLogin", staff_id);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return cnt;
+		return vo;
 	}
 	
 

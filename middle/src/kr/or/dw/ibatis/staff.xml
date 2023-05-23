@@ -4,8 +4,11 @@
 	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="staff">
 	
-	<select id="staffLogin" parameterClass="staffVO">
-		SELECT COUNT(*) FROM staff WHRER staff_id = #staff_id# AND staff_pwd = #staff_pwd#
+	<select id="staffLogin" parameterClass="String" resultClass="staffVO">
+		SELECT *
+		FROM staffs
+		WHERE staff_id = #staff_id#
 	</select>
+	
 	
 </sqlMap>

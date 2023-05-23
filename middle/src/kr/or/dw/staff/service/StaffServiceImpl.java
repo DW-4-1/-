@@ -21,8 +21,8 @@ public class StaffServiceImpl implements IStaffService{
 	}
 
 	@Override
-	public int staffLogin(StaffVO staVo) {
+	public StaffVO staffLogin(String staff_id) {
 		
-		return dao.staffLogin(staVo);
+		return dao.staffLogin(staff_id);
 	}
 }
