@@ -36,5 +36,6 @@
 	<sqlMap resource = "kr/or/dw/ibatis/mymember.xml" />
 	<sqlMap resource = "kr/or/dw/ibatis/lecture.xml" />
 	<sqlMap resource = "kr/or/dw/ibatis/student.xml" />
+	<sqlMap resource = "kr/or/dw/ibatis/staff.xml" />
 	 
 </sqlMapConfig>

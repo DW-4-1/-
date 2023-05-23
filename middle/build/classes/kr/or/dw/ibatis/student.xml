@@ -4,10 +4,10 @@
 	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="student">
 	
-	<select id="studentLogin" parameterClass="stuVO" resultClass="int">
-		SELECT COUNT(*)
+	<select id="studentLogin" parameterClass="String" resultClass="stuVO">
+		SELECT *
 		FROM students
-		WHERE stu_id = #stu_id# AND stu_pwd = #stu_pwd#
+		WHERE stu_id = #stu_id#
 	</select>
 	
 	<select id="studentAllInfo" resultClass="stuVO">
