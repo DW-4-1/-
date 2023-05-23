@@ -10,9 +10,15 @@
 		WHERE stu_id = #stu_id# AND stu_pwd = #stu_pwd#
 	</select>
 	
-	<select id="studentInfo" resultClass="stuVO">
+	<select id="studentAllInfo" resultClass="stuVO">
 		SELECT *
 		  FROM students
+	</select>
+	
+	<select id="studentInfo" parameterClass="String" resultClass="stuVO">
+		SELECT *
+		  FROM students
+		 WHERE stu_id = #stu_id#
 	</select>
 
 	

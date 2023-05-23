@@ -21,4 +21,10 @@ public interface IStudentService {
 	 */
 	public StudentVO getAllStudentInfo(String stu_id);
 	
+	/**
+	 * 학생의 정보를 가져오는 메서드
+	 * @param stu_id
+	 */
+	public StudentVO stdentInfoAction(String stu_id);
+	
 }
