@@ -11,29 +11,82 @@
 <meta charset="UTF-8">
 <title>성적조회</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
-
+<script>
+	$(function(){ 
+		$('select[name=yearTerm]').change(function(){ //년도와 학기 선택하면 해당 년도와 학기의 성적만 보이는 함수
+		  for(let i = 0; i < $('tr[type=var]').length; i++){
+			  if($(this).val() == 'select'){
+				  $('tr[type=var]').css('display', 'none');
+				  $('#none').css('display', '');
+			  }else if($(this).val() == $($('tr[type=var]')[i]).attr('name')){
+				  $($('tr[type=var]')[i]).css('display', '');
+				  $('#none').css('display', 'none');
+			  }else{
+				  $($('tr[type=var]')[i]).css('display', 'none');
+				  $('#none').css('display', 'none');
+			  }
+		  }
+		  
+		});
+	})
+</script>
 </head>
 <body>
 	<h3>성적조회</h3>
+	
+	<select id="yearTerm" name="yearTerm"> 
+		<option name="year" value="select">학기선택</option>
+	<% List<LectureVO> lecList = (List)request.getAttribute("lecList"); //학생이 수강한 년도만 보이게
+
+		Set<String> yearTermList = new HashSet<>();
+		for(LectureVO vo : lecList){
+			String yearTerm = vo.getStu_year() + "년 " + vo.getStu_term() + "학기";
+			yearTermList.add(yearTerm);
+		};
+		for(String yearTerm : yearTermList){
+	%>
+			<option name="year" value="<%=yearTerm%>"><%=yearTerm%></option>
+	<%	} %>
 
 	</select>
+	<br>
+	<br>
 	
 	<div style="width:1000px; height:200px; overflow:auto">
 		<table border="1" width="100%" cellspacing="0" cellpadding="0">
 			<tr style="height:50px;">
-				<th>수강년도 및 학기</th>
-				<th>신청학점</th>
-				<th>평점계</th>
-				<th>평점평균</th>
+				<th style="width: 30%">강의명</th>
+				<th style="width: 15%">교수명</th>
+				<th style="width: 15%">구분</th>
+				<th style="width: 10%">학점</th>
+				<th style="width: 10%">등급</th>
+				<th style="width: 20%">평점</th>
 			</tr>
 			
+			<tr>
+				<td style="text-align:center" colspan="6" id="none">데이터가 없습니다.</td>
+			</tr>
+			<%
+				for(LectureVO vo : lecList){
+			%>
+				<tr type="var" name="<%=vo.getStu_year() %>년 <%=vo.getStu_term() %>학기" style="text-align:center; height:30px; display:none">
+					<td><%=vo.getLec_name() %></td>
+					<td><%=vo.getLec_pro() %></td>
+					<td><%=vo.getLec_div() %></td>
+					<td><%=vo.getLec_credit() %></td>
+					<td><%=vo.getStu_grade() %></td>
+					<td><%=vo.getStu_score()*vo.getLec_credit()%></td>
+				</tr>
+			
+			<%}%>
+		
+		
+		</table>
+		<table border="1" width="100%" cellspacing="0" cellpadding="0">
+			
+			
 		<% 
-			List<LectureVO> lecList = (List)request.getAttribute("lecList"); //학생이 수강한 년도만 보이게
-			Set<String> yearTermList = new HashSet<>();
 			Set<List> yearTermDiv = new HashSet<>();
-			for(LectureVO vo : lecList){
-				yearTermList.add(vo.getStu_year() + "년 " + vo.getStu_term() + "학기");
-			};
 			for(String yearterm : yearTermList){
 				int creditSum = 0;
 				double scoreSum = 0;
@@ -52,49 +105,17 @@
 			}
 			
 			for(List l : yearTermDiv){
-			
 		%>
-				<tr type="var" name="<%=l.get(0) %>" style="text-align:center; height:30px;">
-					<td><%=l.get(0)%></td>
-					<td><%=l.get(1)%></td>
-					<td><%=l.get(2)%></td>
-					<td><%=l.get(3)%></td>
+				<tr type="var" name="<%=l.get(0) %>" style="text-align:center; height:30px; display:none;">
+					<td style="width: 30%"><b><%=l.get(0)%> 성적 소계</b></td>
+					<td style="width: 15%"></td>
+					<td style="width: 15%"></td>
+					<td style="width: 10%"><%=l.get(1)%></td>
+					<td style="width: 10%"></td>
+					<td style="width: 10%"><%=l.get(2)%></td>
+					<td style="width: 20%"><%=l.get(3)%></td>
 				</tr>
 		<%	} %>
-		
-
-		
-		
-		</table>
-	</div>
-	
-	<br>
-	<br>
-	
-	<div style="width:1000px; height:200px; overflow:auto">
-		<table border="1" width="100%" cellspacing="0" cellpadding="0">
-			<tr style="height:50px;">
-				<th>강의명</th>
-				<th>교수명</th>
-				<th>구분</th>
-				<th>학점</th>
-				<th>등급</th>
-				<th>평점</th>
-			</tr>
-			<%
-			for(LectureVO vo : lecList){%>
-				<tr type="var" name="<%=vo.getStu_year() %>년 <%=vo.getStu_term() %>학기" style="text-align:center; height:30px;">
-					<td><%=vo.getLec_name() %></td>
-					<td><%=vo.getLec_pro() %></td>
-					<td><%=vo.getLec_div() %></td>
-					<td><%=vo.getLec_credit() %></td>
-					<td><%=vo.getStu_grade() %></td>
-					<td><%=vo.getStu_score()*vo.getLec_credit()%></td>
-				</tr>
-			
-			<%}%>
-		
-		
 		</table>
 	</div>
 </body>

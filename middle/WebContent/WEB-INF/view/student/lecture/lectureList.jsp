@@ -59,7 +59,6 @@
 				<th>강의계획서</th>
 			</tr>
 			<%
-			
 			for(LectureVO vo : lecList){%>
 				<tr type="var" name="<%=vo.getStu_year() %>" style="text-align:center; height:30px;">
 					<td><%=vo.getLec_code() %></td>
@@ -68,7 +67,7 @@
 					<td><%=vo.getStu_term() %></td>
 					<td><%=vo.getLec_pro() %></td>
 					<td><%=vo.getLec_loc() %></td>
-					<td><%=vo.getLec_date() %> <%=vo.getLec_time() %></td>
+					<td><%=vo.getLec_date() %> <%=vo.getLec_time() %>교시</td>
 					<td><%=vo.getLec_div() %></td>
 					<td><%=vo.getLec_credit() %></td>
 					<td><input type="button" value="강의계획서 보기"></td>
