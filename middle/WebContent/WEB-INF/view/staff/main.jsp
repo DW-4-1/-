@@ -30,7 +30,7 @@
 		<ul><a href="<%=request.getContextPath()%>/staff/studentCRUD.do">학생 추가 수정 삭제</a></ul>
 	</li>
 	<li id="lecture">강의관리
-		<ul><a href="<%=request.getContextPath()%>/lecture/lectureInsert.do">강의 등록</a></ul>
+		<ul><a href="<%=request.getContextPath()%>/lecture/lectureInsertForm.do">강의 등록</a></ul>
 		<ul><a href="<%=request.getContextPath()%>/lecture/lectureManaging.do">강의 관리</a></ul>
 	</li>
 	<li id="score">성적관리
