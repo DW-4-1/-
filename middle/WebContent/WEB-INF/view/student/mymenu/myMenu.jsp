@@ -11,7 +11,7 @@
 <script>
 	$(function(){
 		$('#stuInfoUpdateBtn').on('click', function(){
-			location.href="<%=request.getContextPath()%>/mymenu/updateInfo.jsp";
+			location.href="<%=request.getContextPath()%>/student/updateInfo.do";
 		});
 	})
 </script>
@@ -19,7 +19,7 @@
 <body>
 	<h2>나의 정보 확인하기</h2>
 	<%
-		StudentVO stu = (StudentVO)request.getAttribute("stu_id");
+		StudentVO stu = (StudentVO)request.getAttribute("stuVo");
 		
 	%>
 	<table>

@@ -1,7 +1,6 @@
 package kr.or.dw.student.action;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +12,7 @@ import kr.or.dw.student.service.StudentServiceImpl;
 import kr.or.dw.vo.StudentVO;
 import kr.or.dw.web.IAction;
 
-public class StudentInfoAction implements IAction{
+public class UpdateInfoAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
@@ -28,11 +27,10 @@ public class StudentInfoAction implements IAction{
 		String stu_id = (String) session.getAttribute("stu_id");
 		
 		StudentVO stuVo = new StudentVO();
-		
 		stuVo = service.stdentInfoAction(stu_id);
 		req.setAttribute("stuVo", stuVo);
 		
-		return "/student/mymenu/myMenu.jsp";
+		return "/student/mymenu/updateInfo.jsp";
 	}
 
 }
