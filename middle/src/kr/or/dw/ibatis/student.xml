@@ -20,6 +20,10 @@
 		  FROM students
 		 WHERE stu_id = #stu_id#
 	</select>
+	
+	<select id="stuInfoUpdate" parameterClass="stuVO">
+		UPDATE students SET 
+	</select>
 
 	
 </sqlMap>
