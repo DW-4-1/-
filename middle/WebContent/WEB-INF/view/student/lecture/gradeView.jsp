@@ -32,21 +32,22 @@
 			Set<String> yearTermList = new HashSet<>();
 			Set<List> yearTermDiv = new HashSet<>();
 			for(LectureVO vo : lecList){
-				yearTermList.add(vo.getStu_year() + "년 " + vo.getStu_term());
+				yearTermList.add(vo.getStu_year() + "년 " + vo.getStu_term() + "학기");
 			};
 			for(String yearterm : yearTermList){
 				int creditSum = 0;
 				double scoreSum = 0;
 				for(LectureVO vo : lecList){
-					if(yearterm.equals(vo.getStu_year() + "년 " + vo.getStu_term())){
+					if(yearterm.equals(vo.getStu_year() + "년 " + vo.getStu_term() + "학기")){
 						creditSum += vo.getLec_credit();
-						scoreSum += vo.getStu_score();
+						scoreSum += vo.getStu_score()*vo.getLec_credit();
 					}
 				}
 				List list = new ArrayList();
 				list.add(0, yearterm);
 				list.add(1, creditSum);
 				list.add(2, scoreSum);
+				list.add(3, scoreSum / creditSum);
 				yearTermDiv.add(list);
 			}
 			
@@ -57,6 +58,7 @@
 					<td><%=l.get(0)%></td>
 					<td><%=l.get(1)%></td>
 					<td><%=l.get(2)%></td>
+					<td><%=l.get(3)%></td>
 				</tr>
 		<%	} %>
 		
@@ -80,15 +82,14 @@
 				<th>평점</th>
 			</tr>
 			<%
-			
 			for(LectureVO vo : lecList){%>
-				<tr type="var" name="<%=vo.getStu_year() %>" style="text-align:center; height:30px;">
+				<tr type="var" name="<%=vo.getStu_year() %>년 <%=vo.getStu_term() %>학기" style="text-align:center; height:30px;">
 					<td><%=vo.getLec_name() %></td>
 					<td><%=vo.getLec_pro() %></td>
 					<td><%=vo.getLec_div() %></td>
 					<td><%=vo.getLec_credit() %></td>
 					<td><%=vo.getStu_grade() %></td>
-					<td><%=vo.getStu_score() %></td>
+					<td><%=vo.getStu_score()*vo.getLec_credit()%></td>
 				</tr>
 			
 			<%}%>

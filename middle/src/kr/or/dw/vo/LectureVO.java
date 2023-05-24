@@ -11,7 +11,7 @@ public class LectureVO {
 	private String stu_grade;	//성적(A,B,C,D,F)
 	private double stu_score;	//학점(4.5점 만점) A+가 4.5 A가 4, B+=3.5, B=3
 	private int stu_year;		//수강년도
-	private String stu_term;	//수강학기
+	private int stu_term;	//수강학기
 	
 	public String getStu_grade() {
 		return stu_grade;
@@ -37,10 +37,10 @@ public class LectureVO {
 	public void setStu_year(int stu_year) {
 		this.stu_year = stu_year;
 	}
-	public String getStu_term() {
+	public int getStu_term() {
 		return stu_term;
 	}
-	public void setStu_term(String stu_term) {
+	public void setStu_term(int stu_term) {
 		this.stu_term = stu_term;
 	}
 	public String getLec_code() {
