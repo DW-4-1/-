@@ -8,6 +8,17 @@
 <title>메인화면</title>
 </head>
 <body>
+	<%
+		String stu_id = (String) request.getAttribute("stu_id");
+		if(stu_id == null){
+	%>
+		<script>
+			alert("로그인이 필요합니다.")
+			location.href = "<%=request.getContextPath()%>/";
+		</script>
+	<%
+		}
+	%>
 	<h2>메인 페이지입니다.</h2>
 	<li id="myInfo">내 정보
 		<ul><a href="<%=request.getContextPath()%>/student/studentInfo.do">내 정보 수정</a></ul>

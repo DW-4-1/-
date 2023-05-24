@@ -68,7 +68,7 @@
 					<td><%=vo.getStu_term() %></td>
 					<td><%=vo.getLec_pro() %></td>
 					<td><%=vo.getLec_loc() %></td>
-					<td><%=vo.getLec_time() %></td>
+					<td><%=vo.getLec_date() %> <%=vo.getLec_time() %></td>
 					<td><%=vo.getLec_div() %></td>
 					<td><%=vo.getLec_credit() %></td>
 					<td><input type="button" value="강의계획서 보기"></td>
