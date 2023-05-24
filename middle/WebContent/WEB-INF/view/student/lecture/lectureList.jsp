@@ -64,7 +64,7 @@
 					<td><%=vo.getLec_code() %></td>
 					<td><%=vo.getLec_name() %></td>
 					<td><%=vo.getStu_year() %></td>
-					<td><%=vo.getStu_term() %></td>
+					<td><%=vo.getStu_term() %>학기</td>
 					<td><%=vo.getLec_pro() %></td>
 					<td><%=vo.getLec_loc() %></td>
 					<td><%=vo.getLec_date() %> <%=vo.getLec_time() %>교시</td>

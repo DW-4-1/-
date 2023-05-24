@@ -8,18 +8,18 @@
 <title>메인화면</title>
 </head>
 <body>
-	<%
-		String stu_id = (String) session.getAttribute("stu_id");
+<%-- 	<% --%>
+<!-- // 		String stu_id = (String) session.getAttribute("stu_id"); -->
 	
-		if(stu_id == null){
-	%>
-		<script>
-			alert("로그인이 필요합니다.");
-			location.href = "<%=request.getContextPath()%>/";
-		</script>
-	<%
-		}
-	%>
+<!-- // 		if(stu_id == null){ -->
+<%-- 	%> --%>
+<!-- 		<script> -->
+<!-- // 			alert("로그인이 필요합니다."); -->
+<%-- 			location.href = "<%=request.getContextPath()%>/"; --%>
+<!-- 		</script> -->
+<%-- 	<% --%>
+<!-- // 		} -->
+<%-- 	%> --%>
 	
 	<h2>메인 페이지입니다.</h2>
 	
