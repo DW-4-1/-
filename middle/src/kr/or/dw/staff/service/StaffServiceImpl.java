@@ -1,7 +1,6 @@
 package kr.or.dw.staff.service;
 
 import kr.or.dw.staff.dao.StaffDaoImpl;
-import kr.or.dw.vo.StaffVO;
 import kr.or.dw.staff.dao.IStaffDao;
 
 public class StaffServiceImpl implements IStaffService{
@@ -18,11 +17,5 @@ public class StaffServiceImpl implements IStaffService{
 	//생성자
 	private StaffServiceImpl() {
 		dao = StaffDaoImpl.getInstance();
-	}
-
-	@Override
-	public StaffVO staffLogin(String staff_id) {
-		
-		return dao.staffLogin(staff_id);
 	}
 }

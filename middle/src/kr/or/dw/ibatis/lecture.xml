@@ -5,7 +5,7 @@
 <sqlMap namespace="lecture">
 	
 	<select id="getAllLecture" parameterClass="String" resultClass="lecVO">
-		SELECT a.lec_code lec_code, lec_name, lec_pro, lec_loc, lec_time, lec_div, lec_credit, stu_year, stu_term, stu_score, stu_grade
+		SELECT a.lec_code lec_code, lec_name, lec_pro, lec_loc, lec_time, lec_div, lec_credit, stu_year, stu_term
 		FROM all_lecturelist a, lecture l
 		WHERE a.lec_code = l.lec_code AND stu_id = #stu_id#
 	</select>

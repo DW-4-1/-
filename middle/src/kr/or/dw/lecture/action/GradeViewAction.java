@@ -23,13 +23,10 @@ public class GradeViewAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		ILectureService service = LectureServiceImpl.getInstance();
 		HttpSession session = req.getSession();
 		String stu_id = (String) session.getAttribute("stu_id");
-
-		ILectureService service = LectureServiceImpl.getInstance();
-		List<LectureVO> lecList = service.getAllLecture(stu_id);
-		
-		req.setAttribute("lecList", lecList);
+//		List<LectureVO> gradeList = service.getGrade(stu_id);
 		
 		return "/student/lecture/gradeView.jsp";
 	}

@@ -11,7 +11,7 @@ public class StudentVO {
 	private String stu_deptname;//학과명
 	private String stu_pwd;		//비밀번호	변경가능	
 	private String stu_tel;		//전화번호	변경가능
-	private String stu_email;	//이메일		
+	private String stu_email;	//이메일		변경가능
 	private String stu_state;	//현재 상태 (재학, 휴학, 졸업)
 	private String stu_joinDate;	//가입일
 	
