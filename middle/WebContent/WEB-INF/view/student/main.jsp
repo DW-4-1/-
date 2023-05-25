@@ -163,7 +163,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">페이지명</span>
     </a>
 
     <!-- Sidebar -->
@@ -174,7 +174,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">OOO 학생</a>
         </div>
       </div>
 
@@ -196,37 +196,69 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a id="myInfo" href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Starter Pages
-                <i class="right fas fa-angle-left"></i>
+              <p>내 정보
+              	<i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview" >
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="<%=request.getContextPath()%>/student/studentInfo.do" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Active Page</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
+                  <p>내 정보 수정</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Simple Link
-                <span class="right badge badge-danger">New</span>
+          
+          <li id="lecture" class="nav-item menu-open">
+            <a id="myInfo" href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>강의 관리
+              	<i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview" >
+              <li class="nav-item">
+                <a href="<%=request.getContextPath()%>/lecture/lectureList.do" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>수강 강의 조회</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<%=request.getContextPath()%>/lecture/gradeView.do" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>성적 조회</p>
+                </a>
+              </li>
+            </ul>
           </li>
+          
+          <li class="nav-item menu-open">
+            <a id="board" href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>게시판
+              	<i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" >
+              <li class="nav-item">
+                <a href="<%=request.getContextPath()%>" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>공지사항</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<%=request.getContextPath()%>" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>문의게시판</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -262,26 +294,16 @@
           <div class="col-lg-6">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title"><h2>학생 메인 페이지입니다.</h2>
-	<li id="myInfo">내 정보
-		<ul><a href="<%=request.getContextPath()%>/student/studentInfo.do">내 정보 수정</a></ul>
-	</li>
-	<li id="lecture">강의관리
-		<ul><a href="<%=request.getContextPath()%>/lecture/lectureList.do">수강 강의 조회</a></ul>
-		<ul><a href="<%=request.getContextPath()%>/lecture/gradeView.do">성적 조회</a></ul>
-	</li>
-	<li id="board">게시판
-		<ul><a href="<%=request.getContextPath()%>">공지사항</a></ul>
-		<ul><a href="<%=request.getContextPath()%>">문의게시판</a></ul>
-	</li></h5>
-
+                <h5 class="card-title">
+               	<h2>학생 메인 페이지입니다.</h2>
                 <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
+					페이지 좌측의 특정 메뉴를 클릭하면 이곳에 관련 페이지가 나타납니다.<br>
+                 	로그인 후 처음으로 등장하는 메인 페이지에는 학교 외부 사진등으로<br>
+                 	학교의 외적인 모습을 표현합니다.
                 </p>
 
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <a href="#" class="card-link">링크 A</a>
+                <a href="#" class="card-link">링크 B</a>
               </div>
             </div>
           </div>
