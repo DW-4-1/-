@@ -16,6 +16,7 @@ public class StaffVO {
 	private String staff_auth_cd;	//권한코드
 	private String staff_state;	//현재 상태 (재직, 퇴직)
 	private String staff_joinDate;	//가입일
+	
 	public String getStaff_id() {
 		return staff_id;
 	}

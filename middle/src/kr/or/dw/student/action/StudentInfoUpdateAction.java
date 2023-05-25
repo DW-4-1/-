@@ -1,19 +1,20 @@
 package kr.or.dw.student.action;
 
 import java.io.IOException;
-import java.util.List;
+import java.lang.reflect.InvocationTargetException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import org.apache.commons.beanutils.BeanUtils;
 
 import kr.or.dw.student.service.IStudentService;
 import kr.or.dw.student.service.StudentServiceImpl;
 import kr.or.dw.vo.StudentVO;
 import kr.or.dw.web.IAction;
 
-public class StudentInfoAction implements IAction{
+public class StudentInfoUpdateAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
@@ -22,17 +23,21 @@ public class StudentInfoAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		IStudentService service = StudentServiceImpl.getInstance();
-		HttpSession session = req.getSession();
-		
-		String stu_id = (String) session.getAttribute("stu_id");
-		
 		StudentVO stuVo = new StudentVO();
 		
-		stuVo = service.stdentInfoAction(stu_id);
-		req.setAttribute("stuVo", stuVo);
+		BeanUtils bean = new BeanUtils();
 		
-		return "/student/mymenu/myMenu.jsp";
+		try {
+			bean.populate(stuVo, req.getParameterMap());
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
+
+		IStudentService service = StudentServiceImpl.getInstance();
+		service.StudentInfoUpdate(stuVo);
+		return null;
 	}
 
 }

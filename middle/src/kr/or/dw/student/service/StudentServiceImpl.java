@@ -25,12 +25,22 @@ public class StudentServiceImpl implements IStudentService{
 	}
 
 	@Override
-	public int stuLogin(StudentVO stuVo) {
-		return dao.stuLogin(stuVo);
+	public StudentVO stuLogin(String stu_id) {
+		return dao.stuLogin(stu_id);
 	}
 
 	@Override
 	public StudentVO getAllStudentInfo(String stu_id) {
 		return dao.getAllStudentInfo(stu_id);
+	}
+
+	@Override
+	public StudentVO stdentInfoAction(String stu_id) {
+		return dao.studentInfo(stu_id);
+	}
+
+	@Override
+	public int StudentInfoUpdate(StudentVO stuVo) {
+		return dao.studentInfoUpdate(stuVo);
 	}
 }

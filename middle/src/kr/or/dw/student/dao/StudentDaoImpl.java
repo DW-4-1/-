@@ -27,16 +27,15 @@ private static StudentDaoImpl dao;
 	}
 
 	@Override
-	public int stuLogin(StudentVO stuVo) {
-		int cnt = 0;
+	public StudentVO stuLogin(String stu_id) {
+		StudentVO vo = null;
 		try {
-			cnt = (int) smc.queryForObject("student.studentLogin", stuVo);
+			vo = (StudentVO) smc.queryForObject("student.studentLogin", stu_id);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	
-		return cnt;
+		return vo;
 	}
 
 	@Override
@@ -45,11 +44,37 @@ private static StudentDaoImpl dao;
 		StudentVO stuInfo = null;
 		
 		try {
-			stuInfo = (StudentVO) smc.queryForList("student.studentInfo");
+			stuInfo = (StudentVO) smc.queryForList("student.studentAllInfo");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
 		return stuInfo;
+	}
+
+	@Override
+	public StudentVO studentInfo(String stu_id) {
+		StudentVO stuVo = new StudentVO();
+		try {
+			stuVo = (StudentVO) smc.queryForObject("student.studentInfo", stu_id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return stuVo;
+	}
+
+	@Override
+	public int studentInfoUpdate(StudentVO stuVo) {
+		int cnt = 0;
+		
+		try {
+			cnt = smc.update("student.stuInfoUpdate", stuVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return cnt;
 	}
 }
