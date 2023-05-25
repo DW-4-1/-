@@ -13,7 +13,8 @@ public class StudentVO {
 	private String stu_tel;		//전화번호	변경가능
 	private String stu_email;	//이메일		
 	private String stu_state;	//현재 상태 (재학, 휴학, 졸업)
-	private String stu_joinDate;	//가입일
+	private String stu_entDate;	//입학일
+	private String stu_grdDate;	//졸업일
 	
 	
 	public String getStu_state() {
@@ -22,12 +23,7 @@ public class StudentVO {
 	public void setStu_state(String stu_state) {
 		this.stu_state = stu_state;
 	}
-	public String getStu_joinDate() {
-		return stu_joinDate;
-	}
-	public void setStu_joinDate(String stu_joinDate) {
-		this.stu_joinDate = stu_joinDate;
-	}
+
 	public String getStu_id() {
 		return stu_id;
 	}
@@ -93,6 +89,18 @@ public class StudentVO {
 	}
 	public void setStu_email(String stu_email) {
 		this.stu_email = stu_email;
+	}
+	public String getStu_entDate() {
+		return stu_entDate;
+	}
+	public void setStu_entDate(String stu_entDate) {
+		this.stu_entDate = stu_entDate;
+	}
+	public String getStu_grdDate() {
+		return stu_grdDate;
+	}
+	public void setStu_grdDate(String stu_grdDate) {
+		this.stu_grdDate = stu_grdDate;
 	}
 	
 	
