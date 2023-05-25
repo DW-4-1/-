@@ -15,23 +15,23 @@
 	%>
 <script>
 	$(function(){
-// 		let changeFlag = false;
-<%-- 		let stu_addr = "<%=stu.getStu_addr() %>"; --%>
-<%-- 		let stu_zipcode = "<%=stu.getStu_zipcode() %>"; --%>
-<%-- 		let stu_tel = "<%=stu.getStu_tel() %>"; --%>
-// 		let ValArr = [stu_addr, stu_zipcode, stu_tel];
+		let changeFlag = false;
+		let stu_addr = "<%=stu.getStu_addr() %>";
+		let stu_zipcode = "<%=stu.getStu_zipcode() %>";
+		let stu_tel = "<%=stu.getStu_tel() %>";
+		let ValArr = [stu_addr, stu_zipcode, stu_tel];
 		
-// 		$('#studentInfoUpdateForm').on('propertychange keyup paste', function(){
-// 			let inputArr = $(this).find('input[type=text]');
-// 			for(let i = 0; i < inputArr.length; i++){
-// 				if($(inputArr[i]).val() == ValArr[i]){
-// 					changeFlag = false;
-// 				}else{
-// 					changeFlag = true;
-// 					break;
-// 				};
-// 			};
-// 		});
+		$('#studentInfoUpdateForm').on('propertychange keyup paste', function(){
+			let inputArr = $(this).find('input[type=text]');
+			for(let i = 0; i < inputArr.length; i++){
+				if($(inputArr[i]).val() == ValArr[i]){
+					changeFlag = false;
+				}else{
+					changeFlag = true;
+					break;
+				};
+			};
+		});
 		
 		$('#updateBtn').on('click', function(){
 			if(changeFlag == true){

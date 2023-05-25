@@ -13,6 +13,9 @@
 		$('#stuInfoUpdateBtn').on('click', function(){
 			location.href="<%=request.getContextPath()%>/student/updateInfo.do";
 		});
+		$('#passUpdateBtn').on('click', function(){
+			location.href="<%=request.getContextPath()%>/student/passwordUpdate.do";
+		});
 	})
 </script>
 </head>
