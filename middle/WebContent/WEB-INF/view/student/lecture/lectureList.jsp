@@ -60,7 +60,7 @@
 			</tr>
 			<%
 			for(LectureVO vo : lecList){%>
-				<tr type="var" name="<%=vo.getStu_year() %>" style="text-align:center; height:30px;">
+				<tr type="var" name="<%=vo.getLec_year() %>" style="text-align:center; height:30px;">
 					<td><%=vo.getLec_code() %></td>
 					<td><%=vo.getLec_name() %></td>
 					<td><%=vo.getLec_year() %></td>

@@ -40,7 +40,7 @@
 
 		Set<String> yearTermList = new HashSet<>();
 		for(LectureVO vo : lecList){
-			String yearTerm = vo.getStu_year() + "년 " + vo.getStu_term() + "학기";
+			String yearTerm = vo.getLec_year() + "년 " + vo.getLec_term() + "학기";
 			yearTermList.add(yearTerm);
 		};
 		for(String yearTerm : yearTermList){
@@ -69,7 +69,7 @@
 			<%
 				for(LectureVO vo : lecList){
 			%>
-				<tr type="var" name="<%=vo.getStu_year() %>년 <%=vo.getStu_term() %>학기" style="text-align:center; height:30px; display:none">
+				<tr type="var" name="<%=vo.getLec_year() %>년 <%=vo.getLec_term() %>학기" style="text-align:center; height:30px; display:none">
 					<td><%=vo.getLec_name() %></td>
 					<td><%=vo.getLec_pro() %></td>
 					<td><%=vo.getLec_div() %></td>
@@ -91,7 +91,7 @@
 				int creditSum = 0;
 				double scoreSum = 0;
 				for(LectureVO vo : lecList){
-					if(yearterm.equals(vo.getStu_year() + "년 " + vo.getStu_term() + "학기")){
+					if(yearterm.equals(vo.getLec_year() + "년 " + vo.getLec_term() + "학기")){
 						creditSum += vo.getLec_credit();
 						scoreSum += vo.getStu_score()*vo.getLec_credit();
 					}
