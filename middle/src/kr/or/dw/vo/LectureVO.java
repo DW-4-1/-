@@ -5,12 +5,13 @@ public class LectureVO {
 	private String lec_name;	//강의명
 	private String lec_pro;		//교수명
 	private String lec_loc;		//강의실
+	private String lec_date;	//강의요일
 	private String lec_time;	//강의시간
 	private String lec_div;		//구분(전공필수, 전공선택, 교양)
 	private int lec_credit;		//학점
 	private String stu_grade;	//성적(A,B,C,D,F)
 	private int stu_year;		//수강년도
-	private String stu_term;	//수강학기
+	private int stu_term;	//수강학기
 	
 	public String getLec_grade() {
 		return stu_grade;
@@ -24,10 +25,10 @@ public class LectureVO {
 	public void setStu_year(int stu_year) {
 		this.stu_year = stu_year;
 	}
-	public String getStu_term() {
+	public int getStu_term() {
 		return stu_term;
 	}
-	public void setStu_term(String stu_term) {
+	public void setStu_term(int stu_term) {
 		this.stu_term = stu_term;
 	}
 	public String getLec_code() {
@@ -71,6 +72,12 @@ public class LectureVO {
 	}
 	public void setLec_credit(int lec_credit) {
 		this.lec_credit = lec_credit;
+	}
+	public String getLec_date() {
+		return lec_date;
+	}
+	public void setLec_date(String lec_date) {
+		this.lec_date = lec_date;
 	}
 	
 	
