@@ -1,8 +1,11 @@
 package kr.or.dw.staff.dao;
 
+import java.sql.SQLException;
+
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 import kr.or.dw.util.BuildSqlMapClient;
+import kr.or.dw.vo.StaffVO;
 
 public class StaffDaoImpl implements IStaffDao{
 private static StaffDaoImpl dao;
@@ -18,6 +21,17 @@ private static StaffDaoImpl dao;
 			dao = new StaffDaoImpl();
 		}
 		return dao;
+	}
+
+	@Override
+	public StaffVO staffLogin(String staff_id) {
+		StaffVO vo = null;
+		try {
+			vo = (StaffVO) smc.queryForObject("staff.staffLogin", staff_id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return vo;
 	}
 	
 
