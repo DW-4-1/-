@@ -34,7 +34,7 @@
 	<% List<LectureVO> lecList = (List)request.getAttribute("lecList"); //학생이 수강한 년도만 보이게
 		Set<Integer> yearList = new HashSet<>();
 		for(LectureVO vo : lecList){
-			yearList.add(vo.getStu_year());
+			yearList.add(vo.getLec_year());
 		};
 		for(int year : yearList){
 	%>
@@ -63,11 +63,11 @@
 				<tr type="var" name="<%=vo.getStu_year() %>" style="text-align:center; height:30px;">
 					<td><%=vo.getLec_code() %></td>
 					<td><%=vo.getLec_name() %></td>
-					<td><%=vo.getStu_year() %></td>
-					<td><%=vo.getStu_term() %>학기</td>
+					<td><%=vo.getLec_year() %></td>
+					<td><%=vo.getLec_term() %>학기</td>
 					<td><%=vo.getLec_pro() %></td>
 					<td><%=vo.getLec_loc() %></td>
-					<td><%=vo.getLec_date() %> <%=vo.getLec_time() %>교시</td>
+					<td><%=vo.getLec_day() %> <%=vo.getLec_time() %>교시</td>
 					<td><%=vo.getLec_div() %></td>
 					<td><%=vo.getLec_credit() %></td>
 					<td><input type="button" value="강의계획서 보기"></td>

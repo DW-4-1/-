@@ -34,18 +34,6 @@ public class LectureVO {
 	public void setLec_grade(String lec_grade) {
 		this.stu_grade = lec_grade;
 	}
-	public int getStu_year() {
-		return lec_year;
-	}
-	public void setStu_year(int stu_year) {
-		this.lec_year = stu_year;
-	}
-	public int getStu_term() {
-		return lec_term;
-	}
-	public void setStu_term(int stu_term) {
-		this.lec_term = stu_term;
-	}
 	public String getLec_code() {
 		return lec_code;
 	}
