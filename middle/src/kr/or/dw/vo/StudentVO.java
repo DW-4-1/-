@@ -3,18 +3,18 @@ package kr.or.dw.vo;
 public class StudentVO {
 	private String stu_id;		//학번, 아이디
 	private String stu_name;	//이름
+	private String stu_pwd;		//비밀번호	변경가능	
 	private String stu_gender;	//성별
 	private String stu_resnum;	//주민번호
 	private String stu_addr;	//주소		변경가능
 	private int stu_zipcode;	//우편번호	변경가능
-	private int stu_deptcode;	//학과코드
-	private String stu_deptname;//학과명
-	private String stu_pwd;		//비밀번호	변경가능	
+	private String dept_code;		//학과코드
+	private String dept_name;	//학과명
 	private String stu_tel;		//전화번호	변경가능
 	private String stu_email;	//이메일		
 	private String stu_state;	//현재 상태 (재학, 휴학, 졸업)
-	private String stu_entDate;	//입학일
-	private String stu_grdDate;	//졸업일
+	private String stu_entdate;	//입학일
+	private String stu_grddate;	//졸업일
 	private String auth_cd;		//권한코드(학생은 S)
 	
 	
@@ -67,18 +67,7 @@ public class StudentVO {
 	public void setStu_zipcode(int stu_zipcode) {
 		this.stu_zipcode = stu_zipcode;
 	}
-	public int getStu_deptcode() {
-		return stu_deptcode;
-	}
-	public void setStu_deptcode(int stu_deptcode) {
-		this.stu_deptcode = stu_deptcode;
-	}
-	public String getStu_deptname() {
-		return stu_deptname;
-	}
-	public void setStu_deptname(String stu_deptname) {
-		this.stu_deptname = stu_deptname;
-	}
+
 	public String getStu_pwd() {
 		return stu_pwd;
 	}
@@ -97,18 +86,31 @@ public class StudentVO {
 	public void setStu_email(String stu_email) {
 		this.stu_email = stu_email;
 	}
-	public String getStu_entDate() {
-		return stu_entDate;
+	public String getDept_code() {
+		return dept_code;
 	}
-	public void setStu_entDate(String stu_entDate) {
-		this.stu_entDate = stu_entDate;
+	public void setDept_code(String dept_code) {
+		this.dept_code = dept_code;
 	}
-	public String getStu_grdDate() {
-		return stu_grdDate;
+	public String getDept_name() {
+		return dept_name;
 	}
-	public void setStu_grdDate(String stu_grdDate) {
-		this.stu_grdDate = stu_grdDate;
+	public void setDept_name(String dept_name) {
+		this.dept_name = dept_name;
 	}
+	public String getStu_entdate() {
+		return stu_entdate;
+	}
+	public void setStu_entdate(String stu_entdate) {
+		this.stu_entdate = stu_entdate;
+	}
+	public String getStu_grddate() {
+		return stu_grddate;
+	}
+	public void setStu_grddate(String stu_grddate) {
+		this.stu_grddate = stu_grddate;
+	}
+
 	
 	
 }
