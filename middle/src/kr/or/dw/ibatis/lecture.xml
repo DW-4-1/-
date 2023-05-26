@@ -11,7 +11,7 @@
 			 , max(staff_name) staff_name
 			 , max(lec_loc) lec_loc
 			 , max(lec_day) lec_day
-			 , sum(lec_time) / max(lec_credit) lec_time
+			 , sum(lec_time) lec_time
 			 , max(lec_credit) lec_credit
 			 , max(lec_year) lec_year
 			 , max(lec_div) lec_div
