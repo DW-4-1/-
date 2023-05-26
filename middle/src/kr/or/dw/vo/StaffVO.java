@@ -4,18 +4,18 @@ public class StaffVO {
 	private String staff_id;	//아이디
 	private String staff_name;	//이름
 	private String staff_pwd;	//비밀번호
-	private String staff_resnum;	//주민번호
 	private String staff_gender;	//성별
-	private String staff_div;	//구분 (교수, 관리자)
-	private String staff_dept;	//소속 (교수라면 과이름, 관리자면 담당 부서 이름)
-	private int staff_deptno;	//소속번호 (교수라면 과번호, 관리자면 담당 부서 번호)
+	private String staff_resnum;	//주민번호
 	private String staff_addr;	//주소
 	private int staff_zipcode;	//우편번호
-	private String staff_email;	//이메일
+	private String dept_code;	//부서코드 (교수라면 과번호, 관리자면 담당 부서 번호)
+	private String dept_name;	//부서이름 (교수라면 과이름, 관리자면 담당 부서 이름)
+	private String staff_div;	//구분 (교수, 관리자)
 	private String staff_tel;	//전화번호
-	private String auth_cd;	//권한코드(교수는 P, 관리자는 A)
+	private String staff_email;	//이메일
 	private String staff_state;	//현재 상태 (재직, 퇴직)
-	private String staff_joinDate;	//가입일
+	private String staff_hiredate;	//입사일
+	private String auth_cd;	//권한코드(교수는 P, 관리자는 A)
 	
 	public String getStaff_id() {
 		return staff_id;
@@ -53,18 +53,6 @@ public class StaffVO {
 	public void setStaff_div(String staff_div) {
 		this.staff_div = staff_div;
 	}
-	public String getStaff_dept() {
-		return staff_dept;
-	}
-	public void setStaff_dept(String staff_dept) {
-		this.staff_dept = staff_dept;
-	}
-	public int getStaff_deptno() {
-		return staff_deptno;
-	}
-	public void setStaff_deptno(int staff_deptno) {
-		this.staff_deptno = staff_deptno;
-	}
 	public String getStaff_addr() {
 		return staff_addr;
 	}
@@ -101,12 +89,25 @@ public class StaffVO {
 	public void setStaff_state(String staff_state) {
 		this.staff_state = staff_state;
 	}
-	public String getStaff_joinDate() {
-		return staff_joinDate;
+	public String getDept_code() {
+		return dept_code;
 	}
-	public void setStaff_joinDate(String staff_joinDate) {
-		this.staff_joinDate = staff_joinDate;
+	public void setDept_code(String dept_code) {
+		this.dept_code = dept_code;
 	}
+	public String getDept_name() {
+		return dept_name;
+	}
+	public void setDept_name(String dept_name) {
+		this.dept_name = dept_name;
+	}
+	public String getStaff_hiredate() {
+		return staff_hiredate;
+	}
+	public void setStaff_hiredate(String staff_hiredate) {
+		this.staff_hiredate = staff_hiredate;
+	}
+
 	
 	
 }

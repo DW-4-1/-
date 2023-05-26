@@ -2,20 +2,20 @@ package kr.or.dw.vo;
 
 public class LectureVO {
 	private String lec_code;	//강의코드
+	private String lec_time;	//강의시간
+	private String lec_day;	//강의요일
 	private String lec_name;	//강의명
 	private String staff_id;		//교수아이디
 	private String staff_name;		//교수명
 	private String lec_loc;		//강의실
-	private String lec_day;	//강의요일
-	private String lec_time;	//강의시간
-	private String lec_div;		//구분(전공필수, 전공선택, 교양)
-	private int lec_credit;		//학점
-	private String stu_grade;	//등급(A,B,C,D,F)
-	private double stu_score;	//성적(4.5점 만점) A+가 4.5 A가 4, B+=3.5, B=3
 	private int lec_year;		//수강년도
 	private int lec_term;	//수강학기
+	private String lec_div;		//구분(전공필수, 전공선택, 교양)
+	private int lec_credit;		//학점
 	private int lec_maxpeo;	//최대 수강인원
 	private int lec_curpeo;	//현재 수강인원
+	private String stu_grade;	//등급(A,B,C,D,F)
+	private double stu_score;	//성적(4.5점 만점) A+가 4.5 A가 4, B+=3.5, B=3
 	
 	public String getStu_grade() {
 		return stu_grade;
@@ -48,12 +48,7 @@ public class LectureVO {
 	public void setStaff_id(String staff_id) {
 		this.staff_id = staff_id;
 	}
-	public String getStaff_name() {
-		return staff_name;
-	}
-	public void setStaff_name(String staff_name) {
-		this.staff_name = staff_name;
-	}
+
 	public String getLec_loc() {
 		return lec_loc;
 	}
@@ -107,6 +102,12 @@ public class LectureVO {
 	}
 	public void setLec_curpeo(int lec_curpeo) {
 		this.lec_curpeo = lec_curpeo;
+	}
+	public String getStaff_name() {
+		return staff_name;
+	}
+	public void setStaff_name(String staff_name) {
+		this.staff_name = staff_name;
 	}
 	
 	

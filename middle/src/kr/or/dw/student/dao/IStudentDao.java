@@ -35,4 +35,6 @@ public interface IStudentDao {
 	 */
 	public int studentInfoUpdate(StudentVO stuVo);
 
+	public String passwordUpdate(StudentVO stuVo);
+
 }
