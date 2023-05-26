@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/dist/css/adminlte.min.css">
   
   <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
-
+  
 <script>
 	$(function(){
 		$('#stuInfoUpdateBtn').on('click', function(){
@@ -29,7 +29,19 @@
 		});
 	})
 </script>
-
+<style>
+	
+	#text-center {
+		text-align: center;
+	}
+	
+	#div-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+	}
+</style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -42,7 +54,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="index3.html" class="nav-link"">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -271,8 +283,6 @@
               </li>
             </ul>
           </li>
-          
-          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -284,19 +294,6 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Starter Page</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
 
@@ -305,62 +302,113 @@
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-	            <div class="card-body">
-              		<h2>나의 정보 확인하기</h2>
-					<%
-						StudentVO stu = (StudentVO)request.getAttribute("stuVo");
-						
-					%>
-					<table>
-						<tr>
-							<th>학번</th>
-							<td><%=stu.getStu_id() %></td>
-						</tr>
-						<tr>
-							<th>이름</th>
-							<td><%=stu.getStu_name() %></td>
-						</tr>
-						<tr>
-							<th>성별</th>
-							<td><%=stu.getStu_gender() %></td>
-						</tr>
-						<tr>
-							<th>주민번호</th>
-							<td><%=stu.getStu_resnum() %></td>
-						</tr>
-						<tr>
-							<th>주소</th>
-							<td><%=stu.getStu_addr() %></td>
-						</tr>
-						<tr>
-							<th>우편번호</th>
-							<td><%=stu.getStu_zipcode() %></td>
-						</tr>
-						<tr>
-							<th>학과명</th>
-							<td><%=stu.getStu_deptname() %></td>
-						</tr>
-						<tr>
-							<th>학과코드</th>
-							<td><%=stu.getStu_deptcode() %></td>
-						</tr>
-						<tr>
-							<th>전화번호</th>
-							<td><%=stu.getStu_tel() %></td>
-						</tr>
-						<tr>
-							<th>이메일</th>
-							<td><%=stu.getStu_email() %></td>
-						</tr>
-					</table>
-					<input type="button" id="stuInfoUpdateBtn" value="내 정보 수정하기">
-					<input type="button" id="passUpdateBtn" value="비밀번호 변경하기">
-				</div>
-            </div>
-          </div>
-        </div>
+        <div class="invoice p-3 mb-3 col-12">
+
+<div class="row">
+<div class="col-12">
+<h4>
+<i class="fas fa-globe" class="m-0"></i> 내 정보 확인
+<small class="float-right">Date: 2/10/2014</small>
+<br>
+<br>
+</h4>
+</div>
+
+</div>
+
+<div class="row invoice-info">
+<div class="col-6" id="text-center">
+	<div class="table-responsive">
+		<%
+			StudentVO stu = (StudentVO)request.getAttribute("stuVo");
+		%>
+		<table class="table">
+			<tbody>
+				<tr>
+					<th style="width:50%">학번</th>
+					<td><%=stu.getStu_id() %></td>
+				</tr>
+				<tr>
+					<th>이름</th>
+					<td><%=stu.getStu_name() %></td>
+				</tr>
+				<tr>
+					<th>성별</th>
+					<td><%=stu.getStu_gender() %></td>
+				</tr>
+				<tr>
+					<th>주민번호</th>
+					<td><%=stu.getStu_resnum() %></td>
+				</tr>
+				<tr>
+					<th>주소</th>
+					<td><%=stu.getStu_addr() %></td>
+				</tr>
+				<tr>
+					<th>우편번호</th>
+					<td><%=stu.getStu_zipcode() %></td>
+				</tr>
+				<tr>
+					<th>학과명</th>
+					<td><%=stu.getStu_deptname() %></td>
+				</tr>
+				<tr>
+					<th>학과코드</th>
+					<td><%=stu.getStu_deptcode() %></td>
+				</tr>
+				<tr>
+					<th>전화번호</th>
+					<td><%=stu.getStu_tel() %></td>
+				</tr>
+				<tr>
+					<th>이메일</th>
+					<td><%=stu.getStu_email() %></td>
+				</tr>
+			</tbody>
+		</table>
+			<input class="btn btn-primary" type="button" id="stuInfoUpdateBtn" value="내 정보 수정하기">
+			<input class="btn btn-primary" type="button" id="passUpdateBtn" value="비밀번호 변경하기">
+			
+			<button type="button" class="btn btn-success float-right">
+				<i class="far fa-credit-card"></i>SubmitPayment
+			</button>
+			
+			<button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
+				<i class="fas fa-download"></i>Generate PDF
+			</button>
+	</div>
+</div>
+<div class="col-5 text-center d-flex align-items-center justify-content-center">
+<div class="">
+<h2>Admin<strong>LTE</strong></h2>
+<p class="lead mb-5">123 Testing Ave, Testtown, 9876 NA<br>
+Phone: +1 234 56789012
+</p>
+</div>
+</div>
+</div>
+
+<div class="col-12" id="text-center">
+<p class="lead">Payment Methods:</p>
+ <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
+Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, <br>weebly ning heekya handango imeem
+plugg
+dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+</p>
+</div>
+
+
+<div class="row no-print">
+<div class="col-12">
+<button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
+Payment
+</button>
+<button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
+<i class="fas fa-download"></i> Generate PDF
+</button>
+</div>
+</div>
+</div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -379,18 +427,10 @@
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  <footer class="main-footery">
+<!--     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a></strong> -->
   </footer>
 </div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
