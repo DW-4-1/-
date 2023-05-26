@@ -16,24 +16,23 @@ public class LectureVO {
 	private int lec_curpeo;		//현재 수강인원
 	private String stu_grade;	//등급(A,B,C,D,F)
 	private double stu_score;	//성적(4.5점 만점) A+가 4.5 A가 4, B+=3.5, B=3
-	
-	public String getStu_grade() {
-		return stu_grade;
-	}
-	public void setStu_grade(String stu_grade) {
-		this.stu_grade = stu_grade;
-	}
-	public double getStu_score() {
-		return stu_score;
-	}
-	public void setStu_score(double stu_score) {
-		this.stu_score = stu_score;
-	}
 	public String getLec_code() {
 		return lec_code;
 	}
 	public void setLec_code(String lec_code) {
 		this.lec_code = lec_code;
+	}
+	public String getLec_time() {
+		return lec_time;
+	}
+	public void setLec_time(String lec_time) {
+		this.lec_time = lec_time;
+	}
+	public String getLec_day() {
+		return lec_day;
+	}
+	public void setLec_day(String lec_day) {
+		this.lec_day = lec_day;
 	}
 	public String getLec_name() {
 		return lec_name;
@@ -41,7 +40,6 @@ public class LectureVO {
 	public void setLec_name(String lec_name) {
 		this.lec_name = lec_name;
 	}
-	
 	public String getStaff_id() {
 		return staff_id;
 	}
@@ -60,11 +58,17 @@ public class LectureVO {
 	public void setLec_loc(String lec_loc) {
 		this.lec_loc = lec_loc;
 	}
-	public String getLec_time() {
-		return lec_time;
+	public int getLec_year() {
+		return lec_year;
 	}
-	public void setLec_time(String lec_time) {
-		this.lec_time = lec_time;
+	public void setLec_year(int lec_year) {
+		this.lec_year = lec_year;
+	}
+	public int getLec_term() {
+		return lec_term;
+	}
+	public void setLec_term(int lec_term) {
+		this.lec_term = lec_term;
 	}
 	public String getLec_div() {
 		return lec_div;
@@ -78,24 +82,6 @@ public class LectureVO {
 	public void setLec_credit(int lec_credit) {
 		this.lec_credit = lec_credit;
 	}
-	public String getLec_day() {
-		return lec_day;
-	}
-	public void setLec_day(String lec_date) {
-		this.lec_day = lec_date;
-	}
-	public int getLec_year() {
-		return lec_year;
-	}
-	public void setLec_year(int lec_year) {
-		this.lec_year = lec_year;
-	}
-	public int getLec_term() {
-		return lec_term;
-	}
-	public void setLec_term(int lec_term) {
-		this.lec_term = lec_term;
-	}
 	public int getLec_maxpeo() {
 		return lec_maxpeo;
 	}
@@ -108,6 +94,18 @@ public class LectureVO {
 	public void setLec_curpeo(int lec_curpeo) {
 		this.lec_curpeo = lec_curpeo;
 	}
+	public String getStu_grade() {
+		return stu_grade;
+	}
+	public void setStu_grade(String stu_grade) {
+		this.stu_grade = stu_grade;
+	}
+	public double getStu_score() {
+		return stu_score;
+	}
+	public void setStu_score(double stu_score) {
+		this.stu_score = stu_score;
+	}
 	
-	
+
 }

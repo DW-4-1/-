@@ -47,7 +47,26 @@
 	%>
 			<option name="year" value="<%=yearTerm%>"><%=yearTerm%></option>
 	<%	} %>
-
+	
+	<% 
+		Set<List> yearTermDiv = new HashSet<>();
+		for(String yearterm : yearTermList){
+			int creditSum = 0;
+			double scoreSum = 0;
+			for(LectureVO vo : lecList){
+				if(yearterm.equals(vo.getLec_year() + "년 " + vo.getLec_term() + "학기")){
+					creditSum += vo.getLec_credit();
+					scoreSum += vo.getStu_score()*vo.getLec_credit();
+				}
+			}
+			List list = new ArrayList();
+			list.add(0, yearterm);
+			list.add(1, creditSum);
+			list.add(2, scoreSum);
+			list.add(3, scoreSum / creditSum);
+			yearTermDiv.add(list);
+		}
+		%>
 	</select>
 	<br>
 	<br>
@@ -68,42 +87,28 @@
 			</tr>
 			<%
 				for(LectureVO vo : lecList){
+					
 			%>
 				<tr type="var" name="<%=vo.getLec_year() %>년 <%=vo.getLec_term() %>학기" style="text-align:center; height:30px; display:none">
 					<td><%=vo.getLec_name() %></td>
 					<td><%=vo.getStaff_name() %></td>
 					<td><%=vo.getLec_div() %></td>
 					<td><%=vo.getLec_credit() %></td>
-					<td><%=vo.getStu_grade() %></td>
-					<td><%=vo.getStu_score()*vo.getLec_credit()%></td>
+					<td><%=vo.getStu_grade().equals("null") ? "" : vo.getStu_grade() %></td>
+					<td><%=vo.getStu_score()*vo.getLec_credit() == 0 ? "아직 데이터가 없습니다." : vo.getStu_score()*vo.getLec_credit()%></td>
 				</tr>
 			
-			<%}%>
+			<%
+				
+			}
+			%>
 		
 		
 		</table>
 		<table border="1" width="100%" cellspacing="0" cellpadding="0">
 			
-			
+		
 		<% 
-			Set<List> yearTermDiv = new HashSet<>();
-			for(String yearterm : yearTermList){
-				int creditSum = 0;
-				double scoreSum = 0;
-				for(LectureVO vo : lecList){
-					if(yearterm.equals(vo.getLec_year() + "년 " + vo.getLec_term() + "학기")){
-						creditSum += vo.getLec_credit();
-						scoreSum += vo.getStu_score()*vo.getLec_credit();
-					}
-				}
-				List list = new ArrayList();
-				list.add(0, yearterm);
-				list.add(1, creditSum);
-				list.add(2, scoreSum);
-				list.add(3, scoreSum / creditSum);
-				yearTermDiv.add(list);
-			}
-			
 			for(List l : yearTermDiv){
 		%>
 				<tr type="var" name="<%=l.get(0) %>" style="text-align:center; height:30px; display:none;">
