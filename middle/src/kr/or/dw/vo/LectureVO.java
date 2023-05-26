@@ -10,8 +10,8 @@ public class LectureVO {
 	private String lec_time;	//강의시간
 	private String lec_div;		//구분(전공필수, 전공선택, 교양)
 	private int lec_credit;		//학점
-	private String stu_grade;	//성적(A,B,C,D,F)
-	private double stu_score;	//학점(4.5점 만점) A+가 4.5 A가 4, B+=3.5, B=3
+	private String stu_grade;	//등급(A,B,C,D,F)
+	private double stu_score;	//성적(4.5점 만점) A+가 4.5 A가 4, B+=3.5, B=3
 	private int lec_year;		//수강년도
 	private int lec_term;	//수강학기
 	private int lec_maxpeo;	//최대 수강인원
@@ -28,12 +28,6 @@ public class LectureVO {
 	}
 	public void setStu_score(double stu_score) {
 		this.stu_score = stu_score;
-	}
-	public String getLec_grade() {
-		return stu_grade;
-	}
-	public void setLec_grade(String lec_grade) {
-		this.stu_grade = lec_grade;
 	}
 	public String getLec_code() {
 		return lec_code;

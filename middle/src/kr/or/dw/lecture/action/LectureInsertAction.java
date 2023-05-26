@@ -5,7 +5,11 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import kr.or.dw.staff.service.IStaffService;
+import kr.or.dw.staff.service.StaffServiceImpl;
+import kr.or.dw.vo.LectureVO;
 import kr.or.dw.web.IAction;
 
 public class LectureInsertAction implements IAction{
@@ -13,13 +17,45 @@ public class LectureInsertAction implements IAction{
 	@Override
 	public boolean isRedirect() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		return null;
+		LectureVO lecVo = new LectureVO();
+		
+		HttpSession session = req.getSession();
+		String staff_id = (String) session.getAttribute("staff_id");
+		
+		IStaffService service = StaffServiceImpl.getInstance();
+		String staff_name = null;
+		staff_name = service.getStaffName(staff_id);
+		
+		String lec_name = req.getParameter("lec_name");
+		String lec_loc = req.getParameter("lec_loc");
+		int lec_year = Integer.parseInt(req.getParameter("lec_year"));
+		int lec_term = Integer.parseInt(req.getParameter("lec_term"));
+		String lec_day = req.getParameter("lec_day");
+		String lec_time = req.getParameter("lec_time");
+		String lec_div = req.getParameter("lec_div");
+		int lec_maxpeo = Integer.parseInt(req.getParameter("lec_maxpeo"));
+		int lec_credit = Integer.parseInt(req.getParameter("lec_credit"));
+		
+		lecVo.setStaff_id(staff_id);
+		lecVo.setStaff_name(staff_name);
+		lecVo.setLec_credit(lec_credit);
+		lecVo.setLec_day(lec_day);
+		lecVo.setLec_div(lec_div);
+		lecVo.setLec_loc(lec_loc);
+		lecVo.setLec_maxpeo(lec_maxpeo);
+		lecVo.setLec_name(lec_name);
+		lecVo.setLec_term(lec_term);
+		lecVo.setLec_time(lec_time);
+		lecVo.setLec_year(lec_year);
+		
+		int result = service.insertLecture(lecVo);
+		
+		return "/lecture/lectureInsertResult.do?result=" + result;
 	}
 
 }

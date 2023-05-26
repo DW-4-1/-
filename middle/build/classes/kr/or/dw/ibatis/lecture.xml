@@ -11,4 +11,11 @@
 		ORDER BY lec_year DESC, lec_term DESC
 	</select>
 	
+	<insert id="insertLecture" parameterClass="lecVO">
+		INSERT INTO all_lecturelist 
+		(lec_code, lec_name, staff_id, staff_name, lec_loc, lec_year, lec_term, lec_day, lec_time, lec_div, lec_credit)
+		VALUES 
+		(lec_seq.nextval, #lec_name#, #staff_id#, #staff_name#, #lec_loc#, #lec_year#, #lec_term#, #lec_day#, #lec_time#, #lec_div#, #lec_credit#)
+	</insert>
+	
 </sqlMap>

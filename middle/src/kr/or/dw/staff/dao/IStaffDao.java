@@ -1,5 +1,6 @@
 package kr.or.dw.staff.dao;
 
+import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StaffVO;
 
 public interface IStaffDao {
@@ -10,5 +11,14 @@ public interface IStaffDao {
 	 * @return staffVO 객체
 	 */
 	public StaffVO staffLogin(String staff_id);
+
+	public String getStaffName(String staff_id);
+
+	/**
+	 * 강의등록 메서드
+	 * @param lecVo
+	 * @return
+	 */
+	public int insertLecture(LectureVO lecVo);
 
 }

@@ -1,6 +1,7 @@
 package kr.or.dw.staff.service;
 
 import kr.or.dw.staff.dao.StaffDaoImpl;
+import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StaffVO;
 import kr.or.dw.staff.dao.IStaffDao;
 
@@ -24,5 +25,15 @@ public class StaffServiceImpl implements IStaffService{
 	public StaffVO staffLogin(String staff_id) {
 		
 		return dao.staffLogin(staff_id);
+	}
+
+	@Override
+	public String getStaffName(String staff_id) {
+		return dao.getStaffName(staff_id);
+	}
+
+	@Override
+	public int insertLecture(LectureVO lecVo) {
+		return dao.insertLecture(lecVo);
 	}
 }
