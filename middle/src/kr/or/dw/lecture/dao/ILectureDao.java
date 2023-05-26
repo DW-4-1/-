@@ -22,4 +22,11 @@ public interface ILectureDao {
 	 */
 	String getLecCode();
 
+	/**
+	 * 교수 강의 목록 가져오는 메서드
+	 * @param staff_id
+	 * @return
+	 */
+	List<LectureVO> staffLecList(String staff_id);
+
 }

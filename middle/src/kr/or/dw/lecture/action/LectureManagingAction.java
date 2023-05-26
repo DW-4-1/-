@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.or.dw.lecture.service.ILectureService;
 import kr.or.dw.lecture.service.LectureServiceImpl;
@@ -25,10 +26,16 @@ public class LectureManagingAction implements IAction{
 		
 		List<LectureVO> lecList = null;
 		
-		ILectureService sevice = LectureServiceImpl.getInstance();
+		HttpSession session = req.getSession();
+		String staff_id = (String) session.getAttribute("staff_id");
 		
+		ILectureService service = LectureServiceImpl.getInstance();
 		
-		return null;
+		lecList = service.staffLecList(staff_id);
+		
+		req.setAttribute("lecList", lecList);
+		
+		return "/staff/lecture/lectureManaging.jsp";
 	}
 
 }

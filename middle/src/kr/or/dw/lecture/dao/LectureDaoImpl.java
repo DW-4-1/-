@@ -64,6 +64,19 @@ private static LectureDaoImpl dao;
 		}
 		return lec_code;
 	}
+
+	@Override
+	public List<LectureVO> staffLecList(String staff_id) {
+		List<LectureVO> lecList = null;
+		try {
+			lecList = smc.queryForList("lecture.staffLecList", staff_id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return lecList;
+	}
 	
 	
 	

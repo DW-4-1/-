@@ -7,7 +7,7 @@ import kr.or.dw.vo.LectureVO;
 public interface ILectureService {
 
 	/**
-	 * 모든 강의 목록을 가져오는 메서드
+	 * 학생 강의 목록을 가져오는 메서드
 	 * @param id(학생 아이디)
 	 * @return	강의목록이 저장될 LecVO 리스트
 	 */
@@ -25,5 +25,12 @@ public interface ILectureService {
 	 * @return
 	 */
 	String getLecCode();
+
+	/**
+	 * 교수 강의 목록 가져오는 메서드
+	 * @param staff_id (교수아이디)
+	 * @return
+	 */
+	List<LectureVO> staffLecList(String staff_id);
 
 }

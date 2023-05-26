@@ -38,4 +38,9 @@ public class LectureServiceImpl implements ILectureService{
 		public String getLecCode() {
 			return dao.getLecCode();
 		}
+
+		@Override
+		public List<LectureVO> staffLecList(String staff_id) {
+			return dao.staffLecList(staff_id);
+		}
 }

@@ -41,4 +41,24 @@
 		(#lec_code#, #lec_name#, #staff_id#, #lec_loc#, #lec_year#, #lec_term#, #lec_day#, #lec_time#, #lec_div#, #lec_credit#, #lec_maxpeo#)
 	</insert>
 	
+	<select id="staffLecList" parameterClass="String" resultClass="lecVO">
+		SELECT lec_code
+			 , MAX(lec_name) lec_name
+			 , max(staff_id) staff_id
+			 , max(lec_loc) lec_loc
+			 , max(lec_day) lec_day
+			 , sum(lec_time) lec_time
+			 , max(lec_credit) lec_credit
+			 , max(lec_year) lec_year
+			 , max(lec_div) lec_div
+			 , max(lec_term) lec_term
+		FROM (
+				SELECT lec_code, lec_name, staff_id, lec_loc, lec_day, lec_time, lec_div, lec_credit, lec_year, lec_term
+				FROM ALL_LECTURELIST
+				WHERE staff_id = #staff_id#
+				ORDER BY lec_year DESC, lec_term DESC, LEC_CODE
+				)
+		GROUP BY lec_code
+	</select>
+	
 </sqlMap>
