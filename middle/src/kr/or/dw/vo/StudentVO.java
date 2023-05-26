@@ -15,8 +15,15 @@ public class StudentVO {
 	private String stu_state;	//현재 상태 (재학, 휴학, 졸업)
 	private String stu_entDate;	//입학일
 	private String stu_grdDate;	//졸업일
+	private String auth_cd;		//권한코드(학생은 S)
 	
 	
+	public String getAuth_cd() {
+		return auth_cd;
+	}
+	public void setAuth_cd(String auth_cd) {
+		this.auth_cd = auth_cd;
+	}
 	public String getStu_state() {
 		return stu_state;
 	}

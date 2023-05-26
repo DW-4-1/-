@@ -13,7 +13,7 @@ public class StaffVO {
 	private int staff_zipcode;	//우편번호
 	private String staff_email;	//이메일
 	private String staff_tel;	//전화번호
-	private String auth_cd;	//권한코드
+	private String auth_cd;	//권한코드(교수는 P, 관리자는 A)
 	private String staff_state;	//현재 상태 (재직, 퇴직)
 	private String staff_joinDate;	//가입일
 	
