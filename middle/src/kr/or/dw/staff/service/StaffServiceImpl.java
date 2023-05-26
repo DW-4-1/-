@@ -32,8 +32,4 @@ public class StaffServiceImpl implements IStaffService{
 		return dao.getStaffName(staff_id);
 	}
 
-	@Override
-	public int insertLecture(LectureVO lecVo) {
-		return dao.insertLecture(lecVo);
-	}
 }

@@ -13,4 +13,17 @@ public interface ILectureService {
 	 */
 	List<LectureVO> getAllLecture(String id);
 
+	/**
+	 * 강의등록 메서드
+	 * @param lecVo(강의객체)
+	 * @return
+	 */
+	int insertLecture(LectureVO lecVo);
+
+	/**
+	 * lec_code 가져오는 메서드
+	 * @return
+	 */
+	String getLecCode();
+
 }

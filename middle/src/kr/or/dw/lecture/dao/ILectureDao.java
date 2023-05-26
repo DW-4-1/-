@@ -13,4 +13,13 @@ public interface ILectureDao {
 	 */
 	List<LectureVO> getAllLecture(String id);
 
+	
+	int insertLecture(LectureVO lecVo);
+
+	/**
+	 * lec_code 가져오는 메서드
+	 * @return
+	 */
+	String getLecCode();
+
 }

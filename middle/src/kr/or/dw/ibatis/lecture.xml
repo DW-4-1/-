@@ -29,11 +29,16 @@
 		GROUP BY lec_code
 	</select>
 	
+	<select id="selecteLecCode" resultClass="String">
+		SELECT ('C' || LPAD(lec_seq.nextval, 5, '0'))
+		FROM dual
+	</select>
+	
 	<insert id="insertLecture" parameterClass="lecVO">
 		INSERT INTO all_lecturelist 
-		(lec_code, lec_name, staff_id, staff_name, lec_loc, lec_year, lec_term, lec_day, lec_time, lec_div, lec_credit)
+		(lec_code, lec_name, staff_id, lec_loc, lec_year, lec_term, lec_day, lec_time, lec_div, lec_credit, lec_maxpeo)
 		VALUES 
-		(lec_seq.nextval, #lec_name#, #staff_id#, #staff_name#, #lec_loc#, #lec_year#, #lec_term#, #lec_day#, #lec_time#, #lec_div#, #lec_credit#)
+		(#lec_code#, #lec_name#, #staff_id#, #lec_loc#, #lec_year#, #lec_term#, #lec_day#, #lec_time#, #lec_div#, #lec_credit#, #lec_maxpeo#)
 	</insert>
 	
 </sqlMap>

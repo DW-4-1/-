@@ -43,9 +43,18 @@
 				</td>
 			</tr>
 			<tr>
-				<td>강의시간</td>
+				<td>강의교시</td>
 				<td>
-					<input type="text" id="lec_time" name="lec_time" placeholder="ex)1,2교시  => 1, 2">
+					<label><input type="checkbox" id="lec_time" name="lec_time" value="1">1</label>
+					<label><input type="checkbox" id="lec_time" name="lec_time" value="2">2</label>
+					<label><input type="checkbox" id="lec_time" name="lec_time" value="3">3</label>
+					<label><input type="checkbox" id="lec_time" name="lec_time" value="4">4</label>
+					<label><input type="checkbox" id="lec_time" name="lec_time" value="5">5</label>
+					<label><input type="checkbox" id="lec_time" name="lec_time" value="6">6</label>
+					<label><input type="checkbox" id="lec_time" name="lec_time" value="7">7</label>
+					<label><input type="checkbox" id="lec_time" name="lec_time" value="8">8</label>
+					<label><input type="checkbox" id="lec_time" name="lec_time" value="9">9</label>
+				
 				</td>
 			</tr>
 			<tr>
@@ -64,8 +73,8 @@
 				<td>
 					<label><input type="radio" id="lec_credit" name="lec_credit" value="1">1학점</label>
 					<label><input type="radio" id="lec_credit" name="lec_credit" value="2">2학점</label>
-					<label><input type="radio" id="lec_credit" name="lec_credit" value="2">3학점</label>
-					<label><input type="radio" id="lec_credit" name="lec_credit" value="2">4학점</label>
+					<label><input type="radio" id="lec_credit" name="lec_credit" value="3">3학점</label>
+					<label><input type="radio" id="lec_credit" name="lec_credit" value="4">4학점</label>
 				</td>
 			</tr>
 			<tr>

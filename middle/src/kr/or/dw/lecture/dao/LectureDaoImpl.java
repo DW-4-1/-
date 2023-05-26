@@ -36,4 +36,35 @@ private static LectureDaoImpl dao;
 		}
 		return lecList;
 	}
+
+	@Override
+	public int insertLecture(LectureVO lecVo) {
+		int result = 0;
+		String insert = "";
+		try {
+			insert = (String) smc.insert("lecture.insertLecture", lecVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if(insert == null) {
+			result = 1;
+		}
+		
+		return result;
+	}
+
+	@Override
+	public String getLecCode() {
+		String lec_code = null;
+		try {
+			lec_code = (String) smc.queryForObject("lecture.selecteLecCode");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lec_code;
+	}
+	
+	
+	
 }

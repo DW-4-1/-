@@ -28,4 +28,14 @@ public class LectureServiceImpl implements ILectureService{
 		public List<LectureVO> getAllLecture(String stu_id) {
 			return dao.getAllLecture(stu_id);
 		}
+
+		@Override
+		public int insertLecture(LectureVO lecVo) {
+			return dao.insertLecture(lecVo);
+		}
+
+		@Override
+		public String getLecCode() {
+			return dao.getLecCode();
+		}
 }

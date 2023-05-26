@@ -14,11 +14,4 @@ public interface IStaffDao {
 
 	public String getStaffName(String staff_id);
 
-	/**
-	 * 강의등록 메서드
-	 * @param lecVo
-	 * @return
-	 */
-	public int insertLecture(LectureVO lecVo);
-
 }

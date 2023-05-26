@@ -4,7 +4,7 @@
 	<%
 	 if(request.getAttribute("result") != null){
 		 int result = (int)request.getAttribute("result");
-		 if(result == 1){
+		 if(result != 0){
 	%>
 		alert("등록되었습니다.");
 		location.href="<%=request.getContextPath()%>/lecture/lectureInsertForm.do";

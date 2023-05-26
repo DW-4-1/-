@@ -59,7 +59,41 @@
 				<th>강의계획서</th>
 			</tr>
 			<%
-			for(LectureVO vo : lecList){%>
+			for(LectureVO vo : lecList){
+				String lec_time = null;
+				if(vo.getLec_time().equals("1.5")){
+					lec_time = "1, 2";
+				}else if(vo.getLec_time().equals("2")){
+					lec_time = "1, 2, 3";
+				}else if(vo.getLec_time().equals("2.5")){
+					lec_time = "2, 3";
+				}else if(vo.getLec_time().equals("3")){
+					lec_time = "2, 3, 4";
+				}else if(vo.getLec_time().equals("3.5")){
+					lec_time = "3, 4";
+				}else if(vo.getLec_time().equals("4")){
+					lec_time = "3, 4, 5";
+				}else if(vo.getLec_time().equals("4.5")){
+					lec_time = "4, 5";
+				}else if(vo.getLec_time().equals("5")){
+					lec_time = "4, 5, 6";
+				}else if(vo.getLec_time().equals("5.5")){
+					lec_time = "5, 6";
+				}else if(vo.getLec_time().equals("6")){
+					lec_time = "5, 6, 7";
+				}else if(vo.getLec_time().equals("6.5")){
+					lec_time = "6, 7";
+				}else if(vo.getLec_time().equals("7")){
+					lec_time = "6, 7, 8";
+				}else if(vo.getLec_time().equals("7.5")){
+					lec_time = "7, 8";
+				}else if(vo.getLec_time().equals("8")){
+					lec_time = "7, 8, 9";
+				}else if(vo.getLec_time().equals("8.5")){
+					lec_time = "8, 9";
+				}
+			
+			%>
 				<tr type="var" name="<%=vo.getLec_year() %>" style="text-align:center; height:30px;">
 					<td><%=vo.getLec_code() %></td>
 					<td><%=vo.getLec_name() %></td>
@@ -67,7 +101,7 @@
 					<td><%=vo.getLec_term() %>학기</td>
 					<td><%=vo.getStaff_name() %></td>
 					<td><%=vo.getLec_loc() %></td>
-					<td><%=vo.getLec_day() %> <%=vo.getLec_time() %>교시</td>
+					<td><%=vo.getLec_day() %> <%=lec_time %>교시</td>
 					<td><%=vo.getLec_div() %></td>
 					<td><%=vo.getLec_credit() %></td>
 					<td><input type="button" value="강의계획서 보기"></td>

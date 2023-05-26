@@ -48,21 +48,5 @@ private static StaffDaoImpl dao;
 		return staff_name;
 	}
 
-	@Override
-	public int insertLecture(LectureVO lecVo) {
-		int result = 0;
-		String insert = "";
-		try {
-			insert = (String) smc.insert("lecture.insertLecture", lecVo);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		if(insert == null) {
-			result = 1;
-		}
-		
-		return result;
-	}
-	
 
 }
