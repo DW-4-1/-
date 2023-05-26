@@ -34,14 +34,11 @@ public class StudentLoginAction implements IAction{
 		
 		IStudentService service = StudentServiceImpl.getInstance();
 		
-		System.out.println("action1");
 		StudentVO vo = service.stuLogin(stu_id);
-		System.out.println("action2");
 		
 		String cpass = "";
 		try {
 			cpass = CryptoUtil.sha512(stu_pwd);
-			System.out.println("action3");
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -49,7 +46,6 @@ public class StudentLoginAction implements IAction{
 		int result = 0;
 		if(vo != null && (cpass.equals(vo.getStu_pwd()) || stu_pwd.equals(vo.getStu_pwd()))) {
 			result = 1;
-			System.out.println("action4");
 			HttpSession session = req.getSession();
 			session.setAttribute("stu_id", stu_id);
 		}
