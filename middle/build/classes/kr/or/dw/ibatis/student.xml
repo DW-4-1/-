@@ -21,9 +21,17 @@
 		 WHERE stu_id = #stu_id#
 	</select>
 	
-	<select id="stuInfoUpdate" parameterClass="stuVO">
-		UPDATE students SET 
-	</select>
+	<update id="stuInfoUpdate" parameterClass="stuVO">
+		UPDATE students SET stu_addr
+						   ,stu_zipcode
+						   ,stu_tel
+		VALUES(#stu_addr#, #stu_zipcode#, #stu_tel#)
+		WHERE stu_id = #stu_id#
+	</update>
+	
+	<update id="studentPasswordUpdate" parameterClass="stuVo">
+		UPDATE students SET stu_pwd VALUES(#stu_pwd#)
+	</update>
 
 	
 </sqlMap>

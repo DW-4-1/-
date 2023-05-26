@@ -25,7 +25,7 @@
 			location.href="<%=request.getContextPath()%>/student/updateInfo.do";
 		});
 		$('#passUpdateBtn').on('click', function(){
-			location.href="<%=request.getContextPath()%>/student/passwordUpdate.do";
+			location.href="<%=request.getContextPath()%>/student/studentPasswordUpdate.do";
 		});
 	})
 </script>
