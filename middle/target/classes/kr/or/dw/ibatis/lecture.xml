@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="lecture">
+	
+	<select id="getAllLecture" parameterClass="String" resultClass="lecVO">
+		SELECT a.lec_code, lec_name, staff_id, staff_name, lec_loc, lec_day, lec_time, lec_div, lec_credit, lec_year, lec_term, stu_score, stu_grade
+		FROM all_lecturelist a, lecture l
+		WHERE a.lec_code = l.lec_code AND stu_id = #stu_id#
+		ORDER BY lec_year DESC, lec_term DESC
+	</select>
+	
+	<insert id="insertLecture" parameterClass="lecVO">
+		INSERT INTO all_lecturelist 
+		(lec_code, lec_name, staff_id, staff_name, lec_loc, lec_year, lec_term, lec_day, lec_time, lec_div, lec_credit)
+		VALUES 
+		(lec_seq.nextval, #lec_name#, #staff_id#, #staff_name#, #lec_loc#, #lec_year#, #lec_term#, #lec_day#, #lec_time#, #lec_div#, #lec_credit#)
+	</insert>
+	
+</sqlMap>
