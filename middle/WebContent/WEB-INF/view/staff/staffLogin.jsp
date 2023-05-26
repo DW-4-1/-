@@ -33,9 +33,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		<div class="card">
 			<div class="card-body login-card-body">
 				<p class="login-box-msg">교직원 및 관리자 로그인 페이지 입니다.</p>
-				<form id="login" action="<%=request.getContextPath()%>/student/studentLogin.do" method="post">
+				<form id="login" action="<%=request.getContextPath()%>/staff/staffLogin.do" method="post">
 					<div class="input-group mb-3">
-						<input type="text" id="stu_id" name="stu_id" class="form-control" placeholder="ID">
+						<input type="text" id="stu_id" name="staff_id" class="form-control" placeholder="ID">
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-envelope"></span>
@@ -43,7 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						</div>
 					</div>
 					<div class="input-group mb-3">
-						<input type="password" id="stu_pwd" name="stu_pwd" class="form-control" placeholder="Password">
+						<input type="password" id="stu_pwd" name="staff_pwd" class="form-control" placeholder="Password">
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-lock"></span>

@@ -13,7 +13,7 @@ public class StaffVO {
 	private int staff_zipcode;	//우편번호
 	private String staff_email;	//이메일
 	private String staff_tel;	//전화번호
-	private String staff_auth_cd;	//권한코드
+	private String auth_cd;	//권한코드
 	private String staff_state;	//현재 상태 (재직, 퇴직)
 	private String staff_joinDate;	//가입일
 	
@@ -89,11 +89,11 @@ public class StaffVO {
 	public void setStaff_tel(String staff_tel) {
 		this.staff_tel = staff_tel;
 	}
-	public String getStaff_auth_cd() {
-		return staff_auth_cd;
+	public String getAuth_cd() {
+		return auth_cd;
 	}
-	public void setStaff_auth_cd(String staff_auth_cd) {
-		this.staff_auth_cd = staff_auth_cd;
+	public void setAuth_cd(String auth_cd) {
+		this.auth_cd = auth_cd;
 	}
 	public String getStaff_state() {
 		return staff_state;

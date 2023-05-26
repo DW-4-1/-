@@ -3,7 +3,8 @@ package kr.or.dw.vo;
 public class LectureVO {
 	private String lec_code;	//강의코드
 	private String lec_name;	//강의명
-	private String lec_pro;		//교수명
+	private String staff_id;		//교수아이디
+	private String staff_name;		//교수명
 	private String lec_loc;		//강의실
 	private String lec_day;	//강의요일
 	private String lec_time;	//강의시간
@@ -46,11 +47,18 @@ public class LectureVO {
 	public void setLec_name(String lec_name) {
 		this.lec_name = lec_name;
 	}
-	public String getLec_pro() {
-		return lec_pro;
+	
+	public String getStaff_id() {
+		return staff_id;
 	}
-	public void setLec_pro(String lec_pro) {
-		this.lec_pro = lec_pro;
+	public void setStaff_id(String staff_id) {
+		this.staff_id = staff_id;
+	}
+	public String getStaff_name() {
+		return staff_name;
+	}
+	public void setStaff_name(String staff_name) {
+		this.staff_name = staff_name;
 	}
 	public String getLec_loc() {
 		return lec_loc;

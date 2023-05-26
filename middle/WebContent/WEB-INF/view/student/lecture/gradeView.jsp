@@ -71,7 +71,7 @@
 			%>
 				<tr type="var" name="<%=vo.getLec_year() %>년 <%=vo.getLec_term() %>학기" style="text-align:center; height:30px; display:none">
 					<td><%=vo.getLec_name() %></td>
-					<td><%=vo.getLec_pro() %></td>
+					<td><%=vo.getStaff_name() %></td>
 					<td><%=vo.getLec_div() %></td>
 					<td><%=vo.getLec_credit() %></td>
 					<td><%=vo.getStu_grade() %></td>

@@ -35,17 +35,19 @@ public class StaffLoginAction implements IAction{
 		
 		String cpass = "";
 		try {
+			System.out.println("actioin1");
 			cpass = CryptoUtil.sha512(staff_pwd);
+			System.out.println("actioin2");
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		
 		int result = 0;
 		if(vo != null && (cpass.equals(vo.getStaff_pwd()) || staff_pwd.equals(vo.getStaff_pwd()))) {
 			result = 1;
 			HttpSession session = req.getSession();
 			session.setAttribute("staff_id", staff_id);
 		}
+		System.out.println("actioin3");
 		
 		req.setAttribute("result", result);
 
