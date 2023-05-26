@@ -68,6 +68,9 @@
 				<td>최대 수강인원</td>
 				<td><input type="text" id="lec_maxpeo" placeholder="숫자만 기재해주세요."></td>
 			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="등록"></td>
+			</tr>
 		</table>
 	</form>
 </body>
