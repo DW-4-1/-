@@ -33,7 +33,5 @@ public interface IStudentService {
 	 * @return
 	 */
 	public int StudentInfoUpdate(StudentVO stuVo);
-
-	public String passwordUpdate(StudentVO stuVo);
 	
 }

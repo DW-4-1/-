@@ -43,10 +43,4 @@ public class StudentServiceImpl implements IStudentService{
 	public int StudentInfoUpdate(StudentVO stuVo) {
 		return dao.studentInfoUpdate(stuVo);
 	}
-
-	@Override
-	public String passwordUpdate(StudentVO stuVo) {
-		return dao.passwordUpdate(stuVo);
-		
-	}
 }

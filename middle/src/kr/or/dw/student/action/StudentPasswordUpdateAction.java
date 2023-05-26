@@ -12,11 +12,13 @@ public class StudentPasswordUpdateAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		
+		
 		return "/student/mymenu/passwordUpdate.jsp";
 	}
 

@@ -77,17 +77,4 @@ private static StudentDaoImpl dao;
 		
 		return cnt;
 	}
-
-	@Override
-	public String passwordUpdate(StudentVO stuVo) {
-		
-		try {
-			smc.update("student.studentPasswordUpdate", stuVo);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-		
-	}
 }
