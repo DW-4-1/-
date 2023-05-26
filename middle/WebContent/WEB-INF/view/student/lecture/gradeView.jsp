@@ -52,7 +52,7 @@
 	<br>
 	<br>
 	
-	<div style="width:1000px; height:200px; overflow:auto">
+	<div style="width:1000px; height:50%; overflow:auto">
 		<table border="1" width="100%" cellspacing="0" cellpadding="0">
 			<tr style="height:50px;">
 				<th style="width: 30%">강의명</th>
