@@ -350,11 +350,11 @@
 				</tr>
 				<tr>
 					<th>학과명</th>
-					<td><%=stu.getStu_deptname() %></td>
+					<td><%=stu.getDept_name() %></td>
 				</tr>
 				<tr>
 					<th>학과코드</th>
-					<td><%=stu.getStu_deptcode() %></td>
+					<td><%=stu.getDept_code() %></td>
 				</tr>
 				<tr>
 					<th>전화번호</th>

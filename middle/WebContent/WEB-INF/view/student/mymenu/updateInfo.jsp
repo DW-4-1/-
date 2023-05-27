@@ -78,13 +78,13 @@
 			</tr>
 			<tr>
 				<th>학과명</th>
-				<td><%=stu.getStu_deptname() %></td>
-				<input type="hidden" name="stu_deptname" value="<%=stu.getStu_deptname() %>">
+				<td><%=stu.getDept_name() %></td>
+				<input type="hidden" name="stu_deptname" value="<%=stu.getDept_name() %>">
 			</tr>
 			<tr>
 				<th>학과코드</th>
-				<td><%=stu.getStu_deptcode() %></td>
-				<input type="hidden" name="stu_deptcode" value="<%=stu.getStu_deptcode() %>">
+				<td><%=stu.getDept_code() %></td>
+				<input type="hidden" name="stu_deptcode" value="<%=stu.getDept_code() %>">
 			</tr>
 			<tr>
 				<th>전화번호</th>
