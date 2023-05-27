@@ -16,11 +16,9 @@
 	String lecYear = "";
 	String lecMaxPeo = "";
 	String title = "등록";
-	String action = request.getContextPath() + "/lecture/lectureInsert.do";
 	if(request.getAttribute("lecVo") != null){
 		LectureVO lecVo = (LectureVO) request.getAttribute("lecVo");
 		lecCode = lecVo.getLec_code();
-		action = request.getContextPath() + "/lecture/lectureUpdate.do?lecCode=" + lecCode;
 		title = "수정";
 		lecName = lecVo.getLec_name();
 		lecLoc = lecVo.getLec_loc();
@@ -54,8 +52,9 @@
 </head>
 <body>
 	<h2>강의<%=title %>페이지</h2>
-	<form id="insertLectureForm" method="post" action="<%=action%>">
+	<form id="insertLectureForm" method="post" action="<%=request.getContextPath()%>/lecture/lectureInsert.do">
 		<table>
+			<input type="hidden" id="lec_code" name="lec_code" value="<%=lecCode %>">
 			<tr>
 				<td>강의명</td>
 				<td><input type="text" id="lec_name" name="lec_name" value="<%=lecName %>"></td>

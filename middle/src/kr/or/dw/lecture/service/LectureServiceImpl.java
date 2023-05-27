@@ -48,4 +48,9 @@ public class LectureServiceImpl implements ILectureService{
 		public LectureVO selectLecture(String lec_code) {
 			return dao.selectLecture(lec_code);
 		}
+
+		@Override
+		public int deleteLecture(String lec_code) {
+			return dao.deleteLecture(lec_code);
+		}
 }

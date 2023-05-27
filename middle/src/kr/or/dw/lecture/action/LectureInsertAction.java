@@ -33,8 +33,6 @@ public class LectureInsertAction implements IAction{
 		HttpSession session = req.getSession();
 		String staff_id = (String) session.getAttribute("staff_id");
 		
-		String lec_code = null;
-		lec_code = service.getLecCode();
 		
 		String lec_name = req.getParameter("lec_name");
 		String lec_loc = req.getParameter("lec_loc");
@@ -46,6 +44,18 @@ public class LectureInsertAction implements IAction{
 		int lec_credit = Integer.parseInt(req.getParameter("lec_credit"));
 		
 		String[] lecTimeList = req.getParameterValues("lec_time");
+		
+		
+		String lec_code = null;
+		
+		if(!req.getParameter("lec_code").equals("")) {
+			lec_code = req.getParameter("lec_code");
+			int deleteRes = 0;
+			deleteRes = service.deleteLecture(lec_code);
+		}else {
+			lec_code = service.getLecCode();
+
+		}	
 		
 		int lec_time = 0;
 		int result = 0;
@@ -66,6 +76,10 @@ public class LectureInsertAction implements IAction{
 			
 			result += service.insertLecture(lecVo);
 		}
+		
+		
+		
+		
 		
 		
 		

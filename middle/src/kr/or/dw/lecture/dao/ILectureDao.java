@@ -36,4 +36,11 @@ public interface ILectureDao {
 	 */
 	LectureVO selectLecture(String lec_code);
 
+	/**
+	 * 강의 수정할 때 원래 있던 강의 삭제하는 메서드
+	 * @param lec_code
+	 * @return
+	 */
+	int deleteLecture(String lec_code);
+
 }

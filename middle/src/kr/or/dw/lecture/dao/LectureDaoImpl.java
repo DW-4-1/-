@@ -90,6 +90,18 @@ private static LectureDaoImpl dao;
 		
 		return lecVo;
 	}
+
+	@Override
+	public int deleteLecture(String lec_code) {
+		int deleteRes = 0;
+		try {
+			deleteRes = smc.delete("lecture.deleteLecture", lec_code);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return deleteRes;
+	}
 	
 	
 	

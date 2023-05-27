@@ -82,4 +82,8 @@
 		GROUP BY lec_code
 	</select>
 	
+	<delete id="deleteLecture" parameterClass="String">
+		DELETE all_lecturelist WHERE lec_code = #lec_code#
+	</delete>
+	
 </sqlMap>
