@@ -61,4 +61,24 @@
 		GROUP BY lec_code
 	</select>
 	
+	<select id="selectLecture" parameterClass="String" resultClass="lecVO">
+		SELECT lec_code
+			 , MAX(lec_name) lec_name
+			 , max(lec_loc) lec_loc
+			 , max(lec_day) lec_day
+			 , max(lec_time) lec_time
+			 , max(lec_credit) lec_credit
+			 , max(lec_year) lec_year
+			 , max(lec_div) lec_div
+			 , max(lec_term) lec_term
+			 , max(lec_maxpeo) lec_maxpeo
+		FROM (
+				SELECT lec_code, lec_name, lec_loc, lec_day, lec_time, lec_div, lec_credit, lec_year, lec_term, lec_maxpeo
+				FROM ALL_LECTURELIST 
+				WHERE lec_code = #lec_code#
+				ORDER BY lec_year DESC, lec_term DESC, LEC_CODE
+				)
+		GROUP BY lec_code
+	</select>
+	
 </sqlMap>

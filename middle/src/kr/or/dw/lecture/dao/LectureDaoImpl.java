@@ -77,6 +77,19 @@ private static LectureDaoImpl dao;
 		
 		return lecList;
 	}
+
+	@Override
+	public LectureVO selectLecture(String lec_code) {
+		LectureVO lecVo = null;
+		try {
+			lecVo = (LectureVO) smc.queryForObject("lecture.selectLecture", lec_code);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return lecVo;
+	}
 	
 	
 	
