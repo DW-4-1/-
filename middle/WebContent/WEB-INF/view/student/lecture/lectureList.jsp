@@ -60,38 +60,9 @@
 			</tr>
 			<%
 			for(LectureVO vo : lecList){
-				String lec_time = null;
-				double timecre = (double) vo.getLec_time() / vo.getLec_credit();
-				if(timecre == 1.5){
-					lec_time = "1, 2";
-				}else if(timecre == 2){
-					lec_time = "1, 2, 3";
-				}else if(timecre == 2.5){
-					lec_time = "2, 3";
-				}else if(timecre == 3){
-					lec_time = "2, 3, 4";
-				}else if(timecre == 3.5){
-					lec_time = "3, 4";
-				}else if(timecre == 4){
-					lec_time = "3, 4, 5";
-				}else if(timecre == 4.5){
-					lec_time = "4, 5";
-				}else if(timecre == 5){
-					lec_time = "4, 5, 6";
-				}else if(timecre == 5.5){
-					lec_time = "5, 6";
-				}else if(timecre == 6){
-					lec_time = "5, 6, 7";
-				}else if(timecre == 6.5){
-					lec_time = "6, 7";
-				}else if(timecre == 7){
-					lec_time = "6, 7, 8";
-				}else if(timecre == 7.5){
-					lec_time = "7, 8";
-				}else if(timecre == 8){
-					lec_time = "7, 8, 9";
-				}else if(timecre == 8.5){
-					lec_time = "8, 9";
+				String lec_time = "" + vo.getLec_time();
+				for(int i = 1; i < vo.getLec_hour(); i++){
+					lec_time += ", " + (vo.getLec_time() + i);
 				}
 			
 			%>

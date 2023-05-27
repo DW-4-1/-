@@ -3,6 +3,7 @@ package kr.or.dw.lecture.service;
 import java.util.List;
 
 import kr.or.dw.vo.LectureVO;
+import kr.or.dw.vo.StudentVO;
 
 public interface ILectureService {
 
@@ -46,5 +47,12 @@ public interface ILectureService {
 	 * @return
 	 */
 	int deleteLecture(String lec_code);
+
+	/**
+	 * 강의듣는 학생들 리스트
+	 * @param lec_code
+	 * @return
+	 */
+	List<LectureVO> getLectureStudentList(String lec_code);
 
 }

@@ -34,7 +34,7 @@
 		<ul><a href="<%=request.getContextPath()%>/lecture/lectureManaging.do">강의 관리</a></ul>
 	</li>
 	<li id="score">성적관리
-		<ul><a href="<%=request.getContextPath()%>/staff/studenScoreInsert.do">성적등록</a></ul>
+		<ul><a href="<%=request.getContextPath()%>/lecture/lectureScoreList.do">성적등록</a></ul>
 	</li>
 	<li id="board">게시판
 		<ul><a href="<%=request.getContextPath()%>">공지사항</a></ul>

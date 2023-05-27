@@ -3,6 +3,7 @@ package kr.or.dw.lecture.dao;
 import java.util.List;
 
 import kr.or.dw.vo.LectureVO;
+import kr.or.dw.vo.StudentVO;
 
 public interface ILectureDao {
 	
@@ -42,5 +43,12 @@ public interface ILectureDao {
 	 * @return
 	 */
 	int deleteLecture(String lec_code);
+
+	/**
+	 * 강의 듣는 학생 리스트 가져오는 메서드
+	 * @param lec_code
+	 * @return
+	 */
+	List<LectureVO> getLectureStudentList(String lec_code);
 
 }

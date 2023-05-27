@@ -5,6 +5,7 @@ import java.util.List;
 import kr.or.dw.lecture.dao.ILectureDao;
 import kr.or.dw.lecture.dao.LectureDaoImpl;
 import kr.or.dw.vo.LectureVO;
+import kr.or.dw.vo.StudentVO;
 
 public class LectureServiceImpl implements ILectureService{
 
@@ -52,5 +53,10 @@ public class LectureServiceImpl implements ILectureService{
 		@Override
 		public int deleteLecture(String lec_code) {
 			return dao.deleteLecture(lec_code);
+		}
+
+		@Override
+		public List<LectureVO> getLectureStudentList(String lec_code) {
+			return dao.getLectureStudentList(lec_code);
 		}
 }

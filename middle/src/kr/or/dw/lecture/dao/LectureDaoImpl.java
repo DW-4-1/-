@@ -7,6 +7,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 
 import kr.or.dw.util.BuildSqlMapClient;
 import kr.or.dw.vo.LectureVO;
+import kr.or.dw.vo.StudentVO;
 
 public class LectureDaoImpl implements ILectureDao{
 	
@@ -101,6 +102,18 @@ private static LectureDaoImpl dao;
 			e.printStackTrace();
 		}
 		return deleteRes;
+	}
+
+	@Override
+	public List<LectureVO> getLectureStudentList(String lec_code) {
+		List<LectureVO> lecList = null;
+		try {
+			lecList = smc.queryForList("lecture.getLectureStudent", lec_code);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lecList;
 	}
 	
 	

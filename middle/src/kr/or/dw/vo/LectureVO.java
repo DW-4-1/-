@@ -17,6 +17,10 @@ public class LectureVO {
 	private int lec_curpeo;		//현재 수강인원
 	private String stu_grade;	//등급(A,B,C,D,F)
 	private double stu_score;	//성적(4.5점 만점) A+가 4.5 A가 4, B+=3.5, B=3
+	private String stu_id;	//학생학번
+	private String stu_name;	//학생이름
+	private String dept_name;	//학과명
+	
 	public String getLec_code() {
 		return lec_code;
 	}
@@ -112,6 +116,24 @@ public class LectureVO {
 	}
 	public void setLec_hour(int lec_hour) {
 		this.lec_hour = lec_hour;
+	}
+	public String getStu_name() {
+		return stu_name;
+	}
+	public void setStu_name(String stu_name) {
+		this.stu_name = stu_name;
+	}
+	public String getDept_name() {
+		return dept_name;
+	}
+	public void setDept_name(String dept_name) {
+		this.dept_name = dept_name;
+	}
+	public String getStu_id() {
+		return stu_id;
+	}
+	public void setStu_id(String stu_id) {
+		this.stu_id = stu_id;
 	}
 	
 
