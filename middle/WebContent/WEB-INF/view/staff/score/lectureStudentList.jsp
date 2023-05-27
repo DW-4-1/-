@@ -7,11 +7,28 @@
 <head>
 <meta charset="UTF-8">
 <title>강의수강 학생 리스트</title>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
+<script>
+	$(function(){
+		$('input[type=number]').on('change', function(){
+			let sum = 0;
+			  for (let i = 0; i < $('input[type=number]').length; i++) {
+	       			sum += +$('input[type=number]').eq(i).val();
+	            };
+			let grade = "";
+			$('#sum').attr('value', sum);
+		});
+	})
+</script>
 </head>
 <body>
 <h2>수강생 목록</h2>
-<div style="width:1000px; height:50%; overflow:auto">
-	<form id="scoreInsert" method="post">
+<form id="scoreInsert" method="post">
+<%
+	String lec_code = request.getParameter("lecCode");
+%>
+	<input type="hidden" name="lec_code" value="<%=lec_code%>">
+	<div style="width:1000px; height:50%; overflow:auto">
 		<table border="1" width="100%" cellspacing="0" cellpadding="0" >
 			<tr style="height: 50px;">
 				<th>학생학번</th>
@@ -34,19 +51,34 @@
 				<td><%=stu.getStu_id() %></td>
 				<td><%=stu.getStu_name() %></td>
 				<td><%=stu.getDept_name() %></td>
-				<td id="middle"><input style="width: 40px;" type="number"></td>
-				<td id="final"><input style="width: 40px;" type="number"></td>
-				<td id="assign"><input style="width: 40px;" type="number"></td>
-				<td id="attend"><input style="width: 40px;" type="number"></td>
-				<td id="point"><input style="width: 40px;" type="number"></td>
-				<td id="sum">합계</td>
-				<td id="grade" name="grade">등급</td>
+				<td><input id="middle" style="width: 40px;" type="number"></td>
+				<td><input id="final" style="width: 40px;" type="number"></td>
+				<td><input id="assign" style="width: 40px;" type="number"></td>
+				<td><input id="attend" style="width: 40px;" type="number"></td>
+				<td><input id="point" style="width: 40px;" type="number"></td>
+				<td><input id="sum" style="width: 40px;" type="text" readonly></td>
+				<td>
+					<select id="stu_grade" name="stu_grade">
+						<option value="P">P</option>
+						<option value="A+">A+</option>
+						<option value="A">A</option>
+						<option value="B+">B+</option>
+						<option value="B">B</option>
+						<option value="C+">C+</option>
+						<option value="C">C</option>
+						<option value="D+">D+</option>
+						<option value="D">D</option>
+						<option value="F">F</option>
+					</select>
+				</td>
 			</tr>
 		<%
 			}
 		%>
 		</table>
-	</form>
-</div>
+	</div>
+	<br>
+	<input type="submit" value="저장하기">
+</form>
 </body>
 </html>
