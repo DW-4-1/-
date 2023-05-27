@@ -8,13 +8,20 @@
 <title>강의등록</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
 
+
 <%
+	String lecCode = "";
 	String lecName = "";
 	String lecLoc = "";
 	String lecYear = "";
 	String lecMaxPeo = "";
+	String title = "등록";
+	String action = request.getContextPath() + "/lecture/lectureInsert.do";
 	if(request.getAttribute("lecVo") != null){
-	LectureVO lecVo = (LectureVO) request.getAttribute("lecVo");
+		LectureVO lecVo = (LectureVO) request.getAttribute("lecVo");
+		lecCode = lecVo.getLec_code();
+		action = request.getContextPath() + "/lecture/lectureUpdate.do?lecCode=" + lecCode;
+		title = "수정";
 		lecName = lecVo.getLec_name();
 		lecLoc = lecVo.getLec_loc();
 		lecYear = "" + lecVo.getLec_year();
@@ -23,8 +30,20 @@
 		
 	<script>
 		$(function(){
-			$('#lec_term').attr('value')
-			$('input[value=<%=lecVo.getLec_term()%>][id=lec_term]').is('checked');
+			
+			$('input[id=lec_term][value=<%=lecVo.getLec_term()%>]').prop('checked',true);
+			$('#lec_day').val('<%=lecVo.getLec_day()%>').prop('selected',true);
+		<%
+			for(int i = 0; i < lecVo.getLec_hour(); i++){
+				int lecTime = lecVo.getLec_time();
+		%>
+			$('input[id=lec_time][value=<%=lecTime + i%>]').prop('checked',true);
+				
+		<%
+			}
+		%>
+			$('#lec_div').val('<%=lecVo.getLec_div()%>').prop('selected',true);
+			$('input[id=lec_credit][value=<%=lecVo.getLec_credit()%>]').prop('checked',true);
 		})
 	</script>		
 		
@@ -34,8 +53,8 @@
 
 </head>
 <body>
-	<h2>강의등록페이지</h2>
-	<form id="insertLectureForm" method="post" action="<%=request.getContextPath()%>/lecture/lectureInsert.do">
+	<h2>강의<%=title %>페이지</h2>
+	<form id="insertLectureForm" method="post" action="<%=action%>">
 		<table>
 			<tr>
 				<td>강의명</td>
@@ -71,7 +90,7 @@
 			</tr>
 			<tr>
 				<td>강의교시</td>
-				<td>
+				<td id="lec_time_td">
 					<label><input type="checkbox" id="lec_time" name="lec_time" value="1">1</label>
 					<label><input type="checkbox" id="lec_time" name="lec_time" value="2">2</label>
 					<label><input type="checkbox" id="lec_time" name="lec_time" value="3">3</label>
@@ -109,8 +128,7 @@
 				<td><input type="text" id="lec_maxpeo" name="lec_maxpeo" placeholder="숫자만 기재해주세요." value="<%=lecMaxPeo %>"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="등록" id="lectureInsertBtn"></td>
-				<td colspan="2"><input type="submit" value="수정" id="lectureUpdateBtn" style="display: none;"></td>
+				<td><input type="submit" value="<%=title%>"></td>
 			</tr>
 		</table>
 	</form>

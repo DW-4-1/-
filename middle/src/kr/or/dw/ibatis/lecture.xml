@@ -66,7 +66,8 @@
 			 , MAX(lec_name) lec_name
 			 , max(lec_loc) lec_loc
 			 , max(lec_day) lec_day
-			 , max(lec_time) lec_time
+			 , min(lec_time) lec_time
+			 , count(lec_time) lec_hour
 			 , max(lec_credit) lec_credit
 			 , max(lec_year) lec_year
 			 , max(lec_div) lec_div

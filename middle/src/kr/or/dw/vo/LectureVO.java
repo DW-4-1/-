@@ -2,7 +2,8 @@ package kr.or.dw.vo;
 
 public class LectureVO {
 	private String lec_code;	//강의코드
-	private int lec_time;	//강의시간
+	private int lec_time;	//강의교시
+	private int lec_hour;	//강의시간
 	private String lec_day;		//강의요일
 	private String lec_name;	//강의명
 	private String staff_id;	//교수아이디
@@ -105,6 +106,12 @@ public class LectureVO {
 	}
 	public void setStu_score(double stu_score) {
 		this.stu_score = stu_score;
+	}
+	public int getLec_hour() {
+		return lec_hour;
+	}
+	public void setLec_hour(int lec_hour) {
+		this.lec_hour = lec_hour;
 	}
 	
 
