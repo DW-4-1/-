@@ -7,7 +7,7 @@
 <script src="<%=request.getContextPath()%>/assets/plugins/jquery/jquery.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Starter</title>
+  <title>조낸 맞는거다..</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -22,11 +22,17 @@
 	      mainImage.setAttribute("src", imagePath);
 	  }
   </script>
+  <style>
+/*   .main-header, .main-sidebar { */
+/*     border: none; */
+/*   } */
+</style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
   <!-- Navbar -->
+  
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
@@ -165,11 +171,15 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-1">
+<!--   사이드바 색상 후보 -->
+<!--   sidebar-light-dark -->
+<!--	sidebar-light-light -->
+<!-- sidebar-light-secondary -->
+  <aside class="main-sidebar sidebar-light-dark elevation-2">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">페이지명</span>
+      <span class="brand-text font-weight-dark">페이지명</span>
     </a>
 
     <!-- Sidebar -->
@@ -263,14 +273,13 @@
               </li>
             </ul>
           </li>
-          
-          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
   </aside>
+  
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -281,7 +290,6 @@
     <div class="card-body">
 <div class="row">
 <div class="col-12 col-sm-6">
-<h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
 <div class="col-12">
 <img id="mainImage" src="<%= request.getContextPath() %>/img/정문.jpg" class="product-image" alt="Product Image">
 </div>
@@ -294,8 +302,18 @@
 </div>
 </div>
 <div class="col-12 col-sm-6">
-<h3 class="my-3">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
-<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.</p>
+<h3 class="my-3">이곳은 메인 페이지입니다.</h3>
+<p>
+	학교에 대한 소개글을 입력합니다.<br>
+	학교에 대한 소개글을 입력합니다.<br>
+	학교에 대한 소개글을 입력합니다.<br>
+	학교에 대한 소개글을 입력합니다.<br>
+	학교에 대한 소개글을 입력합니다.<br>
+	학교에 대한 소개글을 입력합니다.<br>
+	학교에 대한 소개글을 입력합니다.<br>
+	학교에 대한 소개글을 입력합니다.
+</p>
+
 <hr>
 <h4>Available Colors</h4>
 <div class="bg-gray py-2 px-3 mt-4">
@@ -311,9 +329,9 @@ $80.00
 <div class="row mt-4">
 <nav class="w-100">
 <div class="nav nav-tabs" id="product-tab" role="tablist">
-<a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Description</a>
-<a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="false">Comments</a>
-<a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">Rating</a>
+<a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">형 왔다</a>
+<a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="false">굴다리 밑으로..</a>
+<a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">집합</a>
 </div>
 </nav>
 <div class="tab-content p-3" id="nav-tabContent">
@@ -324,26 +342,6 @@ $80.00
 </div>
 </div>
     
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">
-               	<h2>학생 메인 페이지입니다.</h2>
-                <p class="card-text">
-					페이지 좌측의 특정 메뉴를 클릭하면 이곳에 관련 페이지가 나타납니다.<br>
-                 	로그인 후 처음으로 등장하는 메인 페이지에는 학교 외부 사진등으로<br>
-                 	학교의 외적인 모습을 표현합니다.
-                </p>
-
-                <a href="#" class="card-link">링크 A</a>
-                <a href="#" class="card-link">링크 B</a>
-              </div>
-            </div>
-          </div>
-        </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -352,7 +350,7 @@ $80.00
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
+  <aside class="control-sidebar control-sidebar-dark"">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
       <h5>Title</h5>
@@ -368,7 +366,7 @@ $80.00
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong style="text-align: center;">Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
