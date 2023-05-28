@@ -16,7 +16,8 @@
 	       			sum += +$('input[type=number]').eq(i).val();
 	            };
 			let grade = "";
-			$('#sum').attr('value', sum);
+			let stu_id = $('#stu_id').val();
+			console.log(stu_id);
 		});
 		
 		$('#cancelBtn').on('click', function(){
@@ -67,7 +68,7 @@
 				
 			<tr style="text-align: center;">
 				<td><%=stu.getStu_id() %></td>
-				<input type="hidden" name="stu_id" value="<%=stu.getStu_id()%>">
+				<input type="hidden" name="stu_id" id="stu_id" value="<%=stu.getStu_id()%>">
 				<td><%=stu.getStu_name() %></td>
 				<td><%=stu.getDept_name() %></td>
 				<td><input id="middle" style="width: 40px;" type="number" min="0"></td>
@@ -75,7 +76,7 @@
 				<td><input id="assign" style="width: 40px;" type="number" min="0"></td>
 				<td><input id="attend" style="width: 40px;" type="number" min="0"></td>
 				<td><input id="point" style="width: 40px;" type="number" min="0"></td>
-				<td><input id="sum" name="stu_score" style="width: 40px;" type="text" value="<%=stu.getStu_score() %>" readonly></td>
+				<td><input id="<%=stu.getStu_id() %>" name="stu_score" style="width: 40px;" type="text" value="<%=stu.getStu_score() %>" readonly></td>
 				<td>
 					<select id="stu_grade" name="stu_grade">
 						<option value="P">P</option>
