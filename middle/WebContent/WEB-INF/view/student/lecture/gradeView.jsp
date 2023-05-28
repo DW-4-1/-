@@ -1,3 +1,4 @@
+<%@page import="kr.or.dw.util.LectureAbout"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashSet"%>
 <%@page import="java.util.Set"%>
@@ -49,21 +50,28 @@
 	<%	} %>
 	
 	<% 
+		double numGrade = 0;
+		LectureAbout la = new LectureAbout();
+		
 		Set<List> yearTermDiv = new HashSet<>();
 		for(String yearterm : yearTermList){
 			int creditSum = 0;
-			double scoreSum = 0;
+			double gradeSum = 0;
 			for(LectureVO vo : lecList){
+				
 				if(yearterm.equals(vo.getLec_year() + "년 " + vo.getLec_term() + "학기")){
+					
+					numGrade = la.numGrade(vo.getStu_grade(), vo.getLec_credit());
+					System.out.println(vo.getStu_grade());	
 					creditSum += vo.getLec_credit();
-					scoreSum += vo.getStu_score()*vo.getLec_credit();
+					gradeSum += numGrade;
 				}
 			}
 			List list = new ArrayList();
 			list.add(0, yearterm);
 			list.add(1, creditSum);
-			list.add(2, scoreSum);
-			list.add(3, scoreSum / creditSum);
+			list.add(2, gradeSum);
+			list.add(3, gradeSum / creditSum);
 			yearTermDiv.add(list);
 		}
 		%>
@@ -87,6 +95,7 @@
 			</tr>
 			<%
 				for(LectureVO vo : lecList){
+					numGrade = la.numGrade(vo.getStu_grade(), vo.getLec_credit());
 					
 			%>
 				<tr type="var" name="<%=vo.getLec_year() %>년 <%=vo.getLec_term() %>학기" style="text-align:center; height:30px; display:none">
@@ -95,7 +104,7 @@
 					<td><%=vo.getLec_div() %></td>
 					<td><%=vo.getLec_credit() %></td>
 					<td><%=vo.getStu_grade().equals("null") ? "" : vo.getStu_grade() %></td>
-					<td><%=vo.getStu_score()*vo.getLec_credit() == 0 ? "아직 데이터가 없습니다." : vo.getStu_score()*vo.getLec_credit()%></td>
+					<td><%=vo.getStu_score()*vo.getLec_credit() == 0 ? "아직 데이터가 없습니다." : numGrade%></td>
 				</tr>
 			
 			<%
