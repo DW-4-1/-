@@ -46,6 +46,7 @@ public class StaffLoginAction implements IAction{
 			result = 1;
 			HttpSession session = req.getSession();
 			session.setAttribute("staff_id", staff_id);
+			session.setAttribute("auth_cd", vo.getAuth_cd());
 		}
 		System.out.println("actioin3");
 		

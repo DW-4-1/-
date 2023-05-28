@@ -48,6 +48,7 @@ public class StudentLoginAction implements IAction{
 			result = 1;
 			HttpSession session = req.getSession();
 			session.setAttribute("stu_id", stu_id);
+			session.setAttribute("auth_cd", vo.getAuth_cd());
 		}
 		
 		req.setAttribute("result", result);
