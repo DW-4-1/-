@@ -115,6 +115,18 @@ private static LectureDaoImpl dao;
 		}
 		return lecList;
 	}
+
+	@Override
+	public int updateScore(LectureVO lecVo) {
+		int result = 0;
+		try {
+			result = smc.update("lecture.updateScore", lecVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
 	
 	
 	

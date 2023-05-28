@@ -16,7 +16,7 @@ public class LectureVO {
 	private int lec_maxpeo;		//최대 수강인원
 	private int lec_curpeo;		//현재 수강인원
 	private String stu_grade;	//등급(A,B,C,D,F)
-	private double stu_score;	//성적(4.5점 만점) A+가 4.5 A가 4, B+=3.5, B=3
+	private double stu_score;	//점수 합계
 	private String stu_id;	//학생학번
 	private String stu_name;	//학생이름
 	private String dept_name;	//학과명

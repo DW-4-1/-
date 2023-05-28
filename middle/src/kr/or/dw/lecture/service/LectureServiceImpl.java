@@ -59,4 +59,9 @@ public class LectureServiceImpl implements ILectureService{
 		public List<LectureVO> getLectureStudentList(String lec_code) {
 			return dao.getLectureStudentList(lec_code);
 		}
+
+		@Override
+		public int updateScore(LectureVO lecVo) {
+			return dao.updateScore(lecVo);
+		}
 }

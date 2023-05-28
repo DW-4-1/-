@@ -18,17 +18,23 @@
 			let grade = "";
 			$('#sum').attr('value', sum);
 		});
+		
+		$('#cancelBtn').on('click', function(){
+			location.href="<%=request.getContextPath()%>/lecture/lectureScoreList.do";
+		})
 	})
 </script>
 </head>
 <body>
 <h2>수강생 목록</h2>
-<form id="scoreInsert" method="post">
 <%
 	String lec_code = request.getParameter("lecCode");
+	
+
 %>
-	<input type="hidden" name="lec_code" value="<%=lec_code%>">
-	<div style="width:1000px; height:50%; overflow:auto">
+<div style="width:1000px; height:50%; overflow:auto">
+	<form id="scoreInsert" method="post" action="<%=request.getContextPath()%>/lecture/scoreUpdate.do">
+		<input type="hidden" name="lec_code" value="<%=lec_code%>">
 		<table border="1" width="100%" cellspacing="0" cellpadding="0" >
 			<tr style="height: 50px;">
 				<th>학생학번</th>
@@ -41,22 +47,35 @@
 				<th>가산점</th>
 				<th>합계</th>
 				<th>등급</th>
+				<th>저장</th>
 			</tr>
 		<%
 			List<LectureVO> stuList = (List<LectureVO>)request.getAttribute("stuList");
+			String stu_grade = "";
 			for(LectureVO stu : stuList){
+				if(!stu.getStu_grade().equals("null")){
+		%>
+				<script>
+						$(function(){
+							$('#stu_grade').val('<%=stu.getStu_grade()%>').prop('selected',true);
+						})
+				</script>					
+					
+		<%
+				}
 		%>
 				
 			<tr style="text-align: center;">
 				<td><%=stu.getStu_id() %></td>
+				<input type="hidden" name="stu_id" value="<%=stu.getStu_id()%>">
 				<td><%=stu.getStu_name() %></td>
 				<td><%=stu.getDept_name() %></td>
-				<td><input id="middle" style="width: 40px;" type="number"></td>
-				<td><input id="final" style="width: 40px;" type="number"></td>
-				<td><input id="assign" style="width: 40px;" type="number"></td>
-				<td><input id="attend" style="width: 40px;" type="number"></td>
-				<td><input id="point" style="width: 40px;" type="number"></td>
-				<td><input id="sum" style="width: 40px;" type="text" readonly></td>
+				<td><input id="middle" style="width: 40px;" type="number" min="0"></td>
+				<td><input id="final" style="width: 40px;" type="number" min="0"></td>
+				<td><input id="assign" style="width: 40px;" type="number" min="0"></td>
+				<td><input id="attend" style="width: 40px;" type="number" min="0"></td>
+				<td><input id="point" style="width: 40px;" type="number" min="0"></td>
+				<td><input id="sum" name="stu_score" style="width: 40px;" type="text" value="<%=stu.getStu_score() %>" readonly></td>
 				<td>
 					<select id="stu_grade" name="stu_grade">
 						<option value="P">P</option>
@@ -71,14 +90,15 @@
 						<option value="F">F</option>
 					</select>
 				</td>
+				<td><input type="submit" value="저장하기"></td>
 			</tr>
 		<%
 			}
 		%>
 		</table>
-	</div>
 	<br>
-	<input type="submit" value="저장하기">
-</form>
+	</form>
+</div>
+<input type="button" value="뒤로가기" id="cancelBtn">
 </body>
 </html>

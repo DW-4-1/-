@@ -96,4 +96,10 @@
 		AND lec_code = #lec_code#
 	</select>
 	
+	<update id="updateScore" parameterClass="lecVO">
+		UPDATE lecture SET stu_score = #stu_score#, stu_grade = #stu_grade#
+		WHERE stu_id = #stu_id# 
+		AND lec_code = #lec_code#
+	</update>
+	
 </sqlMap>

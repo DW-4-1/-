@@ -51,4 +51,11 @@ public interface ILectureDao {
 	 */
 	List<LectureVO> getLectureStudentList(String lec_code);
 
+	/**
+	 * 점수입력 메서드
+	 * @param lecVo
+	 * @return
+	 */
+	int updateScore(LectureVO lecVo);
+
 }
