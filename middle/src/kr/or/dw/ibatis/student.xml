@@ -29,6 +29,10 @@
 	<update id="passwordUpdate" parameterClass="stuVO">
 		UPDATE students SET stu_pwd = #stu_pwd#
 	</update>
+	
+	<select id="idEmailCheck" parameterClass="stuVO" resultClass="int">
+		SELECT count(*) FROM students WHERE stu_id = #stu_id# AND stu_email = #stu_email#
+	</select>
 
 	
 </sqlMap>
