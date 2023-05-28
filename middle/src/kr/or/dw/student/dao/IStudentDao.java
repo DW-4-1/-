@@ -34,5 +34,6 @@ public interface IStudentDao {
 	 * @return
 	 */
 	public int studentInfoUpdate(StudentVO stuVo);
+	
 
 }

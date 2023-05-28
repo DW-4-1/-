@@ -27,7 +27,7 @@ public class UpdateInfoAction implements IAction{
 		String stu_id = (String) session.getAttribute("stu_id");
 		
 		StudentVO stuVo = new StudentVO();
-		stuVo = service.stdentInfoAction(stu_id);
+		stuVo = service.stdentInfo(stu_id);
 		req.setAttribute("stuVo", stuVo);
 		
 		return "/student/mymenu/updateInfo.jsp";

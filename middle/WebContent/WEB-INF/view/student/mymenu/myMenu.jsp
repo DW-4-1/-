@@ -19,13 +19,16 @@
   
   <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
   
+		<%
+			StudentVO stu = (StudentVO)request.getAttribute("stuVo");
+		%>
 <script>
 	$(function(){
 		$('#stuInfoUpdateBtn').on('click', function(){
 			location.href="<%=request.getContextPath()%>/student/updateInfo.do";
 		});
 		$('#passUpdateBtn').on('click', function(){
-			location.href="<%=request.getContextPath()%>/student/passwordUpdate.do";
+			location.href="<%=request.getContextPath()%>/student/passwordUpdate.do?stu_id=<%=stu.getStu_id()%>";
 		});
 	})
 </script>
@@ -54,7 +57,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link"">Home</a>
+        <a href="index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -319,9 +322,6 @@
 <div class="row invoice-info">
 <div class="col-6" id="text-center">
 	<div class="table-responsive">
-		<%
-			StudentVO stu = (StudentVO)request.getAttribute("stuVo");
-		%>
 		<table class="table">
 			<tbody>
 				<tr>

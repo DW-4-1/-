@@ -16,9 +16,10 @@
 	</select>
 	
 	<select id="studentInfo" parameterClass="String" resultClass="stuVO">
-		SELECT *
-		  FROM students
-		 WHERE stu_id = #stu_id#
+		SELECT s.*
+		  FROM students s, dept d 
+		 WHERE s.stu_id = #stu_id#
+		   AND s.dept_code = d.dept_code
 	</select>
 	
 	<select id="stuInfoUpdate" parameterClass="stuVO">

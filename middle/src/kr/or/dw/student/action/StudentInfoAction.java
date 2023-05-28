@@ -29,7 +29,7 @@ public class StudentInfoAction implements IAction{
 		
 		StudentVO stuVo = new StudentVO();
 		
-		stuVo = service.stdentInfoAction(stu_id);
+		stuVo = service.stdentInfo(stu_id);
 		req.setAttribute("stuVo", stuVo);
 		
 		return "/student/mymenu/myMenu.jsp";

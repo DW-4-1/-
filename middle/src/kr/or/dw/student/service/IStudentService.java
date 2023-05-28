@@ -25,7 +25,7 @@ public interface IStudentService {
 	 * 학생의 정보를 가져오는 메서드
 	 * @param stu_id
 	 */
-	public StudentVO stdentInfoAction(String stu_id);
+	public StudentVO stdentInfo(String stu_id);
 	
 	/**
 	 * 학생의 정보를 수정하는 메서드
@@ -33,5 +33,6 @@ public interface IStudentService {
 	 * @return
 	 */
 	public int StudentInfoUpdate(StudentVO stuVo);
+
 	
 }
