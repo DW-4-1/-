@@ -3,7 +3,6 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 
-<<<<<<< Updated upstream
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
@@ -57,13 +56,11 @@
         <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
-=======
 
 <div class="content">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="invoice p-3 mb-3 col-12">
->>>>>>> Stashed changes
 
 				<div class="row">
 					<div class="col-12">
@@ -78,9 +75,6 @@
 				<div class="row invoice-info">
 					<div class="col-6" id="text-center">
 						<div class="table-responsive">
-							<%
-							StudentVO stu = (StudentVO) request.getAttribute("stuVo");
-							%>
 							<table class="table">
 								<tbody>
 									<tr>
@@ -165,7 +159,6 @@
 				</div>
 
 
-<<<<<<< Updated upstream
     <!-- Main content -->
     
     <div class="content">
@@ -242,7 +235,6 @@
 			<button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
 				<i class="fas fa-download"></i>Generate PDF
 			</button>
-=======
 				<div class="row no-print">
 					<div class="col-12">
 						<button type="button" class="btn btn-success float-right">
@@ -258,7 +250,6 @@
 			<!-- /.row -->
 		</div>
 		<!-- /.container-fluid -->
->>>>>>> Stashed changes
 	</div>
 	<!-- /.content -->
 </div>
