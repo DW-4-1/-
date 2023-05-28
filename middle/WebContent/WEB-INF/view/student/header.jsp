@@ -1,313 +1,257 @@
 <%@page import="kr.or.dw.vo.StudentVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<script
-	src="<%=request.getContextPath()%>/assets/plugins/jquery/jquery.js"></script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>조낸 맞는거다..</title>
+<!doctype html>
+<html lang="ko" data-bs-theme="auto">
+  <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
 
-<!-- Google Font: Source Sans Pro -->
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-<!-- Font Awesome Icons -->
-<link rel="stylesheet"
-	href="<%= request.getContextPath() %>/assets/plugins/fontawesome-free/css/all.min.css">
-<!-- Theme style -->
-<link rel="stylesheet"
-	href="<%= request.getContextPath() %>/assets/dist/css/adminlte.min.css">
-<script>
-	  function changeImage(element) {
-	      var imagePath = element.getAttribute("src");
-	      var mainImage = document.getElementById("mainImage");
-	      mainImage.setAttribute("src", imagePath);
-	  }
-</script>
-<script>
-	$(function(){
-		$('#stuInfoUpdateBtn').on('click', function(){
-			location.href="<%=request.getContextPath()%>/student/updateInfo.do";
-		});
-		$('#passUpdateBtn').on('click', function(){
-			location.href="<%=request.getContextPath()%>/student/studentPasswordUpdate.do";
-		});
-	})
-	
-</script>
-<style>
-#text-center {
-	text-align: center;
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.111.3">
+    <title>Dashboard Template · Bootstrap v5.3</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
+
+    
+
+    
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#712cf9">
+
+
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+
+aside {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }
 
-#div-center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-}
-</style>
-</head>
-<body class="hold-transition sidebar-mini">
-	<div class="wrapper">
+    	
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
 
-		<!-- Navbar -->
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
 
-		<nav
-			class="main-header navbar navbar-expand navbar-light navbar-light">
-			<!-- Left navbar links -->
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
-					href="#" role="button"><i class="fas fa-bars"></i></a></li>
-				<li class="nav-item d-none d-sm-inline-block"><a
-					href="index3.html" class="nav-link">Home</a></li>
-				<li class="nav-item d-none d-sm-inline-block"><a href="#"
-					class="nav-link">Contact</a></li>
-			</ul>
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
 
-			<!-- Right navbar links -->
-			<ul class="navbar-nav ml-auto">
-				<!-- Navbar Search -->
-				<li class="nav-item"><a class="nav-link"
-					data-widget="navbar-search" href="#" role="button"> <i
-						class="fas fa-search"></i>
-				</a>
-					<div class="navbar-search-block">
-						<form class="form-inline">
-							<div class="input-group input-group-sm">
-								<input class="form-control form-control-navbar" type="search"
-									placeholder="Search" aria-label="Search">
-								<div class="input-group-append">
-									<button class="btn btn-navbar" type="submit">
-										<i class="fas fa-search"></i>
-									</button>
-									<button class="btn btn-navbar" type="button"
-										data-widget="navbar-search">
-										<i class="fas fa-times"></i>
-									</button>
-								</div>
-							</div>
-						</form>
-					</div></li>
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
 
-				<!-- Messages Dropdown Menu -->
-				<li class="nav-item dropdown"><a class="nav-link"
-					data-toggle="dropdown" href="#"> <i class="far fa-comments"></i>
-						<span class="badge badge-danger navbar-badge">3</span>
-				</a>
-					<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-						<a href="#" class="dropdown-item"> <!-- Message Start -->
-							<div class="media">
-								<img src="dist/img/user1-128x128.jpg" alt="User Avatar"
-									class="img-size-50 mr-3 img-circle">
-								<div class="media-body">
-									<h3 class="dropdown-item-title">
-										Brad Diesel <span class="float-right text-sm text-danger"><i
-											class="fas fa-star"></i></span>
-									</h3>
-									<p class="text-sm">Call me whenever you can...</p>
-									<p class="text-sm text-muted">
-										<i class="far fa-clock mr-1"></i> 4 Hours Ago
-									</p>
-								</div>
-							</div> <!-- Message End -->
-						</a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item"> <!-- Message Start -->
-							<div class="media">
-								<img src="dist/img/user8-128x128.jpg" alt="User Avatar"
-									class="img-size-50 img-circle mr-3">
-								<div class="media-body">
-									<h3 class="dropdown-item-title">
-										John Pierce <span class="float-right text-sm text-muted"><i
-											class="fas fa-star"></i></span>
-									</h3>
-									<p class="text-sm">I got your message bro</p>
-									<p class="text-sm text-muted">
-										<i class="far fa-clock mr-1"></i> 4 Hours Ago
-									</p>
-								</div>
-							</div> <!-- Message End -->
-						</a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item"> <!-- Message Start -->
-							<div class="media">
-								<img src="dist/img/user3-128x128.jpg" alt="User Avatar"
-									class="img-size-50 img-circle mr-3">
-								<div class="media-body">
-									<h3 class="dropdown-item-title">
-										Nora Silvester <span class="float-right text-sm text-warning"><i
-											class="fas fa-star"></i></span>
-									</h3>
-									<p class="text-sm">The subject goes here</p>
-									<p class="text-sm text-muted">
-										<i class="far fa-clock mr-1"></i> 4 Hours Ago
-									</p>
-								</div>
-							</div> <!-- Message End -->
-						</a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item dropdown-footer">See All
-							Messages</a>
-					</div></li>
-				<!-- Notifications Dropdown Menu -->
-				<li class="nav-item dropdown"><a class="nav-link"
-					data-toggle="dropdown" href="#"> <i class="far fa-bell"></i> <span
-						class="badge badge-warning navbar-badge">15</span>
-				</a>
-					<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-						<span class="dropdown-header">15 Notifications</span>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item"> <i
-							class="fas fa-envelope mr-2"></i> 4 new messages <span
-							class="float-right text-muted text-sm">3 mins</span>
-						</a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item"> <i
-							class="fas fa-users mr-2"></i> 8 friend requests <span
-							class="float-right text-muted text-sm">12 hours</span>
-						</a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item"> <i class="fas fa-file mr-2"></i>
-							3 new reports <span class="float-right text-muted text-sm">2
-								days</span>
-						</a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item dropdown-footer">See All
-							Notifications</a>
-					</div></li>
-				<li class="nav-item"><a class="nav-link"
-					data-widget="fullscreen" href="#" role="button"> <i
-						class="fas fa-expand-arrows-alt"></i>
-				</a></li>
-				<li class="nav-item"><a class="nav-link"
-					data-widget="control-sidebar" data-slide="true" href="#"
-					role="button"> <i class="fas fa-th-large"></i>
-				</a></li>
-			</ul>
-		</nav>
-		
-		<!-- /.navbar -->
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
 
-		<!-- Main Sidebar Container -->
-		<!--   사이드바 색상 후보 -->
-		<!--   sidebar-light-dark -->
-		<!--	sidebar-light-light -->
-		<!-- sidebar-light-secondary -->
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
 
-		<aside class="main-sidebar sidebar-light-dark elevation-2">
-			<!-- Brand Logo -->
-			<a href="index3.html" class="brand-link"> <img
-				src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
-				class="brand-image img-circle elevation-3" style="opacity: .8">
-				<span class="brand-text font-weight-dark">페이지명</span>
-			</a>
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
 
-			<!-- Sidebar -->
-			<div class="sidebar">
-				<!-- Sidebar user panel (optional) -->
-				<div class="user-panel mt-3 pb-3 mb-3 d-flex">
-					<div class="image">
-						<img src="dist/img/user2-160x160.jpg"
-							class="img-circle elevation-2" alt="User Image">
-					</div>
-					<div class="info">
-						<a href="#" class="d-block">OOO 학생</a>
-					</div>
-				</div>
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
 
-				<!-- SidebarSearch Form -->
-				<div class="form-inline">
-					<div class="input-group" data-widget="sidebar-search">
-						<input class="form-control form-control-sidebar" type="search"
-							placeholder="Search" aria-label="Search">
-						<div class="input-group-append">
-							<button class="btn btn-sidebar">
-								<i class="fas fa-search fa-fw"></i>
-							</button>
-						</div>
-					</div>
-				</div>
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+    </style>
 
-				<!-- Sidebar Menu -->
-				<nav class="mt-2">
-					<ul class="nav nav-pills nav-sidebar flex-column"
-						data-widget="treeview" role="menu" data-accordion="false">
-						<!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-						<li class="nav-item menu-open"><a id="myInfo" href="#"
-							class="nav-link active"> <i
-								class="nav-icon fas fa-tachometer-alt"></i>
-								<p>
-									내 정보 <i class="right fas fa-angle-left"></i>
-								</p>
-						</a>
-							<ul class="nav nav-treeview">
-								<li class="nav-item"><a
-									href="<%=request.getContextPath()%>/student/studentInfo.do"
-									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
-										<p>내 정보 수정</p>
-								</a></li>
-							</ul></li>
+    
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
 
-						<li id="lecture" class="nav-item menu-open"><a id="myInfo"
-							href="#" class="nav-link active"> <i
-								class="nav-icon fas fa-tachometer-alt"></i>
-								<p>
-									강의 관리 <i class="right fas fa-angle-left"></i>
-								</p>
-						</a>
-							<ul class="nav nav-treeview">
-								<li class="nav-item"><a
-									href="<%=request.getContextPath()%>/lecture/lectureList.do"
-									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
-										<p>수강 강의 조회</p>
-								</a></li>
-								<li class="nav-item"><a
-									href="<%=request.getContextPath()%>/lecture/gradeView.do"
-									class="nav-link active"> <i class="far fa-circle nav-icon"></i>
-										<p>성적 조회</p>
-								</a></li>
-							</ul></li>
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
 
-						<li class="nav-item menu-open"><a id="board" href="#"
-							class="nav-link active"> <i
-								class="nav-icon fas fa-tachometer-alt"></i>
-								<p>
-									게시판 <i class="right fas fa-angle-left"></i>
-								</p>
-						</a>
-							<ul class="nav nav-treeview">
-								<li class="nav-item"><a
-									href="<%=request.getContextPath()%>" class="nav-link active">
-										<i class="far fa-circle nav-icon"></i>
-										<p>공지사항</p>
-								</a></li>
-								<li class="nav-item"><a
-									href="<%=request.getContextPath()%>" class="nav-link active">
-										<i class="far fa-circle nav-icon"></i>
-										<p>문의게시판</p>
-								</a></li>
-							</ul></li>
-					</ul>
-				</nav>
-				<!-- /.sidebar-menu -->
-			</div>
-			<!-- /.sidebar -->
-		</aside>
+    
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#" style="text-align:center;">OO 종합정보시스템</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
+  <div class="navbar-nav">
+    <div class="nav-item text-nowrap">
+      <a class="nav-link px-3" href="#">Log out</a>
+    </div>
+  </div>
+</header>
 
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse">
+      <div class="position-sticky pt-3 sidebar-sticky">
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+            <span>사용자</span>
+            <a class="link-secondary" href="#" aria-label="Add a new report">
+            <span data-feather="plus-circle" class="align-text-bottom"></span>
+            </a>
+        </h6>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a id="myInfo" class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/student/studentInfo.do">
+                <span data-feather="home" class="align-text-bottom"></span>
+                내 정보 보기
+                </a>
+            </li>
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+            <span>조회</span>
+            <a class="link-secondary" href="#" aria-label="Add a new report">
+            <span data-feather="plus-circle" class="align-text-bottom"></span>
+            </a>
+        </h6>
+            <li class="nav-item">
+                <a class="nav-link" href="<%=request.getContextPath()%>/lecture/lectureList.do">
+                <span data-feather="file" class="align-text-bottom"></span>
+                수강 강의 조회
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<%=request.getContextPath()%>/lecture/gradeView.do">
+                <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                성적 조회
+                </a>
+            </li>
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+            <span>게시판</span>
+            <a class="link-secondary" href="#" aria-label="Add a new report">
+            <span data-feather="plus-circle" class="align-text-bottom"></span>
+            </a>
+        </h6>
+            <li class="nav-item">
+                <a class="nav-link" href="<%=request.getContextPath()%>" class="nav-link active">
+                <span data-feather="users" class="align-text-bottom"></span>
+                공지사항
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<%=request.getContextPath()%>" class="nav-link active">
+                <span data-feather="bar-chart-2" class="align-text-bottom"></span>
+                문의게시판
+                </a>
+            </li>
+        </ul>
+      </div>
+    </nav>
 
-		<!-- Content Wrapper. Contains page content -->
-		<div class="content-wrapper" style="min-height: 635px;">
-			<!-- Content Header (Page header) -->
-			<!-- /.content-header -->
-
-
-			<section class="content-header" style="padding:3.8px 0.5rem;">
-				<div class="container-fluid">
-					<div class="row mb-20">
-					</div>
-				</div>
-			</section>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Dashboard</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+          </div>
+          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            <span data-feather="calendar" class="align-text-bottom"></span>
+            This week
+          </button>
+        </div>
+      </div>
