@@ -124,7 +124,6 @@
 			</div>
 			</section>
 			<!-- /.container-fluid -->
-		</div>
 		<!-- /.content -->
 	<!-- /.content-wrapper -->
 		<!-- Control Sidebar -->
