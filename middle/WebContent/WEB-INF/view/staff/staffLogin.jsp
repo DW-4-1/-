@@ -62,7 +62,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</a>
 				</div>
 				<div class="social-auth-links text-center mb-3">
-					<a href="/staff/staffLoginForm.do" class="btn btn-outline-primary btn-block"> 
+					<a href="/" class="btn btn-outline-primary btn-block"> 
 						<i class="fab fa-google-plus mr-2"></i> 학생 로그인 페이지로 이동
 					</a>
 				</div>
