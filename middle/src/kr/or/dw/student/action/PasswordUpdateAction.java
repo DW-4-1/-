@@ -39,7 +39,7 @@ public class PasswordUpdateAction implements IAction{
 		req.setAttribute("stu_pwd", stu_pwd);
 		
 		
-		return null;
+		return "/student/mymenu/myMenu.jsp";
 	}
 
 }
