@@ -1,3 +1,5 @@
+<%@page import="java.security.NoSuchAlgorithmException"%>
+<%@page import="kr.or.dw.util.CryptoUtil"%>
 <%@page import="kr.or.dw.vo.StudentVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -34,8 +36,8 @@
 			}
 		});
 		stuPwd.on('keyup', function(){
-			let stu_pwd = stuPwd.val();
-			if(stu_pwd == <%=stu.getStu_pwd()%>){
+			let stu_pass = stuPwd.val();
+			if(stu_pass == stu_pwd || hashedPass.equals("<%=stu.getStu_pwd()%>")){
 				pwdFlag = true;
 				console.log(pwdFlag);
 			}else{
