@@ -34,5 +34,12 @@ public interface IStudentService {
 	 */
 	public int StudentInfoUpdate(StudentVO stuVo);
 
+	/**
+	 * 패스워드를 업데이트하는 메서드입니다.
+	 * @param stuVo
+	 * @return
+	 */
+	public int passwordUpdate(StudentVO stuVo);
+
 	
 }

@@ -78,5 +78,18 @@ private static StudentDaoImpl dao;
 		return cnt;
 	}
 
+	@Override
+	public int passwordUpdate(StudentVO stuVo) {
+		int cnt = 0;
+		
+		try {
+			cnt = smc.update("student.passwordUpdate", stuVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+
 	
 }

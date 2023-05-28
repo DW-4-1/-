@@ -22,9 +22,13 @@
 		   AND s.dept_code = d.dept_code
 	</select>
 	
-	<select id="stuInfoUpdate" parameterClass="stuVO">
+	<update id="stuInfoUpdate" parameterClass="stuVO">
 		UPDATE students SET 
-	</select>
+	</update>
+
+	<update id="passwordUpdate" parameterClass="stuVO">
+		UPDATE students SET stu_pwd = #stu_pwd#
+	</update>
 
 	
 </sqlMap>

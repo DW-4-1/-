@@ -15,24 +15,40 @@
 		let stu_id = "<%=stu.getStu_id()%>"
 		let stu_pwd = "<%=stu.getStu_pwd()%>"
 		
+		let pwdChk = false;
+		let pwdFlag = false;
 		
-		$('#saveBtn').on('click', function(e){
-			if($('input[name=stu_pwd]') != stu_pwd){
-				alert('현재 비밀번호가 일치하지 않습니다.');
-				e.prevaentDefault();
-			}else if($('input[name=stu_pwd]') == stu_pwd){
-				if($('input[name=stu_pwdChange]') != $('input[name=stu_pwdChcek]')){
-				alert('변경한 비밀번호가 일치하지 않습니다.');
-				e.prevaentDefault();
-				}
-			}else if($('input[name=stu_pwdChange]') == stu_pwd){
-				alert('변경한 비밀번호가 현재 비밀번호와 일치합니다. 다른 비밀번호를 입력해주세요');
-				e.prevaentDefault();				
-			};
+		let pwdCheck = $('input[name=stu_pwdCheck]');
+		let pwdChange = $('input[name=stu_pwdChange]');
+		let stuPwd = $('input[name=stu_pwd]');
+		
+		pwdCheck.on('keyup', function(){
+			let pwdCheckVal = pwdCheck.val();
+			let pwdVal = pwdChange.val();
+			if(pwdVal == pwdCheckVal){
+				pwdChk = true;
+			}else{
+				pwdChk = false;
+			}
+		});
+		stuPwd.on('keyup', function(){
+			let stu_pwd = stuPwd.val();
+			if(stu_pwd == <%=stu.getStu_pwd()%>){
+				pwdFlag = true;
+			}else{
+				pwdFlag = false;
+			}
 		});
 		
-		
-		
+		$('#save').on('submit', function(e){
+			if(!(pwdChk = true) || !(pwdFlag == true)){
+				alert('비밀번호가 틀린 부분이 있습니다. 다시 입력해주세요.');
+				e.preventDefault();
+			}else{
+				alert('비밀번호 변경이 완료 되었습니다.');
+			}
+			
+		});
 		
 		$('#resetBtn').on('click', function(){
 			location.href = "<%=request.getContextPath()%>/student/studentInfo.do";
@@ -41,7 +57,7 @@
 </script>
 </head>
 <body>
-	<form method="post" action="<%=request.getContextPath()%>/student/passwordUpdate.do">
+	<form method="post" id="save" action="<%=request.getContextPath()%>/student/passwordUpdate.do">
 	<table>
 		<tr>
 			<th>현재 비밀번호</th>
@@ -53,11 +69,11 @@
 		</tr>
 		<tr>
 			<th>비밀번호 확인</th>
-			<td><input type="text" name="stu_pwdChcek" ></td>
+			<td><input type="text" name="stu_pwdCheck" ></td>
 		</tr>
 	</table>
-	</form>
 		<input type="submit" id="saveBtn" value="저장">
 		<input type="button" id="resetBtn" value="취소">
+	</form>
 </body>
 </html>
