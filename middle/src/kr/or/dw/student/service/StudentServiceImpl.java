@@ -49,4 +49,9 @@ public class StudentServiceImpl implements IStudentService{
 		return dao.passwordUpdate(stuVo);
 	}
 
+	@Override
+	public int idEmailCheck(StudentVO stuVo) {
+		return dao.idEmailCheck(stuVo);
+	}
+
 }

@@ -41,5 +41,12 @@ public interface IStudentService {
 	 */
 	public int passwordUpdate(StudentVO stuVo);
 
+	/**
+	 * 비밀번호 찾을 때 아이디와 이메일이 일치하는지 확인하느 메서드
+	 * @param stuVo
+	 * @return
+	 */
+	public int idEmailCheck(StudentVO stuVo);
+
 	
 }

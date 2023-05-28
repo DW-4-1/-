@@ -91,5 +91,17 @@ private static StudentDaoImpl dao;
 		return cnt;
 	}
 
+	@Override
+	public int idEmailCheck(StudentVO stuVo) {
+		int result = 0;
+		try {
+			result = (int) smc.queryForObject("student.idEmailCheck", stuVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 	
 }
