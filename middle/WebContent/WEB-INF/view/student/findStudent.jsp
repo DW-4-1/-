@@ -43,8 +43,7 @@
 		
 		$(document).on('click', '#verCodeBtn', function(e) {
 			if($('#ver_code').val() == ver_code){
-				alert("인증코드 일치");
-<%-- 			location.href="<%=request.getContextPath()%>/student/passwordUpdate.do?stu_id=" + $('#stu_id').val(); --%>
+			location.href="<%=request.getContextPath()%>/student/studentPasswordUpdate.do";
 		}else{
 			alert("인증코드가 잘못입력되었습니다.");
 		}
