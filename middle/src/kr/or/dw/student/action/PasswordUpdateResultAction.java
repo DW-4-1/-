@@ -42,16 +42,17 @@ public class PasswordUpdateResultAction implements IAction{
 			e.printStackTrace();
 		}
 		
-		if (hashedPass == stuVo.getStu_pwd() || stu_pass == stuVo.getStu_pwd()) {
+		if(hashedPass.equals(stuVo.getStu_pwd()) || stu_pass.equals(stuVo.getStu_pwd())) {
 			result = 1;
 		}
-		if(stu_passCge == stu_passChk) {
+		if(stu_passCge.equals(stu_passChk)) {
 			success = 1;
+			session.getAttribute(stu_passCge);
 		}
 		
 		req.setAttribute("passResult", result);
 		req.setAttribute("passSuccess", success);
-		
+		req.setAttribute("stuPass", stu_passCge);
 		
 		
 		return "/student/mymenu/passwordUpdateResult.jsp";

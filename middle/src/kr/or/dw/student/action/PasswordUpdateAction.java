@@ -27,7 +27,7 @@ public class PasswordUpdateAction implements IAction{
 		
 		StudentVO stuVo = new StudentVO();
 		
-		String stu_pass = req.getParameter("stu_pwdChange");
+		String stu_pass = (String) req.getParameter("pwd");
 		
 		try {
 			stu_pass = CryptoUtil.sha512(stu_pass);
@@ -39,7 +39,7 @@ public class PasswordUpdateAction implements IAction{
 		req.setAttribute("stu_pwd", stu_pwd);
 		
 		
-		return "/student/mymenu/myMenu.jsp";
+		return "/student/studentInfo.do";
 	}
 
 }
