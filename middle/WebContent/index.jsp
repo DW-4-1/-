@@ -23,8 +23,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/dist/css/adminlte.min.css">
 </head>
+<style>
+	.transparent-image img {
+  opacity: 0.5;
+}
+</style>
 
-<body class="login-page" style="min-height: 496.797px;">
+<body class="login-page" style="min-height: 496.797px; background-image: url('img/행정관.jpg'); background-size: cover;">
 	<div class="login-box">
 		<div class="login-logo">
 			<a href="../../index2.html"><b>Project</b>&nbsp;Page</a>

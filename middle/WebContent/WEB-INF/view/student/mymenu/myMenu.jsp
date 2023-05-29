@@ -22,8 +22,7 @@ StudentVO stu = (StudentVO) request.getAttribute("stuVo");
 			<div class="row">
 				<div class="col-12 col-sm-12">
 					<h4>
-						<i class="fas fa-globe" class="m-0"> </i> 내 정보 확인 <small
-							class="float-right">Date: 2/10/2014</small> <br> <br>
+						<i class="fas fa-globe" class="m-0"> </i> 내 정보 확인 
 					</h4>
 				</div>
 
@@ -99,7 +98,7 @@ StudentVO stu = (StudentVO) request.getAttribute("stuVo");
 				</div>
 			</div>
 
-			<div class="col-12" id="text-center">
+			<div class="col-12" id="text-center" style="text-align:center;">
 				<p class="lead">Payment Methods:</p>
 				<p class="text-muted well well-sm shadow-none"
 					style="margin-top: 10px;">

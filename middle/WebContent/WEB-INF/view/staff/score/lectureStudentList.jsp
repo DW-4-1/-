@@ -2,10 +2,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+<%@ include file="../header.jsp" %>
+
 <title>강의수강 학생 리스트</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
 <script>
@@ -30,8 +28,6 @@
 <h2>수강생 목록</h2>
 <%
 	String lec_code = request.getParameter("lecCode");
-	
-
 %>
 <div style="width:1000px; height:50%; overflow:auto">
 	<form id="scoreInsert" method="post" action="<%=request.getContextPath()%>/lecture/scoreUpdate.do">
@@ -101,5 +97,5 @@
 	</form>
 </div>
 <input type="button" value="뒤로가기" id="cancelBtn">
-</body>
-</html>
+
+<%@ include file="../footer.jsp" %>
