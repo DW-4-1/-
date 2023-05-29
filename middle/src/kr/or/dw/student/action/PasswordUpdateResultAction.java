@@ -44,9 +44,11 @@ public class PasswordUpdateResultAction implements IAction{
 		
 		if (hashedPass == stuVo.getStu_pwd() || stu_pass == stuVo.getStu_pwd()) {
 			result = 1;
-		}else if(stu_passCge == stu_passChk) {
+		}
+		if(stu_passCge == stu_passChk) {
 			success = 1;
 		}
+		
 		req.setAttribute("passResult", result);
 		req.setAttribute("passSuccess", success);
 		
