@@ -3,6 +3,7 @@
 	pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="ko" data-bs-theme="auto">
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
   <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
