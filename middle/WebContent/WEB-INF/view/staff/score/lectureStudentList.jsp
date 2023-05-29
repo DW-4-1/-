@@ -12,7 +12,14 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
 <script>
 	$(function(){
-		
+		$('input[type=number]').on('change', function(){
+			let sum = 0;
+			for(let i = 0; i < $(this).parents('tr').find('input[type=number]').length; i++){
+				sum += +$(this).parents('tr').find('input[type=number]').eq(i).val();
+				console.log(sum);
+			}
+			$(this).parents('tr').find('input[name=stu_score]').attr('value', sum);
+		});
 		
 		$('#cancelBtn').on('click', function(){
 			location.href="<%=request.getContextPath()%>/lecture/lectureScoreList.do";
@@ -55,14 +62,7 @@
 							
 							$('#<%=stu.getStu_id()%>').find('.stu_grade').val(stu_grade).prop('selected', true);
 			
-							$('input[type=number]').on('change', function(){
-								let sum = 0;
-								for(let i = 0; i < $(this).parents('tr').find('input[type=number]').length; i++){
-									sum += +$(this).parents('tr').find('input[type=number]').eq(i).val();
-									console.log(sum);
-								}
-								$(this).parents('tr').find('input[name=stu_score]').attr('value', sum);
-							});
+
 						})
 				</script>					
 					
