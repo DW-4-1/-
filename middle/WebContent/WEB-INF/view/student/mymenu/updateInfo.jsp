@@ -82,11 +82,6 @@
 				<input type="hidden" name="stu_deptname" value="<%=stu.getDept_name() %>">
 			</tr>
 			<tr>
-				<th>학과코드</th>
-				<td><%=stu.getDept_code() %></td>
-				<input type="hidden" name="stu_deptcode" value="<%=stu.getDept_code() %>">
-			</tr>
-			<tr>
 				<th>전화번호</th>
 				<td><input type="text" name="stu_tel" value="<%=stu.getStu_tel() %>"></td>
 			</tr>

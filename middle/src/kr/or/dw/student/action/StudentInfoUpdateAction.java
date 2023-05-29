@@ -37,7 +37,7 @@ public class StudentInfoUpdateAction implements IAction{
 
 		IStudentService service = StudentServiceImpl.getInstance();
 		service.StudentInfoUpdate(stuVo);
-		return null;
+		return "/student/studentInfo.do";
 	}
 
 }

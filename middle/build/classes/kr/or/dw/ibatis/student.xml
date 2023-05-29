@@ -16,14 +16,17 @@
 	</select>
 	
 	<select id="studentInfo" parameterClass="String" resultClass="stuVO">
-		SELECT s.*
+		SELECT s.*, d.dept_name
 		  FROM students s, dept d 
 		 WHERE s.stu_id = #stu_id#
 		   AND s.dept_code = d.dept_code
 	</select>
 	
 	<update id="stuInfoUpdate" parameterClass="stuVO">
-		UPDATE students SET 
+		UPDATE students SET stu_addr = #stu_addr#
+						   ,stu_zipcode = #stu_zipcode#
+						   ,stu_tel = #stu_tel#
+		 WHERE stu_id = #stu_id#
 	</update>
 
 	<update id="passwordUpdate" parameterClass="stuVO">
