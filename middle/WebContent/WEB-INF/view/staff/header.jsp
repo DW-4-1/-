@@ -194,7 +194,9 @@ aside {
   <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="#">Log out</a>
+      <a id="logout"class="nav-link px-3" href="<%=request.getContextPath()%>/staff/staffLogout.do">
+      	Log out
+      </a>
     </div>
   </div>
 </header>
@@ -203,38 +205,50 @@ aside {
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse">
       <div class="position-sticky pt-3 sidebar-sticky">
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
-            <span>사용자</span>
+        <h6  id="stu_managing" class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+            <span>학생 관리</span>
             <a class="link-secondary" href="#" aria-label="Add a new report">
             <span data-feather="plus-circle" class="align-text-bottom"></span>
             </a>
         </h6>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a id="myInfo" class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/student/studentInfo.do">
+                <a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/staff/studentCRUD.do">
                 <span data-feather="home" class="align-text-bottom"></span>
-                내 정보 보기
+                학생 추가 수정 삭제
                 </a>
             </li>
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
-            <span>조회</span>
+        <h6  id="lecture" class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+            <span>강의</span>
             <a class="link-secondary" href="#" aria-label="Add a new report">
             <span data-feather="plus-circle" class="align-text-bottom"></span>
             </a>
         </h6>
             <li class="nav-item">
-                <a class="nav-link" href="<%=request.getContextPath()%>/lecture/lectureList.do">
+                <a class="nav-link" href="<%=request.getContextPath()%>/lecture/lectureInsertForm.do">
                 <span data-feather="file" class="align-text-bottom"></span>
-                수강 강의 조회
+                강의 등록
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<%=request.getContextPath()%>/lecture/gradeView.do">
+                <a class="nav-link" href="<%=request.getContextPath()%>/lecture/lectureManaging.do">
                 <span data-feather="shopping-cart" class="align-text-bottom"></span>
-                성적 조회
+                강의 관리
                 </a>
             </li>
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+        <h6 id="score" class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+            <span>성적</span>
+            <a class="link-secondary" href="#" aria-label="Add a new report">
+            <span data-feather="plus-circle" class="align-text-bottom"></span>
+            </a>
+        </h6>
+            <li class="nav-item">
+                <a class="nav-link" href="<%=request.getContextPath()%>/lecture/lectureScoreList.do">
+                <span data-feather="file" class="align-text-bottom"></span>
+                성적 등록
+                </a>
+            </li>
+        <h6 id="board" class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
             <span>게시판</span>
             <a class="link-secondary" href="#" aria-label="Add a new report">
             <span data-feather="plus-circle" class="align-text-bottom"></span>

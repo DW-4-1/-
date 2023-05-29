@@ -1,10 +1,8 @@
 <%@page import="kr.or.dw.vo.StudentVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+<%@ include file="header.jsp" %>
+
 <title>메인화면</title>
 </head>
 <body>
@@ -20,28 +18,21 @@
 	<%
 		}
 	%>
-	
-	<h2>메인 페이지입니다.</h2>
-	
-	<li id="logout">
-		<a href="<%=request.getContextPath()%>/staff/staffLogout.do">로그아웃</a>
-	</li>
-	<li id="stu_managing">학생관리
-		<ul><a href="<%=request.getContextPath()%>/staff/studentCRUD.do">학생 추가 수정 삭제</a></ul>
-	</li>
-	<li id="lecture">강의관리
-		<ul><a href="<%=request.getContextPath()%>/lecture/lectureInsertForm.do">강의 등록</a></ul>
-		<ul><a href="<%=request.getContextPath()%>/lecture/lectureManaging.do">강의 관리</a></ul>
-	</li>
-	<li id="score">성적관리
-		<ul><a href="<%=request.getContextPath()%>/lecture/lectureScoreList.do">성적등록</a></ul>
-	</li>
-	<li id="board">게시판
-		<ul><a href="<%=request.getContextPath()%>">공지사항</a></ul>
-		<ul><a href="<%=request.getContextPath()%>">문의게시판</a></ul>
-	</li>
-</body>
-<script>
-	
-</script>
-</html>
+
+	<main>
+		<div
+			class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
+			<div class="col-md-5 p-lg-5 mx-auto my-5">
+				<h1 class="display-4 fw-normal">교수 및 관리자</h1>
+				<p class="lead fw-normal">And an even wittier subheading to
+					boot. Jumpstart your marketing efforts with this example based on
+					Apple’s marketing pages.</p>
+				<a class="btn btn-outline-secondary" href="#">Coming soon</a>
+			</div>
+			<div class="product-device shadow-sm d-none d-md-block"></div>
+			<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+		</div>
+		<hr>
+	</main>
+
+<%@ include file="footer.jsp" %>
