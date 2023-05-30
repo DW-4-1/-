@@ -127,6 +127,19 @@ private static LectureDaoImpl dao;
 		}
 		return result;
 	}
+
+	@Override
+	public int updatePlanFile(LectureVO lecVo) {
+		int result = 0;
+		try {
+			result = smc.update("lecture.updatePlanFile", lecVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 	
 	
 	

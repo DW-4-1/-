@@ -102,4 +102,8 @@
 		AND lec_code = #lec_code#
 	</update>
 	
+	<update id="updatePlanFile" parameterClass="lecVO">
+		UPDATE all_lecturelist SET plan_path = #plan_path# WHERE lec_code = #lec_code#
+	</update>
+	
 </sqlMap>

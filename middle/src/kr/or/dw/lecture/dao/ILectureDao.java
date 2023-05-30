@@ -58,4 +58,11 @@ public interface ILectureDao {
 	 */
 	int updateScore(LectureVO lecVo);
 
+	/**
+	 * 강의계획안 업로드 메서드
+	 * @param lecVo
+	 * @return
+	 */
+	int updatePlanFile(LectureVO lecVo);
+
 }

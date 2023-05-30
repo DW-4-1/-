@@ -64,4 +64,9 @@ public class LectureServiceImpl implements ILectureService{
 		public int updateScore(LectureVO lecVo) {
 			return dao.updateScore(lecVo);
 		}
+
+		@Override
+		public int updatePlanFile(LectureVO lecVo) {
+			return dao.updatePlanFile(lecVo);
+		}
 }

@@ -1,5 +1,6 @@
 package kr.or.dw.lecture.action;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -7,6 +8,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.oreilly.servlet.MultipartRequest;
 
 import kr.or.dw.lecture.service.ILectureService;
 import kr.or.dw.lecture.service.LectureServiceImpl;
@@ -73,6 +76,7 @@ public class LectureInsertAction implements IAction{
 			lecVo.setLec_term(lec_term);
 			lecVo.setLec_time(lec_time);
 			lecVo.setLec_year(lec_year);
+			
 			
 			result += service.insertLecture(lecVo);
 		}

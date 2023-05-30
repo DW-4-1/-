@@ -54,15 +54,15 @@
 			<input type="hidden" id="lec_code" name="lec_code" value="<%=lecCode %>">
 			<tr>
 				<td>강의명</td>
-				<td><input type="text" id="lec_name" name="lec_name" value="<%=lecName %>"></td>
+				<td><input type="text" id="lec_name" name="lec_name" value="<%=lecName %>" required></td>
 			</tr>
 			<tr>
 				<td>강의실</td>
-				<td><input type="text" id="lec_loc" name="lec_loc" value="<%=lecLoc %>"></td>
+				<td><input type="text" id="lec_loc" name="lec_loc" value="<%=lecLoc %>" required></td>
 			</tr>
 			<tr>
 				<td>강의년도</td>
-				<td><input type="text" id="lec_year" name="lec_year" placeholder="YYYY" value="<%=lecYear %>"></td>
+				<td><input type="text" id="lec_year" name="lec_year" placeholder="YYYY" value="<%=lecYear %>" required></td>
 			</tr>
 			<tr>
 				<td>강의학기</td>
@@ -121,7 +121,7 @@
 			</tr>
 			<tr>
 				<td>최대 수강인원</td>
-				<td><input type="text" id="lec_maxpeo" name="lec_maxpeo" placeholder="숫자만 기재해주세요." value="<%=lecMaxPeo %>"></td>
+				<td><input type="text" id="lec_maxpeo" name="lec_maxpeo" placeholder="숫자만 기재해주세요." value="<%=lecMaxPeo %>" required></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="<%=title%>"></td>
