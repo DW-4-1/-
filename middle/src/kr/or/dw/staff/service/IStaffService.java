@@ -1,7 +1,10 @@
 package kr.or.dw.staff.service;
 
+import java.util.List;
+
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StaffVO;
+import kr.or.dw.vo.StudentVO;
 
 public interface IStaffService {
 
@@ -20,5 +23,11 @@ public interface IStaffService {
 	 * @return
 	 */
 	public int idEmailCheck(StaffVO staffVo);
+	
+	/**
+	 * 모든 학생들을 불러오는 메서드
+	 * @return
+	 */
+	public List<StudentVO> getAllStudentList();
 	
 }

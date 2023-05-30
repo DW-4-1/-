@@ -30,8 +30,8 @@ public class StudentServiceImpl implements IStudentService{
 	}
 
 	@Override
-	public StudentVO getAllStudentInfo(String stu_id) {
-		return dao.getAllStudentInfo(stu_id);
+	public List<StudentVO> getAllStudentInfo() {
+		return dao.getAllStudentInfo();
 	}
 
 	@Override

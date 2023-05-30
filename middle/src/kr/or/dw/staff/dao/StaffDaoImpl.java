@@ -1,12 +1,14 @@
 package kr.or.dw.staff.dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 import kr.or.dw.util.BuildSqlMapClient;
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StaffVO;
+import kr.or.dw.vo.StudentVO;
 
 public class StaffDaoImpl implements IStaffDao{
 private static StaffDaoImpl dao;
@@ -57,6 +59,19 @@ private static StaffDaoImpl dao;
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	@Override
+	public List<StudentVO> getAllStudentList() {
+		
+		List<StudentVO> stuVoList = null;
+		
+		try {
+			stuVoList = smc.queryForList("staff.getAllStudentList");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return stuVoList;
 	}
 
 

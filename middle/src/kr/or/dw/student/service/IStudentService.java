@@ -19,7 +19,7 @@ public interface IStudentService {
 	 * @param stu_id 
 	 * @return
 	 */
-	public StudentVO getAllStudentInfo(String stu_id);
+	public List<StudentVO> getAllStudentInfo();
 	
 	/**
 	 * 학생의 정보를 가져오는 메서드

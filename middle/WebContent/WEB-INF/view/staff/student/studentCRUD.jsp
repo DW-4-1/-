@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="kr.or.dw.vo.StudentVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -5,69 +6,57 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>학생관리 페이지 입니다.</title>
+<title>학생관리 페이지입니다.</title>
 </head>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
 <%
-	StudentVO stuVo = new StudentVO();
+	List<StudentVO> stuVoList = (List)request.getAttribute("stuVoList");
 %>
-
-
+<script>
+	$(function(){
+		$('#studentInsertBtn').on('click', function(){
+			location.href = "/staff/stdentInsert.do"
+		});
+		
+	})
+</script>
 <body>
+<% for(StudentVO stuVo : stuVoList) {%>
 	<form>
-		<table>
+		<table border="1">
 			<tr>
 				<th>ID</th>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
 				<th>이름</th>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
 				<th>성별</th>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
 				<th>주민등록번호</th>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
 				<th>주소</th>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
 				<th>우편번호</th>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
 				<th>학과</th>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
 				<th>전화번호</th>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
 				<th>이메일</th>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
 				<th>상태</th>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
 				<th>졸업예정일</th>
-				<td><input type="text"></td>
-			</tr>
-			<tr>
 				<th>직분</th>
-				<td><input type="text"></td>
+				<th>비밀번호</th>
 			</tr>
 			<tr>
-				<th>비밀번호</th>
-				<td><input type="text"></td>
+				<td><%=stuVo.getStu_id()%></td>
+				<td><%=stuVo.getStu_name()%></td>
+				<td><%=stuVo.getStu_gender()%></td>
+				<td><%=stuVo.getStu_resnum()%></td>
+				<td><%=stuVo.getStu_addr()%></td>
+				<td><%=stuVo.getStu_zipcode()%></td>
+				<td><%=stuVo.getDept_name()%></td>
+				<td><%=stuVo.getStu_tel()%></td>
+				<td><%=stuVo.getStu_email()%></td>
+				<td><%=stuVo.getStu_state()%></td>
+				<td><%=stuVo.getStu_grddate()%></td>
+				<td><%=stuVo.getAuth_cd()%></td>
+				<td><%=stuVo.getStu_pwd()%></td>
 			</tr>
 		</table>
 	</form>
+	<%	 }	 %>
+	<input type="button" id="studentInsertBtn" value="학생추가">
 </body>
 </html>
