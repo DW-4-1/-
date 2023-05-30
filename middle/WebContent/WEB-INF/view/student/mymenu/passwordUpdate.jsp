@@ -3,11 +3,8 @@
 <%@page import="kr.or.dw.vo.StudentVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
+<%@ include file="../header.jsp"%>
+
 <title>초기 비밀번호 변경 페이지입니다.</title>
 <script>
 	<%
@@ -57,24 +54,44 @@
 	})
 </script>
 </head>
+<style>
+	*, ::after, ::before {
+    	box-sizing: border-box;
+	}
+	.center-input {
+        display: flex;
+        justify-content: right;
+        margin-right: 4.5em;
+    }
+    input + input {
+		margin-left: 0.3em;
+	}
+</style>
 <body>
-	<form method="post" id="save" action="<%=request.getContextPath()%>/student/passwordUpdateResult.do">
-	<table>
-		<tr>
-			<th>현재 비밀번호</th>
-			<td><input type="text" name="stu_pwd" ></td>
-		</tr>
-		<tr>
-			<th>변경 할 비밀번호</th>
-			<td><input type="text" name="stu_pwdChange" ></td>
-		</tr>
-		<tr>
-			<th>비밀번호 확인</th>
-			<td><input type="text" name="stu_pwdCheck" ></td>
-		</tr>
-	</table>
-		<input type="submit" id="saveBtn" value="저장">
-		<input type="button" id="resetBtn" value="취소">
-	</form>
-</body>
-</html>
+
+	<div class="w-50 p-3 m-auto" style="margin-top:5em;">
+		<main class="form-signin w-100 m-auto">
+			<form method="post" id="save" action="<%=request.getContextPath()%>/student/passwordUpdateResult.do">
+				<h1 class="h3 mb-3 fw-normal" style="text-align: center;">비밀번호 변경</h1>
+				<div class="form-floating w-75 m-auto">
+					<input type="password" name="stu_pwd" class="form-control" placeholder="현재 비밀번호"> 
+						<label for="floatingInput">현재 비밀번호</label>
+				</div>
+				<div class="form-floating w-75 m-auto">
+					<input type="password" name="stu_pwdChange" class="form-control" placeholder="변경 비밀번호"> 
+					<label for="floatingPassword">변경 비밀번호</label>
+				</div>
+				<div class="form-floating w-75 m-auto">
+					<input type="password" name="stu_pwdCheck" class="form-control" placeholder="비밀번호 확인"> 
+					<label for="floatingPassword">비밀번호 확인</label>
+				</div>
+				<br>
+				<div class="center-input">
+				<input class="w-10 btn btn-lg btn-primary" type="submit" id="saveBtn" value="저장"> 
+				<input class="w-10 btn btn-lg btn-primary" type="submit" id="resetBtn" value="취소">
+				</div>
+			</form>
+		</main>
+	</div>
+
+	<%@ include file="../footer.jsp"%>
