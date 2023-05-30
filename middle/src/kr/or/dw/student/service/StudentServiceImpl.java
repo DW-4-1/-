@@ -55,7 +55,7 @@ public class StudentServiceImpl implements IStudentService{
 	}
 
 	@Override
-	public int studentInsert(StudentVO stuVo) {
+	public List<StudentVO> studentInsert(StudentVO stuVo) {
 		return dao.studentInsert(stuVo);
 	}
 

@@ -74,5 +74,19 @@ private static StaffDaoImpl dao;
 		return staVoList;
 	}
 
+	@Override
+	public List<StaffVO> getDept() {
+		List<StaffVO> staVo = null;
+		
+		try {
+			staVo = smc.queryForList("staff.getDept");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+				
+		
+		return staVo;
+	}
+
 
 }

@@ -53,7 +53,7 @@ public interface IStudentDao {
 	 * 학생을 추가하는 메서드
 	 * @param stuVo
 	 */
-	public int studentInsert(StudentVO stuVo);
+	public List<StudentVO> studentInsert(StudentVO stuVo);
 
 	/**
 	 * 학과코드와 이름을 가져오는 메서드

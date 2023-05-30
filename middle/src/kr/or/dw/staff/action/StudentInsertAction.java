@@ -2,6 +2,7 @@ package kr.or.dw.staff.action;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -23,10 +24,8 @@ public class StudentInsertAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		IStudentService service = StudentServiceImpl.getInstance();
 		StudentVO stuVo = new StudentVO();
 		BeanUtils bean = new BeanUtils();
-		
 		try {
 			bean.populate(stuVo, req.getParameterMap());
 		} catch (IllegalAccessException e) {
@@ -35,12 +34,14 @@ public class StudentInsertAction implements IAction{
 			e.printStackTrace();
 		}
 		
-		service.studentInsert(stuVo);
+		IStudentService service = StudentServiceImpl.getInstance();
+		List<StudentVO> vo = null;
+				
+		vo = service.studentInsert(stuVo);
 		
 		
-		
-		
-		return null;
+		req.setAttribute("stuVoList", vo);
+		return "/staff/studentCRUD.do";
 	}
 
 }

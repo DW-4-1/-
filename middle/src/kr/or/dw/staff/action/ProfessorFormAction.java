@@ -7,12 +7,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.dw.student.service.IStudentService;
-import kr.or.dw.student.service.StudentServiceImpl;
-import kr.or.dw.vo.StudentVO;
+import kr.or.dw.staff.service.IStaffService;
+import kr.or.dw.staff.service.StaffServiceImpl;
+import kr.or.dw.vo.StaffVO;
 import kr.or.dw.web.IAction;
 
-public class StudentFormAction implements IAction{
+public class ProfessorFormAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
@@ -21,13 +21,13 @@ public class StudentFormAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		IStudentService service = StudentServiceImpl.getInstance();
+		IStaffService service = StaffServiceImpl.getInstance();
 		
-		List<StudentVO> stuVo = service.getDept();
+		List<StaffVO> staVo = service.getDept();
 		
-		req.setAttribute("dept", stuVo);
+		req.setAttribute("dept", staVo);
 		
-		return "/staff/student/studentForm.jsp";
+		return "/staff/professor/professorForm.jsp";
 	}
 
 }

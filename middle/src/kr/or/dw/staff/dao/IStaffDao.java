@@ -30,4 +30,10 @@ public interface IStaffDao {
 	 */
 	public List<StaffVO> getAllProfessorList();
 
+	/**
+	 * 
+	 * @return
+	 */
+	public List<StaffVO> getDept();
+
 }

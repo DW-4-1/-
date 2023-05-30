@@ -21,5 +21,8 @@
 		SELECT s.*, d.dept_name FROM staffs s, dept d WHERE auth_cd = 'P'
 								    	 AND s.dept_code = d.dept_code
 	</select>
-	
+	<select id="getDept" resultClass="StaffVO">
+		SELECT dept_code, dept_name
+		  FROM dept
+	</select>
 </sqlMap>

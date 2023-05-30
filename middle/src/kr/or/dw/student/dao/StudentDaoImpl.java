@@ -104,11 +104,11 @@ private static StudentDaoImpl dao;
 	}
 
 	@Override
-	public int studentInsert(StudentVO stuVo) {
-		int cnt = 0;
+	public List<StudentVO> studentInsert(StudentVO stuVo) {
+		List<StudentVO> cnt = null;
 		
 		try {
-			cnt = (int) smc.insert("student.studentInsert", stuVo);
+			cnt = (List) smc.insert("student.studentInsert", stuVo);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -121,7 +121,7 @@ private static StudentDaoImpl dao;
 		List<StudentVO> stuVo = null;
 		
 		try {
-			stuVo = (List) smc.queryForObject("student.getDept");
+			stuVo = (List) smc.queryForList("student.getDept");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

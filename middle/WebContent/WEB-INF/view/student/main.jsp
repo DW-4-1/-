@@ -4,7 +4,7 @@
 <style>
 	/* 백그라운드 이미지에 투명도를 주기 위한 가상요소 */
 	.box01::before {
-        background: url(../img/행정관.jpg);
+        /* background: url(../img/행정관.jpg); */
         background-size: cover;
         position: absolute;
         top: 0;

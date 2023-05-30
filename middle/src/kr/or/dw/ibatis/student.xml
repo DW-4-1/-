@@ -73,8 +73,8 @@
 	</insert>
 	
 	<select id="getDept" resultClass="stuVo">
-		SELECT d.dept_code, d.dept_name
-		  FROM students s, dept d
-		 WHERE s.dept_code = d.dept_code
+		SELECT dept_code, dept_name
+		  FROM dept 
+
 	</select>
 </sqlMap>
