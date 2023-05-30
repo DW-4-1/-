@@ -28,11 +28,12 @@ public class LecturePlanAction implements IAction{
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		LectureVO lecVo = new LectureVO();
-		String lec_code = req.getParameter("lec_code");
-		lecVo.setLec_code(lec_code);
-		System.out.println(lec_code);
+		String lec_code = "";
 		
-		String planFoldName = "" + lec_code;
+		HttpSession session = req.getSession();
+		String staff_id = (String) session.getAttribute("staff_id");
+		
+		String planFoldName = "" + staff_id;
 		String realPath = "C:/upload/planFile/" + planFoldName;
 		
 		String fileName = "";
@@ -44,8 +45,13 @@ public class LecturePlanAction implements IAction{
 		
 		MultipartRequest multi = new MultipartRequest(req, realPath, 100*1024*1024, "utf-8");
 		fileName = multi.getFilesystemName("lec_plan");
-		System.out.println(fileName);
+		lec_code = multi.getParameter("lec_code");
 		
+		
+		System.out.println(fileName);
+		System.out.println(lec_code);
+		
+		lecVo.setLec_code(lec_code);
 		lecVo.setPlan_path(planFoldName + "/" + fileName);
 		
 		ILectureService service = LectureServiceImpl.getInstance();

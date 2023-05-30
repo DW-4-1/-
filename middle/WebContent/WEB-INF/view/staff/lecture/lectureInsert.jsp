@@ -4,7 +4,39 @@
 <%@ include file="../header.jsp" %>
 <title>강의등록</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
-
+<script>
+	$(function(){
+		$(document).on('change', '#lec_plan', function(){
+			$(this).parent().find('#savePlanBtn').css('display', '');
+		})
+		
+		$(document).on('click', '#savePlanBtn', function(){
+			let lec_code = $(this).parent().find('#lec_code').val();
+			let form = $(this).parents('form');
+			console.log(lec_code);
+			console.log(form);
+			
+			let formData = new FormData(form[0]);
+			
+			$.ajax({
+				url : "<%=request.getContextPath()%>/lecture/lecturePlan.do",
+				processData : false,
+				contentType : false,
+				data : formData,
+				dataType : "json",
+				method : "post",
+				success : function(res){
+					console.log(res);
+					alert('계획안이 등록되었습니다.');
+				},
+				error : function(){
+					
+				}
+			});
+			$(this).css('display', 'none');
+		});
+	})
+</script>
 
 <%
 	String lecCode = "";
@@ -25,7 +57,7 @@
 		
 	<script>
 		$(function(){
-			
+			$('#planFile').css('display', '');
 			$('input[id=lec_term][value=<%=lecVo.getLec_term()%>]').prop('checked',true);
 			$('#lec_day').val('<%=lecVo.getLec_day()%>').prop('selected',true);
 		<%
@@ -122,6 +154,18 @@
 			<tr>
 				<td>최대 수강인원</td>
 				<td><input type="text" id="lec_maxpeo" name="lec_maxpeo" placeholder="숫자만 기재해주세요." value="<%=lecMaxPeo %>" required></td>
+			</tr>
+			<tr id="planFile" style="display : none;">
+				<form id="lec_form" method="post" enctype="multipart/form-data">
+					<td>강의계획안</td>
+					<td>
+							
+							<input type="hidden" id="lec_code" name= "lec_code" value="<%=lecCode %>">
+							<input type="file" id="lec_plan" name="lec_plan" accept=".pdf">
+							<input type="button" id="savePlanBtn" value="계획안저장" style="display : none">
+	
+					</td>
+				</form>	
 			</tr>
 			<tr>
 				<td><input type="submit" value="<%=title%>"></td>

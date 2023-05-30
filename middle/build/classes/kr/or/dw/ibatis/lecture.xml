@@ -17,10 +17,11 @@
 			 , max(lec_year) lec_year
 			 , max(lec_div) lec_div
 			 , max(lec_term) lec_term
+			 , max(plan_path) plan_path
 			 , max(stu_score) stu_score
 			 , max(stu_grade) stu_grade
 		FROM (
-				SELECT a.lec_code, lec_name, l.STU_ID, a.staff_id, staff_name, lec_loc, lec_day, lec_time, lec_div, lec_credit, lec_year, lec_term, stu_score, stu_grade
+				SELECT a.lec_code, lec_name, l.STU_ID, a.staff_id, staff_name, lec_loc, lec_day, lec_time, lec_div, lec_credit, lec_year, lec_term, stu_score, stu_grade, plan_path
 				FROM lecture l, ALL_LECTURELIST a, STAFFS s 
 				WHERE l.LEC_CODE = a.LEC_CODE 
 				AND a.staff_id = s.STAFF_ID 
@@ -52,10 +53,11 @@
 			 , count(lec_time) lec_hour
 			 , max(lec_credit) lec_credit
 			 , max(lec_year) lec_year
+			 , max(plan_path) plan_path
 			 , max(lec_div) lec_div
 			 , max(lec_term) lec_term
 		FROM (
-				SELECT lec_code, lec_name, staff_id, lec_loc, lec_day, lec_time, lec_div, lec_credit, lec_year, lec_term
+				SELECT lec_code, lec_name, staff_id, lec_loc, lec_day, lec_time, lec_div, lec_credit, lec_year, lec_term, plan_path
 				FROM ALL_LECTURELIST
 				WHERE staff_id = #staff_id#
 				ORDER BY lec_year DESC, lec_term DESC, LEC_CODE
