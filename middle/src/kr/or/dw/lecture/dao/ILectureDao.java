@@ -68,4 +68,7 @@ public interface ILectureDao {
 
 	String getPlanPath(String lec_code);
 
+
+	List<LectureVO> getAllLectureRegister(LectureVO lecVo);
+
 }

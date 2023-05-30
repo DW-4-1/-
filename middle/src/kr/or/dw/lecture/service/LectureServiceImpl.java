@@ -74,4 +74,10 @@ public class LectureServiceImpl implements ILectureService{
 		public String getPlanPath(String lec_code) {
 			return dao.getPlanPath(lec_code);
 		}
+
+		@Override
+		public List<LectureVO> getAllLectureRegister(LectureVO lecVo) {
+			
+			return dao.getAllLectureRegister(lecVo);
+		}
 }

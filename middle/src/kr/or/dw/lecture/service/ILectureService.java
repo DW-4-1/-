@@ -76,4 +76,11 @@ public interface ILectureService {
 	 */
 	String getPlanPath(String lec_code);
 
+	/**
+	 * 현재 년도, 학기에 맞는 강의 리스트 가져오기
+	 * @param lecVo
+	 * @return
+	 */
+	List<LectureVO> getAllLectureRegister(LectureVO lecVo);
+
 }
