@@ -17,5 +17,9 @@
 	<select id="idEmailCheck" parameterClass="staffVO" resultClass="int">
 		SELECT count(*) FROM staffs WHERE staff_id = #staff_id# AND staff_email = #staff_email#
 	</select>
+	<select id="getAllProfessorList" resultClass="StaffVO">
+		SELECT s.*, d.dept_name FROM staffs s, dept d WHERE auth_cd = 'P'
+								    	 AND s.dept_code = d.dept_code
+	</select>
 	
 </sqlMap>

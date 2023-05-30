@@ -1,7 +1,10 @@
 package kr.or.dw.staff.dao;
 
+import java.util.List;
+
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StaffVO;
+import kr.or.dw.vo.StudentVO;
 
 public interface IStaffDao {
 
@@ -20,5 +23,11 @@ public interface IStaffDao {
 	 * @return
 	 */
 	public int idEmailCheck(StaffVO staffVo);
+
+	/**
+	 * 모든 교수들을 불러오는 메서드
+	 * @return
+	 */
+	public List<StaffVO> getAllProfessorList();
 
 }

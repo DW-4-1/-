@@ -11,8 +11,9 @@
 	</select>
 	
 	<select id="studentAllInfo" resultClass="stuVO">
-		SELECT *
-		  FROM students
+		SELECT s.*, d.dept_name
+		  FROM students s, dept d
+		 WHERE s.dept_code = d.dept_code
 	</select>
 	
 	<select id="studentInfo" parameterClass="String" resultClass="stuVO">

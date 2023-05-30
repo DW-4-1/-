@@ -1,5 +1,5 @@
+<%@page import="kr.or.dw.vo.StaffVO"%>
 <%@page import="java.util.List"%>
-<%@page import="kr.or.dw.vo.StudentVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,18 +10,17 @@
 </head>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
 <%
-	List<StudentVO> stuVoList = (List)request.getAttribute("stuVoList");
+	List<StaffVO> staVoList = (List)request.getAttribute("staVoList");
 %>
 <script>
 	$(function(){
 		$('#studentInsertBtn').on('click', function(){
 			location.href = "/staff/stdentInsert.do"
 		});
-		
 	})
 </script>
 <body>
-<% for(StudentVO stuVo : stuVoList) {%>
+<% for(StaffVO staVo : staVoList) {%>
 	<form>
 		<table border="1">
 			<tr>
@@ -35,24 +34,24 @@
 				<th>전화번호</th>
 				<th>이메일</th>
 				<th>상태</th>
-				<th>졸업예정일</th>
+				<th>고용일</th>
 				<th>직분</th>
 				<th>비밀번호</th>
 			</tr>
 			<tr>
-				<td><%=stuVo.getStu_id()%></td>
-				<td><%=stuVo.getStu_name()%></td>
-				<td><%=stuVo.getStu_gender()%></td>
-				<td><%=stuVo.getStu_resnum()%></td>
-				<td><%=stuVo.getStu_addr()%></td>
-				<td><%=stuVo.getStu_zipcode()%></td>
-				<td><%=stuVo.getDept_name()%></td>
-				<td><%=stuVo.getStu_tel()%></td>
-				<td><%=stuVo.getStu_email()%></td>
-				<td><%=stuVo.getStu_state()%></td>
-				<td><%=stuVo.getStu_grddate()%></td>
-				<td><%=stuVo.getAuth_cd()%></td>
-				<td><%=stuVo.getStu_pwd()%></td>
+				<td><%=staVo.getStaff_id()%></td>
+				<td><%=staVo.getStaff_name()%></td>
+				<td><%=staVo.getStaff_gender()%></td>
+				<td><%=staVo.getStaff_resnum()%></td>
+				<td><%=staVo.getStaff_addr()%></td>
+				<td><%=staVo.getStaff_zipcode()%></td>
+				<td><%=staVo.getDept_name()%></td>
+				<td><%=staVo.getStaff_tel()%></td>
+				<td><%=staVo.getStaff_email()%></td>
+				<td><%=staVo.getStaff_state()%></td>
+				<td><%=staVo.getStaff_hiredate()%></td>
+				<td><%=staVo.getAuth_cd()%></td>
+				<td><%=staVo.getStaff_pwd()%></td>
 			</tr>
 		</table>
 	</form>

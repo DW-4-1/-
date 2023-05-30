@@ -3,6 +3,10 @@ package kr.or.dw.staff.service;
 import kr.or.dw.staff.dao.StaffDaoImpl;
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StaffVO;
+import kr.or.dw.vo.StudentVO;
+
+import java.util.List;
+
 import kr.or.dw.staff.dao.IStaffDao;
 
 public class StaffServiceImpl implements IStaffService{
@@ -35,6 +39,11 @@ public class StaffServiceImpl implements IStaffService{
 	@Override
 	public int idEmailCheck(StaffVO staffVo) {
 		return dao.idEmailCheck(staffVo);
+	}
+
+	@Override
+	public List<StaffVO> getAllProfessorList() {
+		return dao.getAllProfessorList();
 	}
 
 }

@@ -7,29 +7,26 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.dw.student.service.IStudentService;
-import kr.or.dw.student.service.StudentServiceImpl;
-import kr.or.dw.vo.StudentVO;
+import kr.or.dw.staff.service.IStaffService;
+import kr.or.dw.staff.service.StaffServiceImpl;
+import kr.or.dw.vo.StaffVO;
 import kr.or.dw.web.IAction;
 
-public class StudentCRUDAction implements IAction{
+public class ProfessorCRUDAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		IStudentService service = StudentServiceImpl.getInstance();
+		IStaffService service = StaffServiceImpl.getInstance();
+		List<StaffVO> staVoList = service.getAllProfessorList();
 		
-		List<StudentVO> stuVoList = service.getAllStudentInfo();
+		req.setAttribute("staVoList", staVoList);
 		
-		req.setAttribute("stuVoList", stuVoList);
-		
-		
-		return "/staff/student/studentCRUD.jsp";
+		return "/staff/professor/professorCRUD.jsp";
 	}
 
 }
