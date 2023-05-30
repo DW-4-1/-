@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>학생추가 페이지 입니다.</title>
+<title>교수추가 페이지 입니다.</title>
 </head>
 <%
 	StudentVO stuVo = new StudentVO();

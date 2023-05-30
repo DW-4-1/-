@@ -15,7 +15,7 @@
 <script>
 	$(function(){
 		$('#studentInsertBtn').on('click', function(){
-			location.href = "/staff/stdentInsert.do"
+			location.href = "/staff/studentFormPage.do"
 		});
 		
 	})
@@ -57,6 +57,6 @@
 		</table>
 	</form>
 	<%	 }	 %>
-	<input type="button" id="studentInsertBtn" value="학생추가">
+	<input type="button" id="studentFormBtn" value="학생추가">
 </body>
 </html>

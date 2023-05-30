@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.dw.web.IAction;
 
-public class StudentInsertAction implements IAction{
+public class StudentFormAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {

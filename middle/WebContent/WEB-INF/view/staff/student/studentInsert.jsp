@@ -7,13 +7,11 @@
 <meta charset="UTF-8">
 <title>학생추가 페이지 입니다.</title>
 </head>
-<%
-	StudentVO stuVo = new StudentVO();
-%>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
 
 
 <body>
-	<form>
+	<form method="post" action="<%=request.getContextPath()%>/staff/studentInsert.do">
 		<table>
 			<tr>
 				<th>ID</th>
