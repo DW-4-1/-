@@ -14,8 +14,8 @@
 %>
 <script>
 	$(function(){
-		$('#studentInsertBtn').on('click', function(){
-			location.href = "/staff/studentFormPage.do"
+		$('#studentFormBtn').on('click', function(){
+			location.href = "/staff/studentForm.do"
 		});
 		
 	})

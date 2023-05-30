@@ -7,9 +7,7 @@
 <meta charset="UTF-8">
 <title>교수추가 페이지 입니다.</title>
 </head>
-<%
-	StudentVO stuVo = new StudentVO();
-%>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
 
 
 <body>

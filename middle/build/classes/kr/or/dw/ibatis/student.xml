@@ -37,6 +37,44 @@
 	<select id="idEmailCheck" parameterClass="stuVO" resultClass="int">
 		SELECT count(*) FROM students WHERE stu_id = #stu_id# AND stu_email = #stu_email#
 	</select>
-
+	<insert id="studentInsert" parameterClass="stuVo">
+		INSERT INTO students (
+							   stu_id
+							  ,stu_name
+							  ,stu_gender
+							  ,stu_resnum
+							  ,stu_addr
+							  ,stu_zipcode
+							  ,dept_code
+							  ,stu_tel
+							  ,stu_email
+							  ,stu_state
+							  ,stu_entdate
+							  ,stu_grddate
+							  ,auth_cd
+							  ,stu_pwd	
+							  )
+				VALUES (
+							   #stu_id#
+							  ,#stu_name#
+							  ,#stu_gender#
+							  ,#stu_resnum#
+							  ,#stu_addr#
+							  ,#stu_zipcode#
+							  ,#dept_code#
+							  ,#stu_tel#
+							  ,#stu_email#
+							  ,#stu_state#
+							  ,#stu_entdate#
+							  ,#stu_grddate#
+							  ,#auth_cd#
+							  ,#stu_pwd#
+							)
+	</insert>
 	
+	<select id="getDept" resultClass="stuVo">
+		SELECT d.dept_code, d.dept_name
+		  FROM students s, dept d
+		 WHERE s.dept_code = d.dept_code
+	</select>
 </sqlMap>

@@ -54,4 +54,14 @@ public class StudentServiceImpl implements IStudentService{
 		return dao.idEmailCheck(stuVo);
 	}
 
+	@Override
+	public int studentInsert(StudentVO stuVo) {
+		return dao.studentInsert(stuVo);
+	}
+
+	@Override
+	public List<StudentVO> getDept() {
+		return dao.getDept();
+	}
+
 }

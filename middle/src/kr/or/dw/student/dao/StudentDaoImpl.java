@@ -103,5 +103,32 @@ private static StudentDaoImpl dao;
 		return result;
 	}
 
+	@Override
+	public int studentInsert(StudentVO stuVo) {
+		int cnt = 0;
+		
+		try {
+			cnt = (int) smc.insert("student.studentInsert", stuVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+
+	@Override
+	public List<StudentVO> getDept() {
+		List<StudentVO> stuVo = null;
+		
+		try {
+			stuVo = (List) smc.queryForObject("student.getDept");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return stuVo;
+	}
+
 	
 }
