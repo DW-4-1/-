@@ -20,7 +20,14 @@
 						}
 					}
 
-				});
+		});
+		
+		$(document).on('click', '#planDownBtn', function(){
+			let plan_path = $(this).prop('name');
+			console.log(plan_path);
+			location.href="<%=request.getContextPath()%>/lecture/downloadLecturePlan.do?plan_path=" + plan_path;
+			
+		})
 	})
 </script>
 <section class="content">
@@ -117,8 +124,14 @@
 										</tr>
 									</thead>
 									<%
+										String disabled = "";
 										for (LectureVO vo : lecList) {
 											String lec_time = "" + vo.getLec_time();
+											if(vo.getPlan_path() == null || vo.getPlan_path().equals("")){
+												disabled = "disabled";
+											}else{
+												disabled = "";
+											}
 											for (int i = 1; i < vo.getLec_hour(); i++) {
 												lec_time += ", " + (vo.getLec_time() + i);
 											}
@@ -135,7 +148,9 @@
 											<td><%=vo.getLec_day()%><%=lec_time%>교시</td>
 											<td><%=vo.getLec_div()%></td>
 											<td><%=vo.getLec_credit()%></td>
-											<td><input type="button" value="강의계획서 보기"></td>
+											<td>
+												<input type="button" value="다운로드" <%=disabled %> id="planDownBtn" name="<%=vo.getPlan_path()%>">
+											</td>
 										</tr>
 									</tbody>
 									<% } %>
