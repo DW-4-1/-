@@ -11,7 +11,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	src="<%=request.getContextPath()%>/assets/plugins/jquery/jquery.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>타이틀</title>
+<title>로그인</title>
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
@@ -24,12 +24,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	href="<%=request.getContextPath()%>/assets/dist/css/adminlte.min.css">
 </head>
 <style>
-	.transparent-image img {
-  opacity: 0.5;
-}
+/* 백그라운드 이미지에 투명도를 주기 위한 가상요소 */
+	.box01::before {
+        background: url(img/행정관.jpg);
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+        opacity: 0.7;
+	}
 </style>
 
-<body class="login-page" style="min-height: 496.797px; background-image: url('img/행정관.jpg'); background-size: cover;">
+<body class="login-page box01">
 	<div class="login-box">
 		<div class="login-logo">
 			<a href="../../index2.html"><b>Project</b>&nbsp;Page</a>
@@ -71,12 +80,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						<i class="fab fa-google-plus mr-2"></i> 교직원 및 관리자 로그인으로 이동
 					</a>
 				</div>
-<!-- 				메인 페이지 임시 경로 -->
-				<div class="social-auth-links text-center mb-3">
-					<a href="<%=request.getContextPath()%>/student/mainTest.do" class="btn btn-outline-primary btn-block"> 
-						<i class="fab fa-google-plus mr-2"></i> 메인 페이지 임시 경로 입니다.(삭제예정)
-					</a>
-				</div>
 			</div>
 
 		</div>
@@ -90,6 +93,4 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	<!-- AdminLTE App -->
 	<script
 		src="<%=request.getContextPath()%>/assets/dist/js/adminlte.min.js"></script>
-
-
 </body>
