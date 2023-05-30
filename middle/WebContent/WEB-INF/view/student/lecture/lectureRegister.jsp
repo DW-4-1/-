@@ -22,10 +22,10 @@
 
 		});
 		
-		$(document).on('click', '#planDownBtn', function(){
-			let plan_path = $(this).prop('name');
-			console.log(plan_path);
-			location.href="<%=request.getContextPath()%>/lecture/downloadLecturePlan.do?plan_path=" + plan_path;
+		$(document).on('click', '#lectureRegBtn', function(){
+			let lec_code = $(this).prop('name');
+			console.log(lec_code);
+			location.href="<%=request.getContextPath()%>/lecture/lectureRegister.do?lec_code=" + lec_code;
 			
 		})
 	})
@@ -107,36 +107,22 @@
 										</tr>
 									</thead>
 									<% 
-										if(){
-									%>
-									<tbody>
-										<tr class="odd" type="var""
-											style="text-align: center; height: 30px;">
-											<td colspan="10">신청할 수 있는 강의가 없습니다.</td>
-										</tr>
-									</tbody>
-											
-									<% 
-										}
-									%>
-									<%
 										
 										String disabled = "";
-										if(request.getAttribute("lecList") != null){
-											List<LectureVO> lecList = (List) request.getAttribute("lecList");
-											if(lecList.get(0).getLec_code() == null || lecList.get(0).getLec_code().equals("")){
-												
+									
+										List<LectureVO> lecList = (List) request.getAttribute("lecList");
+											
+										for (LectureVO vo : lecList) {
+		
+											String lec_time = "" + vo.getLec_time();
+											if(vo.getPlan_path() == null || vo.getPlan_path().equals("")){
+												disabled = "disabled";
+											}else{
+												disabled = "";
 											}
-											for (LectureVO vo : lecList) {
-												String lec_time = "" + vo.getLec_time();
-												if(vo.getPlan_path() == null || vo.getPlan_path().equals("")){
-													disabled = "disabled";
-												}else{
-													disabled = "";
-												}
-												for (int i = 1; i < vo.getLec_hour(); i++) {
-													lec_time += ", " + (vo.getLec_time() + i);
-												}
+											for (int i = 1; i < vo.getLec_hour(); i++) {
+												lec_time += ", " + (vo.getLec_time() + i);
+											}
 									%>
 									<tbody>
 										<tr class="odd" type="var" name="<%=vo.getLec_year()%>"
@@ -151,12 +137,12 @@
 											<td><%=vo.getLec_div()%></td>
 											<td><%=vo.getLec_credit()%></td>
 											<td>
-												<input type="button" value="수강신청" <%=disabled %> id="planDownBtn" name="<%=vo.getPlan_path()%>">
+												<input type="button" value="수강신청" id="lectureRegBtn" name="<%=vo.getLec_code()%>">
 											</td>
 										</tr>
 									</tbody>
 									<% 
-									} }
+									} 
 									%>
 									
 								</table>

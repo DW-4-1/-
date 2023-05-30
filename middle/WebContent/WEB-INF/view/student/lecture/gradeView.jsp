@@ -65,7 +65,6 @@
 										if (yearterm.equals(vo.getLec_year() + "년 " + vo.getLec_term() + "학기")) {
 	
 									numGrade = la.numGrade(vo.getStu_grade(), vo.getLec_credit());
-									System.out.println(vo.getStu_grade());
 									creditSum += vo.getLec_credit();
 									gradeSum += numGrade;
 										}
@@ -74,7 +73,7 @@
 									list.add(0, yearterm);
 									list.add(1, creditSum);
 									list.add(2, gradeSum);
-									list.add(3, gradeSum / creditSum);
+									list.add(3, Math.round((gradeSum / creditSum)*100)/100.0);
 									yearTermDiv.add(list);
 								}
 								%>

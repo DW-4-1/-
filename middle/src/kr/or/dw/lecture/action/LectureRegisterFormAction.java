@@ -56,7 +56,6 @@ public class LectureRegisterFormAction implements IAction{
 		stuLecList = service.getAllLecture(stu_id);
 		
 		List<LectureVO> remove = new ArrayList<>();
-		System.out.println(lecList);
 		
 		for(LectureVO stulec : stuLecList) {
 			for(LectureVO lecall : lecList) {
@@ -65,10 +64,8 @@ public class LectureRegisterFormAction implements IAction{
 				}
 			}
 		}
-		System.out.println(remove);
 		lecList.removeAll(remove);
 		
-		System.out.println(lecList);
 	
 		req.setAttribute("lecList", lecList);
 		

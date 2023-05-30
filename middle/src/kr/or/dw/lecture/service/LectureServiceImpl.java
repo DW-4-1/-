@@ -80,4 +80,9 @@ public class LectureServiceImpl implements ILectureService{
 			
 			return dao.getAllLectureRegister(lecVo);
 		}
+
+		@Override
+		public int registerLecture(LectureVO lecVo) {
+			return dao.registerLecture(lecVo);
+		}
 }
