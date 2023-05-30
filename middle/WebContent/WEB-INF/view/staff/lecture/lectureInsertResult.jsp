@@ -7,7 +7,7 @@
 		 if(result != 0){
 	%>
 		alert("작업이 성공적으로 완료되었습니다.");
-		location.href="<%=request.getContextPath()%>/lecture/lectureInsertForm.do";
+		location.href="<%=request.getContextPath()%>/lecture/lectureManaging.do";
 	<%
 		 }else{
 	%>

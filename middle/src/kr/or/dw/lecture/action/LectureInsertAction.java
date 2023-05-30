@@ -50,11 +50,14 @@ public class LectureInsertAction implements IAction{
 		
 		
 		String lec_code = null;
-		
+		String plan_path = "";
 		if(!req.getParameter("lec_code").equals("")) {
 			lec_code = req.getParameter("lec_code");
+			plan_path = service.getPlanPath(lec_code);
+			
 			int deleteRes = 0;
 			deleteRes = service.deleteLecture(lec_code);
+			
 		}else {
 			lec_code = service.getLecCode();
 
@@ -76,6 +79,7 @@ public class LectureInsertAction implements IAction{
 			lecVo.setLec_term(lec_term);
 			lecVo.setLec_time(lec_time);
 			lecVo.setLec_year(lec_year);
+			lecVo.setPlan_path(plan_path);
 			
 			
 			result += service.insertLecture(lecVo);

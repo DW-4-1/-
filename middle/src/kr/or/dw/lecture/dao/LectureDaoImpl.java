@@ -140,6 +140,19 @@ private static LectureDaoImpl dao;
 		
 		return 0;
 	}
+
+	@Override
+	public String getPlanPath(String lec_code) {
+		String plan_path = null;
+		try {
+			plan_path = (String) smc.queryForObject("lecture.getPlanPath", lec_code);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return plan_path;
+	}
 	
 	
 	

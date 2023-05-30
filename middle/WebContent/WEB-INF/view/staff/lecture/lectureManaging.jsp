@@ -35,8 +35,10 @@
 		List<LectureVO> lecList = (List<LectureVO>)request.getAttribute("lecList");
 		String disabled = "";
 		for(LectureVO vo : lecList){
-			if(vo.getPlan_path() == null){
+			if(vo.getPlan_path() == null || vo.getPlan_path().equals("")){
 				disabled = "disabled";
+			}else{
+				disabled = "";
 			}
 			String lec_time = "" + vo.getLec_time();
 			for(int i = 1; i < vo.getLec_hour(); i++){

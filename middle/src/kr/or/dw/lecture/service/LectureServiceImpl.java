@@ -69,4 +69,9 @@ public class LectureServiceImpl implements ILectureService{
 		public int updatePlanFile(LectureVO lecVo) {
 			return dao.updatePlanFile(lecVo);
 		}
+
+		@Override
+		public String getPlanPath(String lec_code) {
+			return dao.getPlanPath(lec_code);
+		}
 }

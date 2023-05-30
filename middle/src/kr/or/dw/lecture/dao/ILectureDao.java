@@ -65,4 +65,7 @@ public interface ILectureDao {
 	 */
 	int updatePlanFile(LectureVO lecVo);
 
+
+	String getPlanPath(String lec_code);
+
 }

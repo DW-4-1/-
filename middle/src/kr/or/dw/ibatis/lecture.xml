@@ -38,9 +38,9 @@
 	
 	<insert id="insertLecture" parameterClass="lecVO">
 		INSERT INTO all_lecturelist 
-		(lec_code, lec_name, staff_id, lec_loc, lec_year, lec_term, lec_day, lec_time, lec_div, lec_credit, lec_maxpeo)
+		(lec_code, lec_name, staff_id, lec_loc, lec_year, lec_term, lec_day, lec_time, lec_div, lec_credit, lec_maxpeo, plan_path)
 		VALUES 
-		(#lec_code#, #lec_name#, #staff_id#, #lec_loc#, #lec_year#, #lec_term#, #lec_day#, #lec_time#, #lec_div#, #lec_credit#, #lec_maxpeo#)
+		(#lec_code#, #lec_name#, #staff_id#, #lec_loc#, #lec_year#, #lec_term#, #lec_day#, #lec_time#, #lec_div#, #lec_credit#, #lec_maxpeo#, #plan_path#)
 	</insert>
 	
 	<select id="staffLecList" parameterClass="String" resultClass="lecVO">
@@ -107,5 +107,9 @@
 	<update id="updatePlanFile" parameterClass="lecVO">
 		UPDATE all_lecturelist SET plan_path = #plan_path# WHERE lec_code = #lec_code#
 	</update>
+	
+	<select id="getPlanPath" parameterClass="String" resultClass="String">
+		SELECT max(plan_path) FROM all_lecturelist WHERE lec_code = #lec_code#
+	</select>
 	
 </sqlMap>

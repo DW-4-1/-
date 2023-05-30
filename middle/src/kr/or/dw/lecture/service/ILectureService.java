@@ -68,5 +68,12 @@ public interface ILectureService {
 	 * @return
 	 */
 	int updatePlanFile(LectureVO lecVo);
+	
+	/**
+	 * 수정하기 전에 강의계획안 따로 뺴놓는 메서드 
+	 * @param lec_code
+	 * @return
+	 */
+	String getPlanPath(String lec_code);
 
 }

@@ -13,8 +13,6 @@
 		$(document).on('click', '#savePlanBtn', function(){
 			let lec_code = $(this).parent().find('#lec_code').val();
 			let form = $(this).parents('form');
-			console.log(lec_code);
-			console.log(form);
 			
 			let formData = new FormData(form[0]);
 			
@@ -28,6 +26,7 @@
 				success : function(res){
 					console.log(res);
 					alert('계획안이 등록되었습니다.');
+					location.href="<%=request.getContextPath()%>/lecture/lectureManaging.do";
 				},
 				error : function(){
 					
