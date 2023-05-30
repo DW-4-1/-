@@ -74,7 +74,7 @@
 									list.add(0, yearterm);
 									list.add(1, creditSum);
 									list.add(2, gradeSum);
-									list.add(3, gradeSum / creditSum);
+									list.add(3, Math.round((gradeSum / creditSum)*100)/100.0);
 									yearTermDiv.add(list);
 								}
 								%>
