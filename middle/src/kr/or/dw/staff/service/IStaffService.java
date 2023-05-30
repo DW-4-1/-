@@ -29,5 +29,11 @@ public interface IStaffService {
 	 * @return
 	 */
 	public List<StaffVO> getAllProfessorList();
+
+	/**
+	 * 교수
+	 * @return
+	 */
+	public List<StaffVO> getDept();
 	
 }

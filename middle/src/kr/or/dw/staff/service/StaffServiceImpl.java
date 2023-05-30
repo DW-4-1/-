@@ -46,4 +46,9 @@ public class StaffServiceImpl implements IStaffService{
 		return dao.getAllProfessorList();
 	}
 
+	@Override
+	public List<StaffVO> getDept() {
+		return dao.getDept();
+	}
+
 }
