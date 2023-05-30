@@ -13,5 +13,12 @@ public interface IStaffService {
 	public StaffVO staffLogin(String staff_id);
 
 	public String getStaffName(String staff_id);
+
+	/**
+	 * 아이디 이메일 체크 후 인증코드 이메일로 보내는 메서드
+	 * @param staffVo
+	 * @return
+	 */
+	public int idEmailCheck(StaffVO staffVo);
 	
 }

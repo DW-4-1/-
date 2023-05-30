@@ -14,4 +14,11 @@ public interface IStaffDao {
 
 	public String getStaffName(String staff_id);
 
+	/**
+	 * 아이디 이메일 체크 후 이메일로 인증코드 전송하는 메서드
+	 * @param staffVo
+	 * @return
+	 */
+	public int idEmailCheck(StaffVO staffVo);
+
 }

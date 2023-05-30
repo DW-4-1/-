@@ -57,7 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					</div>
 				</form>
 				<div class="social-auth-links text-center mb-3">
-					<a href="location.href='<%=request.getContextPath()%>/student/findPassword.jsp'" id="findPassword" class="btn btn-block btn-danger"> 
+					<a href="<%=request.getContextPath()%>/staff/findStaffPassword.do" id="findPassword" class="btn btn-block btn-danger"> 
 						<i class="fab fa-google-plus mr-2"></i> 비밀번호 찾기 및 변경
 					</a>
 				</div>

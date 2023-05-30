@@ -32,4 +32,9 @@ public class StaffServiceImpl implements IStaffService{
 		return dao.getStaffName(staff_id);
 	}
 
+	@Override
+	public int idEmailCheck(StaffVO staffVo) {
+		return dao.idEmailCheck(staffVo);
+	}
+
 }

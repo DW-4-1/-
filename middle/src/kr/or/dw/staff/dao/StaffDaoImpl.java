@@ -48,5 +48,16 @@ private static StaffDaoImpl dao;
 		return staff_name;
 	}
 
+	@Override
+	public int idEmailCheck(StaffVO staffVo) {
+		int result = 0;
+		try {
+			result = (int) smc.queryForObject("staff.idEmailCheck", staffVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 
 }

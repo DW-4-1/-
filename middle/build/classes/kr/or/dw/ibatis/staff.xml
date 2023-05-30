@@ -14,4 +14,8 @@
 		SELECT staff_name FROM staffs WHERE staff_id = #staff_id#
 	</select>
 	
+	<select id="idEmailCheck" parameterClass="staffVO" resultClass="int">
+		SELECT count(*) FROM staffs WHERE staff_id = #staff_id# AND staff_email = #staff_email#
+	</select>
+	
 </sqlMap>
