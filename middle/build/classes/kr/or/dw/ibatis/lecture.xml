@@ -135,4 +135,8 @@
 		GROUP BY lec_code
 	</select>
 	
+	<insert id="regusterLecture">
+		INSERT INTO lecture VALUES (#stu_id#, #lec_code#, 0, 'null')
+	</insert>
+	
 </sqlMap>

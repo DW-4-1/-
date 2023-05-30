@@ -166,6 +166,23 @@ private static LectureDaoImpl dao;
 		
 		return lecList;
 	}
+
+	@Override
+	public int registerLecture(LectureVO lecVo) {
+		String result = null;
+		try {
+			result = (String) smc.insert("lecture.regusterLecture", lecVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		int cnt = 0;
+		if(result == null) {
+			cnt = 1;
+		}
+		return cnt;
+	}
 	
 	
 	

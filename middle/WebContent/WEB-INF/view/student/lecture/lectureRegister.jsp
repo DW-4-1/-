@@ -24,7 +24,7 @@
 		
 		$(document).on('click', '#lectureRegBtn', function(){
 			let lec_code = $(this).prop('name');
-			console.log(plan_path);
+			console.log(lec_code);
 			location.href="<%=request.getContextPath()%>/lecture/lectureRegister.do?lec_code=" + lec_code;
 			
 		})

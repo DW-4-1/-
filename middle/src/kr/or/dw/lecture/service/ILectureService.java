@@ -83,4 +83,11 @@ public interface ILectureService {
 	 */
 	List<LectureVO> getAllLectureRegister(LectureVO lecVo);
 
+	/**
+	 * 수강신청
+	 * @param lecVo
+	 * @return
+	 */
+	int registerLecture(LectureVO lecVo);
+
 }

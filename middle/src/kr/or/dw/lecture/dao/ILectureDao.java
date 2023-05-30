@@ -71,4 +71,11 @@ public interface ILectureDao {
 
 	List<LectureVO> getAllLectureRegister(LectureVO lecVo);
 
+	/**
+	 * 수강신청 메서드
+	 * @param lecVo
+	 * @return
+	 */
+	int registerLecture(LectureVO lecVo);
+
 }
