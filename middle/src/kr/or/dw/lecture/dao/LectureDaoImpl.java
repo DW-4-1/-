@@ -153,6 +153,19 @@ private static LectureDaoImpl dao;
 		
 		return plan_path;
 	}
+
+	@Override
+	public List<LectureVO> getAllLectureRegister(LectureVO lecVo) {
+		List<LectureVO> lecList = null;
+		try {
+			lecList = smc.queryForList("lecture.getAllLectureRegister", lecVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return lecList;
+	}
 	
 	
 	
