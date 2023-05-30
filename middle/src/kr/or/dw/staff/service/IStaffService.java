@@ -25,9 +25,9 @@ public interface IStaffService {
 	public int idEmailCheck(StaffVO staffVo);
 	
 	/**
-	 * 모든 학생들을 불러오는 메서드
+	 * 모든 교수들을 불러오는 메서드
 	 * @return
 	 */
-	public List<StudentVO> getAllStudentList();
+	public List<StaffVO> getAllProfessorList();
 	
 }

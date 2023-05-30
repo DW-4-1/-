@@ -62,16 +62,16 @@ private static StaffDaoImpl dao;
 	}
 
 	@Override
-	public List<StudentVO> getAllStudentList() {
+	public List<StaffVO> getAllProfessorList() {
 		
-		List<StudentVO> stuVoList = null;
+		List<StaffVO> staVoList = null;
 		
 		try {
-			stuVoList = smc.queryForList("staff.getAllStudentList");
+			staVoList = smc.queryForList("staff.getAllProfessorList");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return stuVoList;
+		return staVoList;
 	}
 
 
