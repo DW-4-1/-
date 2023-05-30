@@ -67,7 +67,7 @@
 							  ,#stu_state#
 							  ,#stu_entdate#
 							  ,#stu_grddate#
-							  ,#auth_cd#
+							  ,'S'
 							  ,#stu_pwd#
 							)
 	</insert>

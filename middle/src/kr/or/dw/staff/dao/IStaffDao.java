@@ -36,4 +36,10 @@ public interface IStaffDao {
 	 */
 	public List<StaffVO> getDept();
 
+	/**
+	 * 교수 추가
+	 * @return
+	 */
+	public List<StaffVO> professorInsert(StaffVO staVo);
+
 }

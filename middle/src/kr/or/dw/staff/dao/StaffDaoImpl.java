@@ -88,5 +88,18 @@ private static StaffDaoImpl dao;
 		return staVo;
 	}
 
+	@Override
+	public List<StaffVO> professorInsert(StaffVO staVo) {
+		List<StaffVO> cnt = null;
+		
+		try {
+			cnt = (List) smc.insert("staff.professorInsert", staVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+
 
 }

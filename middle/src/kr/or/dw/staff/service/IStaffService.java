@@ -35,5 +35,12 @@ public interface IStaffService {
 	 * @return
 	 */
 	public List<StaffVO> getDept();
+
+	/**
+	 * 교수 추가
+	 * @param staVo
+	 * @return
+	 */
+	public List<StaffVO> professorInsert(StaffVO staVo);
 	
 }

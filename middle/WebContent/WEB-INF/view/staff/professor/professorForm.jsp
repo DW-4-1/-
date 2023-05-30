@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="kr.or.dw.vo.StaffVO"%>
 <%@page import="kr.or.dw.vo.StudentVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -10,14 +12,17 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$('#saveBtn').on('click', function({
+		$('#saveBtn').on('click', function(){
 			$('#staffInsertForm').submit();
-		})
+		});
 	})
 </script>
+<%
+	List<StaffVO> staVo = (List)request.getAttribute("dept");
+%>
 
 <body>
-	<form id="staffInsertForm" method="post" action="<%=request.getContextPath()%>/staff/staffInsert.do">
+	<form id="staffInsertForm" method="post" action="<%=request.getContextPath()%>/staff/professorInsert.do">
 		<table>
 			<tr>
 				<th>ID</th>
@@ -50,7 +55,22 @@
 			</tr>
 			<tr>
 				<th>학과</th>
-				<td><input type="text" name=""></td>
+				<td>
+					<select name="dept_code">
+					<% for(StaffVO vo : staVo){ %>
+						<option value="<%=vo.getDept_code()%>"><%=vo.getDept_code()%> <%=vo.getDept_name()%></option>
+					<% 	 }	 %>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>구분</th>
+				<td>
+					<select name="staff_div">
+						<option value="교수">교수</option>
+						<option value="관리자">관리자</option>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<th>전화번호</th>
@@ -65,11 +85,11 @@
 				<td><input type="text" name="staff_state" required></td>
 			</tr>
 			<tr>
-				<th>직분</th>
+				<th>권한코드</th>
 				<td>
 					<select name="auth_cd">
-						<option value="P">교수</option>
-						<option value="A">관리자</option>
+						<option value="P">P</option>
+						<option value="A">A</option>
 					</select>
 				</td>
 			</tr>

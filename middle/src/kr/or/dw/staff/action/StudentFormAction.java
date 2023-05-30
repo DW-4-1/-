@@ -23,9 +23,9 @@ public class StudentFormAction implements IAction{
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		IStudentService service = StudentServiceImpl.getInstance();
 		
-		List<StudentVO> stuVo = service.getDept();
+		List<StudentVO> staVo = service.getDept();
 		
-		req.setAttribute("dept", stuVo);
+		req.setAttribute("dept", staVo);
 		
 		return "/staff/student/studentForm.jsp";
 	}

@@ -78,14 +78,6 @@
 				<td><input type="Date" name="stu_grddate"></td>
 			</tr>
 			<tr>
-				<th>직분</th>
-				<td>
-					<select name="auth_cd">
-						<option value="S">학생</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
 				<th>비밀번호</th>
 				<td><input type="text" name="stu_pwd" required></td>
 			</tr>
