@@ -33,6 +33,20 @@ public interface IBoardService {
 	 * @return
 	 */
 	int deleteBulletinContent(int bd_no);
+	
+	/**
+	 * 공지사항 내용 수정
+	 * @param boardVo
+	 * @return
+	 */
+	int updateBulletinContent(BoardVO boardVo);
+	
+	/**
+	 * 공지사항 글 작성
+	 * @param boardVo
+	 * @return
+	 */
+	int insertBulletinContent(BoardVO boardVo);
 
 
 	

@@ -33,4 +33,18 @@ public interface IBoardDao {
 	 * @return
 	 */
 	public int deleteBulletinContent(int bd_no);
+	
+	/**
+	 * 공지사항 글 수정
+	 * @param boardVo
+	 * @return
+	 */
+	public int updateBulletinContent(BoardVO boardVo);
+
+	/** 
+	 * 공지사항 글 작성
+	 * @param boardVo
+	 * @return
+	 */
+	public int insertBulletinContent(BoardVO boardVo);
 }

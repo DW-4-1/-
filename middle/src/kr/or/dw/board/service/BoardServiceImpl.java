@@ -44,5 +44,15 @@ public class BoardServiceImpl implements IBoardService{
 		return dao.deleteBulletinContent(bd_no);
 	}
 
+	@Override
+	public int updateBulletinContent(BoardVO boardVo) {
+		return dao.updateBulletinContent(boardVo);
+	}
+
+	@Override
+	public int insertBulletinContent(BoardVO boardVo) {
+		return dao.insertBulletinContent(boardVo);
+	}
+
 
 }

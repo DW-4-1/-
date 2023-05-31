@@ -12,12 +12,6 @@
 
 
 <h3 class="card-title">글작성</h3>
-<div class="card-tools">
-	<button type="button" class="btn btn-tool"
-		data-card-widget="collapse" title="Collapse">
-		<i class="fas fa-minus"></i>
-	</button>
-</div>
 
 <form method="post" action="<%=request.getContextPath()%>/board/bulletinContentInsert.do">
 	<%
@@ -30,11 +24,11 @@
 	<div>
 		<div>
 			<label for="inputName">제목</label> 
-			<input type="text" id="inputName" name="title" value="<%=boardVo != null ? boardVo.getBd_title() : ""%>" required>
+			<input type="text" id="inputName" name="bd_title" value="<%=boardVo != null ? boardVo.getBd_title() : ""%>" required>
 		</div>
 		<div>
 			<label for="inputDescription">내용</label>
-			<textarea id="inputDescription" rows="20" name="content" ><%=boardVo != null ? boardVo.getBd_content() : ""%></textarea>
+			<textarea id="inputDescription" rows="20" name="bd_content" ><%=boardVo != null ? boardVo.getBd_content() : ""%></textarea>
 		</div>
 		<div>
 		

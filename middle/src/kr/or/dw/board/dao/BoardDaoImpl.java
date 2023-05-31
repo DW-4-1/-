@@ -60,6 +60,7 @@ private static BoardDaoImpl dao;
 		
 		try {
 			boardVo = (BoardVO) smc.queryForObject("board.getBulletinBoardView", bd_no);
+			int result = smc.update("board.hitBulletinBoard", bd_no);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -79,6 +80,31 @@ private static BoardDaoImpl dao;
 		}
 		
 		return result;
+	}
+
+	@Override
+	public int updateBulletinContent(BoardVO boardVo) {
+		int result = 0;
+		try {
+			result = smc.update("board.updateBulletinContent", boardVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public int insertBulletinContent(BoardVO boardVo) {
+		int bd_no = 0;
+		try {
+			bd_no = (int) smc.insert("board.insertBulletinContent", boardVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return bd_no;
 	}
 
 

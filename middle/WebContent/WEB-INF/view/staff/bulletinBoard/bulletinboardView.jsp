@@ -50,7 +50,7 @@
 				if (((String)session.getAttribute("auth_cd")).equals("A")) {
 			%>
 			<a type="button" id="contentDelBtn">삭제
-			</a> <a type="button" href="<%=request.getContextPath()%>/board/boardInsert.do?bd_no=<%=boardVo.getBd_no()%>">
+			</a> <a type="button" href="<%=request.getContextPath()%>/board/bulletinContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>">
 				수정
 			</a>
 

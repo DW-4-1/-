@@ -38,4 +38,40 @@
 		UPDATE notice_board SET gb_del = 'Y' WHERE bd_no = #bd_no#
 	</update>
 	
+	<insert id="insertBulletinContent" parameterClass="boardVO">
+		<selectKey keyProperty="bd_no" resultClass="int">
+			SELECT notice_board_seq.nextval bd_no FROM dual
+		</selectKey>
+		
+		INSERT INTO 
+			notice_board (
+						bd_no
+					   ,bd_title
+					   ,bd_content
+					   ,staff_id
+					   ,bd_wdt
+					   ,bd_hit
+					   ,gb_del
+				
+					)
+			VALUES (
+						#bd_no#
+					   ,#bd_title#
+					   ,#bd_content#
+					   ,#staff_id#
+					   ,sysdate
+					   ,0
+					   ,'N'
+					)
+			
+	</insert>
+	
+	<update id="updateBulletinContent" parameterClass="boardVO">
+		UPDATE notice_board SET bd_title = #bd_title#, bd_content = #bd_content#
+		WHERE bd_no = #bd_no#
+	</update>
+	
+	<update id="hitBulletinBoard" parameterClass="int">
+		UPDATE notice_board SET bd_hit = bd_hit + 1 WHERE bd_no = #bd_no#
+	</update>
 </sqlMap>
