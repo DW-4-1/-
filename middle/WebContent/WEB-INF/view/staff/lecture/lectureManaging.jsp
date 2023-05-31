@@ -1,3 +1,5 @@
+<%@page import="java.util.HashSet"%>
+<%@page import="java.util.Set"%>
 <%@page import="kr.or.dw.vo.LectureVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -11,6 +13,20 @@
 			location.href="<%=request.getContextPath()%>/lecture/downloadLecturePlan.do?plan_path=" + plan_path;
 			
 		})
+		$('select[name=year]').change(
+				function() { //년도 선택하면 해당 년도의 강의만 보이는 함수
+					for (let i = 0; i < $('tr[type=var]').length; i++) {
+						if ($(this).val() == 'all') {
+							$('tr[type=var]').css('display', '');
+						} else if ($(this).val() == $($('tr[type=var]')[i])
+								.attr('name')) {
+							$($('tr[type=var]')[i]).css('display', '');
+						} else {
+							$($('tr[type=var]')[i]).css('display', 'none');
+						}
+					}
+
+		});
 	})
 </script>
 <title>강의관리</title>
@@ -22,6 +38,25 @@
 			<div class="card">
 				<div class="card-header">
 					<h3 class="card-title">강의 관리</h3>
+					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
+						<select id="year" name="year" style="margin-left: auto;">
+							<option name="year" value="all">전체보기</option>
+							<%
+							List<LectureVO> lecList = (List) request.getAttribute("lecList"); //학생이 수강한 년도만 보이게
+							Set<Integer> yearList = new HashSet<>();
+							for (LectureVO vo : lecList) {
+								yearList.add(vo.getLec_year());
+							}
+							
+							for (int year : yearList) {
+							%>
+							<option name="year" value="<%=year%>"><%=year%>년
+							</option>
+							<%
+							}
+							%>
+						</select>
+					</div>
 				</div>
 
 				<div class="card-body">
@@ -91,7 +126,6 @@
 										</tr>
 									</thead>
 									<%
-										List<LectureVO> lecList = (List<LectureVO>)request.getAttribute("lecList");
 										String disabled = "";
 										for(LectureVO vo : lecList){
 											if(vo.getPlan_path() == null || vo.getPlan_path().equals("")){
@@ -105,7 +139,7 @@
 											}
 									%>
 									<tbody>
-										<tr class="odd" type="var" style="text-align: center; height: 30px;">
+										<tr class="odd" type="var" name="<%=vo.getLec_year()%>" style="text-align: center; height: 30px;">
 											<td><%=vo.getLec_code() %></td>
 											<td><%=vo.getLec_name() %></td>
 											<td><%=vo.getLec_loc() %></td>
