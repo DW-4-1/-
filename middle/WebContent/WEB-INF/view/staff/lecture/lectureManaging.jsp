@@ -123,6 +123,11 @@
 												aria-label="CSS grade: activate to sort column ascending">
 												수정
 											</th>
+											<th class="sorting" tabindex="0" aria-controls="example2"
+												rowspan="1" colspan="1"
+												aria-label="CSS grade: activate to sort column ascending">
+												삭제
+											</th>
 										</tr>
 									</thead>
 									<%
@@ -153,6 +158,9 @@
 											</td>
 											<td>
 												<input type="button" value="수정" onclick="location.href='<%=request.getContextPath()%>/lecture/lectureInsertForm.do?lecCode=<%=vo.getLec_code()%>'">
+											</td>
+											<td>
+												<input type="button" value="삭제" onclick="location.href='<%=request.getContextPath()%>/lecture/lectureDelete.do?lecCode=<%=vo.getLec_code()%>'">
 											</td>
 										</tr>		
 									</tbody>
