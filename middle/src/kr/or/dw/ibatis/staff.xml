@@ -48,7 +48,7 @@
 							  ,#staff_name#
 							  ,#staff_gender#
 							  ,#staff_resnum#
-							  ,#staff_addr#
+							  ,#staff_addr# || ' ' || #staff_detailaddr#
 							  ,#staff_zipcode#
 							  ,#dept_code#
 							  ,#staff_div#

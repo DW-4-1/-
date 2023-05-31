@@ -7,6 +7,7 @@ public class StaffVO {
 	private String staff_gender;	//성별
 	private String staff_resnum;	//주민번호
 	private String staff_addr;	//주소
+	private String staff_detailaddr;	//상세주소
 	private int staff_zipcode;	//우편번호
 	private String dept_code;	//소속코드 (교수라면 과번호, 관리자면 담당 부서 번호)
 	private String dept_name;	//소속명 (교수라면 과이름, 관리자면 담당 부서 이름)
@@ -107,6 +108,12 @@ public class StaffVO {
 	}
 	public void setStaff_hiredate(String staff_hiredate) {
 		this.staff_hiredate = staff_hiredate;
+	}
+	public String getStaff_detailaddr() {
+		return staff_detailaddr;
+	}
+	public void setStaff_detailaddr(String staff_detailaddr) {
+		this.staff_detailaddr = staff_detailaddr;
 	}
 	
 	

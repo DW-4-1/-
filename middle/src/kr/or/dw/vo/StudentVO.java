@@ -7,6 +7,7 @@ public class StudentVO {
 	private String stu_gender;	//성별
 	private String stu_resnum;	//주민번호
 	private String stu_addr;	//주소		변경가능
+	private String stu_detailaddr;	//주소		변경가능
 	private int stu_zipcode;	//우편번호	변경가능
 	private String dept_code;		//학과코드
 	private String dept_name;	//학과명
@@ -109,6 +110,12 @@ public class StudentVO {
 	}
 	public void setStu_grddate(String stu_grddate) {
 		this.stu_grddate = stu_grddate;
+	}
+	public String getStu_detailaddr() {
+		return stu_detailaddr;
+	}
+	public void setStu_detailaddr(String stu_detailaddr) {
+		this.stu_detailaddr = stu_detailaddr;
 	}
 
 	
