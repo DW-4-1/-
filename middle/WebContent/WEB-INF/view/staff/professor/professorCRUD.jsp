@@ -20,7 +20,6 @@
 	})
 </script>
 <body>
-<% for(StaffVO staVo : staVoList) {%>
 	<form>
 		<table border="1">
 			<tr>
@@ -37,6 +36,7 @@
 				<th>고용일</th>
 				<th>직분</th>
 			</tr>
+<% for(StaffVO staVo : staVoList) {%>
 			<tr>
 				<td><%=staVo.getStaff_id()%></td>
 				<td><%=staVo.getStaff_name()%></td>
@@ -51,9 +51,9 @@
 				<td><%=staVo.getStaff_hiredate()%></td>
 				<td><%=staVo.getAuth_cd()%></td>
 			</tr>
+	<%	 }	 %>
 		</table>
 	</form>
-	<%	 }	 %>
 	<input type="button" id="professorInsertBtn" value="교수추가">
 </body>
 </html>
