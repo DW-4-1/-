@@ -7,9 +7,9 @@
 </head>
 <body>
 	<%
-		String staff_id = (String) session.getAttribute("staff_id");
+		String id = (String) session.getAttribute("staff_id");
 	
-		if(staff_id == null){
+		if(id == null){
 	%>
 		<script>
 			alert("로그인이 필요합니다.");
