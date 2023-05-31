@@ -21,7 +21,6 @@
 	})
 </script>
 <body>
-<% for(StudentVO stuVo : stuVoList) {%>
 	<form>
 		<table border="1">
 			<tr>
@@ -38,6 +37,7 @@
 				<th>졸업예정일</th>
 				<th>직분</th>
 			</tr>
+<% for(StudentVO stuVo : stuVoList) {%>
 			<tr>
 				<td><%=stuVo.getStu_id()%></td>
 				<td><%=stuVo.getStu_name()%></td>
@@ -52,9 +52,10 @@
 				<td><%=stuVo.getStu_grddate()%></td>
 				<td><%=stuVo.getAuth_cd()%></td>
 			</tr>
+	<%	 }	 %>
 		</table>
 	</form>
-	<%	 }	 %>
 	<input type="button" id="studentFormBtn" value="학생추가">
+	<input type="button" id="deleteBtn" value="삭제하기">
 </body>
 </html>

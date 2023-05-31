@@ -38,7 +38,13 @@ public class PasswordUpdateAction implements IAction{
 		int stu_pwd = service.passwordUpdate(stuVo);
 		req.setAttribute("stu_pwd", stu_pwd);
 		
+		String referer = req.getHeader("referer");
 		
+		System.out.println(referer);
+		
+		if(referer.contains("http://localhost:8080/student/emailPassUpdateResult.do")) {
+			return "/";
+		}
 		return "/student/studentInfo.do";
 	}
 
