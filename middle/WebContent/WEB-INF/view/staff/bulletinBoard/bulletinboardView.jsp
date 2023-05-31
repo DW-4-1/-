@@ -18,7 +18,7 @@
 		
 		$('#contentDelBtn').on('click', function(){
 			if(confirm("정말 삭제하시겠습니까?") == true){
-				location.href = "<%=request.getContextPath()%>/board/deleteContent.do?bd_no=<%=boardVo.getBd_no()%>";
+				location.href = "<%=request.getContextPath()%>/board/deleteBulletinContent.do?bd_no=<%=boardVo.getBd_no()%>";
 				};
 		});
 		
