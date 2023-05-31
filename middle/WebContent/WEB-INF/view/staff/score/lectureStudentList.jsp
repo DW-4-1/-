@@ -59,10 +59,7 @@
 				<script>
 						$(function(){
 							let stu_grade = '<%=stu.getStu_grade()%>';
-							
 							$('#<%=stu.getStu_id()%>').find('.stu_grade').val(stu_grade).prop('selected', true);
-			
-
 						})
 				</script>					
 					
@@ -97,6 +94,7 @@
 					</select>
 				</td>
 				<td><input type="submit" value="저장하기" id="updateBtn"></td>
+				<td><input type="button" value="학생 삭제하기" id="stuDeleteBtn" onclick="location.href='<%=request.getContextPath()%>/lecture/deleteStudentLecture.do?stu_id=<%=stu.getStu_id() %>&lec_code=<%=lec_code %>>'"></td>
 			</tr>
 		</form>
 		<%
