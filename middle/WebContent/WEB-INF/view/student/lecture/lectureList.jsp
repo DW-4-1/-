@@ -121,9 +121,15 @@
 												aria-label="CSS grade: activate to sort column ascending">
 												강의계획서
 											</th>
+											<th class="sorting" tabindex="0" aria-controls="example2"
+												rowspan="1" colspan="1"
+												aria-label="CSS grade: activate to sort column ascending">
+												수강취소
+											</th>
 										</tr>
 									</thead>
 									<%
+										String stu_id = (String) session.getAttribute("stu_id");
 										String disabled = "";
 										for (LectureVO vo : lecList) {
 											String lec_time = "" + vo.getLec_time();
@@ -150,6 +156,9 @@
 											<td><%=vo.getLec_credit()%></td>
 											<td>
 												<input type="button" value="다운로드" <%=disabled %> id="planDownBtn" name="<%=vo.getPlan_path()%>">
+											</td>
+											<td>
+											<input type="button" value="수강취소" id="stuDeleteBtn" onclick="location.href='<%=request.getContextPath()%>/lecture/deleteStudentLecture.do?stu_id=<%=stu_id %>&lec_code=<%=vo.getLec_code()%>'">
 											</td>
 										</tr>
 									</tbody>

@@ -31,9 +31,16 @@ public class DeleteStudentLectureAction implements IAction{
 		ILectureService service = LectureServiceImpl.getInstance();
 		int result = 0;
 		result = service.deleteStudentLecture(lecVo);
-		
-		
-		return "/lecture/lectureStudentList.do?lecCode=" + lec_code;
+		System.out.println(result);
+		String referer = req.getHeader("referer");
+		System.out.println(referer);
+		String view = "";
+		if(referer.equals("http://localhost/lecture/lectureList.do")) {
+			view = "/lecture/lectureList.do";
+		}else {
+			view = "/lecture/lectureStudentList.do?lecCode=" + lec_code;
+		}
+		return view;
 	}
 
 }
