@@ -28,6 +28,11 @@
 		WHERE gb_del = 'N'
 	</select>
 	
+	<select id="getBulletinBoardView" parameterClass="int" resultClass="boardVO">
+		SELECT *
+		FROM notice_board
+		WHERE bd_no = #bd_no#
+	</select>
 
 	
 </sqlMap>

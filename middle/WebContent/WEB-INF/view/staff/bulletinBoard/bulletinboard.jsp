@@ -7,13 +7,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>    
 
-<script>
-
-</script>
-
 <h3>게시판</h3>
 <div>
-
 	<%
 		if(session.getAttribute("auth_cd") != null && ((String)session.getAttribute("auth_cd")).equals("A")){
 	%>	
@@ -23,11 +18,7 @@
 		}
 	%>	
 	<input type="text" placeholder="Search Title">
-	
-	
-
 </div>
-
 <div>
 	<table>
 		<thead>
@@ -40,8 +31,6 @@
 			</tr>
 		</thead>
 		<tbody>
-		
-		
 		<% 
 			if(request.getAttribute("boardList") != null){
 				
@@ -52,8 +41,6 @@
 				for(BoardVO board : boardList){
 					int bd_no = board.getBd_no();
 					String bd_title = board.getBd_title();
-				
-					String bd_pic_path = "/profilePath/default/defaultprofile.png";
 					
 					int bd_hit = board.getBd_hit();
 				

@@ -19,4 +19,11 @@ public interface IBoardDao {
 	 * @return 전체 레코드 수
 	 */
 	public int selectBoardCount();
+	
+	/**
+	 * 공지사항 글 보는 메서드
+	 * @param bd_no
+	 * @return
+	 */
+	public BoardVO selectBulletinBoeadView(int bd_no);
 }

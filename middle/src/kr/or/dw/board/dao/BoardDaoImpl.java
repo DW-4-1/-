@@ -54,6 +54,20 @@ private static BoardDaoImpl dao;
 		return totalCount;
 	}
 
+	@Override
+	public BoardVO selectBulletinBoeadView(int bd_no) {
+		BoardVO boardVo = null;
+		
+		try {
+			boardVo = (BoardVO) smc.queryForObject("board.getBulletinBoardView", bd_no);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return boardVo;
+	}
+
 
 
 

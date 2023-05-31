@@ -19,6 +19,13 @@ public interface IBoardService {
 	 * @return 게시판 목록 list
 	 */
 	List<BoardVO> selectBoardList(Map<String, Object> paramMap);
+	
+	/**
+	 * 공지사항 보는 메서드
+	 * @param bd_no
+	 * @return
+	 */
+	BoardVO selectBulletinBoardView(int bd_no);
 
 
 	

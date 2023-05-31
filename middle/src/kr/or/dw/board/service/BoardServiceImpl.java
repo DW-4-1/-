@@ -34,5 +34,10 @@ public class BoardServiceImpl implements IBoardService{
 		return dao.selectBoardList(paramMap);
 	}
 
+	@Override
+	public BoardVO selectBulletinBoardView(int bd_no) {
+		return dao.selectBulletinBoeadView(bd_no);
+	}
+
 
 }
