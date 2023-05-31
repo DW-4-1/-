@@ -7,9 +7,6 @@
 
 <title>초기 비밀번호 변경 페이지입니다.</title>
 <script>
-	<%
-		StudentVO stu = (StudentVO)request.getAttribute("stu_id");
-	%>
 	$(function(){
 <%-- 		let stu_id = "<%=stu.getStu_id()%>" --%>
 <%-- 		let stu_pwd = "<%=stu.getStu_pwd()%>" --%>
