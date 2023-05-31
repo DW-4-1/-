@@ -17,13 +17,62 @@
 		$('#studentFormBtn').on('click', function(){
 			location.href = "/staff/studentForm.do"
 		});
-		
+		$('#deleteFormBtn').on('click', function(){
+			$('input[type=checkbox]').show();
+			$('th[class=1]').show();
+			$('#Btn').show();
+// 			$('#deleteBtn').show();
+// 			$('#resetBtn').show();
+		});
+		let val = $('td[name=stu_id]').text()
+		$('#deleteBtn').on('click', function(){
+			console.log($('.chk'));
+			
+		})
+		$('#resetBtn').on('click', function(){
+			$('input[type=checkbox]').hide();
+			$('th[class=1]').hide();
+			$('#Btn').hide();
+		})
+		$('#all').on('click', function(){
+			$('.chk').prop('checked', $(this).prop('checked'));
+		})
+		$('.chk').on('click', function() {
+    		if ($('.chk:checked').length != $('.chk').length) {
+      			$('#all').prop('checked', false);
+    		}else if ($('.chk:checked').length == $('.chk').length) {
+      			$('#all').prop('checked', true);
+    		}
+    		
+		});
+		$('.chk').on('click',function(){
+			if($(this).is(":checked")){
+				var stuid
+			}
+		})
+		let formData = new FormData($('#form')[0]);
+		console.log(formData);
+		$.ajax({
+			url : "<%=request.getContextPath()%>/staff/studentDelete.do",
+			processData : false,
+			contentType : false,
+			data : formData,
+			dataType : "json",
+			method : "post",
+			success : function(res){
+				alert('삭제가 완료되었습니다.');
+			},
+			error : function(){
+				
+			}
+		})
 	})
 </script>
 <body>
-	<form>
+	<form id="form">
 		<table border="1">
 			<tr>
+				<th class="1" style="display:none;"><input type="checkbox" id="all" style="display:none;"></th>
 				<th>ID</th>
 				<th>이름</th>
 				<th>성별</th>
@@ -37,8 +86,9 @@
 				<th>졸업예정일</th>
 				<th>직분</th>
 			</tr>
-<% for(StudentVO stuVo : stuVoList) {%>
+	<% for(StudentVO stuVo : stuVoList) {%>
 			<tr>
+				<th class="1" style="display:none;"><input type="checkbox" class="chk" style="display:none;" name="stu_id" id="stu_id" value="<%=stuVo.getStu_id()%>"></th>
 				<td><%=stuVo.getStu_id()%></td>
 				<td><%=stuVo.getStu_name()%></td>
 				<td><%=stuVo.getStu_gender()%></td>
@@ -55,7 +105,11 @@
 	<%	 }	 %>
 		</table>
 	</form>
+	<div id="Btn" style="display:none;">
+		<input type="button" id="deleteBtn" value="삭제">
+		<input type="button" id="resetBtn" value="취소">
+	</div>
 	<input type="button" id="studentFormBtn" value="학생추가">
-	<input type="button" id="deleteBtn" value="삭제하기">
+	<input type="button" id="deleteFormBtn" value="삭제하기">
 </body>
 </html>
