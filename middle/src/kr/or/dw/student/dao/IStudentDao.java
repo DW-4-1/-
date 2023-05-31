@@ -66,7 +66,7 @@ public interface IStudentDao {
 	 * @param stuVo
 	 * @return
 	 */
-	public int studentdelete(StudentVO stuVo);
+	public void studentDelete(String[] stu_id);
 	
 
 }

@@ -1,6 +1,7 @@
 package kr.or.dw.student.dao;
 
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -131,18 +132,15 @@ private static StudentDaoImpl dao;
 	}
 
 	@Override
-	public int studentdelete(StudentVO stuVo) {
-		int cnt = 0;
+	public void studentDelete(String[] stu_id) {
 		
 		try {
-			cnt =  smc.delete("student.studentDelete", stuVo);
+			smc.delete("student.studentDelete", stu_id);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
-		return cnt;
+        }
 	}
+
 
 	
 }

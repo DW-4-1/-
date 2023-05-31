@@ -63,9 +63,8 @@ public interface IStudentService {
 	/**
 	 * 학생을 삭제하는 메서드
 	 * @param stu_id
-	 * @return
 	 */
-	public int studentdelete(StudentVO stuVo);
+	public void studentDelete(String[] stu_id);
 
 	
 }

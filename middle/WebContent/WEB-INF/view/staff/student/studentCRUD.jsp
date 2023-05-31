@@ -24,10 +24,30 @@
 // 			$('#deleteBtn').show();
 // 			$('#resetBtn').show();
 		});
-		let val = $('td[name=stu_id]').text()
+		let stu_id = new Array();
+		$('.chk').on('change',function(){
+			if($(this).is(":checked")){
+				stu_id = [];
+				$('.chk:checked').each(function(){
+					stu_id.push($(this).val())
+				})
+			}
+		})
 		$('#deleteBtn').on('click', function(){
-			console.log($('.chk'));
+				console.log(stu_id);
 			
+			$.ajax({
+				url : "<%=request.getContextPath()%>/staff/studentDelete.do",
+				data : {"stu_id" : JSON.stringify(stu_id)},
+				dataType : "json",
+				method : "post",
+				success : function(res){
+					alert('삭제가 완료되었습니다.');
+				},
+				error : function(){
+					
+				}
+			})
 		})
 		$('#resetBtn').on('click', function(){
 			$('input[type=checkbox]').hide();
@@ -45,27 +65,6 @@
     		}
     		
 		});
-		$('.chk').on('click',function(){
-			if($(this).is(":checked")){
-				var stuid
-			}
-		})
-		let formData = new FormData($('#form')[0]);
-		console.log(formData);
-		$.ajax({
-			url : "<%=request.getContextPath()%>/staff/studentDelete.do",
-			processData : false,
-			contentType : false,
-			data : formData,
-			dataType : "json",
-			method : "post",
-			success : function(res){
-				alert('삭제가 완료되었습니다.');
-			},
-			error : function(){
-				
-			}
-		})
 	})
 </script>
 <body>

@@ -78,7 +78,7 @@
 
 	</select>
 	
-	<delete id="studentDelete" parameterClass="stuVO">
+	<delete id="studentDelete" parameterClass="String">
 		DELETE students WHERE stu_id = #stu_id#
 	</delete>
 </sqlMap>
