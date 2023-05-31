@@ -36,7 +36,6 @@
 				<th>상태</th>
 				<th>고용일</th>
 				<th>직분</th>
-				<th>비밀번호</th>
 			</tr>
 			<tr>
 				<td><%=staVo.getStaff_id()%></td>
@@ -51,7 +50,6 @@
 				<td><%=staVo.getStaff_state()%></td>
 				<td><%=staVo.getStaff_hiredate()%></td>
 				<td><%=staVo.getAuth_cd()%></td>
-				<td><%=staVo.getStaff_pwd()%></td>
 			</tr>
 		</table>
 	</form>

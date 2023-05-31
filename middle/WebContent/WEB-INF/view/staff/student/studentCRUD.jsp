@@ -37,7 +37,6 @@
 				<th>상태</th>
 				<th>졸업예정일</th>
 				<th>직분</th>
-				<th>비밀번호</th>
 			</tr>
 			<tr>
 				<td><%=stuVo.getStu_id()%></td>
@@ -52,7 +51,6 @@
 				<td><%=stuVo.getStu_state()%></td>
 				<td><%=stuVo.getStu_grddate()%></td>
 				<td><%=stuVo.getAuth_cd()%></td>
-				<td><%=stuVo.getStu_pwd()%></td>
 			</tr>
 		</table>
 	</form>

@@ -65,6 +65,7 @@
 								<tr>
 									<th style="width: 50%">학번</th>
 									<td><%=stu.getStu_id()%></td>
+									<input type="hidden" value="<%=stu.getStu_id()%>" name="stu_id">
 								</tr>
 								<tr>
 									<th>이름</th>
@@ -80,11 +81,11 @@
 								</tr>
 								<tr>
 									<th>주소</th>
-									<td><input type="text" name="stu_addr"value="<%= stu.getStu_addr() %>"></td>
+									<td><input type="text" name="stu_addr" value="<%= stu.getStu_addr() %>"></td>
 								</tr>
 								<tr>
 									<th>우편번호</th>
-									<td><input type="text" name="stu_zipcode"value="<%=stu.getStu_zipcode() %>"></td>
+									<td><input type="text" name="stu_zipcode" value="<%=stu.getStu_zipcode() %>"></td>
 								</tr>
 								<tr>
 									<th>학과명</th>
