@@ -19,6 +19,7 @@
 	<typeAlias alias = "lecVO" type = "kr.or.dw.vo.LectureVO" />
 	<typeAlias alias = "stuVO" type = "kr.or.dw.vo.StudentVO" />
 	<typeAlias alias = "staffVO" type = "kr.or.dw.vo.StaffVO" />
+	<typeAlias alias = "boardVO" type = "kr.or.dw.vo.BoardVO" />
 	
 	<!-- DB와 연결을 처리하는 부분 -->
 	<transactionManager type="JDBC">
@@ -37,5 +38,6 @@
 	<sqlMap resource = "kr/or/dw/ibatis/lecture.xml" />
 	<sqlMap resource = "kr/or/dw/ibatis/student.xml" />
 	<sqlMap resource = "kr/or/dw/ibatis/staff.xml" />
+	<sqlMap resource = "kr/or/dw/ibatis/board.xml" />
 	 
 </sqlMapConfig>

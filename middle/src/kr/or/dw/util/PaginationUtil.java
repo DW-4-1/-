@@ -67,29 +67,29 @@ public class PaginationUtil {
 			paramStr.append("&" + param + "=" + (req.getParameter(param) == null ? "" : req.getParameter(param)));
 		};
 		
-		stringBuilder.append("<div class='d-flex justify-content-center' style='margin-top: 20px;'>\n");
+		stringBuilder.append("<div style='margin-top: 20px;'>\n");
 		stringBuilder.append("<nav>\n");
 		stringBuilder.append("<ul class='pagination'>\n");
 		
 		if(config.get("page") > 1) {
-			stringBuilder.append("<li class='page-item'><a class='page-link' href='?page=" + (config.get("page") - 1) + paramStr + "'>&lt;&lt;</a></li>\n");
+			stringBuilder.append("<li><a class='page-link' href='?page=" + (config.get("page") - 1) + paramStr + "'>&lt;&lt;</a></li>\n");
 		}
 		
 		if(config.get("startPage") > 1) {
 			stringBuilder.append("<li class='page-item'><a class='page-link' href='?page=" + 1 + paramStr + "'>1</a></li>\n");
-			stringBuilder.append("<li class='page-item disabled'><span class='page-link'>...</span></li>\n");
+			stringBuilder.append("<li class='page-item'><span class='page-link'>...</span></li>\n");
 		}
 		
 		for(int i = config.get("startPage"); i <= config.get("endPage"); i++) {
 			if(i == config.get("page")) {
-				stringBuilder.append("<li class='page-item active'><a class='page-link' href='?page=" + i + paramStr + "'>" + i + "</a></li>\n");
+				stringBuilder.append("<li class='page-item'><a class='page-link' href='?page=" + i + paramStr + "'>" + i + "</a></li>\n");
 			}else {
 				stringBuilder.append("<li class='page-item'><a class='page-link' href='?page=" + i + paramStr + "'>" + i + "</a></li>\n");
 			}
 		}
 		
 		if(config.get("endPage") < config.get("totalPage")) {
-			stringBuilder.append("<li class='page-item disabled'><span class='page-link'>...</span></li>\n");
+			stringBuilder.append("<li class='page-item'><span class='page-link'>...</span></li>\n");
 			stringBuilder.append("<li class='page-item'><a class='page-link' href='?page=" + config.get("totalPage") + paramStr + "'>" + config.get("totalPage") + "</a></li>\n");
 		}
 		

@@ -6,14 +6,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>    
-<%
-	List<BoardVO> boardList = (List<BoardVO>) request.getAttribute("boardList");
-%>
+
 <script>
 
 </script>
 
-<h3 class="card-title">게시판</h3>
+<h3>게시판</h3>
 <div>
 
 	<%
@@ -34,27 +32,30 @@
 	<table>
 		<thead>
 			<tr>
-				<th style="width: 10%">글번호</th>
+				<th>글번호</th>
 				<th>제목</th>
-				<th style="width: 20%">작성자</th>
-				<th style="width: 7%">조회수</th>
-				<th style="width: 16%">작성일</th>
+				<th>작성자</th>
+				<th>조회수</th>
+				<th>작성일</th>
 			</tr>
 		</thead>
 		<tbody>
 		
 		
 		<% 
-		
-			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		
-			for(BoardVO board : boardList){
-				int bd_no = board.getBd_no();
-				String bd_title = board.getBd_title();
-			
-				String bd_pic_path = "/profilePath/default/defaultprofile.png";
+			if(request.getAttribute("boardList") != null){
 				
-				int bd_hit = board.getBd_hit();
+			
+				List<BoardVO> boardList = (List<BoardVO>) request.getAttribute("boardList");
+				DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+				
+				for(BoardVO board : boardList){
+					int bd_no = board.getBd_no();
+					String bd_title = board.getBd_title();
+				
+					String bd_pic_path = "/profilePath/default/defaultprofile.png";
+					
+					int bd_hit = board.getBd_hit();
 				
 		%>
 			<a href="#">
@@ -74,7 +75,7 @@
 			</a>
 									
 		<% 
-			}
+			}}
 		%>
 			
 		</tbody>
@@ -82,7 +83,7 @@
 	<div style="margin-top: 20px;">
 		<%
 			PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
-		%>
+ 		%>
 		<%= pagination.getPaginationHtml(request,new String[] {"search"}) %>
 	</div>
 </div>
