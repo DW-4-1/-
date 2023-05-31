@@ -68,6 +68,19 @@ private static BoardDaoImpl dao;
 		return boardVo;
 	}
 
+	@Override
+	public int deleteBulletinContent(int bd_no) {
+		int result = 0;
+		try {
+			result = smc.update("board.deleteBulletinContent", bd_no);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
 
 
 

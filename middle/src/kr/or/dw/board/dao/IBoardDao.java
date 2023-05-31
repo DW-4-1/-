@@ -26,4 +26,11 @@ public interface IBoardDao {
 	 * @return
 	 */
 	public BoardVO selectBulletinBoeadView(int bd_no);
+	
+	/**
+	 * 공지사항 삭제 메서드
+	 * @param bd_no
+	 * @return
+	 */
+	public int deleteBulletinContent(int bd_no);
 }

@@ -34,5 +34,8 @@
 		WHERE bd_no = #bd_no#
 	</select>
 
+	<update id="deleteBulletinContent" parameterClass="int">
+		UPDATE notice_board SET gb_del = 'Y' WHERE bd_no = #bd_no#
+	</update>
 	
 </sqlMap>

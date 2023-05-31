@@ -49,7 +49,7 @@
 				<tr>
 					<td><%=bd_no %></td>
 					<td>
-						<a href="<%=request.getContextPath()%>/board/boardView.do?bd_no=<%=bd_no%>">
+						<a href="<%=request.getContextPath()%>/board/bulletinBoardView.do?bd_no=<%=bd_no%>">
 							<%=bd_title %>
 						</a>
 					</td>

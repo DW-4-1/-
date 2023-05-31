@@ -26,6 +26,13 @@ public interface IBoardService {
 	 * @return
 	 */
 	BoardVO selectBulletinBoardView(int bd_no);
+	
+	/**
+	 * 공지사항 삭제 메서드
+	 * @param bd_no
+	 * @return
+	 */
+	int deleteBulletinContent(int bd_no);
 
 
 	
