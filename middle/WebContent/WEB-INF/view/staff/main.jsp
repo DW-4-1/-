@@ -6,18 +6,6 @@
 <title>메인화면</title>
 </head>
 <body>
-	<%
-		String id = (String) session.getAttribute("staff_id");
-	
-		if(id == null){
-	%>
-		<script>
-			alert("로그인이 필요합니다.");
-			location.href = "<%=request.getContextPath()%>/";
-		</script>
-	<%
-		}
-	%>
 
 	<main>
 		<div
