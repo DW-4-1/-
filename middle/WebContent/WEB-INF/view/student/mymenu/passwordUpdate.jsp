@@ -1,6 +1,3 @@
-<%@page import="java.security.NoSuchAlgorithmException"%>
-<%@page import="kr.or.dw.util.CryptoUtil"%>
-<%@page import="kr.or.dw.vo.StudentVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
@@ -8,43 +5,6 @@
 <title>초기 비밀번호 변경 페이지입니다.</title>
 <script>
 	$(function(){
-<%-- 		let stu_id = "<%=stu.getStu_id()%>" --%>
-<%-- 		let stu_pwd = "<%=stu.getStu_pwd()%>" --%>
-		
-// 		let pwdChk = false;
-// 		let pwdFlag = false;
-		
-// 		let pwdCheck = $('input[name=stu_pwdCheck]');
-// 		let pwdChange = $('input[name=stu_pwdChange]');
-// 		let stuPwd = $('input[name=stu_pwd]');
-		
-// 		pwdCheck.on('keyup', function(){
-// 			let pwdCheckVal = pwdCheck.val();
-// 			let pwdVal = pwdChange.val();
-// 			if(pwdVal == pwdCheckVal){
-// 				pwdChk = true;
-// 				console.log(pwdChk);
-// 			}else{
-// 				pwdChk = false;
-// 				console.log(pwdChk);
-// 			}
-// 		});
-// 		stuPwd.on('keyup', function(){
-// 			let stu_pass = stuPwd.val();
-<%-- 			if(stu_pass == stu_pwd || hashedPass.equals("<%=stu.getStu_pwd()%>")){ --%>
-// 				pwdFlag = true;
-// 				console.log(pwdFlag);
-// 			}else{
-// 				pwdFlag = false;
-// 				console.log(pwdFlag);
-// 			}
-// 		});
-		
-			
-// 		});
-// 		$('#save').on('submit', function(e){
-// 			}
-		
 		$('#resetBtn').on('click', function(){
 			location.href = "<%=request.getContextPath()%>/student/studentInfo.do";
 		});

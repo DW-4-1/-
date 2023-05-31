@@ -57,7 +57,7 @@
 <section class="content">
 	<div class="card card-solid">
 		<div class="card-body">
-			<form>
+			<form method="post" id="studentInfoUpdateForm" action="<%=request.getContextPath()%>/student/studentInfoUpdate.do">
 				<div class="col-8 text-center div-center text-size-up">
 					<div class="table-responsive">
 						<table class="table">

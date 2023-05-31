@@ -10,7 +10,6 @@
 <script>
 	$(function(){
 		let ver_code = null;
-		
 		$('#idEmailChkBtn').on('click', function(){
 			let stu_id = $('#stu_id').val();
 			let stu_email = $('#stu_email').val();
@@ -41,9 +40,10 @@
 			});
 		});
 		
+		let stu_id = $('#stu_id').val();
 		$(document).on('click', '#verCodeBtn', function(e) {
 			if($('#ver_code').val() == ver_code){
-			location.href="<%=request.getContextPath()%>/student/studentPasswordUpdateEmail.do";
+			location.href="<%=request.getContextPath()%>/student/studentPasswordUpdateEmail.do?ID=stu_id";
 		}else{
 			alert("인증코드가 잘못입력되었습니다.");
 		}

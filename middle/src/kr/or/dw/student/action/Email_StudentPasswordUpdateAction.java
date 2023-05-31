@@ -17,6 +17,7 @@ public class Email_StudentPasswordUpdateAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		
 		return "/student/emailPasswordUpdate.jsp";
 	}
 

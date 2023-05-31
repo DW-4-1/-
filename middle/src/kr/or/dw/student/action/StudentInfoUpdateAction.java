@@ -34,7 +34,7 @@ public class StudentInfoUpdateAction implements IAction{
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
 		}
-
+		System.out.println(stuVo.getStu_id());
 		IStudentService service = StudentServiceImpl.getInstance();
 		service.StudentInfoUpdate(stuVo);
 		return "/student/studentInfo.do";
