@@ -130,5 +130,19 @@ private static StudentDaoImpl dao;
 		return stuVo;
 	}
 
+	@Override
+	public int studentdelete(StudentVO stuVo) {
+		int cnt = 0;
+		
+		try {
+			cnt =  smc.delete("student.studentDelete", stuVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+
 	
 }

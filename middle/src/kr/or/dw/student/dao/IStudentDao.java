@@ -60,6 +60,13 @@ public interface IStudentDao {
 	 * @return
 	 */
 	public List<StudentVO> getDept();
+
+	/**
+	 * 학생을 삭제하는 메서드
+	 * @param stuVo
+	 * @return
+	 */
+	public int studentdelete(StudentVO stuVo);
 	
 
 }

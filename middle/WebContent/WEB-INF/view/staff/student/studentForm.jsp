@@ -14,6 +14,9 @@
 		$("#saveBtn").on('click', function(){
 			$("#studentInsertForm").submit();
 		});
+		$("#resetBtn").on('click', function(){
+			history.go(-1);
+		});
 	})
 </script>
 <%

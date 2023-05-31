@@ -64,4 +64,9 @@ public class StudentServiceImpl implements IStudentService{
 		return dao.getDept();
 	}
 
+	@Override
+	public int studentdelete(StudentVO stuVo) {
+		return dao.studentdelete(stuVo);
+	}
+
 }
