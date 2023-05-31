@@ -26,6 +26,17 @@ public class LectureRegisterAction implements IAction{
 		String lec_code = req.getParameter("lec_code");
 		
 		ILectureService service = LectureServiceImpl.getInstance();
+		
+		int max_peo = 1;
+		int cur_peo = 0;
+		
+		max_peo = service.getMaxPeo(lec_code);
+		cur_peo = service.getCurPeo(lec_code);
+		
+		if(max_peo <= cur_peo) {
+			return "/lecture/registerFail.do";
+		}
+		
 		LectureVO lecVo = new LectureVO();
 		lecVo.setLec_code(lec_code);
 		lecVo.setStu_id(stu_id);

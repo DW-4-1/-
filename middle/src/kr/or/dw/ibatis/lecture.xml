@@ -143,4 +143,17 @@
 		DELETE lecture WHERE lec_code = #lec_code# AND stu_id = #stu_id#
 	</delete>
 	
+	<select id="getMaxPeo" parameterClass="String" resultClass="int">
+		SELECT max(lec_maxpeo)
+		FROM all_lecturelist 
+		WHERE lec_code = #lec_code#
+		GROUP BY lec_code
+	</select>
+	
+	<select id="getCurPeo" parameterClass="String" resultClass="int">
+		SELECT count(*)
+		FROM lecture
+		WHERE lec_code = #lec_code#
+	</select>
+	
 </sqlMap>

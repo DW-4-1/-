@@ -97,4 +97,18 @@ public interface ILectureService {
 	 */
 	int deleteStudentLecture(LectureVO lecVo);
 
+	/**
+	 * 강의의 최대 수강인원 구하는 메서드
+	 * @param lec_code
+	 * @return
+	 */
+	int getMaxPeo(String lec_code);
+	
+	/**
+	 * 강의의 현재 수강인원 구하는 메서드
+	 * @param lec_code
+	 * @return
+	 */
+	int getCurPeo(String lec_code);
+
 }

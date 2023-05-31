@@ -90,4 +90,14 @@ public class LectureServiceImpl implements ILectureService{
 		public int deleteStudentLecture(LectureVO lecVo) {
 			return dao.deleteStudentLecture(lecVo);
 		}
+
+		@Override
+		public int getMaxPeo(String lec_code) {
+			return dao.getMaxPeo(lec_code);
+		}
+
+		@Override
+		public int getCurPeo(String lec_code) {
+			return dao.getCurPeo(lec_code);
+		}
 }

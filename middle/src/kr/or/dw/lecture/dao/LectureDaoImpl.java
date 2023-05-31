@@ -197,6 +197,29 @@ private static LectureDaoImpl dao;
 		
 		return result;
 	}
+
+	@Override
+	public int getMaxPeo(String lec_code) {
+		int max_peo = 1;
+		try {
+			max_peo = (int) smc.queryForObject("lecture.getMaxPeo", lec_code);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return max_peo;
+	}
+
+	@Override
+	public int getCurPeo(String lec_code) {
+		int cur_peo = 0;
+		try {
+			cur_peo = (int) smc.queryForObject("lecture.getCurPeo", lec_code);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return cur_peo;
+	}
 	
 	
 	
