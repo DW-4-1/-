@@ -139,4 +139,8 @@
 		INSERT INTO lecture VALUES (#stu_id#, #lec_code#, 0, 'null')
 	</insert>
 	
+	<delete id="deleteStudentLecture" parameterClass="lecVO">
+		DELETE lecture WHERE lec_code = #lec_code# AND stu_id = #stu_id#
+	</delete>
+	
 </sqlMap>

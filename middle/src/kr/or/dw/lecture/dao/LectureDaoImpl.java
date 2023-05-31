@@ -183,6 +183,20 @@ private static LectureDaoImpl dao;
 		}
 		return cnt;
 	}
+
+	@Override
+	public int deleteStudentLecture(LectureVO lecVo) {
+		int result = 0;
+		try {
+			result = smc.delete("lecture.deleteStudentLecture", lecVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return result;
+	}
 	
 	
 	

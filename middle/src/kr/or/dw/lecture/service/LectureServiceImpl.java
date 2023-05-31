@@ -85,4 +85,9 @@ public class LectureServiceImpl implements ILectureService{
 		public int registerLecture(LectureVO lecVo) {
 			return dao.registerLecture(lecVo);
 		}
+
+		@Override
+		public int deleteStudentLecture(LectureVO lecVo) {
+			return dao.deleteStudentLecture(lecVo);
+		}
 }

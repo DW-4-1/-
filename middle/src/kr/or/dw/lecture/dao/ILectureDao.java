@@ -78,4 +78,11 @@ public interface ILectureDao {
 	 */
 	int registerLecture(LectureVO lecVo);
 
+	/**
+	 * 강의에서 학생 삭제하는 메서드
+	 * @param lecVo
+	 * @return
+	 */
+	int deleteStudentLecture(LectureVO lecVo);
+
 }
