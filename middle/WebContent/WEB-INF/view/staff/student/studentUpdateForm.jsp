@@ -8,16 +8,24 @@
 <meta charset="UTF-8">
 <title>학생정보 수정 페이지 입니다.</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
+<%
+	StudentVO stuVo = (StudentVO)request.getAttribute("stuVo");
+%>
+<%
+	List<StudentVO> stuList = (List)request.getAttribute("dept");
+%>
 <script>
 	$(function(){
-		let stu_id = "";
-		$('input[name=stu_id]').on('click',function(){
-				stu_id = $(this).val();
-		})
-		$("#saveBtn").on('click', function(){
+		let stu_id;
+		$('#studentUpdateForm').on('keyup',function(){
+				stu_id = $('input[name=stu_id]').val();
+				console.log(stu_id);
+		})	
+		$("#saveBtn").on('click', function(e){
+			e.preventDefault();
 			$.ajax({
 				url : "<%=request.getContextPath()%>/staff/studentUpdate.do",
-				data : stu_id,
+				data : {stu_id : stu_id},
 // 				dataType : "json",
 				method : "post",
 				success : function(res){
@@ -31,14 +39,13 @@
 		$("#resetBtn").on('click', function(){
 			history.go(-1);
 		});
+		
+		$('select[name=stu_gender]').val('<%=stuVo.getStu_gender()%>').prop('selected', true);
+		$('select[name=dept_code]').val('<%=stuVo.getDept_code()%>').prop('selected', true);
 	})
+	
 </script>
-<%
-	StudentVO stuVo = (StudentVO)request.getAttribute("stu_id");
-%>
-<%
-	List<StudentVO> stuList = (List)request.getAttribute("dept");
-%>
+
 </head>
 <body>
 	<form id="studentUpdateForm" method="post">
@@ -66,15 +73,15 @@
 			</tr>
 			<tr>
 				<th>우편번호</th>
-				<td><input id="stu_zipcode" name="stu_zipcode" type="text" readonly onclick="findAddr()" required></td>
+				<td><input id="stu_zipcode" name="stu_zipcode" type="text" value="<%=stuVo.getStu_zipcode()%>" readonly onclick="findAddr()" required></td>
 			</tr>
 			<tr>
 				<th>주소</th>
-				<td> <input id="stu_addr" name="stu_addr" type="text" readonly required></td>
+				<td> <input id="stu_addr" name="stu_addr" type="text" value="<%=stuVo.getStu_addr()%>" readonly required></td>
 			</tr>
 			<tr>
 				<th>상세주소</th>
-				<td><input type="text" name="stu_detailaddr" required></td>
+				<td><input type="text" name="stu_detailaddr" value="<%=stuVo.getStu_detailaddr()%>" required></td>
 			</tr>
 	
 			<script>
@@ -113,23 +120,15 @@
 			</tr>
 			<tr>
 				<th>전화번호</th>
-				<td><input type="text" name="stu_tel" required <%=stuVo.getStu_tel()%>></td>
+				<td><input type="text" name="stu_tel" required value="<%=stuVo.getStu_tel()%>"></td>
 			</tr>
 			<tr>
 				<th>이메일</th>
-				<td><input type="text" name="stu_email" required <%=stuVo.getStu_email()%>></td>
+				<td><input type="text" name="stu_email" required value="<%=stuVo.getStu_email()%>"></td>
 			</tr>
 			<tr>
 				<th>상태</th>
-				<td><input type="text" name="stu_state" required <%=stuVo.getStu_state()%>></td>
-			</tr>
-			<tr>
-				<th>졸업예정일</th>
-				<td><input type="Date" name="stu_grddate" <%=stuVo.getStu_gender()%>></td>
-			</tr>
-			<tr>
-				<th>비밀번호</th>
-				<td><input type="text" name="stu_pwd" required <%=stuVo.getStu_pwd()%>></td>
+				<td><input type="text" name="stu_state" required value="<%=stuVo.getStu_state()%>"></td>
 			</tr>
 			<tr>
 				<td><input id="saveBtn" type="button" value="저장"></td>
@@ -138,4 +137,5 @@
 		</table>
 	</form>
 </body>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </html>

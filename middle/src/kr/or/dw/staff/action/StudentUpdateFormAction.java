@@ -24,11 +24,11 @@ public class StudentUpdateFormAction implements IAction{
 		IStudentService service = StudentServiceImpl.getInstance();
 		
 		String stu_id = req.getParameter("stu_id");
-		
-		req.setAttribute("stu_id", stu_id);
+		StudentVO stuVo = null;
+		stuVo = service.stdentInfo(stu_id);
 		
 		List<StudentVO> staVo = service.getDept();
-		
+		req.setAttribute("stuVo", stuVo);
 		req.setAttribute("dept", staVo);
 		
 		return "/staff/student/studentUpdateForm.jsp";

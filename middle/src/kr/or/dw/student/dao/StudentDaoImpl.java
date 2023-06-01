@@ -143,11 +143,11 @@ private static StudentDaoImpl dao;
 	}
 
 	@Override
-	public int studentUpdate(String stu_id) {
+	public int studentUpdate(StudentVO stuVo) {
 		int cnt = 0;
 		
 		try {
-			cnt = smc.update("student.studentUpdate", stu_id);
+			cnt = smc.update("student.studentUpdate", stuVo);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
