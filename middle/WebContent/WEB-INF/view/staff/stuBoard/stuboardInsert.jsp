@@ -13,7 +13,7 @@
 
 <h3 class="card-title">글작성</h3>
 
-<form method="post" action="<%=request.getContextPath()%>/board/bulletinContentInsert.do">
+<form method="post" action="<%=request.getContextPath()%>/board/stuContentInsert.do">
 	<%
 	if(boardVo != null){
 	%>
