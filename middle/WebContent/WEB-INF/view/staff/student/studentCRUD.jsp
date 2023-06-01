@@ -40,7 +40,7 @@
 			
 			$.ajax({
 				url : "<%=request.getContextPath()%>/staff/studentDelete.do",
-				data : {"stu_id" : stu_id_arr},
+				data : {"stu_id_arr" : stu_id_arr},
 // 				dataType : "json",
 				method : "post",
 				success : function(res){
@@ -80,8 +80,6 @@
 		let stu_id = "";
 		$('input[class=update]').on('click',function(){
 				stu_id = $(this).val();
-					
-			}
 		})
 		$('input[class=update]').on('click', function(){
 			$.ajax({
@@ -90,14 +88,16 @@
 // 				dataType : "json",
 				method : "post",
 				success : function(res){
-					alert('삭제가 완료되었습니다.');
 					location.href="<%=request.getContextPath()%>/staff/studentCRUD.do";
 				},
 				error : function(err){
 					alert(err.status);
 				}
-			})
-		})
+			});
+		});
+		$('input[class=update]').on('click', function(){
+			location.href="<%=request.getContextPath()%>/staff/studentUpdateForm.do"
+		});
 		$('#all').on('click', function(){
 			$('.chk').prop('checked', $(this).prop('checked'));
 		})

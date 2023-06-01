@@ -31,7 +31,7 @@ public class StudentDeleteAction implements IAction{
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		System.out.println("action");
 		IStudentService service = StudentServiceImpl.getInstance();
-		String[] stu_id = req.getParameterValues("stu_id[]");
+		String[] stu_id = req.getParameterValues("stu_id_arr[]");
 		
 		if (stu_id != null && stu_id.length > 0) {
 	        for (String id : stu_id) {
