@@ -23,15 +23,16 @@
 			$('#Btn').show();
 			$('#studentFormBtn').hide();
 			$('#deleteFormBtn').hide();
+			$('#updateFormBtn').hide();
 // 			$('#deleteBtn').show();
 // 			$('#resetBtn').show();
 		});
-		let stu_id = new Array();
+		let stu_id_arr = new Array();
 		$('.chk').on('change',function(){
 			if($(this).is(":checked")){
-				stu_id = [];
+				stu_id_arr = [];
 				$('.chk:checked').each(function(){
-					stu_id.push($(this).val())
+					stu_id_arr.push($(this).val())
 				})
 			}
 		})
@@ -39,7 +40,7 @@
 			
 			$.ajax({
 				url : "<%=request.getContextPath()%>/staff/studentDelete.do",
-				data : {"stu_id" : stu_id},
+				data : {"stu_id" : stu_id_arr},
 // 				dataType : "json",
 				method : "post",
 				success : function(res){
@@ -48,7 +49,6 @@
 				},
 				error : function(err){
 					alert(err.status);
-					
 				}
 			})
 		})
@@ -58,6 +58,45 @@
 			$('#Btn').hide();
 			$('#studentFormBtn').show();
 			$('#deleteFormBtn').show();
+			$('#updateFormBtn').show();
+		})
+		$('#updateFormBtn').on('click', function(){
+			console.log('test');
+			$('#up').show();
+			$('td[class=updateTag]').show();
+			$('#studentFormBtn').hide();
+			$('#deleteFormBtn').hide();
+			$('#updateFormBtn').hide();
+			$('#cancleBtn').show();
+		});
+		$('#cancleBtn').on('click', function(){
+			$('#up').hide();
+			$('td[class=updateTag]').hide();
+			$('#cancleBtn').hide();
+			$('#studentFormBtn').show();
+			$('#deleteFormBtn').show();
+			$('#updateFormBtn').show();
+		});
+		let stu_id = "";
+		$('input[class=update]').on('click',function(){
+				stu_id = $(this).val();
+					
+			}
+		})
+		$('input[class=update]').on('click', function(){
+			$.ajax({
+				url : "<%=request.getContextPath()%>/staff/studentUpdate.do",
+				data : stu_id,
+// 				dataType : "json",
+				method : "post",
+				success : function(res){
+					alert('삭제가 완료되었습니다.');
+					location.href="<%=request.getContextPath()%>/staff/studentCRUD.do";
+				},
+				error : function(err){
+					alert(err.status);
+				}
+			})
 		})
 		$('#all').on('click', function(){
 			$('.chk').prop('checked', $(this).prop('checked'));
@@ -70,9 +109,6 @@
     		}
     		
 		});
-		$('#updateBtn').on('cilck', function(){
-			
-		});
 	})
 </script>
 <body>
@@ -80,7 +116,7 @@
 		<table border="1">
 			<tr>
 				<th class="1" style="display:none;"><input type="checkbox" id="all" style="display:none;"></th>
-				<th class="up" style="display:none;"></th>
+				<th id="up" style="display:none;"></th>
 				<th>ID</th>
 				<th>이름</th>
 				<th>성별</th>
@@ -97,7 +133,7 @@
 	<% for(StudentVO stuVo : stuVoList) {%>
 			<tr>
 				<th class="1" style="display:none;"><input type="checkbox" class="chk" style="display:none;" name="stu_id" id="stu_id" value="<%=stuVo.getStu_id()%>"></th>
-				<td><input type="button" class="update" value="수정">
+				<td class="updateTag" style="display:none;"><input type="button" calss="update" value="수정"></td>
 				<td><%=stuVo.getStu_id()%></td>
 				<td><%=stuVo.getStu_name()%></td>
 				<td><%=stuVo.getStu_gender()%></td>
@@ -120,6 +156,7 @@
 	</div>
 	<input type="button" id="studentFormBtn" value="학생추가">
 	<input type="button" id="deleteFormBtn" value="삭제하기">
-	<input type="button" id="updateBtn" value="수정하기">
+	<input type="button" id="updateFormBtn" value="수정하기">
+	<input type="button" id="cancleBtn" value="뒤로가기" style="display:none;">	
 </body>
 </html>
