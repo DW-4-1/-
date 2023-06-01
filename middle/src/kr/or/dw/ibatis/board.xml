@@ -99,4 +99,51 @@
 		FROM stu_board
 		WHERE gb_del = 'N'
 	</select>
+	
+	<select id="getStuBoardView" parameterClass="int" resultClass="boardVO">
+		SELECT *
+		FROM stu_board
+		WHERE bd_no = #bd_no#
+	</select>
+
+	<update id="deleteStuContent" parameterClass="int">
+		UPDATE stu_board SET gb_del = 'Y' WHERE bd_no = #bd_no#
+	</update>
+	
+	<insert id="insertStuContent" parameterClass="boardVO">
+		<selectKey keyProperty="bd_no" resultClass="int">
+			SELECT stu_board_seq.nextval bd_no FROM dual
+		</selectKey>
+		
+		INSERT INTO 
+			stu_board (
+						bd_no
+					   ,bd_title
+					   ,bd_content
+					   ,stu_id
+					   ,bd_wdt
+					   ,bd_hit
+					   ,gb_del
+				
+					)
+			VALUES (
+						#bd_no#
+					   ,#bd_title#
+					   ,#bd_content#
+					   ,#stu_id#
+					   ,sysdate
+					   ,0
+					   ,'N'
+					)
+			
+	</insert>
+	
+	<update id="updateStuContent" parameterClass="boardVO">
+		UPDATE stu_board SET bd_title = #bd_title#, bd_content = #bd_content#
+		WHERE bd_no = #bd_no#
+	</update>
+	
+	<update id="hitStuBoard" parameterClass="int">
+		UPDATE stu_board SET bd_hit = bd_hit + 1 WHERE bd_no = #bd_no#
+	</update>
 </sqlMap>

@@ -32,7 +32,7 @@ public class InsertStuContentAction implements IAction{
 		BoardVO boardVo = new BoardVO();
 		boardVo.setBd_title(bd_title);
 		boardVo.setBd_content(bd_content);
-		boardVo.setStaff_id(stu_id);
+		boardVo.setStu_id(stu_id);
 		
 		IBoardService service = BoardServiceImpl.getInstance();
 		
@@ -55,7 +55,7 @@ public class InsertStuContentAction implements IAction{
 			}
 		}
 		
-		return "/board/bulletinBoardView.do?bd_no=" + bd_no;
+		return "/board/stuBoardView.do?bd_no=" + bd_no;
 	}
 
 }

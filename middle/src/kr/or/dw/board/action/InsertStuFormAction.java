@@ -29,7 +29,7 @@ public class InsertStuFormAction implements IAction{
 			req.setAttribute("boardVo", boardVo);
 		}
 		
-		return "/staff/stuBoard/stuboardInsert.jsp";
+		return "/student/stuBoard/stuboardInsert.jsp";
 	}
 
 }
