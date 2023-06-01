@@ -8,14 +8,14 @@ import kr.or.dw.vo.BoardVO;
 
 public interface IBoardDao {
 	/**
-	 * 게시판 목록을 가져오는 메서드
+	 * 공지사항 목록을 가져오는 메서드
 	 * @param paramMap rownum 의 시작과 끝값이 있는 map
 	 * @return 게시판 목록 list
 	 */
 	public List<BoardVO> selectBoardList(Map<String, Object> paramMap);
 
 	/**
-	 * 게시판 전체 레코드 수를 가져오는 메서드
+	 * 공지사항 전체 레코드 수를 가져오는 메서드
 	 * @return 전체 레코드 수
 	 */
 	public int selectBoardCount();
@@ -47,4 +47,17 @@ public interface IBoardDao {
 	 * @return
 	 */
 	public int insertBulletinContent(BoardVO boardVo);
+	
+	/**
+	 * 문의게시판 목록을 가져오는 메서드
+	 * @param paramMap rownum 의 시작과 끝값이 있는 map
+	 * @return 게시판 목록 list
+	 */
+	public List<BoardVO> selectStuBoardList(Map<String, Object> paramMap);
+
+	/**
+	 * 문의게시판 전체 레코드 수를 가져오는 메서드
+	 * @return 전체 레코드 수
+	 */
+	public int selectStuBoardCount();
 }

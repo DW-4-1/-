@@ -74,4 +74,29 @@
 	<update id="hitBulletinBoard" parameterClass="int">
 		UPDATE notice_board SET bd_hit = bd_hit + 1 WHERE bd_no = #bd_no#
 	</update>
+	
+	<select id="selectStuBoardList" parameterClass="Map" resultClass="boardVO">
+		SELECT bd_no, bd_title, bd_content, bd_wdt, bd_hit, b.stu_id, stu_name
+		FROM (
+				SELECT *
+				FROM (
+					  SELECT rownum rnum, v1.*
+					  FROM (
+							SELECT *
+							FROM stu_board
+					  		WHERE gb_del = 'N'
+					  		ORDER BY bd_no DESC
+					  		) v1
+					  WHERE rownum <![CDATA[ <= ]]> #end#
+					  ) v2
+				WHERE v2.rnum <![CDATA[ >= ]]> #start#
+			) b, students s
+		WHERE b.stu_id = s.stu_id
+	</select>
+	
+	<select id="selectStuBoardCount" resultClass="int">
+		SELECT COUNT(*) cnt
+		FROM stu_board
+		WHERE gb_del = 'N'
+	</select>
 </sqlMap>

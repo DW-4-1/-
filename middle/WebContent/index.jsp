@@ -80,11 +80,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						<i class="fab fa-google-plus mr-2"></i> 교직원 및 관리자 로그인으로 이동
 					</a>
 				</div>
-				<div class="social-auth-links text-center mb-3">
-					<a href="/calendar/calMove.do" class="btn btn-outline-primary btn-block"> 
-						<i class="fab fa-google-plus mr-2"></i> 캘린더 임시 페이지
-					</a>
-				</div>
 			</div>
 
 		</div>

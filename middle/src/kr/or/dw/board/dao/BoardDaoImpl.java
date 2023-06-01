@@ -107,6 +107,32 @@ private static BoardDaoImpl dao;
 		return bd_no;
 	}
 
+	@Override
+	public List<BoardVO> selectStuBoardList(Map<String, Object> paramMap) {
+		List<BoardVO> boardList = null;
+		
+		try {
+			boardList = smc.queryForList("board.selectStuBoardList", paramMap);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return boardList;
+	}
+
+	@Override
+	public int selectStuBoardCount() {
+		int totalCount = 0;
+		try {
+			totalCount = (int) smc.queryForObject("board.selectStuBoardCount");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return totalCount;
+	}
+
 
 
 

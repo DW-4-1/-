@@ -54,5 +54,17 @@ public class BoardServiceImpl implements IBoardService{
 		return dao.insertBulletinContent(boardVo);
 	}
 
+	@Override
+	public int selectStuBoardCount() {
+		// TODO Auto-generated method stub
+		return dao.selectStuBoardCount();
+	}
+
+	@Override
+	public List<BoardVO> selectStuBoardList(Map<String, Object> paramMap) {
+		// TODO Auto-generated method stub
+		return dao.selectStuBoardList(paramMap);
+	}
+
 
 }

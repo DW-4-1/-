@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.or.dw.board.service.BoardServiceImpl;
 import kr.or.dw.board.service.IBoardService;
@@ -32,9 +33,13 @@ public class BulletinBoardViewAction implements IAction{
 		
 		req.setAttribute("boardVo", boardVo);
 
-		
-		return "/staff/bulletinBoard/bulletinboardView.jsp";
-
+		HttpSession session = req.getSession();
+		String auth_cd = (String) session.getAttribute("auth_cd");
+		if(auth_cd.equals("S")) {
+			return "/student/bulletinBoard/bulletinboardView.jsp";
+		}else {
+			return "/staff/bulletinBoard/bulletinboardView.jsp";
+		}
 	}
 
 }

@@ -81,4 +81,21 @@
 	<delete id="studentDelete" parameterClass="String">
 		DELETE students WHERE stu_id = #stu_id#
 	</delete>
+	
+	<update id="studentUpdate" parameterClass="String">
+		UPDATE students SET 
+							   stu_id = #stu_id#
+							  ,stu_name = #stu_name#
+							  ,stu_gender = #stu_gender#
+							  ,stu_resnum = #stu_resnum#
+							  ,stu_addr = #stu_addr# || ' ' || #stu_detailaddr#
+							  ,stu_zipcode = #stu_zipcode#
+							  ,dept_code = #dept_code#
+							  ,stu_tel = #stu_tel#
+							  ,stu_email = #stu_email#
+							  ,stu_state = #stu_state#
+							  ,stu_entdate = #stu_entdate#
+							  ,stu_grddate = #stu_grddate#
+							  ,stu_pwd = #stu_pwd#
+	</update>
 </sqlMap>

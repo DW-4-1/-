@@ -66,5 +66,12 @@ public interface IStudentService {
 	 */
 	public int studentDelete(String id);
 
+	/**
+	 * 학생의 정보를 수정하는 메서드
+	 * @param stu_id
+	 * @return
+	 */
+	public int studentUpdate(String stu_id);
+
 	
 }

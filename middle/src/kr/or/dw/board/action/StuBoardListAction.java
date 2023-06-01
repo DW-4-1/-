@@ -16,7 +16,7 @@ import kr.or.dw.util.PaginationUtil;
 import kr.or.dw.vo.BoardVO;
 import kr.or.dw.web.IAction;
 
-public class BulletinBoardListAction implements IAction{
+public class StuBoardListAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
@@ -35,7 +35,7 @@ public class BulletinBoardListAction implements IAction{
 		String pageParam = req.getParameter("page");	//사용자가 선택한 페이지번호
 		int page = (pageParam == null ? 1 : Integer.parseInt(pageParam));
 		
-		int totalCount = service.selectBoardCount();
+		int totalCount = service.selectStuBoardCount();
 		
 		pagination.setConfig(page, 10, 10, totalCount);
 		pagingConfigMap = pagination.getConfig();
@@ -46,16 +46,16 @@ public class BulletinBoardListAction implements IAction{
 		paramMap.put("end", pagingConfigMap.get("end"));
 		
 		//게시판 목록을 가져온다.
-		List<BoardVO> boardList = service.selectBoardList(paramMap);
+		List<BoardVO> boardList = service.selectStuBoardList(paramMap);
 		
 		req.setAttribute("boardList", boardList);
 		req.setAttribute("pagingConfigMap", pagination);
 		HttpSession session = req.getSession();
 		String auth_cd = (String) session.getAttribute("auth_cd");
 		if(auth_cd.equals("S")) {
-			return "/student/bulletinBoard/bulletinboard.jsp";
+			return "/student/stuBoard/stuBoard.jsp";
 		}else {
-			return "/staff/bulletinBoard/bulletinboard.jsp";
+			return "/staff/stuBoard/stuBoard.jsp";
 		}
 	}
 

@@ -141,4 +141,17 @@ private static StudentDaoImpl dao;
         }
 		return cnt;
 	}
+
+	@Override
+	public int studentUpdate(String stu_id) {
+		int cnt = 0;
+		
+		try {
+			cnt = smc.update("student.studentUpdate", stu_id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
 }
