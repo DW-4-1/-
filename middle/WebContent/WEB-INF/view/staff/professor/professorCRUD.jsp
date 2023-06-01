@@ -10,8 +10,80 @@
 %>
 <script>
 	$(function(){
-		$('#professorInsertBtn').on('click', function(){
-			location.href = "/staff/professorForm.do"
+		$('#professorInsertFormBtn').on('click', function(){
+			location.href = "<%=request.getContextPath()%>/staff/professorForm.do"
+		});
+		$('#professorDeleteFormBtn').on('click', function(){
+			$('input[type=checkbox]').show();
+			$('th[class=1]').show();
+			$('#deleteBtn').show();
+			$('#resetBtn').show();
+			$('#professorInsertFormBtn').hide();
+			$('#professorDeleteFormBtn').hide();
+			$('#professorUpdateFormBtn').hide();
+		});
+		let stu_id_arr = new Array();
+		$('.chk').on('change',function(){
+			if($(this).is(":checked")){
+				stu_id_arr = [];
+				$('.chk:checked').each(function(){
+					stu_id_arr.push($(this).val())
+				})
+			}
+		})
+// 		$('#professorDeleteFormBtn').on('click', function(){
+// 			$.ajax({
+<%-- 				url : "<%=request.getContextPath()%>/staff/studentDelete.do", --%>
+// 				data : {"stu_id_arr" : stu_id_arr},
+// 				method : "post",
+// 				success : function(res){
+// 					alert('삭제가 완료되었습니다.');
+<%-- 					location.href="<%=request.getContextPath()%>/staff/studentCRUD.do"; --%>
+// 				},
+// 				error : function(err){
+// 					alert(err.status);
+// 				}
+// 			})
+// 		})
+		$('#resetBtn').on('click', function(){
+			$('input[type=checkbox]').hide();
+			$('th[class=1]').hide();
+			$('#deleteBtn').hide();
+			$('#resetBtn').hide();
+			$('#professorInsertFormBtn').show();
+			$('#professorDeleteFormBtn').show();
+			$('#professorUpdateFormBtn').show();
+		})
+		$('#professorUpdateFormBtn').on('click', function(){
+			$('#up').show();
+			$('td[class=updateTag]').show();
+			$('#studentFormBtn').hide();
+			$('#deleteFormBtn').hide();
+			$('#updateFormBtn').hide();
+			$('#cancleBtn').show();
+		});
+		$('#cancleBtn').on('click', function(){
+			$('#up').hide();
+			$('td[class=updateTag]').hide();
+			$('#cancleBtn').hide();
+			$('#studentFormBtn').show();
+			$('#deleteFormBtn').show();
+			$('#updateFormBtn').show();
+		});
+
+		$('#all').on('click', function(){
+			$('.chk').prop('checked', $(this).prop('checked'));
+		})
+		$('.chk').on('click', function() {
+    		if ($('.chk:checked').length != $('.chk').length) {
+      			$('#all').prop('checked', false);
+    		}else if ($('.chk:checked').length == $('.chk').length) {
+      			$('#all').prop('checked', true);
+    		}
+    		
+		});
+		$('#professorUpdateFormBtn').on('click', function(){
+			location.href = "<%=request.getContextPath()%>/staff/professorForm.do"
 		});
 	})
 </script>
@@ -22,7 +94,12 @@
 				<div class="card-header">
 					<h3 class="card-title">교수 관리</h3>
 					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
-						<input type="button" id="professorInsertBtn" value="교수추가">
+						<input type="button" id="professorInsertFormBtn" value="교수추가">
+						<input type="button" id="professorDeleteFormBtn" value="교수삭제">
+						<input type="button" id="professorUpdateFormBtn" value="수정하기">
+						<input type="button" id="cancleBtn" value="뒤로가기" style="display:none;">
+						<input type="button" id="deleteBtn" value="삭제" style="display:none;">
+						<input type="button" id="resetBtn" value="취소" style="display:none;">
 					</div>
 				</div>
 				
@@ -40,6 +117,7 @@
 										aria-describedby="example2_info">
 									<thead style="text-align:center;">
 									<tr>
+										<th class="1" style="display:none;"><input type="checkbox" id="all" style="display:none;"></th>
 										<th>ID</th>
 										<th>이름</th>
 										<th>성별</th>
@@ -57,6 +135,7 @@
 						<% for(StaffVO staVo : staVoList) {%>
 						<tbody>
 									<tr class="odd" type="var" style="text-align: center; height: 30px;">
+										<th class="1" style="display:none;"><input type="checkbox" class="chk"  name="stu_id" value="<%=staVo.getStaff_id()%>"></th>
 										<td><%=staVo.getStaff_id()%></td>
 										<td><%=staVo.getStaff_name()%></td>
 										<td><%=staVo.getStaff_gender()%></td>
@@ -69,6 +148,7 @@
 										<td><%=staVo.getStaff_state()%></td>
 										<td><%=staVo.getStaff_hiredate()%></td>
 										<td><%=staVo.getAuth_cd()%></td>
+										<td class="updateTag" style="display:none;"><input type="button" name="update" value="수정" onclick="location.href='<%=request.getContextPath()%>/staff/studentUpdateForm.do?stu_id=<%=staVo.getStaff_id()%>'"></td>
 									</tr>
 									</tbody>
 							<%	 }	 %>

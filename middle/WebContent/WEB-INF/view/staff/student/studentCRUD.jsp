@@ -10,7 +10,7 @@
 <script>
 	$(function(){
 		$('#studentFormBtn').on('click', function(){
-			location.href = "/staff/studentForm.do"
+			location.href = "<%=request.getContextPath()%>/staff/studentForm.do"
 		});
 		$('#deleteFormBtn').on('click', function(){
 			$('input[type=checkbox]').show();
@@ -19,8 +19,6 @@
 			$('#studentFormBtn').hide();
 			$('#deleteFormBtn').hide();
 			$('#updateFormBtn').hide();
-// 			$('#deleteBtn').show();
-// 			$('#resetBtn').show();
 		});
 		let stu_id_arr = new Array();
 		$('.chk').on('change',function(){
