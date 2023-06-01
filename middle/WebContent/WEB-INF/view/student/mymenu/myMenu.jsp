@@ -56,6 +56,10 @@ input + input {
 								<td><%=stu.getStu_addr()%></td>
 							</tr>
 							<tr>
+								<th>상세주소</th>
+								<td><%=stu.getStu_detailaddr()%></td>
+							</tr>
+							<tr>
 								<th>우편번호</th>
 								<td><%=stu.getStu_zipcode()%></td>
 							</tr>

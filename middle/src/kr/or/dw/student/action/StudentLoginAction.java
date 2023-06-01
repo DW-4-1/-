@@ -55,5 +55,4 @@ public class StudentLoginAction implements IAction{
 
 		return "/student/studentLoginResult.jsp";
 	}
-
 }

@@ -25,9 +25,10 @@
 	$(function(){
 		let changeFlag = false;
 		let stu_addr = "<%=stu.getStu_addr() %>";
+		let stu_detailaddr = "<%=stu.getStu_detailaddr()%>";
 		let stu_zipcode = "<%=stu.getStu_zipcode() %>";
 		let stu_tel = "<%=stu.getStu_tel() %>";
-		let ValArr = [stu_addr, stu_zipcode, stu_tel];
+		let ValArr = [stu_addr, stu_zipcode, stu_tel, stu_detailaddr];
 		
 		$('#studentInfoUpdateForm').on('propertychange keyup paste', function(){
 			let inputArr = $(this).find('input[type=text]');
@@ -89,7 +90,7 @@
 								</tr>
 								<tr>
 									<th>상세주소</th>
-									<td><input type="text" placeholder="상세주소" name="stu_detailaddr"></td>
+									<td><input type="text" placeholder="상세주소" name="stu_detailaddr" value="<%= stu.getStu_detailaddr() %>"></td>
 								</tr>
 						
 								<script>

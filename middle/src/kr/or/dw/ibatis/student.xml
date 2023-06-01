@@ -90,7 +90,8 @@
 							   stu_name = #stu_name#
 							  ,stu_gender = #stu_gender#
 							  ,stu_resnum = #stu_resnum#
-							  ,stu_addr = #stu_addr# || ' ' || #stu_detailaddr#
+							  ,stu_addr = #stu_addr#
+							  ,stu_detailaddr = #stu_detailaddr#
 							  ,stu_zipcode = #stu_zipcode#
 							  ,dept_code = #dept_code#
 							  ,stu_tel = #stu_tel#

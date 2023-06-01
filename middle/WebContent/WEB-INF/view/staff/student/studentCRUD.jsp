@@ -98,6 +98,7 @@
 				<th>성별</th>
 				<th>주민등록번호</th>
 				<th>주소</th>
+				<th>상세주소</th>
 				<th>우편번호</th>
 				<th>학과</th>
 				<th>전화번호</th>
@@ -114,6 +115,7 @@
 				<td><%=stuVo.getStu_gender()%></td>
 				<td><%=stuVo.getStu_resnum()%></td>
 				<td><%=stuVo.getStu_addr()%></td>
+				<td><%=stuVo.getStu_detailaddr()%></td>
 				<td><%=stuVo.getStu_zipcode()%></td>
 				<td><%=stuVo.getDept_name()%></td>
 				<td><%=stuVo.getStu_tel()%></td>
