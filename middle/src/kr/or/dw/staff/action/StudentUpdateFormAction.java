@@ -21,11 +21,11 @@ public class StudentUpdateFormAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		IStudentService service = StudentServiceImpl.getInstance();
 		
 		String stu_id = req.getParameter("stu_id");
 		
 		req.setAttribute("stu_id", stu_id);
-		IStudentService service = StudentServiceImpl.getInstance();
 		
 		List<StudentVO> staVo = service.getDept();
 		

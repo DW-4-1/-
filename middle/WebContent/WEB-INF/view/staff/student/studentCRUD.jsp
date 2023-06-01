@@ -37,11 +37,9 @@
 			}
 		})
 		$('#deleteBtn').on('click', function(){
-			
 			$.ajax({
 				url : "<%=request.getContextPath()%>/staff/studentDelete.do",
 				data : {"stu_id_arr" : stu_id_arr},
-// 				dataType : "json",
 				method : "post",
 				success : function(res){
 					alert('삭제가 완료되었습니다.');
@@ -61,7 +59,6 @@
 			$('#updateFormBtn').show();
 		})
 		$('#updateFormBtn').on('click', function(){
-			console.log('test');
 			$('#up').show();
 			$('td[class=updateTag]').show();
 			$('#studentFormBtn').hide();
@@ -78,25 +75,25 @@
 			$('#updateFormBtn').show();
 		});
 		let stu_id = "";
-		$('input[class=update]').on('click',function(){
+		$('input[name=stu_id]').on('click',function(){
+			$('input[name=stu_id]').each(function(){
 				stu_id = $(this).val();
-		})
-		$('input[class=update]').on('click', function(){
-			$.ajax({
-				url : "<%=request.getContextPath()%>/staff/studentUpdate.do",
-				data : stu_id,
-// 				dataType : "json",
-				method : "post",
-				success : function(res){
-					location.href="<%=request.getContextPath()%>/staff/studentCRUD.do";
-				},
-				error : function(err){
-					alert(err.status);
-				}
 			});
-		});
-		$('input[class=update]').on('click', function(){
-			location.href="<%=request.getContextPath()%>/staff/studentUpdateForm.do"
+			console.log('stu_id');
+		})
+		$('input[name=update]').on('click', function(){
+<%-- 			location.href="<%=request.getContextPath()%>/staff/studentUpdateForm.do?"; --%>
+// 			$.ajax({
+<%-- 				url : "<%=request.getContextPath()%>/staff/studentUpdateFrom.do", --%>
+// 				data : stu_id,
+// 				method : "post",
+// 				success : function(res){
+<%-- 					location.href="<%=request.getContextPath()%>/staff/studentUpdateFrom.do"; --%>
+// 				},
+// 				error : function(err){
+// 					alert(err.status);
+// 				}
+// 			});
 		});
 		$('#all').on('click', function(){
 			$('.chk').prop('checked', $(this).prop('checked'));
@@ -133,7 +130,7 @@
 	<% for(StudentVO stuVo : stuVoList) {%>
 			<tr>
 				<th class="1" style="display:none;"><input type="checkbox" class="chk" style="display:none;" name="stu_id" id="stu_id" value="<%=stuVo.getStu_id()%>"></th>
-				<td class="updateTag" style="display:none;"><input type="button" calss="update" value="수정"></td>
+				<td class="updateTag" style="display:none;"><input type="button" name="update" value="수정"></td>
 				<td><%=stuVo.getStu_id()%></td>
 				<td><%=stuVo.getStu_name()%></td>
 				<td><%=stuVo.getStu_gender()%></td>

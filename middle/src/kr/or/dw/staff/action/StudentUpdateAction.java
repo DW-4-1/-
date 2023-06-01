@@ -25,9 +25,6 @@ public class StudentUpdateAction implements IAction{
 		
 		service.studentUpdate(stu_id);
 		
-		
-		
-		
 		return null;
 	}
 
