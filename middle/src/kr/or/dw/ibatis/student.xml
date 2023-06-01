@@ -24,7 +24,8 @@
 	</select>
 	
 	<update id="stuInfoUpdate" parameterClass="stuVO">
-		UPDATE students SET stu_addr = #stu_addr# || ' ' || #stu_detailaddr#
+		UPDATE students SET stu_addr = #stu_addr# 
+						   ,stu_detailaddr =  #stu_detailaddr#
 						   ,stu_zipcode = #stu_zipcode#
 						   ,stu_tel = #stu_tel#
 		 WHERE stu_id = #stu_id#
@@ -44,6 +45,7 @@
 							  ,stu_gender
 							  ,stu_resnum
 							  ,stu_addr
+							  ,stu_detailaddr
 							  ,stu_zipcode
 							  ,dept_code
 							  ,stu_tel
@@ -59,7 +61,8 @@
 							  ,#stu_name#
 							  ,#stu_gender#
 							  ,#stu_resnum#
-							  ,#stu_addr# || ' ' || #stu_detailaddr#
+							  ,#stu_addr#
+							  ,#stu_detailaddr#
 							  ,#stu_zipcode# 
 							  ,#dept_code#
 							  ,#stu_tel#

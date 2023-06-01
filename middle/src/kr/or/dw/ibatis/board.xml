@@ -101,9 +101,10 @@
 	</select>
 	
 	<select id="getStuBoardView" parameterClass="int" resultClass="boardVO">
-		SELECT *
-		FROM stu_board
-		WHERE bd_no = #bd_no#
+		SELECT b.*, stu_name
+		FROM stu_board b, students s
+		WHERE b.stu_id = s.stu_id
+		AND bd_no = #bd_no#
 	</select>
 
 	<update id="deleteStuContent" parameterClass="int">
