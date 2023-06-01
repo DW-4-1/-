@@ -1,6 +1,7 @@
 package kr.or.dw.staff.action;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -30,18 +31,13 @@ public class StudentDeleteAction implements IAction{
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		System.out.println("action");
 		IStudentService service = StudentServiceImpl.getInstance();
-		String stu_id = req.getParameter("stu_id");
-	    
-	    JSONArray jsonArr = new JSONArray();
-	    
-	    // 문자열 형식의 데이터를 JSONArray로 가공
-//	    jsonArr =  JSONArray.writeJSONString(stu_id);		
-//		for(int i = 0; i < stu_id.length; i++) {
-//			System.out.println(stu_id[i]);
-//		}
+		String[] stu_id = req.getParameterValues("stu_id[]");
 		
-//		service.studentDelete(stu_id);
-		
+		if (stu_id != null && stu_id.length > 0) {
+	        for (String id : stu_id) {
+	            service.studentDelete(id);
+	        }
+	    }	    	
 		return null;
 	}
 	

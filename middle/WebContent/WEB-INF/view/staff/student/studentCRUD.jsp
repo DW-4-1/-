@@ -21,6 +21,8 @@
 			$('input[type=checkbox]').show();
 			$('th[class=1]').show();
 			$('#Btn').show();
+			$('#studentFormBtn').hide();
+			$('#deleteFormBtn').hide();
 // 			$('#deleteBtn').show();
 // 			$('#resetBtn').show();
 		});
@@ -34,17 +36,18 @@
 			}
 		})
 		$('#deleteBtn').on('click', function(){
-				console.log(stu_id);
 			
 			$.ajax({
 				url : "<%=request.getContextPath()%>/staff/studentDelete.do",
-				data : {"stu_id" : JSON.stringify(stu_id)},
-				dataType : "json",
+				data : {"stu_id" : stu_id},
+// 				dataType : "json",
 				method : "post",
 				success : function(res){
 					alert('삭제가 완료되었습니다.');
+					location.href="<%=request.getContextPath()%>/staff/studentCRUD.do";
 				},
-				error : function(){
+				error : function(err){
+					alert(err.status);
 					
 				}
 			})
@@ -53,6 +56,8 @@
 			$('input[type=checkbox]').hide();
 			$('th[class=1]').hide();
 			$('#Btn').hide();
+			$('#studentFormBtn').show();
+			$('#deleteFormBtn').show();
 		})
 		$('#all').on('click', function(){
 			$('.chk').prop('checked', $(this).prop('checked'));
@@ -65,6 +70,9 @@
     		}
     		
 		});
+		$('#updateBtn').on('cilck', function(){
+			
+		});
 	})
 </script>
 <body>
@@ -72,6 +80,7 @@
 		<table border="1">
 			<tr>
 				<th class="1" style="display:none;"><input type="checkbox" id="all" style="display:none;"></th>
+				<th class="up" style="display:none;"></th>
 				<th>ID</th>
 				<th>이름</th>
 				<th>성별</th>
@@ -88,6 +97,7 @@
 	<% for(StudentVO stuVo : stuVoList) {%>
 			<tr>
 				<th class="1" style="display:none;"><input type="checkbox" class="chk" style="display:none;" name="stu_id" id="stu_id" value="<%=stuVo.getStu_id()%>"></th>
+				<td><input type="button" class="update" value="수정">
 				<td><%=stuVo.getStu_id()%></td>
 				<td><%=stuVo.getStu_name()%></td>
 				<td><%=stuVo.getStu_gender()%></td>
@@ -110,5 +120,6 @@
 	</div>
 	<input type="button" id="studentFormBtn" value="학생추가">
 	<input type="button" id="deleteFormBtn" value="삭제하기">
+	<input type="button" id="updateBtn" value="수정하기">
 </body>
 </html>

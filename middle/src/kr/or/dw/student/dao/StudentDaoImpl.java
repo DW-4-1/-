@@ -132,15 +132,13 @@ private static StudentDaoImpl dao;
 	}
 
 	@Override
-	public void studentDelete(String[] stu_id) {
-		
+	public int studentDelete(String id) {
+		int cnt = 0;
 		try {
-			smc.delete("student.studentDelete", stu_id);
+			cnt = smc.delete("student.studentDelete", id);
 		} catch (SQLException e) {
 			e.printStackTrace();
         }
+		return cnt;
 	}
-
-
-	
 }

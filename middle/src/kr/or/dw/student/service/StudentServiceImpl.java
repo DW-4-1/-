@@ -65,9 +65,8 @@ public class StudentServiceImpl implements IStudentService{
 	}
 
 
-	@Override
-	public void studentDelete(String[] stu_id) {
-		dao.studentDelete(stu_id);
+	public int studentDelete(String id) {
+		return dao.studentDelete(id);
 	}
 
 }
