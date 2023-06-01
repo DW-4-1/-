@@ -2,8 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
+
 <title>강의등록</title>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
+
 <script>
 	$(function(){
 		$(document).on('change', '#lec_plan', function(){
