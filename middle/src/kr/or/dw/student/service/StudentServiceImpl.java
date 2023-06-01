@@ -70,8 +70,8 @@ public class StudentServiceImpl implements IStudentService{
 	}
 
 	@Override
-	public int studentUpdate(String stu_id) {
-		return dao.studentUpdate(stu_id);
+	public int studentUpdate(StudentVO stuVo) {
+		return dao.studentUpdate(stuVo);
 	}
 
 }

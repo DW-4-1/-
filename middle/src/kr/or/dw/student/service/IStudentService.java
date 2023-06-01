@@ -68,10 +68,10 @@ public interface IStudentService {
 
 	/**
 	 * 학생의 정보를 수정하는 메서드
-	 * @param stu_id
+	 * @param stuVo
 	 * @return
 	 */
-	public int studentUpdate(String stu_id);
+	public int studentUpdate(StudentVO stuVo);
 
 	
 }

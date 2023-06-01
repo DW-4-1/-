@@ -73,7 +73,8 @@ public interface IStudentDao {
 	 * @param stu_id
 	 * @return
 	 */
-	public int studentUpdate(String stu_id);
+	public int studentUpdate(StudentVO stuVo);
+
 	
 
 }

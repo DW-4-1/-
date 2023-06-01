@@ -74,27 +74,7 @@
 			$('#deleteFormBtn').show();
 			$('#updateFormBtn').show();
 		});
-		let stu_id = "";
-		$('input[name=stu_id]').on('click',function(){
-			$('input[name=stu_id]').each(function(){
-				stu_id = $(this).val();
-			});
-			console.log('stu_id');
-		})
-		$('input[name=update]').on('click', function(){
-<%-- 			location.href="<%=request.getContextPath()%>/staff/studentUpdateForm.do?"; --%>
-// 			$.ajax({
-<%-- 				url : "<%=request.getContextPath()%>/staff/studentUpdateFrom.do", --%>
-// 				data : stu_id,
-// 				method : "post",
-// 				success : function(res){
-<%-- 					location.href="<%=request.getContextPath()%>/staff/studentUpdateFrom.do"; --%>
-// 				},
-// 				error : function(err){
-// 					alert(err.status);
-// 				}
-// 			});
-		});
+
 		$('#all').on('click', function(){
 			$('.chk').prop('checked', $(this).prop('checked'));
 		})
@@ -113,7 +93,6 @@
 		<table border="1">
 			<tr>
 				<th class="1" style="display:none;"><input type="checkbox" id="all" style="display:none;"></th>
-				<th id="up" style="display:none;"></th>
 				<th>ID</th>
 				<th>이름</th>
 				<th>성별</th>
@@ -126,11 +105,11 @@
 				<th>상태</th>
 				<th>졸업예정일</th>
 				<th>직분</th>
+				<th id="up" style="display:none;"></th>
 			</tr>
 	<% for(StudentVO stuVo : stuVoList) {%>
 			<tr>
-				<th class="1" style="display:none;"><input type="checkbox" class="chk" style="display:none;" name="stu_id" id="stu_id" value="<%=stuVo.getStu_id()%>"></th>
-				<td class="updateTag" style="display:none;"><input type="button" name="update" value="수정"></td>
+				<th class="1" style="display:none;"><input type="checkbox" class="chk" style="display:none;" name="stu_id" value="<%=stuVo.getStu_id()%>"></th>
 				<td><%=stuVo.getStu_id()%></td>
 				<td><%=stuVo.getStu_name()%></td>
 				<td><%=stuVo.getStu_gender()%></td>
@@ -143,6 +122,7 @@
 				<td><%=stuVo.getStu_state()%></td>
 				<td><%=stuVo.getStu_grddate()%></td>
 				<td><%=stuVo.getAuth_cd()%></td>
+				<td class="updateTag" style="display:none;"><input type="button" name="update" value="수정" onclick="location.href='<%=request.getContextPath()%>/staff/studentUpdateForm.do?stu_id=<%=stuVo.getStu_id()%>'"></td>
 			</tr>
 	<%	 }	 %>
 		</table>
