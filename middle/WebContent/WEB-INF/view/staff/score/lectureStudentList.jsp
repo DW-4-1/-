@@ -82,6 +82,7 @@
 				<td>
 					<select class='stu_grade' id="<%=stu.getStu_grade()%>" name="stu_grade">
 						<option value="P">P</option>
+						<option value="NP">NP</option>
 						<option value="A+">A+</option>
 						<option value="A">A</option>
 						<option value="B+">B+</option>

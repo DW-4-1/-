@@ -60,20 +60,24 @@
 								for (String yearterm : yearTermList) {
 									int creditSum = 0;
 									double gradeSum = 0;
+									int excPCredit = 0;
 									for (LectureVO vo : lecList) {
 	
 										if (yearterm.equals(vo.getLec_year() + "년 " + vo.getLec_term() + "학기")) {
 	
-									numGrade = la.numGrade(vo.getStu_grade(), vo.getLec_credit());
-									creditSum += vo.getLec_credit();
-									gradeSum += numGrade;
+											numGrade = la.numGrade(vo.getStu_grade(), vo.getLec_credit());
+											creditSum += vo.getLec_credit();
+											gradeSum += numGrade;
+											if(!vo.getStu_grade().equals("P") && !vo.getStu_grade().equals("NP")){
+												excPCredit += vo.getLec_credit();
+											}
 										}
 									}
 									List list = new ArrayList();
 									list.add(0, yearterm);
 									list.add(1, creditSum);
 									list.add(2, gradeSum);
-									list.add(3, Math.round((gradeSum / creditSum)*100)/100.0);
+									list.add(3, Math.round((gradeSum / excPCredit)*100)/100.0);
 									yearTermDiv.add(list);
 								}
 								%>
