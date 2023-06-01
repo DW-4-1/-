@@ -1,7 +1,10 @@
 package kr.or.dw.calendar.service;
 
+import java.util.List;
+
 import kr.or.dw.calendar.dao.CalendarDaoImpl;
 import kr.or.dw.calendar.dao.ICalendarDao;
+import kr.or.dw.vo.CalendarVO;
 
 public class CalendarServiceImpl implements ICalendarService{
 
@@ -18,6 +21,11 @@ public class CalendarServiceImpl implements ICalendarService{
 	//생성자
 	private CalendarServiceImpl() {
 		dao = CalendarDaoImpl.getInstance();
+	}
+
+	@Override
+	public List<CalendarVO> getAllEvents() {
+		return dao.getAllEvents();
 	}
 
 

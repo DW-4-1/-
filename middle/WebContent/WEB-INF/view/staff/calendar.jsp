@@ -41,9 +41,11 @@ $(function(){
             dataType : 'json',
             async : false,
             success : function(res){
-
+				console.log(res);
+				alert("성공");
             },
             error : function(err){
+				alert(err.status);
                 
             }
         })
