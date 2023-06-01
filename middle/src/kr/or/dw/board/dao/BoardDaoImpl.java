@@ -133,6 +133,59 @@ private static BoardDaoImpl dao;
 		return totalCount;
 	}
 
+	@Override
+	public BoardVO selectStuBoardView(int bd_no) {
+		BoardVO boardVo = null;
+		
+		try {
+			boardVo = (BoardVO) smc.queryForObject("board.getStuBoardView", bd_no);
+			int result = smc.update("board.hitStuBoard", bd_no);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return boardVo;
+	}
+
+	@Override
+	public int deleteStuContent(int bd_no) {
+		int result = 0;
+		try {
+			result = smc.update("board.deleteStuContent", bd_no);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
+	@Override
+	public int updateStuContent(BoardVO boardVo) {
+		int result = 0;
+		try {
+			result = smc.update("board.updateStuContent", boardVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public int insertStuContent(BoardVO boardVo) {
+		int bd_no = 0;
+		try {
+			bd_no = (int) smc.insert("board.insertStuContent", boardVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return bd_no;
+	}
+
 
 
 

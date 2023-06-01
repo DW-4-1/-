@@ -60,7 +60,34 @@ public interface IBoardService {
 	 * @return 게시판 목록 list
 	 */
 	List<BoardVO> selectStuBoardList(Map<String, Object> paramMap);
-
+	
+	/**
+	 * 문의게시판 보는 메서드
+	 * @param bd_no
+	 * @return
+	 */
+	BoardVO selectStuBoardView(int bd_no);
+	
+	/**
+	 * 문의게시판 삭제 메서드
+	 * @param bd_no
+	 * @return
+	 */
+	int deleteStuContent(int bd_no);
+	
+	/**
+	 * 문의게시판 내용 수정
+	 * @param boardVo
+	 * @return
+	 */
+	int updateStuContent(BoardVO boardVo);
+	
+	/**
+	 * 문의게시판 글 작성
+	 * @param boardVo
+	 * @return
+	 */
+	int insertStuContent(BoardVO boardVo);
 
 	
 }

@@ -56,14 +56,32 @@ public class BoardServiceImpl implements IBoardService{
 
 	@Override
 	public int selectStuBoardCount() {
-		// TODO Auto-generated method stub
 		return dao.selectStuBoardCount();
 	}
 
 	@Override
 	public List<BoardVO> selectStuBoardList(Map<String, Object> paramMap) {
-		// TODO Auto-generated method stub
 		return dao.selectStuBoardList(paramMap);
+	}
+
+	@Override
+	public BoardVO selectStuBoardView(int bd_no) {
+		return dao.selectStuBoardView(bd_no);
+	}
+
+	@Override
+	public int deleteStuContent(int bd_no) {
+		return dao.deleteStuContent(bd_no);
+	}
+
+	@Override
+	public int updateStuContent(BoardVO boardVo) {
+		return dao.updateStuContent(boardVo);
+	}
+
+	@Override
+	public int insertStuContent(BoardVO boardVo) {
+		return dao.insertStuContent(boardVo);
 	}
 
 

@@ -60,4 +60,32 @@ public interface IBoardDao {
 	 * @return 전체 레코드 수
 	 */
 	public int selectStuBoardCount();
+	
+	/**
+	 * 문의게시판 글 보는 메서드
+	 * @param bd_no
+	 * @return
+	 */
+	public BoardVO selectStuBoardView(int bd_no);
+	
+	/**
+	 * 문의게시판 삭제 메서드
+	 * @param bd_no
+	 * @return
+	 */
+	public int deleteStuContent(int bd_no);
+	
+	/**
+	 * 문의게시판 글 수정
+	 * @param boardVo
+	 * @return
+	 */
+	public int updateStuContent(BoardVO boardVo);
+
+	/** 
+	 * 문의게시판 글 작성
+	 * @param boardVo
+	 * @return
+	 */
+	public int insertStuContent(BoardVO boardVo);
 }

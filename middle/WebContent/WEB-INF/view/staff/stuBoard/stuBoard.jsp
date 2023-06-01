@@ -12,7 +12,7 @@
 	<%
 		if(session.getAttribute("auth_cd") != null && ((String)session.getAttribute("auth_cd")).equals("S")){
 	%>	
-	<a class="btn btn-primary btn-sm" href="<%=request.getContextPath()%>/board/bulletinContentInsertForm.do">글작성</a> 
+	<a class="btn btn-primary btn-sm" href="<%=request.getContextPath()%>/board/stuContentInsertForm.do">글작성</a> 
 			
 	<%
 		}
@@ -51,7 +51,7 @@
 					<td>답변전</td>
 					<td><%=bd_no %></td>
 					<td>
-						<a href="<%=request.getContextPath()%>/board/bulletinBoardView.do?bd_no=<%=bd_no%>">
+						<a href="<%=request.getContextPath()%>/board/stuBoardView.do?bd_no=<%=bd_no%>">
 							<%=bd_title %>
 						</a>
 					</td>
