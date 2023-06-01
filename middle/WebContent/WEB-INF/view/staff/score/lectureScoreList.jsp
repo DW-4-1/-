@@ -25,8 +25,6 @@
 		});
 	})
 </script>
-</head>
-<body>
 
 <section class="content">
 	<div class="card card-solid">
@@ -78,6 +76,11 @@
 												rowspan="1" colspan="1"
 												aria-label="Browser: activate to sort column ascending">
 												강의명
+											</th>
+											<th class="sorting" tabindex="0" aria-controls="example2"
+												rowspan="1" colspan="1"
+												aria-label="Browser: activate to sort column ascending">
+												강의실
 											</th>
 											<th class="sorting" tabindex="0" aria-controls="example2"
 												rowspan="1" colspan="1"
