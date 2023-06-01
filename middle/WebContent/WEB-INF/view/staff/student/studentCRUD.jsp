@@ -103,7 +103,6 @@
 				<th>전화번호</th>
 				<th>이메일</th>
 				<th>상태</th>
-				<th>졸업예정일</th>
 				<th>직분</th>
 				<th id="up" style="display:none;"></th>
 			</tr>
@@ -120,7 +119,6 @@
 				<td><%=stuVo.getStu_tel()%></td>
 				<td><%=stuVo.getStu_email()%></td>
 				<td><%=stuVo.getStu_state()%></td>
-				<td><%=stuVo.getStu_grddate()%></td>
 				<td><%=stuVo.getAuth_cd()%></td>
 				<td class="updateTag" style="display:none;"><input type="button" name="update" value="수정" onclick="location.href='<%=request.getContextPath()%>/staff/studentUpdateForm.do?stu_id=<%=stuVo.getStu_id()%>'"></td>
 			</tr>

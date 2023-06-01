@@ -16,25 +16,8 @@
 %>
 <script>
 	$(function(){
-		let stu_id;
-		$('#studentUpdateForm').on('keyup',function(){
-				stu_id = $('input[name=stu_id]').val();
-				console.log(stu_id);
-		})	
-		$("#saveBtn").on('click', function(e){
-			e.preventDefault();
-			$.ajax({
-				url : "<%=request.getContextPath()%>/staff/studentUpdate.do",
-				data : {stu_id : stu_id},
-// 				dataType : "json",
-				method : "post",
-				success : function(res){
-					location.href="<%=request.getContextPath()%>/staff/studentCRUD.do";
-				},
-				error : function(err){
-					alert(err.status);
-				}
-			});
+		$('#saveBtn').on('click', function(){
+			$('#studentUpdateForm').submit();
 		});
 		$("#resetBtn").on('click', function(){
 			history.go(-1);
@@ -48,7 +31,7 @@
 
 </head>
 <body>
-	<form id="studentUpdateForm" method="post">
+	<form id="studentUpdateForm" method="post" action="<%=request.getContextPath()%>/staff/studentUpdate.do">
 		<table>
 			<tr>
 				<th>ID</th>

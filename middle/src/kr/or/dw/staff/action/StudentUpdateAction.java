@@ -37,7 +37,7 @@ public class StudentUpdateAction implements IAction{
 		}
 		service.studentUpdate(stuVo);
 		
-		return null;
+		return "/staff/studentCRUD.do";
 	}
 
 }
