@@ -42,8 +42,7 @@
 <body>
 
 	<main>
-		<div
-			class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
+		<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
 			<div class="col-md-12 p-lg-5 mx-auto my-5">
 <!-- 				<h1 class="display-4 fw-normal">교수 및 관리자</h1> -->
 <!-- 				<p class="lead fw-normal">And an even wittier subheading to -->
