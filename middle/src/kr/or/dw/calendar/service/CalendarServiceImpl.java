@@ -1,6 +1,7 @@
 package kr.or.dw.calendar.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.dw.calendar.dao.CalendarDaoImpl;
 import kr.or.dw.calendar.dao.ICalendarDao;
@@ -26,6 +27,12 @@ public class CalendarServiceImpl implements ICalendarService{
 	@Override
 	public List<CalendarVO> getAllEvents() {
 		return dao.getAllEvents();
+	}
+
+	@Override
+	public Map<String, CalendarVO> getAllEventsMap() {
+		// TODO Auto-generated method stub
+		return dao.getAllEventsMap();
 	}
 
 

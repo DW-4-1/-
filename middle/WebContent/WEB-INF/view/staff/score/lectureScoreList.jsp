@@ -33,7 +33,7 @@
 		<div class="card-body">
 			<div class="card">
 				<div class="card-header">
-					<h3 class="card-title">성적 관리</h3>
+					<h3 class="card-title">강의 목록</h3>
 					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
 						<select id="year" name="year" style="margin-left: auto;">
 							<option name="year" value="all">전체보기</option>

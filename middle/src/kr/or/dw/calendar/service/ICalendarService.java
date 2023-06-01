@@ -1,6 +1,7 @@
 package kr.or.dw.calendar.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.dw.vo.CalendarVO;
 
@@ -11,6 +12,8 @@ public interface ICalendarService {
 	 * @return
 	 */
 	List<CalendarVO> getAllEvents();
+
+	Map<String, CalendarVO> getAllEventsMap();
 
 	
 }
