@@ -11,6 +11,9 @@
 		$('#saveBtn').on('click', function(){
 			$('#staffInsertForm').submit();
 		});
+		$("#resetBtn").on('click', function(){
+			location.href="<%=request.getContextPath()%>/staff/professorCRUD.do"
+		});
 	})
 </script>
 <%
@@ -166,7 +169,7 @@
 	            <div class="col-12">
 	              <label class="staffInsertForm">상태</label>
 	              <div class="input-group has-validation">
-	                <input type="text" class="form-control" name="staff_state" placeholder="ex) 휴학 재학" required>
+	                <input type="text" class="form-control" name="staff_state" placeholder="ex) 휴직 재직" required>
 	              	<div class="invalid-feedback">
 	                  상태를 입력해주세요.
 	                </div>
