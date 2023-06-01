@@ -27,52 +27,105 @@
 </script>
 </head>
 <body>
-<h2>성적관리</h2>
-<select id="year" name="year" style="margin-left: auto;">
-	<option name="year" value="all">전체보기</option>
-	<%
-	List<LectureVO> lecList = (List) request.getAttribute("lecList"); //학생이 수강한 년도만 보이게
-	Set<Integer> yearList = new HashSet<>();
-	for (LectureVO vo : lecList) {
-		yearList.add(vo.getLec_year());
-	}
-	
-	for (int year : yearList) {
-	%>
-	<option name="year" value="<%=year%>"><%=year%>년
-	</option>
-	<%
-	}
-	%>
-</select>
-<div style="width:1000px; height:50%; overflow:auto">
-	<table border="1" width="100%" cellspacing="0" cellpadding="0" >
-		<tr style="height: 50px;">
-			<th>강의코드</th>
-			<th>강의명</th>
-			<th>강의년도</th>
-			<th>강의학기</th>
-			<th>학점</th>
-			<th>수강생</th>
-		</tr>
-		<%
-		
-		for(LectureVO vo : lecList){
-			
-	%>
-	
-		<tr class="odd" type="var" name="<%=vo.getLec_year()%>" style="text-align: center; height: 30px;">
-			<td><%=vo.getLec_code() %></td>
-			<td><%=vo.getLec_name() %></td>
-			<td><%=vo.getLec_year() %>년</td>
-			<td><%=vo.getLec_term() %>학기</td>
-			<td><%=vo.getLec_credit() %></td>
-			<td><input type="button" value="수강생조회" onclick="location.href='<%=request.getContextPath()%>/lecture/lectureStudentList.do?lecCode=<%=vo.getLec_code()%>'"></td>
-		</tr>		
-	<%
-		}
-	%>
-		
-	</table>
+
+<section class="content">
+	<div class="card card-solid">
+		<div class="card-body">
+			<div class="card">
+				<div class="card-header">
+					<h3 class="card-title">성적 관리</h3>
+					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
+						<select id="year" name="year" style="margin-left: auto;">
+							<option name="year" value="all">전체보기</option>
+							<%
+							List<LectureVO> lecList = (List) request.getAttribute("lecList"); //학생이 수강한 년도만 보이게
+							Set<Integer> yearList = new HashSet<>();
+							for (LectureVO vo : lecList) {
+								yearList.add(vo.getLec_year());
+							}
+							
+							for (int year : yearList) {
+							%>
+							<option name="year" value="<%=year%>"><%=year%>년
+							</option>
+							<%
+							}
+							%>
+						</select>
+					</div>
+				</div>
+				
+				<div class="card-body">
+					<div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+						<div class="row">
+							<div class="col-sm-12 col-md-6"></div>
+							<div class="col-sm-12 col-md-6"></div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<table id="example2"
+									class="table table-bordered table-hover dataTable dtr-inline"
+									aria-describedby="example2_info">
+									<thead style="text-align:center;">
+										<tr>
+											<th class="sorting sorting_asc" tabindex="0"
+												aria-controls="example2" rowspan="1" colspan="1"
+												aria-sort="ascending"
+												aria-label="Rendering engine: activate to sort column descending">
+												강의코드
+											</th>
+											<th class="sorting" tabindex="0" aria-controls="example2"
+												rowspan="1" colspan="1"
+												aria-label="Browser: activate to sort column ascending">
+												강의명
+											</th>
+											<th class="sorting" tabindex="0" aria-controls="example2"
+												rowspan="1" colspan="1"
+												aria-label="Engine version: activate to sort column ascending">
+												강의년도
+											</th>
+											<th class="sorting" tabindex="0" aria-controls="example2"
+												rowspan="1" colspan="1"
+												aria-label="CSS grade: activate to sort column ascending">
+												강의학기
+											</th>
+											<th class="sorting" tabindex="0" aria-controls="example2"
+												rowspan="1" colspan="1"
+												aria-label="CSS grade: activate to sort column ascending">
+												학점
+											</th>
+											<th class="sorting" tabindex="0" aria-controls="example2"
+												rowspan="1" colspan="1"
+												aria-label="CSS grade: activate to sort column ascending">
+												수강생
+											</th>
+										</tr>
+									</thead>
+									<%
+									for(LectureVO vo : lecList){
+									%>
+									<tbody>
+										<tr class="odd" type="var" name="<%=vo.getLec_year()%>" style="text-align: center; height: 30px;">
+											<td><%=vo.getLec_code() %></td>
+											<td><%=vo.getLec_name() %></td>
+											<td><%=vo.getLec_loc() %></td>
+											<td><%=vo.getLec_year() %>년</td>
+											<td><%=vo.getLec_term() %>학기</td>
+											<td><%=vo.getLec_credit() %></td>
+											<td>
+												<input type="button" value="수강생조회" onclick="location.href='<%=request.getContextPath()%>/lecture/lectureStudentList.do?lecCode=<%=vo.getLec_code()%>'">
+											</td>
+										</tr>		
+									</tbody>
+									<% } %>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>								
 
 <%@ include file="../footer.jsp" %>
