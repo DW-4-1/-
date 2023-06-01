@@ -6,12 +6,29 @@ public class BoardVO {
 private int bd_no;
 private String bd_title;
 private String staff_id;
+private String stu_id;
+private String stu_name;
 private String bd_content;
 private Date bd_wdt;
 private int bd_hit;
 private String gb_del;
 private int att_no;
 private String att_nm;
+
+
+
+public String getStu_name() {
+	return stu_name;
+}
+public void setStu_name(String stu_name) {
+	this.stu_name = stu_name;
+}
+public String getStu_id() {
+	return stu_id;
+}
+public void setStu_id(String stu_id) {
+	this.stu_id = stu_id;
+}
 public int getBd_no() {
 	return bd_no;
 }
