@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import kr.or.dw.vo.BoardVO;
+import kr.or.dw.vo.ReplyVO;
 
 public interface IBoardService {
 
@@ -88,6 +89,12 @@ public interface IBoardService {
 	 * @return
 	 */
 	int insertStuContent(BoardVO boardVo);
+
+	/**
+	 * 댓글 관리자의 정보를 가저오는 메서드
+	 * @return
+	 */
+	ReplyVO selectStaffInfo();
 
 	
 }

@@ -13,7 +13,7 @@
 			$("#studentInsertForm").submit();
 		});
 		$("#resetBtn").on('click', function(){
-			history.go(-1);
+			location.href="<%=request.getContextPath()%>/staff/studentCRUD.do"
 		});
 	})
 </script>

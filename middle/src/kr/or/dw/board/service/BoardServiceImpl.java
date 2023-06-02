@@ -6,6 +6,7 @@ import java.util.Map;
 import kr.or.dw.board.dao.BoardDaoImpl;
 import kr.or.dw.board.dao.IBoardDao;
 import kr.or.dw.vo.BoardVO;
+import kr.or.dw.vo.ReplyVO;
 
 public class BoardServiceImpl implements IBoardService{
 
@@ -82,6 +83,11 @@ public class BoardServiceImpl implements IBoardService{
 	@Override
 	public int insertStuContent(BoardVO boardVo) {
 		return dao.insertStuContent(boardVo);
+	}
+
+	@Override
+	public ReplyVO selectStaffInfo() {
+		return dao.selectStaffInfo();
 	}
 
 

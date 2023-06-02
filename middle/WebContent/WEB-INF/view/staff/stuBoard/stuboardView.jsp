@@ -1,3 +1,4 @@
+<%@page import="kr.or.dw.vo.ReplyVO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.List"%>
@@ -7,7 +8,7 @@
 <%@ include file="../header.jsp"%>    
 <%
 	BoardVO boardVo = (BoardVO) request.getAttribute("boardVo");
-
+	ReplyVO reVo = (ReplyVO) request.getAttribute("reVo");
 	DateFormat fomatter = new SimpleDateFormat("yyyy-MM-dd");
 
 %>
@@ -41,12 +42,13 @@
 		<div class="mailbox-read-message">
 			<p><%=boardVo.getBd_content()%></p>
 		</div>
-
+		<div>
+			<span><%=reVo.getStaff_name() %></span><input type="text" style="width:60%;">
+		</div>
 	</div>
 
 	<div class="card-footer">
 		<div class="float-right">
-		
 			<a type="button"
 				href="<%=request.getContextPath()%>/board/stuBoardList.do">목록
 			</a>

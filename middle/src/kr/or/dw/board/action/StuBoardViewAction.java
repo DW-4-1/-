@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import kr.or.dw.board.service.BoardServiceImpl;
 import kr.or.dw.board.service.IBoardService;
 import kr.or.dw.vo.BoardVO;
+import kr.or.dw.vo.ReplyVO;
 import kr.or.dw.web.IAction;
 
 public class StuBoardViewAction implements IAction{
@@ -27,11 +28,12 @@ public class StuBoardViewAction implements IAction{
 		
 		IBoardService boardService = BoardServiceImpl.getInstance();
 		BoardVO boardVo = null;
-		
+		ReplyVO reVo = null;
 		boardVo = boardService.selectStuBoardView(bd_no);
-
+		reVo = boardService.selectStaffInfo();
 		
 		req.setAttribute("boardVo", boardVo);
+		req.setAttribute("reVo", reVo);
 
 		HttpSession session = req.getSession();
 		String auth_cd = (String) session.getAttribute("auth_cd");

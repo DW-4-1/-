@@ -8,6 +8,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 
 import kr.or.dw.util.BuildSqlMapClient;
 import kr.or.dw.vo.BoardVO;
+import kr.or.dw.vo.ReplyVO;
 
 
 public class BoardDaoImpl implements IBoardDao{
@@ -184,6 +185,18 @@ private static BoardDaoImpl dao;
 		}
 		
 		return bd_no;
+	}
+
+	@Override
+	public ReplyVO selectStaffInfo() {
+		ReplyVO replyResult = null;
+		
+		try {
+			replyResult = (ReplyVO) smc.queryForObject("board.selectStaffInfo");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return replyResult;
 	}
 
 
