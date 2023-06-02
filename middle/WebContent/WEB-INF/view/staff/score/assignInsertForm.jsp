@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="kr.or.dw.vo.AssignVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -8,8 +9,8 @@
 <%
 	String lec_code = (String)request.getAttribute("lec_code");
 	String assign_name = "";
-	String assign_start = "";
-	String assign_end = "";
+	Date assign_start = null;
+	Date assign_end = null;
 	String lec_name = "";
 	String assign_content = "";
 	String title = "등록";
