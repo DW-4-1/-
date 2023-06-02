@@ -14,57 +14,49 @@
 
 <script>
 	$(function(){
-		
-		
 		$('#contentDelBtn').on('click', function(){
 			if(confirm("정말 삭제하시겠습니까?") == true){
 				location.href = "<%=request.getContextPath()%>/board/deleteBulletinContent.do?bd_no=<%=boardVo.getBd_no()%>";
 				};
 		});
-		
 	});
 </script>
 
-
-	<div class="card-header">
-		<h3><%=boardVo.getBd_title()%></h3>
-	</div>
-
-	<div class="card-body p-0">
-		<div class="mailbox-read-info">
-				관리자
-			<h6>
-				<span class="mailbox-read-time float-right"><%=fomatter.format(boardVo.getBd_wdt())%></span>
-			</h6>
-		</div>
-
-		<div class="mailbox-read-message">
+<div class="col-md-7 col-lg-7" style="margin: 0 auto;">
+	<div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal" style="display:inline;"><%=boardVo.getBd_title()%></h4>
+            <span class="mailbox-read-time float-right" style="float: right; vertical-align: middle;">&emsp;&emsp;작성일 : <%=fomatter.format(boardVo.getBd_wdt())%>&emsp;&emsp;</span>
+            <p style="float: right; margin: auto" >작성자 : 관리자</p>
+          </div>
+          <div class="card-body">
+            <!-- content -->
+		<div class="mailbox-read-message" style="margin: 1em;">
 			<p><%=boardVo.getBd_content()%></p>
 		</div>
-
-	</div>
-
-	<div class="card-footer">
-		<div class="float-right">
-			<%
+			<br>
+			<hr>
+            <div style="text-align: center">
+            <%
 				if (((String)session.getAttribute("auth_cd")).equals("A")) {
 			%>
-			<a type="button" id="contentDelBtn">삭제
-			</a> <a type="button" href="<%=request.getContextPath()%>/board/bulletinContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>">
-				수정
-			</a>
-
+            	<button type="button" class="btn btn-primary" id="contentDelBtn">
+            		삭제
+				</button> 
+				<button type="button" class="btn btn-primary" onclick="location.href='<%=request.getContextPath()%>/board/bulletinContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>'">
+					수정
+				</button>
 			<%
 				}
 			%>
-			<a type="button"
-				href="<%=request.getContextPath()%>/board/bulletinBoardList.do">목록
-			</a>
-		</div>
-		<hr>
-
-	
+            	<button type="button" class="btn btn-primary" style="width: 6em;" onclick="location.href='<%=request.getContextPath()%>/board/bulletinBoardList.do'">
+            		목록
+           		</button>
+			</div>
+        </div>
+      </div>
 	</div>
-				
-					
+</div>
+
 <%@ include file="../footer.jsp"%>
