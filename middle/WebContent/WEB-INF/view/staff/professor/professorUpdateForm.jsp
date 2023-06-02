@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>학생정보 수정 페이지 입니다.</title>
+<title>교수정보 수정 페이지 입니다.</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
 <%
 	StaffVO staVo = (StaffVO)request.getAttribute("staVo");
@@ -18,12 +18,13 @@
 	$(function(){
 		$('#saveBtn').on('click', function(){
 			$('#professorUpdateForm').submit();
+			alert('변경이 완료되었습니다.');
 		});
 		$("#resetBtn").on('click', function(){
 			location.href="<%=request.getContextPath()%>/staff/professorCRUD.do";
 		});
 		
-		$('select[name=sta_gender]').val('<%=staVo.getStaff_gender()%>').prop('selected', true);
+		$('select[name=staff_gender]').val('<%=staVo.getStaff_gender()%>').prop('selected', true);
 		$('select[name=dept_code]').val('<%=staVo.getDept_code()%>').prop('selected', true);
 	})
 	
@@ -35,16 +36,16 @@
 		<table>
 			<tr>
 				<th>ID</th>
-				<td><input type="text" name="stu_id" required value="<%=staVo.getStaff_id()%>"></td>
+				<td><input type="text" name="staff_id" required readonly value="<%=staVo.getStaff_id()%>"></td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><input type="text" name="stu_name" required value="<%=staVo.getStaff_name()%>"></td>
+				<td><input type="text" name="staff_name" required value="<%=staVo.getStaff_name()%>"></td>
 			</tr>
 			<tr>
 				<th>성별</th>
 				<td>
-					<select name="stu_gender">
+					<select name="staff_gender">
 						<option value="Male">남</option>
 						<option value="Female">여</option>
 					</select>
@@ -52,19 +53,19 @@
 			</tr>
 			<tr>
 				<th>주민등록번호</th>
-				<td><input type="text" name="stu_resnum" required value="<%=staVo.getStaff_resnum()%>"></td>
+				<td><input type="text" name="staff_resnum" required value="<%=staVo.getStaff_resnum()%>"></td>
 			</tr>
 			<tr>
 				<th>우편번호</th>
-				<td><input id="stu_zipcode" name="stu_zipcode" type="text" value="<%=staVo.getStaff_zipcode()%>" readonly onclick="findAddr()" required></td>
+				<td><input id="sta_zipcode" name="staff_zipcode" type="text" value="<%=staVo.getStaff_zipcode()%>" readonly onclick="findAddr()" required></td>
 			</tr>
 			<tr>
 				<th>주소</th>
-				<td> <input id="stu_addr" name="stu_addr" type="text" value="<%=staVo.getStaff_addr()%>" readonly required></td>
+				<td> <input id="sta_addr" name="staff_addr" type="text" value="<%=staVo.getStaff_addr()%>" readonly required></td>
 			</tr>
 			<tr>
 				<th>상세주소</th>
-				<td><input type="text" name="stu_detailaddr" value="<%=staVo.getStaff_detailaddr()%>" required></td>
+				<td><input type="text" name="staff_detailaddr" value="<%=staVo.getStaff_detailaddr()%>" required></td>
 			</tr>
 	
 			<script>
@@ -80,12 +81,12 @@
 			            var roadAddr = data.roadAddress; // 도로명 주소 변수
 			            var jibunAddr = data.jibunAddress; // 지번 주소 변수
 			            // 우편번호와 주소 정보를 해당 필드에 넣는다.
-			            document.getElementById('stu_zipcode').value = data.zonecode;
+			            document.getElementById('sta_zipcode').value = data.zonecode;
 			            if(roadAddr !== ''){
-			                document.getElementById("stu_addr").value = roadAddr;
+			                document.getElementById("sta_addr").value = roadAddr;
 			            } 
 			            else if(jibunAddr !== ''){
-			                document.getElementById("stu_addr").value = jibunAddr;
+			                document.getElementById("sta_addr").value = jibunAddr;
 			            }
 			        }
 			    }).open();
@@ -103,15 +104,15 @@
 			</tr>
 			<tr>
 				<th>전화번호</th>
-				<td><input type="text" name="stu_tel" required value="<%=staVo.getStaff_tel()%>"></td>
+				<td><input type="text" name="staff_tel" required value="<%=staVo.getStaff_tel()%>"></td>
 			</tr>
 			<tr>
 				<th>이메일</th>
-				<td><input type="text" name="stu_email" required value="<%=staVo.getStaff_email()%>"></td>
+				<td><input type="text" name="staff_email" required value="<%=staVo.getStaff_email()%>"></td>
 			</tr>
 			<tr>
 				<th>상태</th>
-				<td><input type="text" name="stu_state" required value="<%=staVo.getStaff_state()%>"></td>
+				<td><input type="text" name="staff_state" required value="<%=staVo.getStaff_state()%>"></td>
 			</tr>
 			<tr>
 				<td><input id="saveBtn" type="button" value="저장"></td>

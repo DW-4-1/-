@@ -62,7 +62,29 @@
 							  ,#staff_pwd#
 							)
 	</insert>
+	
 	<delete id="professorDelete" parameterClass="String">
 		DELETE staffs WHERE staff_id = #staff_id#
 	</delete>
+	
+	<select id="getstaffInfo" parameterClass="String" resultClass="StaffVO">
+		SELECT s.*, d.dept_name
+		  FROM staffs s, dept d
+		 WHERE s.dept_code = d.dept_code
+		   AND staff_id = #staff_id#
+	</select>
+	
+	<update id="professorUpdate" parameterClass="StaffVO">
+		UPDATE staffs SET staff_name = #staff_name#
+						 ,staff_gender = #staff_gender#
+						 ,staff_resnum = #staff_resnum#
+						 ,staff_zipcode = #staff_zipcode#
+						 ,staff_addr = #staff_addr#
+						 ,staff_detailaddr = #staff_detailaddr#
+						 ,dept_code = #dept_code#
+						 ,staff_tel = #staff_tel#
+						 ,staff_email = #staff_email#
+						 ,staff_state = #staff_state#
+			WHERE staff_id = #staff_id#
+	</update>
 </sqlMap>

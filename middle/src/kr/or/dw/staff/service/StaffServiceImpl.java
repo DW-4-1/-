@@ -61,4 +61,14 @@ public class StaffServiceImpl implements IStaffService{
 		return dao.professorDelete(id);
 	}
 
+	@Override
+	public StaffVO getstaffInfo(String sta_id) {
+		return dao.getstaffInfo(sta_id);
+	}
+
+	@Override
+	public int professorUpdate(StaffVO staVo) {
+		return dao.professorUpdate(staVo);
+	}
+
 }

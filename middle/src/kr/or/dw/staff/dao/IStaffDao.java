@@ -48,4 +48,17 @@ public interface IStaffDao {
 	 */
 	public int professorDelete(String id);
 
+	/**
+	 * 교수님의 정보를 가져오는 메서드
+	 * @param sta_id
+	 * @return
+	 */
+	public StaffVO getstaffInfo(String sta_id);
+
+	/**
+	 * 교수님의 정보를 수정하는 메서드
+	 * @param staVo
+	 */
+	public int professorUpdate(StaffVO staVo);
+
 }

@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-import kr.or.dw.student.service.IStudentService;
-import kr.or.dw.student.service.StudentServiceImpl;
-import kr.or.dw.vo.StudentVO;
+import kr.or.dw.staff.service.IStaffService;
+import kr.or.dw.staff.service.StaffServiceImpl;
+import kr.or.dw.vo.StaffVO;
 import kr.or.dw.web.IAction;
 
-public class StudentUpdateAction implements IAction{
+public class ProfessorUpdateAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
@@ -23,21 +23,23 @@ public class StudentUpdateAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		IStudentService service = StudentServiceImpl.getInstance();
-		StudentVO stuVo = new StudentVO();
+		IStaffService service = StaffServiceImpl.getInstance();
+		StaffVO staVo = new StaffVO();
 		
 		BeanUtils bean = new BeanUtils();
 		
 		try {
-			bean.populate(stuVo, req.getParameterMap());
+			bean.populate(staVo, req.getParameterMap());
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
 		}
-		service.studentUpdate(stuVo);
 		
-		return "/staff/student/studentCRUD.do";
+		service.professorUpdate(staVo);
+		
+		
+		return "/staff/professorCRUD.do";
 	}
 
 }

@@ -114,5 +114,31 @@ private static StaffDaoImpl dao;
 		return cnt;
 	}
 
+	@Override
+	public StaffVO getstaffInfo(String sta_id) {
+		StaffVO staVo = new StaffVO();
+		
+		try {
+			staVo = (StaffVO) smc.queryForObject("staff.getstaffInfo", sta_id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return staVo;
+	}
+
+	@Override
+	public int professorUpdate(StaffVO staVo) {
+		int cnt = 0;
+		
+		try {
+			cnt = smc.update("staff.professorUpdate", staVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+
 
 }

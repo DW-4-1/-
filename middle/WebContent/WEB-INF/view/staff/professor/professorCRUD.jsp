@@ -119,6 +119,7 @@
 										<th>성별</th>
 										<th>주민등록번호</th>
 										<th>주소</th>
+										<th>상세주소</th>
 										<th>우편번호</th>
 										<th>학과</th>
 										<th>전화번호</th>
@@ -137,6 +138,7 @@
 										<td><%=staVo.getStaff_gender()%></td>
 										<td><%=staVo.getStaff_resnum()%></td>
 										<td><%=staVo.getStaff_addr()%></td>
+										<td><%=staVo.getStaff_detailaddr()%></td>
 										<td><%=staVo.getStaff_zipcode()%></td>
 										<td><%=staVo.getDept_name()%></td>
 										<td><%=staVo.getStaff_tel()%></td>
