@@ -31,8 +31,10 @@ public class LectureAssignListAction implements IAction{
 		assignList = service.getLectureAssignList(lec_code);
 		
 		req.setAttribute("lec_code", lec_code);
-		
-		req.setAttribute("assignList", assignList);
+		if(assignList != null) {
+			
+			req.setAttribute("assignList", assignList);
+		}
 		
 		return "/staff/score/lectureAssignList.jsp";
 	}

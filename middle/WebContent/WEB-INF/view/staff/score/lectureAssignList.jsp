@@ -84,7 +84,7 @@
 										<tr class="odd" type="var" name="" style="text-align: center; height: 30px;">
 											<td><%=vo.getLec_name() %></td>
 											<td><a href="<%=request.getContextPath()%>/assign/viewAssign.do?assign_no=<%=vo.getAssign_no()%>"><%= vo.getAssign_name()%></a></td>
-											<td><%=vo.getAssign_start() %></td>
+											<td><%=vo.getAssign_start()%></td>
 											<td><%=vo.getAssign_end() %></td>
 											<td>
 												<input type="button" value="제출물 조회">

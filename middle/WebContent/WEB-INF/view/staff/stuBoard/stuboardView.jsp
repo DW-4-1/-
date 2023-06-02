@@ -46,17 +46,7 @@
 
 	<div class="card-footer">
 		<div class="float-right">
-			<%
-				if (((String)session.getAttribute("stu_id")).equals(boardVo.getStu_id())) {
-			%>
-			<a type="button" id="contentDelBtn">삭제
-			</a> <a type="button" href="<%=request.getContextPath()%>/board/stuContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>">
-				수정
-			</a>
-
-			<%
-				}
-			%>
+		
 			<a type="button"
 				href="<%=request.getContextPath()%>/board/stuBoardList.do">목록
 			</a>
