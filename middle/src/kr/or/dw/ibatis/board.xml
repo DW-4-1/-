@@ -148,7 +148,7 @@
 		UPDATE stu_board SET bd_hit = bd_hit + 1 WHERE bd_no = #bd_no#
 	</update>
 	
-	<select id="selectStaffInfo" resultClass="ReplyVO">
+	<select id="selectStaffInfo" resultClass="replyVO">
 		SELECT sbr.*, s.staff_name
 		  FROM stu_board_re sbr, staffs s
 		 WHERE sbr.staff_id = s.staff_id
