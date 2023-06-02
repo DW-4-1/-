@@ -101,5 +101,18 @@ private static StaffDaoImpl dao;
 		return cnt;
 	}
 
+	@Override
+	public int professorDelete(String id) {
+		int cnt = 0;
+		
+		try {
+			cnt = smc.delete("staff.professorDelete", id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+
 
 }

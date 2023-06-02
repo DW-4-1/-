@@ -1,5 +1,5 @@
+<%@page import="kr.or.dw.vo.StaffVO"%>
 <%@page import="java.util.List"%>
-<%@page import="kr.or.dw.vo.StudentVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,37 +9,37 @@
 <title>학생정보 수정 페이지 입니다.</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
 <%
-	StudentVO stuVo = (StudentVO)request.getAttribute("stuVo");
+	StaffVO staVo = (StaffVO)request.getAttribute("staVo");
 %>
 <%
-	List<StudentVO> stuList = (List)request.getAttribute("dept");
+	List<StaffVO> staList = (List)request.getAttribute("dept");
 %>
 <script>
 	$(function(){
 		$('#saveBtn').on('click', function(){
-			$('#studentUpdateForm').submit();
+			$('#professorUpdateForm').submit();
 		});
 		$("#resetBtn").on('click', function(){
-			history.go(-1);
+			location.href="<%=request.getContextPath()%>/staff/professorCRUD.do";
 		});
 		
-		$('select[name=stu_gender]').val('<%=stuVo.getStu_gender()%>').prop('selected', true);
-		$('select[name=dept_code]').val('<%=stuVo.getDept_code()%>').prop('selected', true);
+		$('select[name=sta_gender]').val('<%=staVo.getStaff_gender()%>').prop('selected', true);
+		$('select[name=dept_code]').val('<%=staVo.getDept_code()%>').prop('selected', true);
 	})
 	
 </script>
 
 </head>
 <body>
-	<form id="studentUpdateForm" method="post" action="<%=request.getContextPath()%>/staff/studentUpdate.do">
+	<form id="professorUpdateForm" method="post" action="<%=request.getContextPath()%>/staff/professorUpdate.do">
 		<table>
 			<tr>
 				<th>ID</th>
-				<td><input type="text" name="stu_id" required value="<%=stuVo.getStu_id()%>"></td>
+				<td><input type="text" name="stu_id" required value="<%=staVo.getStaff_id()%>"></td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><input type="text" name="stu_name" required value="<%=stuVo.getStu_name()%>"></td>
+				<td><input type="text" name="stu_name" required value="<%=staVo.getStaff_name()%>"></td>
 			</tr>
 			<tr>
 				<th>성별</th>
@@ -52,19 +52,19 @@
 			</tr>
 			<tr>
 				<th>주민등록번호</th>
-				<td><input type="text" name="stu_resnum" required value="<%=stuVo.getStu_resnum()%>"></td>
+				<td><input type="text" name="stu_resnum" required value="<%=staVo.getStaff_resnum()%>"></td>
 			</tr>
 			<tr>
 				<th>우편번호</th>
-				<td><input id="stu_zipcode" name="stu_zipcode" type="text" value="<%=stuVo.getStu_zipcode()%>" readonly onclick="findAddr()" required></td>
+				<td><input id="stu_zipcode" name="stu_zipcode" type="text" value="<%=staVo.getStaff_zipcode()%>" readonly onclick="findAddr()" required></td>
 			</tr>
 			<tr>
 				<th>주소</th>
-				<td> <input id="stu_addr" name="stu_addr" type="text" value="<%=stuVo.getStu_addr()%>" readonly required></td>
+				<td> <input id="stu_addr" name="stu_addr" type="text" value="<%=staVo.getStaff_addr()%>" readonly required></td>
 			</tr>
 			<tr>
 				<th>상세주소</th>
-				<td><input type="text" name="stu_detailaddr" value="<%=stuVo.getStu_detailaddr()%>" required></td>
+				<td><input type="text" name="stu_detailaddr" value="<%=staVo.getStaff_detailaddr()%>" required></td>
 			</tr>
 	
 			<script>
@@ -95,7 +95,7 @@
 				<th>학과</th>
 				<td>
 					<select name="dept_code">
-					<% for(StudentVO vo : stuList){ %>
+					<% for(StaffVO vo : staList){ %>
 						<option value="<%=vo.getDept_code()%>"><%=vo.getDept_code()%> <%=vo.getDept_name()%></option>
 					<% 	 }	 %>
 					</select>
@@ -103,15 +103,15 @@
 			</tr>
 			<tr>
 				<th>전화번호</th>
-				<td><input type="text" name="stu_tel" required value="<%=stuVo.getStu_tel()%>"></td>
+				<td><input type="text" name="stu_tel" required value="<%=staVo.getStaff_tel()%>"></td>
 			</tr>
 			<tr>
 				<th>이메일</th>
-				<td><input type="text" name="stu_email" required value="<%=stuVo.getStu_email()%>"></td>
+				<td><input type="text" name="stu_email" required value="<%=staVo.getStaff_email()%>"></td>
 			</tr>
 			<tr>
 				<th>상태</th>
-				<td><input type="text" name="stu_state" required value="<%=stuVo.getStu_state()%>"></td>
+				<td><input type="text" name="stu_state" required value="<%=staVo.getStaff_state()%>"></td>
 			</tr>
 			<tr>
 				<td><input id="saveBtn" type="button" value="저장"></td>

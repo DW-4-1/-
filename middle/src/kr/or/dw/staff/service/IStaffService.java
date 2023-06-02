@@ -31,7 +31,7 @@ public interface IStaffService {
 	public List<StaffVO> getAllProfessorList();
 
 	/**
-	 * 교수
+	 * 학과코드를 통해서 학과 이름을 가져오는 메서드
 	 * @return
 	 */
 	public List<StaffVO> getDept();
@@ -42,5 +42,11 @@ public interface IStaffService {
 	 * @return
 	 */
 	public List<StaffVO> professorInsert(StaffVO staVo);
+
+	/**
+	 * 교수 삭제하는 메서드
+	 * @param id
+	 */
+	public int professorDelete(String id);
 	
 }

@@ -22,23 +22,23 @@
 			$('#professorDeleteFormBtn').hide();
 			$('#professorUpdateFormBtn').hide();
 		});
-		let stu_id_arr = new Array();
+		let sta_id_arr = new Array();
 		$('.chk').on('change',function(){
 			if($(this).is(":checked")){
-				stu_id_arr = [];
+				sta_id_arr = [];
 				$('.chk:checked').each(function(){
-					stu_id_arr.push($(this).val())
+					sta_id_arr.push($(this).val())
 				})
 			}
 		})
 		$('#deleteBtn').on('click', function(){
 			$.ajax({
 				url : "<%=request.getContextPath()%>/staff/professorDelete.do",
-				data : {"stu_id_arr" : stu_id_arr},
+				data : {"sta_id_arr" : sta_id_arr},
 				method : "post",
 				success : function(res){
 					alert('삭제가 완료되었습니다.');
-					location.href="<%=request.getContextPath()%>/staff/studentCRUD.do";
+					location.href="<%=request.getContextPath()%>/staff/professorCRUD.do";
 				},
 				error : function(err){
 					alert(err.status);
@@ -144,7 +144,7 @@
 										<td><%=staVo.getStaff_state()%></td>
 										<td><%=staVo.getStaff_hiredate()%></td>
 										<td><%=staVo.getAuth_cd()%></td>
-										<td class="updateTag" style="display:none;"><input type="button" name="update" value="수정" onclick="location.href='<%=request.getContextPath()%>/staff/studentUpdateForm.do?stu_id=<%=staVo.getStaff_id()%>'"></td>
+										<td class="updateTag" style="display:none;"><input type="button" name="update" value="수정" onclick="location.href='<%=request.getContextPath()%>/staff/professorUpdateForm.do?sta_id=<%=staVo.getStaff_id()%>'"></td>
 									</tr>
 									</tbody>
 							<%	 }	 %>

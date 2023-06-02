@@ -41,5 +41,11 @@ public interface IStaffDao {
 	 * @return
 	 */
 	public List<StaffVO> professorInsert(StaffVO staVo);
+	
+	/**
+	 * 교수 삭제하는 메서드
+	 * @param id
+	 */
+	public int professorDelete(String id);
 
 }

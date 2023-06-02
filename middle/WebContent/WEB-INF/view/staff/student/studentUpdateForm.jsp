@@ -18,7 +18,7 @@
 			$('#studentUpdateForm').submit();
 		});
 		$("#resetBtn").on('click', function(){
-			history.go(-1);
+			location.href="<%=request.getContextPath()%>/staff/studentCRUD.do"
 		});
 		
 		$('select[name=stu_gender]').val('<%=stuVo.getStu_gender()%>').prop('selected', true);

@@ -62,4 +62,7 @@
 							  ,#staff_pwd#
 							)
 	</insert>
+	<delete id="professorDelete" parameterClass="String">
+		DELETE staffs WHERE staff_id = #staff_id#
+	</delete>
 </sqlMap>

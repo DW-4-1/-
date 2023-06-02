@@ -56,4 +56,9 @@ public class StaffServiceImpl implements IStaffService{
 		return dao.professorInsert(staVo);
 	}
 
+	@Override
+	public int professorDelete(String id) {
+		return dao.professorDelete(id);
+	}
+
 }
