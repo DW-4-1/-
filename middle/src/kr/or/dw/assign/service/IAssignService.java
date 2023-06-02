@@ -19,6 +19,13 @@ public interface IAssignService {
 	 * @return
 	 */
 	int insertAssign(AssignVO assignVo);
+	
+	/**
+	 * 과제 제출한 학생들 목록 가져오는 메서드
+	 * @param assign_no
+	 * @return
+	 */
+	List<AssignVO> getSubStudentList(int assign_no);
 
 
 }

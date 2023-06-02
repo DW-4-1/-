@@ -19,5 +19,12 @@ public interface IAssignDao {
 	 * @return
 	 */
 	public int insertAssign(AssignVO assignVo);
+	
+	/**
+	 * 과제 제출한 학생 목록 가져오는 메서드
+	 * @param assign_no
+	 * @return
+	 */
+	public List<AssignVO> getSubStudentList(int assign_no);
 
 }

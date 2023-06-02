@@ -33,6 +33,11 @@ public class AssignServiceImpl implements IAssignService{
 		return dao.insertAssign(assignVo);
 	}
 
+	@Override
+	public List<AssignVO> getSubStudentList(int assign_no) {
+		return dao.getSubStudentList(assign_no);
+	}
+
 
 
 

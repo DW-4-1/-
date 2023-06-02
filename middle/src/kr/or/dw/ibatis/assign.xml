@@ -23,4 +23,15 @@
 		</selectKey>
 		INSERT INTO all_assignment VALUES (#assign_no#, #assign_name#, #assign_content#, #assign_start#, #assign_end#, #lec_code#)
 	</insert>
+	
+	<select id="getSubStudent" parameterClass="int" resultClass="assignVO">
+		SELECT a.assign_no, a.stu_id, assign_subdate, assign_path, lec_name, stu_name, dept_name
+		FROM assignment a, all_assignment aa, students s, all_lecturelist l, dept d
+		WHERE a.assign_no = aa.assign_no
+		AND a.stu_id = s.stu_id
+		AND aa.lec_code = l.lec_code
+		AND d.dept_code = s.dept_code
+		AND a.assign_no = #assign_no#
+		AND assign_path is not null
+	</select>
 </sqlMap>
