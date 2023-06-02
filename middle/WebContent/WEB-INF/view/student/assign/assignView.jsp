@@ -12,7 +12,26 @@
 	DateFormat fomatter = new SimpleDateFormat("yyyy-MM-dd");
 
 %>
+<style>
+	input[type=file]::file-selector-button {
+	  width: 100px;
+	  height: 30px;
+	  background: #fff;
+	  border: 1px solid rgb(77,77,77);
+	  border-radius: 10px;
+	  cursor: pointer;
+	  &:hover {
+	    background: rgb(77,77,77);
+	    color: #fff;
+	  }
+	}
+</style>
 
+<script>
+	$(document).on('change', '#assignfile', function(){
+		$(this).parent().find('#saveAssignBtn').css('display', '');
+	})
+</script>
 
 <div class="col-md-7 col-lg-7" style="margin: 0 auto;">
 	<div class="col">
@@ -28,6 +47,13 @@
 			<p><%=assignVo.getAssign_content()%></p>
 		</div>
 			<br>
+			<hr>
+			<form id="assign_form" method="post" enctype="multipart/form-data">
+						&nbsp;&nbsp;<span style="font-size: 1.2em;">과제제출</span>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="file" id="assignfile" name="assignfile">
+								<input type="button" class="btn btn-primary" id="saveAssignBtn" value="제출하기" style="display : none; float: right;">
+	        </form>
 			<hr>
             <div style="text-align: center">
             	
