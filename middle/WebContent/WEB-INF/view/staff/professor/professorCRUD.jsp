@@ -32,18 +32,22 @@
 			}
 		})
 		$('#deleteBtn').on('click', function(){
-			$.ajax({
-				url : "<%=request.getContextPath()%>/staff/professorDelete.do",
-				data : {"sta_id_arr" : sta_id_arr},
-				method : "post",
-				success : function(res){
-					alert('삭제가 완료되었습니다.');
-					location.href="<%=request.getContextPath()%>/staff/professorCRUD.do";
-				},
-				error : function(err){
-					alert(err.status);
-				}
-			})
+			if(confirm('정말로 삭제하시겠습니까?')){
+				$.ajax({
+					url : "<%=request.getContextPath()%>/staff/professorDelete.do",
+					data : {"sta_id_arr" : sta_id_arr},
+					method : "post",
+					success : function(res){
+						alert('삭제가 완료되었습니다.');
+						location.href="<%=request.getContextPath()%>/staff/professorCRUD.do";
+					},
+					error : function(err){
+						alert(err.status);
+					}
+				})
+			}else{
+				
+			};
 		})
 		$('#resetBtn').on('click', function(){
 			$('input[type=checkbox]').hide();

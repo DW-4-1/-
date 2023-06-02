@@ -30,18 +30,22 @@
 			}
 		})
 		$('#deleteBtn').on('click', function(){
-			$.ajax({
-				url : "<%=request.getContextPath()%>/staff/studentDelete.do",
-				data : {"stu_id_arr" : stu_id_arr},
-				method : "post",
-				success : function(res){
-					alert('삭제가 완료되었습니다.');
-					location.href="<%=request.getContextPath()%>/staff/studentCRUD.do";
-				},
-				error : function(err){
-					alert(err.status);
-				}
-			})
+			if(confirm('정말로 삭제하시겠습니까?')){
+				$.ajax({
+					url : "<%=request.getContextPath()%>/staff/studentDelete.do",
+					data : {"stu_id_arr" : stu_id_arr},
+					method : "post",
+					success : function(res){
+						alert('삭제가 완료되었습니다.');
+						location.href="<%=request.getContextPath()%>/staff/studentCRUD.do";
+					},
+					error : function(err){
+						alert(err.status);
+					}
+				});				
+			}else{
+				
+			}
 		})
 		$('#resetBtn').on('click', function(){
 			$('input[type=checkbox]').hide();
