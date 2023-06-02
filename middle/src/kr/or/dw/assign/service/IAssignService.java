@@ -55,5 +55,12 @@ public interface IAssignService {
 	 */
 	int deleteAssign(int assign_no);
 
+	/**
+	 * 과제 제출 메서드
+	 * @param assignVo
+	 * @return
+	 */
+	int submitAssignFile(AssignVO assignVo);
+
 
 }

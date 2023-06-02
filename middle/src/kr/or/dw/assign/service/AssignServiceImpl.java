@@ -60,6 +60,11 @@ public class AssignServiceImpl implements IAssignService{
 		return dao.deleteAssign(assign_no);
 	}
 
+	@Override
+	public int submitAssignFile(AssignVO assignVo) {
+		return dao.submitAssignFile(assignVo);
+	}
+
 
 
 

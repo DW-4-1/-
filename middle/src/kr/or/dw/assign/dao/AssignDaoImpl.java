@@ -113,6 +113,22 @@ private static AssignDaoImpl dao;
 		return result;
 	}
 
+	@Override
+	public int submitAssignFile(AssignVO assignVo) {
+		String result = null;
+		try {
+			result = (String) smc.insert("assign.insertAssignFile", assignVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		int cnt = 0;
+		if(result == null) {
+			cnt = 1;
+		}
+		return cnt;
+	}
+
 
 
 

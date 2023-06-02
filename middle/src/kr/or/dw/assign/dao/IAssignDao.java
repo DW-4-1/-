@@ -55,4 +55,11 @@ public interface IAssignDao {
 	 */
 	public int deleteAssign(int assign_no);
 
+	/**
+	 * 과제 제출 메서드
+	 * @param assign
+	 * @return
+	 */
+	public int submitAssignFile(AssignVO assignVo);
+
 }

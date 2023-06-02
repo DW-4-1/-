@@ -83,6 +83,7 @@
 										String subState = "제출전";
 										List<AssignVO> assignList = (List)request.getAttribute("assignList");
 										for(AssignVO vo : assignList){
+											System.out.print(vo.getAssign_path());
 											if(vo.getAssign_path() != null && !"".equals(vo.getAssign_path())){
 												subState = "제출완료";
 											}else{
