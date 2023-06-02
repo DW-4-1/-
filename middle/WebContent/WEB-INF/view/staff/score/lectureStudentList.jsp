@@ -11,14 +11,6 @@
 
 <script>
 	$(function(){
-		$('input[type=number]').on('change', function(){
-			let sum = 0;
-			for(let i = 0; i < $(this).parents('tr').find('input[type=number]').length; i++){
-				sum += +$(this).parents('tr').find('input[type=number]').eq(i).val();
-				console.log(sum);
-			}
-			$(this).parents('tr').find('input[name=stu_score]').attr('value', sum);
-		});
 		
 		$('#cancelBtn').on('click', function(){
 			location.href="<%=request.getContextPath()%>/lecture/lectureScoreList.do";
@@ -97,18 +89,16 @@
 											
 										%>
 									<tbody>
-										<form id="scoreInsert" method="post" action="<%=request.getContextPath()%>/lecture/scoreUpdate.do">
 										<input type="hidden" name="lec_code" value="<%=lec_code%>">
-											<tr class="odd" type="var" id="<%=stu.getStu_id()%>" style="text-align: center; height: 30px;">
-												<td><%=stu.getStu_id() %></td>
-													<input type="hidden" name="stu_id" id="stu_id" value="<%=stu.getStu_id()%>">
-												<td><%=stu.getStu_name() %></td>
-												<td><%=stu.getDept_name() %></td>
-												<td><%=stu.getStu_gender() %></td>
-												<td><%=stu.getStu_tel()%></td>
-												<td><input type="button" value="학생 삭제하기" id="stuDeleteBtn" onclick="location.href='<%=request.getContextPath()%>/lecture/deleteStudentLecture.do?stu_id=<%=stu.getStu_id() %>&lec_code=<%=lec_code %>'"></td>
-											</tr>
-										</form>
+										<tr class="odd" type="var" id="<%=stu.getStu_id()%>" style="text-align: center; height: 30px;">
+											<td><%=stu.getStu_id() %></td>
+												<input type="hidden" name="stu_id" id="stu_id" value="<%=stu.getStu_id()%>">
+											<td><%=stu.getStu_name() %></td>
+											<td><%=stu.getDept_name() %></td>
+											<td><%=stu.getStu_gender() %></td>
+											<td><%=stu.getStu_tel()%></td>
+											<td><input type="button" value="학생 삭제하기" id="stuDeleteBtn" onclick="location.href='<%=request.getContextPath()%>/lecture/deleteStudentLecture.do?stu_id=<%=stu.getStu_id() %>&lec_code=<%=lec_code %>'"></td>
+										</tr>
 										<%
 										}
 										%>

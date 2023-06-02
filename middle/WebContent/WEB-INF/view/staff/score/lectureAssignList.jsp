@@ -93,7 +93,7 @@
 											<td><%=fomatter.format(vo.getAssign_start())%></td>
 											<td><%=fomatter.format(vo.getAssign_end())%></td>
 											<td>
-												<input type="button" value="제출물 조회">
+												<input type="button" value="제출물 조회" onclick="location.href='<%=request.getContextPath()%>/assign/submitAssignList.do?assign_no=<%=vo.getAssign_no() %>>'">
 											</td>
 
 										</tr>		
