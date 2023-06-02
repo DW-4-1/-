@@ -1,6 +1,9 @@
 package kr.or.dw.assign.action;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -25,8 +28,20 @@ public class InsertAssignAction implements IAction{
 		String lec_code = req.getParameter("lec_code");
 		String assign_name = req.getParameter("assign_name");
 		String assign_content = req.getParameter("assign_content");
-		String assign_start = req.getParameter("assign_start");
-		String assign_end = req.getParameter("assign_end");
+		
+		String start = req.getParameter("assign_start");
+		String end = req.getParameter("assign_end");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date assign_start = null;
+		Date assign_end = null;
+		try {
+			assign_start = format.parse(start);
+			assign_end = format.parse(end);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		AssignVO assignVo = new AssignVO();
 		assignVo.setAssign_content(assign_content);

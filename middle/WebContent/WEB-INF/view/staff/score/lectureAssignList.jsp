@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
 <%@page import="kr.or.dw.vo.AssignVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,7 +7,11 @@
 <%@ include file="../header.jsp" %>
 
 <title>과제 목록</title>
-<%String lec_code = (String)request.getAttribute("lec_code"); %>
+<%
+
+	String lec_code = (String)request.getAttribute("lec_code");
+	DateFormat fomatter = new SimpleDateFormat("yyyy-MM-dd");
+%>
 <script type="text/javascript">
 	$(function(){
 		$('#insertAssignBtn').on('click', function(){
@@ -65,7 +71,7 @@
 											<th class="sorting" tabindex="0" aria-controls="example2"
 												rowspan="1" colspan="1"
 												aria-label="CSS grade: activate to sort column ascending">
-												제출물 조회
+												제출물 
 											</th>
 										</tr>
 									</thead>
@@ -84,8 +90,8 @@
 										<tr class="odd" type="var" name="" style="text-align: center; height: 30px;">
 											<td><%=vo.getLec_name() %></td>
 											<td><a href="<%=request.getContextPath()%>/assign/viewAssign.do?assign_no=<%=vo.getAssign_no()%>"><%= vo.getAssign_name()%></a></td>
-											<td><%=vo.getAssign_start()%></td>
-											<td><%=vo.getAssign_end() %></td>
+											<td><%=fomatter.format(vo.getAssign_start())%></td>
+											<td><%=fomatter.format(vo.getAssign_end())%></td>
 											<td>
 												<input type="button" value="제출물 조회">
 											</td>

@@ -1,27 +1,24 @@
 package kr.or.dw.vo;
 
+import java.util.Date;
+
 public class AssignVO {
 	private int assign_no;
 	private String assign_name;
 	private String assign_content;
-	private String assign_start;
-	private String assign_end;
+	private Date assign_start;
+	private Date assign_end;
 	private String lec_code;
 	private String stu_id;
 	private String assign_path;
 	private String lec_name;
-	private String assign_subdate;
+	private Date assign_subdate;
 	
 	
 	
 	
 	
-	public String getAssign_subdate() {
-		return assign_subdate;
-	}
-	public void setAssign_subdate(String assign_subdate) {
-		this.assign_subdate = assign_subdate;
-	}
+
 	public String getLec_name() {
 		return lec_name;
 	}
@@ -46,18 +43,7 @@ public class AssignVO {
 	public void setAssign_content(String assign_content) {
 		this.assign_content = assign_content;
 	}
-	public String getAssign_start() {
-		return assign_start;
-	}
-	public void setAssign_start(String assign_start) {
-		this.assign_start = assign_start;
-	}
-	public String getAssign_end() {
-		return assign_end;
-	}
-	public void setAssign_end(String assign_end) {
-		this.assign_end = assign_end;
-	}
+
 	public String getLec_code() {
 		return lec_code;
 	}
@@ -75,6 +61,24 @@ public class AssignVO {
 	}
 	public void setAssign_path(String assign_path) {
 		this.assign_path = assign_path;
+	}
+	public Date getAssign_start() {
+		return assign_start;
+	}
+	public void setAssign_start(Date assign_start) {
+		this.assign_start = assign_start;
+	}
+	public Date getAssign_end() {
+		return assign_end;
+	}
+	public void setAssign_end(Date assign_end) {
+		this.assign_end = assign_end;
+	}
+	public Date getAssign_subdate() {
+		return assign_subdate;
+	}
+	public void setAssign_subdate(Date assign_subdate) {
+		this.assign_subdate = assign_subdate;
 	}
 
 	
