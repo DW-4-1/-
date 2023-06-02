@@ -41,4 +41,11 @@ public interface IAssignDao {
 	 */
 	public AssignVO viewAssign(int assign_no);
 
+	/**
+	 * 과제 수정 메서드
+	 * @param assignVo
+	 * @return
+	 */
+	public int updateAssign(AssignVO assignVo);
+
 }

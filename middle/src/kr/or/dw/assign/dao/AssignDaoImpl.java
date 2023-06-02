@@ -90,6 +90,17 @@ private static AssignDaoImpl dao;
 		return assignVo;
 	}
 
+	@Override
+	public int updateAssign(AssignVO assignVo) {
+		int result = 0;
+		try {
+			result = smc.update("assign.updateAssign", assignVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 
 
 

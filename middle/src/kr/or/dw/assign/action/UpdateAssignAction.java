@@ -14,17 +14,17 @@ import kr.or.dw.assign.service.IAssignService;
 import kr.or.dw.vo.AssignVO;
 import kr.or.dw.web.IAction;
 
-public class InsertAssignAction implements IAction{
+public class UpdateAssignAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
-		
+
 		return true;
 	}
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
+		int assign_no = Integer.parseInt(req.getParameter("assign_no"));
 		String lec_code = req.getParameter("lec_code");
 		String assign_name = req.getParameter("assign_name");
 		String assign_content = req.getParameter("assign_content");
@@ -32,7 +32,7 @@ public class InsertAssignAction implements IAction{
 		String start = req.getParameter("assign_start");
 		String end = req.getParameter("assign_end");
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		
+
 		Date assign_start = null;
 		Date assign_end = null;
 		try {
@@ -49,10 +49,13 @@ public class InsertAssignAction implements IAction{
 		assignVo.setAssign_name(assign_name);
 		assignVo.setAssign_start(assign_start);
 		assignVo.setLec_code(lec_code);
+		assignVo.setAssign_no(assign_no);
 		
 		IAssignService service = AssignServiceImpl.getInstance();
-		int assign_no = 0;
-		assign_no = service.insertAssign(assignVo);
+		int result = 0;
+		result = service.updateAssign(assignVo);
+
+		
 		
 		return "/assign/viewAssign.do?assign_no=" + assign_no;
 	}

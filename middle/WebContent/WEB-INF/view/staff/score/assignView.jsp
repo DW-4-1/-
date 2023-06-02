@@ -17,7 +17,7 @@
 	$(function(){
 		$('#contentDelBtn').on('click', function(){
 			if(confirm("정말 삭제하시겠습니까?") == true){
-				location.href = "<%=request.getContextPath()%>/";
+				location.href = "<%=request.getContextPath()%>/assign/deleteAssign.do?assign_no=<%=assignVo.getAssign_no()%>";
 				};
 		});
 	});
@@ -42,7 +42,7 @@
             	<button type="button" class="btn btn-primary" id="contentDelBtn">
             		삭제
 				</button> 
-				<button type="button" class="btn btn-primary" onclick="location.href='<%=request.getContextPath()%>/assign/updateAssign.do?assign_no=<%=assignVo.getAssign_no()%>'">
+				<button type="button" class="btn btn-primary" onclick="location.href='<%=request.getContextPath()%>/assign/updateAssignForm.do?assign_no=<%=assignVo.getAssign_no()%>'">
 					수정
 				</button>
 

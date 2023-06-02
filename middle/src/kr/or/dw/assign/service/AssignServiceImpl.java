@@ -50,6 +50,11 @@ public class AssignServiceImpl implements IAssignService{
 		return dao.viewAssign(assign_no);
 	}
 
+	@Override
+	public int updateAssign(AssignVO assignVo) {
+		return dao.updateAssign(assignVo);
+	}
+
 
 
 

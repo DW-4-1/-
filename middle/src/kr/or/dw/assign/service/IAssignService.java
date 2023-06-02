@@ -40,6 +40,13 @@ public interface IAssignService {
 	 * @return
 	 */
 	AssignVO viewAssign(int assign_no);
+	
+	/**
+	 * 과제 수정
+	 * @param assignVo
+	 * @return
+	 */
+	int updateAssign(AssignVO assignVo);
 
 
 }

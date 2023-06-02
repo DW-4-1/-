@@ -14,7 +14,7 @@
 		FROM all_assignment a, all_lecturelist l
 		WHERE a.lec_code = l.lec_code
 		AND a.lec_code = #lec_code#
-		GROUP BY a.lec_code
+		GROUP BY assign_no
 	</select>
 
 	<insert id="insertAssign" parameterClass="assignVO">
@@ -54,4 +54,9 @@
 		FROM all_assignment
 		WHERE assign_no = #assign_no#
 	</select>
+	
+	<update id="updateAssign" parameterClass="assignVO">
+		UPDATE all_assignment SET assign_name = #assign_name#, assign_content = #assign_content#, assign_start = #assign_start#, assign_end = #assign_end#
+		WHERE assign_no = #assign_no#
+	</update>
 </sqlMap>
