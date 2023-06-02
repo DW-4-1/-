@@ -92,7 +92,22 @@ public interface IBoardDao {
 
 	/**
 	 * 댓글 관리자의 정보를 가저오는 메서드
+	 * @param bd_no 
 	 * @return
 	 */
-	public ReplyVO selectStaffInfo();
+	public ReplyVO selectStaffInfo(int bd_no);
+
+	/**
+	 * 댓글 추가하는 메서드
+	 * @param reVo
+	 * @return
+	 */
+	public int stuBoardInsert(ReplyVO reVo);
+
+	/**
+	 * 댓글을 수정하는 메서드
+	 * @param reVo
+	 */
+	public int stuBoardReplyUpdate(ReplyVO reVo);
+
 }

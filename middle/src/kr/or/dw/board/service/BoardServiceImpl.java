@@ -85,9 +85,20 @@ public class BoardServiceImpl implements IBoardService{
 		return dao.insertStuContent(boardVo);
 	}
 
+
 	@Override
-	public ReplyVO selectStaffInfo() {
-		return dao.selectStaffInfo();
+	public int stuBoardInsert(ReplyVO reVo) {
+		return dao.stuBoardInsert(reVo);
+	}
+
+	@Override
+	public ReplyVO selectStaffInfo(int bd_no) {
+		return dao.selectStaffInfo(bd_no);
+	}
+
+	@Override
+	public int stuBoardReplyUpdate(ReplyVO reVo) {
+		return dao.stuBoardReplyUpdate(reVo);
 	}
 
 

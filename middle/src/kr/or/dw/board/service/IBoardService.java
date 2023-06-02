@@ -92,9 +92,24 @@ public interface IBoardService {
 
 	/**
 	 * 댓글 관리자의 정보를 가저오는 메서드
+	 * @param bd_no 
 	 * @return
 	 */
-	ReplyVO selectStaffInfo();
+	ReplyVO selectStaffInfo(int bd_no);
+	
+	/**
+	 * 댓글 추가하는 메서드
+	 * @param reVo
+	 * @return
+	 */
+	int stuBoardInsert(ReplyVO reVo);
+
+	/**
+	 * 댓글을 수정하는 메서드
+	 * @param reVo
+	 */
+	int stuBoardReplyUpdate(ReplyVO reVo);
+
 
 	
 }
