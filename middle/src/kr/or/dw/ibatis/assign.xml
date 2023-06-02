@@ -43,11 +43,12 @@
 			 , max(assign_start)	assign_start
 			 , max(assign_end)	assign_end
 			 , max(lec_name)	lec_name
-			 , max(assign_path) assign_path
+			 , max(assign_path)	assign_path
 		FROM all_assignment a, all_lecturelist al, lecture l, ASSIGNMENT t
 		WHERE a.lec_code = al.lec_code
-		AND t.assign_no = a.assign_no
+		AND t.assign_no(+) = a.assign_no
 		AND l.stu_id = #stu_id#
+		GROUP BY a.assign_no
 	</select>
 	
 	<select id="viewAssign" parameterClass="int" resultClass="assignVO">
