@@ -49,7 +49,7 @@ public interface ILectureService {
 	int deleteLecture(String lec_code);
 
 	/**
-	 * 강의듣는 학생들 리스트
+	 * 강의듣는 학생들 리스트 성적입력부분
 	 * @param lec_code
 	 * @return
 	 */
@@ -110,5 +110,12 @@ public interface ILectureService {
 	 * @return
 	 */
 	int getCurPeo(String lec_code);
+	
+	/**
+	 * 강의듣는 학생 리스트
+	 * @param lec_code
+	 * @return
+	 */
+	List<StudentVO> getLectureStudentListForm(String lec_code);
 
 }

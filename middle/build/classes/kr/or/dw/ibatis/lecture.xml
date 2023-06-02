@@ -156,4 +156,12 @@
 		WHERE lec_code = #lec_code#
 	</select>
 	
+	<select id="lectureStuListForm" parameterClass="String" resultClass="stuVO">
+		SELECT l.stu_id, stu_name, stu_gender, dept_name, stu_tel
+		FROM students s, lecture l, dept d
+		WHERE s.stu_id = l.stu_id
+		AND s.dept_code = d.dept_code
+		AND lec_code = #lec_code#
+	</select>
+	
 </sqlMap>

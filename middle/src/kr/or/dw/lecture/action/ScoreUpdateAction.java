@@ -37,7 +37,7 @@ public class ScoreUpdateAction implements IAction{
 		result = service.updateScore(lecVo);
 		
 		
-		return "/lecture/lectureStudentList.do?lecCode=" + lec_code;
+		return "/lecture/lectureStudentScoreInsert.do?lec_code=" + lec_code;
 	}
 
 }

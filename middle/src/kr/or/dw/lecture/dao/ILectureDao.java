@@ -99,4 +99,7 @@ public interface ILectureDao {
 	 */
 	int getCurPeo(String lec_code);
 
+
+	List<StudentVO> getLectureStudentListForm(String lec_code);
+
 }

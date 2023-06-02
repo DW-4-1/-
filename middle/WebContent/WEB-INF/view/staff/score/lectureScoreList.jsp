@@ -121,10 +121,10 @@
 											<td><%=vo.getLec_term() %>학기</td>
 											<td><%=vo.getLec_credit() %></td>
 											<td>
-												<input type="button" value="수강생조회" onclick="location.href='<%=request.getContextPath()%>/lecture/lectureStudentList.do?lecCode=<%=vo.getLec_code()%>'">
+												<input type="button" value="수강생조회" onclick="location.href='<%=request.getContextPath()%>/lecture/lectureStudentList.do?lec_code=<%=vo.getLec_code()%>'">
 											</td>
 											<td>
-												<input type="button" value="과제관리" onclick="location.href='<%=request.getContextPath()%>/lecture/lectureAssignList.do?lecCode=<%=vo.getLec_code()%>'">
+												<input type="button" value="과제관리" onclick="location.href='<%=request.getContextPath()%>/lecture/lectureAssignList.do?lec_code=<%=vo.getLec_code()%>'">
 											</td>
 										</tr>		
 									</tbody>

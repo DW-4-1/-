@@ -220,6 +220,19 @@ private static LectureDaoImpl dao;
 		}
 		return cur_peo;
 	}
+
+	@Override
+	public List<StudentVO> getLectureStudentListForm(String lec_code) {
+		List<StudentVO> stuList = null;
+		try {
+			stuList = smc.queryForList("lecture.lectureStuListForm", lec_code);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return stuList;
+	}
 	
 	
 	

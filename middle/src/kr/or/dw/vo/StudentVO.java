@@ -17,8 +17,15 @@ public class StudentVO {
 	private String stu_entdate;	//입학일
 	private String stu_grddate;	//졸업일
 	private String auth_cd;		//권한코드(학생은 S)
+	private String lec_code; 
 	
 	
+	public String getLec_code() {
+		return lec_code;
+	}
+	public void setLec_code(String lec_code) {
+		this.lec_code = lec_code;
+	}
 	public String getAuth_cd() {
 		return auth_cd;
 	}

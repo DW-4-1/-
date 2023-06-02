@@ -28,6 +28,15 @@
 			location.href="<%=request.getContextPath()%>/lecture/downloadLecturePlan.do?plan_path=" + plan_path;
 			
 		})
+		$(document).on('click', '#assignListBtn', function(){
+			let lec_code = $(this).prop('name');
+			console.log(plan_path);
+			location.href="<%=request.getContextPath()%>/lecture/lectureAssignList.do?lec_code=" + lec_code;
+			
+		})
+		
+		
+		
 	})
 </script>
 <section class="content">
@@ -163,7 +172,7 @@
 												<input type="button" value="다운로드" <%=disabled %> id="planDownBtn" name="<%=vo.getPlan_path()%>">
 											</td>
 											<td>
-												<input type="button" value="과제목록" <%=disabled %> id="assignListBtn" name="">
+												<input type="button" value="과제목록" <%=disabled %> id="assignListBtn" name="<%=vo.getLec_code()%>">
 											</td>
 											<td>
 											<input type="button" value="수강취소" id="stuDeleteBtn" onclick="location.href='<%=request.getContextPath()%>/lecture/deleteStudentLecture.do?stu_id=<%=stu_id %>&lec_code=<%=vo.getLec_code()%>'">

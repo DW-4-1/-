@@ -13,7 +13,7 @@ import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StudentVO;
 import kr.or.dw.web.IAction;
 
-public class LectureStudentListAction implements IAction{
+public class LectureStudentScoreInsertAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
@@ -23,16 +23,16 @@ public class LectureStudentListAction implements IAction{
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
-		List<StudentVO> stuList = null;
+		List<LectureVO> stuList = null;
 		
 		String lec_code = req.getParameter("lec_code");
 		
 		ILectureService service = LectureServiceImpl.getInstance();
-		stuList = service.getLectureStudentListForm(lec_code);
+		stuList = service.getLectureStudentList(lec_code);
 		
 		req.setAttribute("stuList", stuList);
 		
-		return "/staff/score/lectureStudentList.jsp";
+		return "/staff/score/lectureStudentScoreInsert.jsp";
 	}
 
 }
