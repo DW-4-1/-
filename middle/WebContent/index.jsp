@@ -23,6 +23,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/dist/css/adminlte.min.css">
 </head>
+
 <style>
 /* 백그라운드 이미지에 투명도를 주기 위한 가상요소 */
 	.box01::before {
@@ -34,14 +35,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         right: 0;
         bottom: 0;
         content: "";
-        opacity: 0.7;
+        opacity: 0.99;
 	}
 </style>
 
 <body class="login-page box01">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="../../index2.html"><b>Project</b>&nbsp;Page</a>
+			<a href="../../index2.html"><b>굴다리</b>&nbsp;종합정보시스템</a>
 		</div>
 
 		<div class="card">

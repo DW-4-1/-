@@ -24,10 +24,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	href="<%=request.getContextPath()%>/assets/dist/css/adminlte.min.css">
 </head>
 
-<body class="login-page" style="min-height: 496.797px; background-image: url('../img/행정관.jpg'); background-size: cover;">
+<style>
+/* 백그라운드 이미지에 투명도를 주기 위한 가상요소 */
+	.box01::before {
+        background: url(../img/행정관.jpg);
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+        opacity: 0.85;
+	}
+</style>
+
+<body class="login-page box01">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="../../index2.html"><b>Project</b>&nbsp;Page</a>
+			<a href="../../index2.html"><b>굴다리</b>&nbsp;종합정보시스템</a>
 		</div>
 
 		<div class="card">
