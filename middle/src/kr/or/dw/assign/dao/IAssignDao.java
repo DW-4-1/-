@@ -12,5 +12,12 @@ public interface IAssignDao {
 	 * @return
 	 */
 	public List<AssignVO> getLectureAssignList(String lec_code);
+	
+	/**
+	 * 교수과제등록메서드
+	 * @param assignVo
+	 * @return
+	 */
+	public int insertAssign(AssignVO assignVo);
 
 }

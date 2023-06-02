@@ -28,6 +28,11 @@ public class AssignServiceImpl implements IAssignService{
 		return dao.getLectureAssignList(lec_code);
 	}
 
+	@Override
+	public int insertAssign(AssignVO assignVo) {
+		return dao.insertAssign(assignVo);
+	}
+
 
 
 

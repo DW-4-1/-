@@ -13,5 +13,12 @@ public interface IAssignService {
 	 */
 	List<AssignVO> getLectureAssignList(String lec_code);
 
+	/**
+	 * 교수 과제등록 메서드
+	 * @param assignVo
+	 * @return
+	 */
+	int insertAssign(AssignVO assignVo);
+
 
 }

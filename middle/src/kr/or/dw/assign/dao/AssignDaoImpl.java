@@ -40,6 +40,18 @@ private static AssignDaoImpl dao;
 		return assignList;
 	}
 
+	@Override
+	public int insertAssign(AssignVO assignVo) {
+		int assign_no = 0;
+		try {
+			assign_no = (int) smc.insert("assign.insertAssign", assignVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return assign_no;
+	}
+
 
 
 
