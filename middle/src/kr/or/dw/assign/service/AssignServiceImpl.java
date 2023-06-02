@@ -44,6 +44,12 @@ public class AssignServiceImpl implements IAssignService{
 		return dao.getStuAssignList(stu_id);
 	}
 
+	@Override
+	public AssignVO viewAssign(int assign_no) {
+		
+		return dao.viewAssign(assign_no);
+	}
+
 
 
 

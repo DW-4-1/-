@@ -48,4 +48,10 @@
 		AND l.stu_id = #stu_id#
 		GROUP BY a.lec_code
 	</select>
+	
+	<select id="viewAssign" parameterClass="int" resultClass="assignVO">
+		SELECT *
+		FROM all_assignment
+		WHERE assign_no = #assign_no#
+	</select>
 </sqlMap>

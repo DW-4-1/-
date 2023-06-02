@@ -77,6 +77,19 @@ private static AssignDaoImpl dao;
 		return assignList;
 	}
 
+	@Override
+	public AssignVO viewAssign(int assign_no) {
+		AssignVO assignVo = null;
+		try {
+			assignVo = (AssignVO) smc.queryForObject("assign.viewAssign", assign_no);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return assignVo;
+	}
+
 
 
 

@@ -33,5 +33,12 @@ public interface IAssignDao {
 	 * @return
 	 */
 	public List<AssignVO> getStuAssignList(String stu_id);
+	
+	/**
+	 * 과제 조회 메서드
+	 * @param assign_no
+	 * @return
+	 */
+	public AssignVO viewAssign(int assign_no);
 
 }

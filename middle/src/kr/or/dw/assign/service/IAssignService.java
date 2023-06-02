@@ -33,6 +33,13 @@ public interface IAssignService {
 	 * @return
 	 */
 	List<AssignVO> getStuAssignList(String stu_id);
+	
+	/**
+	 * 과제 조회
+	 * @param assign_no
+	 * @return
+	 */
+	AssignVO viewAssign(int assign_no);
 
 
 }
