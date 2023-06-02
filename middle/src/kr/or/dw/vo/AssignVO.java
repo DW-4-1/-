@@ -9,6 +9,25 @@ public class AssignVO {
 	private String lec_code;
 	private String stu_id;
 	private String assign_path;
+	private String lec_name;
+	private String assign_subdate;
+	
+	
+	
+	
+	
+	public String getAssign_subdate() {
+		return assign_subdate;
+	}
+	public void setAssign_subdate(String assign_subdate) {
+		this.assign_subdate = assign_subdate;
+	}
+	public String getLec_name() {
+		return lec_name;
+	}
+	public void setLec_name(String lec_name) {
+		this.lec_name = lec_name;
+	}
 	public int getAssign_no() {
 		return assign_no;
 	}

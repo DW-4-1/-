@@ -1,7 +1,10 @@
 package kr.or.dw.assign.service;
 
+import java.util.List;
+
 import kr.or.dw.assign.dao.AssignDaoImpl;
 import kr.or.dw.assign.dao.IAssignDao;
+import kr.or.dw.vo.AssignVO;
 
 public class AssignServiceImpl implements IAssignService{
 
@@ -18,6 +21,11 @@ public class AssignServiceImpl implements IAssignService{
 	//생성자
 	private AssignServiceImpl() {
 		dao = AssignDaoImpl.getInstance();
+	}
+
+	@Override
+	public List<AssignVO> getLectureAssignList(String lec_code) {
+		return dao.getLectureAssignList(lec_code);
 	}
 
 

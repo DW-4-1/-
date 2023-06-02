@@ -1,11 +1,15 @@
-package kr.or.dw.lecture.action;
+package kr.or.dw.assign.action;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.or.dw.assign.service.AssignServiceImpl;
+import kr.or.dw.assign.service.IAssignService;
+import kr.or.dw.vo.AssignVO;
 import kr.or.dw.web.IAction;
 
 public class LectureAssignListAction implements IAction{
@@ -21,7 +25,14 @@ public class LectureAssignListAction implements IAction{
 		
 		String lec_code = req.getParameter("lec_code");
 		
+		IAssignService service = AssignServiceImpl.getInstance();
+		List<AssignVO> assignList = null;
 		
+		assignList = service.getLectureAssignList(lec_code);
+		
+		req.setAttribute("lec_code", lec_code);
+		
+		req.setAttribute("assignList", assignList);
 		
 		return "/staff/score/lectureAssignList.jsp";
 	}
