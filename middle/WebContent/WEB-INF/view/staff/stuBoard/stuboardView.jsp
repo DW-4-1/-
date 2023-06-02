@@ -43,7 +43,8 @@
 			<p><%=boardVo.getBd_content()%></p>
 		</div>
 		<div>
-			<span><%=reVo.getStaff_name() %></span><input type="text" style="width:60%;">
+<%-- 			<span><%=reVo.getStaff_name() %></span> --%><input type="text" style="width:60%;"> 
+				<a href="<%=request.getContextPath()%>/board/stuBoardReplyInsert.do?bd_no='<%=boardVo.getBd_no()%>'"></a>
 		</div>
 	</div>
 
