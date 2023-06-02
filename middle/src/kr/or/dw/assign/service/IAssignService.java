@@ -47,6 +47,13 @@ public interface IAssignService {
 	 * @return
 	 */
 	int updateAssign(AssignVO assignVo);
+	
+	/**
+	 * 과제 지우기
+	 * @param assign_no
+	 * @return
+	 */
+	int deleteAssign(int assign_no);
 
 
 }

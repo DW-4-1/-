@@ -59,4 +59,8 @@
 		UPDATE all_assignment SET assign_name = #assign_name#, assign_content = #assign_content#, assign_start = #assign_start#, assign_end = #assign_end#
 		WHERE assign_no = #assign_no#
 	</update>
+	
+	<delete id="deleteAssign" parameterClass="int">
+		DELETE all_assignment WHERE assign_no = #assign_no#
+	</delete>
 </sqlMap>

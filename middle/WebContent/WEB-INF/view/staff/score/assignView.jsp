@@ -17,7 +17,7 @@
 	$(function(){
 		$('#contentDelBtn').on('click', function(){
 			if(confirm("정말 삭제하시겠습니까?") == true){
-				location.href = "<%=request.getContextPath()%>/assign/deleteAssign.do?assign_no=<%=assignVo.getAssign_no()%>";
+				location.href = "<%=request.getContextPath()%>/assign/deleteAssign.do?assign_no=<%=assignVo.getAssign_no()%>&lec_code=<%=assignVo.getLec_code()%>";
 				};
 		});
 	});

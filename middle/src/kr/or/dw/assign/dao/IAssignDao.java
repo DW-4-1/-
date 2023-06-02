@@ -48,4 +48,11 @@ public interface IAssignDao {
 	 */
 	public int updateAssign(AssignVO assignVo);
 
+	/**
+	 * 과제 지우기
+	 * @param assign_no
+	 * @return
+	 */
+	public int deleteAssign(int assign_no);
+
 }

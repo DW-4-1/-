@@ -55,6 +55,11 @@ public class AssignServiceImpl implements IAssignService{
 		return dao.updateAssign(assignVo);
 	}
 
+	@Override
+	public int deleteAssign(int assign_no) {
+		return dao.deleteAssign(assign_no);
+	}
+
 
 
 

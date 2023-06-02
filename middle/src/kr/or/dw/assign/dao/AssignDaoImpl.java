@@ -101,6 +101,18 @@ private static AssignDaoImpl dao;
 		return result;
 	}
 
+	@Override
+	public int deleteAssign(int assign_no) {
+		int result = 0;
+		try {
+			result = smc.delete("assign.deleteAssign", assign_no);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 
 
 
