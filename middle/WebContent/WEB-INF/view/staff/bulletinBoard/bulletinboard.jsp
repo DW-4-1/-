@@ -16,7 +16,7 @@
 					<%
 						if(session.getAttribute("auth_cd") != null && ((String)session.getAttribute("auth_cd")).equals("A")){
 					%>	
-					<a class="btn btn-outline-primary" href="<%=request.getContextPath()%>/board/bulletinContentInsertForm.do">글작성</a> 
+					<a class="btn btn-outline-secondary" href="<%=request.getContextPath()%>/board/bulletinContentInsertForm.do">글작성</a> 
 							
 					<%
 						}
@@ -39,7 +39,6 @@
 					<tbody>
 					<% 
 						if(request.getAttribute("boardList") != null){
-							
 						
 							List<BoardVO> boardList = (List<BoardVO>) request.getAttribute("boardList");
 							DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
