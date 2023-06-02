@@ -30,6 +30,28 @@
 <script>
 	$(document).on('change', '#assignfile', function(){
 		$(this).parent().find('#saveAssignBtn').css('display', '');
+		
+		$(document).on('click', '#saveAssignBtn', function(){
+			let formData = new FormData($('#assign_form')[0]);
+			
+			$.ajax({
+				url : "<%=request.getContextPath()%>/assign/assignFileSubmit.do",
+				processData : false,
+				contentType : false,
+				data : formData,
+				dataType : "json",
+				method : "post",
+				success : function(res){
+					console.log(res);
+					alert('과제가 제출되었습니다.');
+					location.href="<%=request.getContextPath()%>/assign/assignList.do";
+				},
+				error : function(){
+					
+				}
+			});
+			$(this).css('display', 'none');
+		});
 	})
 </script>
 
@@ -51,6 +73,7 @@
 			<form id="assign_form" method="post" enctype="multipart/form-data">
 						&nbsp;&nbsp;<span style="font-size: 1.2em;">과제제출</span>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="hidden" name="assign_no" value="<%=assignVo.getAssign_no()%>">
 								<input type="file" id="assignfile" name="assignfile">
 								<input type="button" class="btn btn-primary" id="saveAssignBtn" value="제출하기" style="display : none; float: right;">
 	        </form>
