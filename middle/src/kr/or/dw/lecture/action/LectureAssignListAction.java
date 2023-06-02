@@ -22,6 +22,7 @@ public class LectureAssignListAction implements IAction{
 		String lec_code = req.getParameter("lec_code");
 		
 		
+		
 		return "/staff/score/lectureAssignList.jsp";
 	}
 
