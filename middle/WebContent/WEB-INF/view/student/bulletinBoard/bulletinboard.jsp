@@ -16,17 +16,16 @@
 					<%
 						if(session.getAttribute("auth_cd") != null && ((String)session.getAttribute("auth_cd")).equals("A")){
 					%>	
-					<a class="btn btn-primary btn-sm" href="<%=request.getContextPath()%>/board/bulletinContentInsertForm.do">글작성</a> 
+					<a style="width: 5em;" class="btn btn-outline-primary" href="<%=request.getContextPath()%>/board/bulletinContentInsertForm.do">글작성</a> 
 							
 					<%
 						}
 					%>	
-					<input type="text" placeholder="Search Title">
 				</div>
 				<hr>
 			</div>
 			<br>
-			<div class="table-responsive" style="margin: 3em;">
+			<div class="table-responsive" style="margin: 1em;">
 		        <table class="table table-striped table-sm" style="text-align: center;">
 		          <thead>
 						<tr>
@@ -40,7 +39,6 @@
 					<tbody>
 					<% 
 						if(request.getAttribute("boardList") != null){
-							
 						
 							List<BoardVO> boardList = (List<BoardVO>) request.getAttribute("boardList");
 							DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -74,10 +72,15 @@
 				</table>
 				<br>
 				<div>
-					<%
-						PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
-			 		%>
-					<%= pagination.getPaginationHtml(request,new String[] {"search"}) %>
+					<div style="display: flex; justify-content: center;">
+						<input style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search Title">
+					</div>
+					<div style="display: flex; justify-content: center;">
+						<%
+							PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
+				 		%>
+						<%= pagination.getPaginationHtml(request,new String[] {"search"}) %>
+					</div>
 				</div>
 			</div>
 		</div>

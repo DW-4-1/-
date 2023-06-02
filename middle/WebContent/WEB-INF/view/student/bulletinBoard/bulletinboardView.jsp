@@ -27,7 +27,7 @@
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal" style="display:inline;"><%=boardVo.getBd_title()%></h4>
-            <span class="mailbox-read-time float-right" style="float: right; vertical-align: middle;">&emsp;&emsp;작성일 : <%=fomatter.format(boardVo.getBd_wdt())%>&emsp;&emsp;</span>
+            <span class="mailbox-read-time float-right" style="float: right; vertical-align: middle;">&emsp;&emsp;작성일 : <%=fomatter.format(boardVo.getBd_wdt())%>&emsp;</span>
             <p style="float: right; margin: auto" >작성자 : 관리자</p>
           </div>
           <div class="card-body">
@@ -41,16 +41,16 @@
             <%
 				if (((String)session.getAttribute("auth_cd")).equals("A")) {
 			%>
-            	<button type="button" class="btn btn-primary" id="contentDelBtn">
+            	<button type="button" style="float: right; width: 4em;" class="btn btn-danger" id="contentDelBtn">
             		삭제
 				</button> 
-				<button type="button" class="btn btn-primary" onclick="location.href='<%=request.getContextPath()%>/board/bulletinContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>'">
+				<button type="button" style="float: right; width: 4em; margin-right:0.5em;" class="btn btn-primary" onclick="location.href='<%=request.getContextPath()%>/board/bulletinContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>'">
 					수정
 				</button>
 			<%
 				}
 			%>
-            	<button type="button" class="btn btn-primary" style="width: 6em;" onclick="location.href='<%=request.getContextPath()%>/board/bulletinBoardList.do'">
+            	<button type="button" class="btn btn-outline-dark" style="width: 6em; float: left;" onclick="location.href='<%=request.getContextPath()%>/board/bulletinBoardList.do'">
             		목록
            		</button>
 			</div>
