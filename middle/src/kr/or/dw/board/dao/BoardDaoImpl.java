@@ -187,16 +187,43 @@ private static BoardDaoImpl dao;
 		return bd_no;
 	}
 
+
 	@Override
-	public ReplyVO selectStaffInfo() {
+	public int stuBoardInsert(ReplyVO reVo) {
+		int result = 0;
+		
+		try {
+			result = (int) smc.insert("board.stuBoardInsert", reVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
+	@Override
+	public ReplyVO selectStaffInfo(int bd_no) {
+		
 		ReplyVO replyResult = null;
 		
 		try {
-			replyResult = (ReplyVO) smc.queryForObject("board.selectStaffInfo");
+			replyResult = (ReplyVO) smc.queryForObject("board.selectStaffInfo", bd_no);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return replyResult;
+	}
+
+	@Override
+	public int stuBoardReplyUpdate(ReplyVO reVo) {
+		int result = 0;
+		
+		try {
+			result= smc.update("board.stuBoardReplyUpdate", reVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 

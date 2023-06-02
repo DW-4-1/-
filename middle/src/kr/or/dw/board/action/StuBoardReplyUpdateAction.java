@@ -14,7 +14,7 @@ import kr.or.dw.board.service.IBoardService;
 import kr.or.dw.vo.ReplyVO;
 import kr.or.dw.web.IAction;
 
-public class StuBoardReplyInsertAction implements IAction{
+public class StuBoardReplyUpdateAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
@@ -35,7 +35,7 @@ public class StuBoardReplyInsertAction implements IAction{
 			e.printStackTrace();
 		}
 		
-		boardService.stuBoardInsert(reVo);
+		boardService.stuBoardReplyUpdate(reVo);
 		
 		
 		return null;
