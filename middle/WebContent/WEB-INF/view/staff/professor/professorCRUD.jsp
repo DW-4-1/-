@@ -31,20 +31,20 @@
 				})
 			}
 		})
-// 		$('#professorDeleteFormBtn').on('click', function(){
-// 			$.ajax({
-<%-- 				url : "<%=request.getContextPath()%>/staff/studentDelete.do", --%>
-// 				data : {"stu_id_arr" : stu_id_arr},
-// 				method : "post",
-// 				success : function(res){
-// 					alert('삭제가 완료되었습니다.');
-<%-- 					location.href="<%=request.getContextPath()%>/staff/studentCRUD.do"; --%>
-// 				},
-// 				error : function(err){
-// 					alert(err.status);
-// 				}
-// 			})
-// 		})
+		$('#deleteBtn').on('click', function(){
+			$.ajax({
+				url : "<%=request.getContextPath()%>/staff/professorDelete.do",
+				data : {"stu_id_arr" : stu_id_arr},
+				method : "post",
+				success : function(res){
+					alert('삭제가 완료되었습니다.');
+					location.href="<%=request.getContextPath()%>/staff/studentCRUD.do";
+				},
+				error : function(err){
+					alert(err.status);
+				}
+			})
+		})
 		$('#resetBtn').on('click', function(){
 			$('input[type=checkbox]').hide();
 			$('th[class=1]').hide();
@@ -57,18 +57,18 @@
 		$('#professorUpdateFormBtn').on('click', function(){
 			$('#up').show();
 			$('td[class=updateTag]').show();
-			$('#studentFormBtn').hide();
-			$('#deleteFormBtn').hide();
-			$('#updateFormBtn').hide();
+			$('#professorInsertFormBtn').hide();
+			$('#professorDeleteFormBtn').hide();
+			$('#professorUpdateFormBtn').hide();
 			$('#cancleBtn').show();
 		});
 		$('#cancleBtn').on('click', function(){
 			$('#up').hide();
 			$('td[class=updateTag]').hide();
 			$('#cancleBtn').hide();
-			$('#studentFormBtn').show();
-			$('#deleteFormBtn').show();
-			$('#updateFormBtn').show();
+			$('#professorInsertFormBtn').show();
+			$('#professorDeleteFormBtn').show();
+			$('#professorUpdateFormBtn').show();
 		});
 
 		$('#all').on('click', function(){
@@ -80,10 +80,6 @@
     		}else if ($('.chk:checked').length == $('.chk').length) {
       			$('#all').prop('checked', true);
     		}
-    		
-		});
-		$('#professorUpdateFormBtn').on('click', function(){
-			location.href = "<%=request.getContextPath()%>/staff/professorForm.do"
 		});
 	})
 </script>

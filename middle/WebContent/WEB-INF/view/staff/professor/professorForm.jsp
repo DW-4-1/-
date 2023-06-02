@@ -11,6 +11,9 @@
 		$('#saveBtn').on('click', function(){
 			$('#staffInsertForm').submit();
 		});
+		$('#resetBtn').on('click', function(){
+			location.href="<%=request.getContextPath()%>/staff/professorCRUD.do";
+		});
 	})
 </script>
 <%
@@ -43,7 +46,7 @@
 			
 				<div class="col-md-12">
 	              <label for="staffInsertForm" class="form-label">성별</label>
-	              <select class="form-select" name="staff_gender" form="" required>
+	              <select class="form-select" name="staff_gender" required>
 	                <option value="">선택</option>
 	                <option value="Male">남성</option>
 					<option value="Female">여성</option>
@@ -120,7 +123,7 @@
 				
 				<div class="col-md-12">
 	              <label for="staffInsertForm" class="form-label">학과</label>
-					<select class="form-select" name="dept_code" form="" required name="dept_code">
+					<select class="form-select" name="dept_code" required name="dept_code">
 	              		<option value="">선택</option>
 						<% for(StaffVO vo : staVo){ %>
 							<option value="<%=vo.getDept_code()%>"><%=vo.getDept_code()%> <%=vo.getDept_name()%></option>
@@ -133,7 +136,7 @@
 			
 				<div class="col-md-12">
 	              <label for="staffInsertForm" class="form-label">구분</label>
-	              <select class="form-select" name="staff_div" form="" required>
+	              <select class="form-select" name="staff_div" required>
 	                <option value="">선택</option>
 							<option value="교수">교수</option>
 							<option value="교직원">교직원</option>
@@ -175,7 +178,7 @@
 	            
 	            <div class="col-md-12">
 	              <label for="staffInsertForm" class="form-label">권한코드</label>
-	              <select class="form-select" name="auth_cd" form="" required>
+	              <select class="form-select" name="auth_cd" required>
 	                <option value="">선택</option>
 							<option value=P>P</option>
 							<option value="A">A</option>

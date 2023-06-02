@@ -48,7 +48,7 @@
 	            
 		<div class="col-md-12">
           <label for="staffInsertForm" class="form-label">성별</label>
-          <select class="form-select" name="stu_gender" form="" required>
+          <select class="form-select" name="stu_gender" required>
             <option value="">선택</option>
             <option value="Male">남성</option>
 			<option value="Female">여성</option>
@@ -126,7 +126,7 @@
 		
 		<div class="col-md-12">
 			<label for="staffInsertForm" class="form-label">학과</label>
-			<select class="form-select" name="dept_code" form="" required>
+			<select class="form-select" name="dept_code" required>
 				<option value="">선택</option>
 				<% for(StudentVO vo : stuVo){ %>
 				<option value="<%=vo.getDept_code()%>"><%=vo.getDept_code()%> <%=vo.getDept_name()%></option>
