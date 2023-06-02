@@ -18,6 +18,10 @@ public class LectureAssignListAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		
+		String lec_code = req.getParameter("lec_code");
+		
+		
 		return "/staff/score/lectureAssignList.jsp";
 	}
 
