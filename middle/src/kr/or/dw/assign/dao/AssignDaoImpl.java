@@ -65,6 +65,18 @@ private static AssignDaoImpl dao;
 		return stuList;
 	}
 
+	@Override
+	public List<AssignVO> getStuAssignList(String stu_id) {
+		List<AssignVO> assignList = null;
+		try {
+			assignList = smc.queryForList("assign.getStuAssignList", stu_id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return assignList;
+	}
+
 
 
 

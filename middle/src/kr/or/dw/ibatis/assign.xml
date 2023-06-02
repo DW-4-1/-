@@ -34,4 +34,18 @@
 		AND a.assign_no = #assign_no#
 		AND assign_path is not null
 	</select>
+	
+	<select id="getStuAssignList" parameterClass="String" resultClass="assignVO">
+		SELECT max(a.lec_code) lec_code
+			 , max(assign_no)	assign_no
+			 , max(assign_name)	assign_name
+			 , max(assign_content)	assign_content
+			 , max(assign_start)	assign_start
+			 , max(assign_end)	assign_end
+			 , max(lec_name)	lec_name
+		FROM all_assignment a, all_lecturelist al, lecture l
+		WHERE a.lec_code = l.lec_code
+		AND l.stu_id = #stu_id#
+		GROUP BY a.lec_code
+	</select>
 </sqlMap>

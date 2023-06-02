@@ -26,6 +26,13 @@ public interface IAssignService {
 	 * @return
 	 */
 	List<AssignVO> getSubStudentList(int assign_no);
+	
+	/**
+	 * 학생의 과제 목록 가져오기
+	 * @param stu_id
+	 * @return
+	 */
+	List<AssignVO> getStuAssignList(String stu_id);
 
 
 }

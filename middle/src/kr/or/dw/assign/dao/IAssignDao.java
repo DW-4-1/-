@@ -26,5 +26,12 @@ public interface IAssignDao {
 	 * @return
 	 */
 	public List<AssignVO> getSubStudentList(int assign_no);
+	
+	/**
+	 * 학생의 과제 목록 가져오기
+	 * @param stu_id
+	 * @return
+	 */
+	public List<AssignVO> getStuAssignList(String stu_id);
 
 }

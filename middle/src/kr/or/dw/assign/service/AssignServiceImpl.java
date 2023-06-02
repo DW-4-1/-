@@ -38,6 +38,12 @@ public class AssignServiceImpl implements IAssignService{
 		return dao.getSubStudentList(assign_no);
 	}
 
+	@Override
+	public List<AssignVO> getStuAssignList(String stu_id) {
+		
+		return dao.getStuAssignList(stu_id);
+	}
+
 
 
 
