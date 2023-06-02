@@ -24,8 +24,8 @@ public class ViewAssignAction implements IAction{
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
 		HttpSession session = req.getSession();
-		String auth_cd = (String) req.getAttribute("auth_cd");
-		
+		String auth_cd = (String) session.getAttribute("auth_cd");
+
 		int assign_no = Integer.parseInt(req.getParameter("assign_no"));
 		
 		AssignVO assignVo = null;
@@ -34,7 +34,12 @@ public class ViewAssignAction implements IAction{
 		assignVo = service.viewAssign(assign_no);
 		
 		req.setAttribute("assignVo", assignVo);
-		
+
+		if(auth_cd.equals("S")) {
+
+			return "/student/assign/assignView.jsp";
+		}
+
 
 		return "/staff/score/assignView.jsp";
 		
