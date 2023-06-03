@@ -150,6 +150,18 @@ private static AssignDaoImpl dao;
 		return assign;
 	}
 
+	@Override
+	public int existAssignFile(AssignVO assignVo) {
+		int exist = 0;
+		try {
+			exist = (int) smc.queryForObject("assign.existAssignFile", assignVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return exist;
+	}
+
 
 
 	

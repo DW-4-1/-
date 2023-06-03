@@ -25,14 +25,15 @@
 	</insert>
 	
 	<select id="getSubStudent" parameterClass="int" resultClass="assignVO">
-		SELECT a.assign_no, a.stu_id, assign_subdate, assign_path, lec_name, stu_name, dept_name
+		SELECT max(a.assign_no) assign_no, a.stu_id, max(assign_subdate) assign_subdate, max(assign_path) assign_path, max(lec_name) lec_name, max(stu_name) stu_name, max(dept_name) dept_name
 		FROM assignment a, all_assignment aa, students s, all_lecturelist l, dept d
 		WHERE a.assign_no = aa.assign_no
 		AND a.stu_id = s.stu_id
 		AND aa.lec_code = l.lec_code
 		AND d.dept_code = s.dept_code
 		AND a.assign_no = #assign_no#
-		AND assign_path is not null
+		AND assign_path is not NULL
+		GROUP BY a.stu_id
 	</select>
 	
 	<select id="getStuAssignList" parameterClass="String" resultClass="assignVO">
@@ -43,12 +44,11 @@
 			 , max(assign_start)	assign_start
 			 , max(assign_end)	assign_end
 			 , max(lec_name)	lec_name
-			 , max(assign_path)	assign_path
-		FROM all_assignment a, all_lecturelist al, lecture l, ASSIGNMENT t
+		FROM all_assignment a, all_lecturelist al, lecture l
 		WHERE a.lec_code = al.lec_code
-		AND t.assign_no(+) = a.assign_no
 		AND l.stu_id = #stu_id#
 		GROUP BY a.assign_no
+		
 	</select>
 	
 	<select id="viewAssign" parameterClass="int" resultClass="assignVO">

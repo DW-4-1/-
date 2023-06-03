@@ -70,6 +70,11 @@ public class AssignServiceImpl implements IAssignService{
 		return dao.getStuAssignFile(stuAssign);
 	}
 
+	@Override
+	public int existAssignFile(AssignVO assignVo) {
+		return dao.existAssignFile(assignVo);
+	}
+
 
 
 

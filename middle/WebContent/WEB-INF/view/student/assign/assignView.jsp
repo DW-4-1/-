@@ -80,7 +80,7 @@
           </div>
           <div class="card-body">
             <!-- content -->
-		<div class="mailbox-read-message" style="margin: 1em; height: 400px;">
+		<div class="mailbox-read-message" style="margin: 1em; height: 300px;">
 			<p><%=assignVo.getAssign_content()%></p>
 		</div>
 			<br>
@@ -91,11 +91,13 @@
 								<input type="hidden" name="assign_no" value="<%=assignVo.getAssign_no()%>">
 								<%
 									Date todayd = new Date();
+									String display = "";
 									int today = Integer.parseInt(fomatter2.format(todayd));
 									int start = Integer.parseInt(fomatter2.format(assignVo.getAssign_start()));
 									int end = Integer.parseInt(fomatter2.format(assignVo.getAssign_end()));
 									if(today >= start && today <= end){
 										if(!stu_assignFile.equals("")){
+											display = "none";
 											
 									%>
 									
@@ -106,8 +108,8 @@
 									%>
 									
 								
-								<input type="file" id="assignfile" name="assignfile" style="display : none;">
-								<input type="button" class="btn btn-primary" id="saveAssignBtn" value="제출하기" style="display : none; float: right;">
+								<input type="file" id="assignfile" name="assignfile" style="display : <%=display %>;">
+								<input type="button" class="btn btn-primary" id="saveAssignBtn" value="제출하기" style="display : <%=display %>; float: right;">
 										
 								<%
 									}else{

@@ -30,8 +30,20 @@ public class StuAssignListAction implements IAction{
 		List<AssignVO> assignList = null;
 		IAssignService service = AssignServiceImpl.getInstance();
 		
+		
 		assignList = service.getStuAssignList(stu_id);
 		
+		for(AssignVO vo : assignList) {
+			AssignVO assignVo = new AssignVO();
+			assignVo.setAssign_no(vo.getAssign_no());
+			assignVo.setStu_id(stu_id);
+			int exist = 0;
+			exist = service.existAssignFile(assignVo);
+			if(exist != 0) {
+				assignVo = service.getStuAssignFile(assignVo);
+				vo.setAssign_path(assignVo.getAssign_path());
+			}
+		}
 		req.setAttribute("assignList", assignList);
 		
 		return "/student/assign/assignList.jsp";

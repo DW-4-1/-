@@ -69,6 +69,6 @@ public interface IAssignDao {
 	 */
 	public AssignVO getStuAssignFile(AssignVO stuAssign);
 
-
+	public int existAssignFile(AssignVO assignVo);
 
 }

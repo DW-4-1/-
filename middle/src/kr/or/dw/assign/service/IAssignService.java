@@ -69,6 +69,8 @@ public interface IAssignService {
 	 */
 	AssignVO getStuAssignFile(AssignVO stuAssign);
 
+	int existAssignFile(AssignVO assignVo);
+
 
 
 }

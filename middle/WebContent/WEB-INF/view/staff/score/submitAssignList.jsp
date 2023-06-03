@@ -64,7 +64,7 @@
 										</tr>
 									</thead>
 										<%
-										List<AssignVO> stuList = (List<AssignVO>)request.getAttribute("stuList");
+										List<AssignVO> stuList = (List<AssignVO>)request.getAttribute("stuAssignList");
 										String stu_grade = "";
 										for(AssignVO stu : stuList){
 											
