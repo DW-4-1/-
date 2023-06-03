@@ -70,5 +70,12 @@ public interface IAssignDao {
 	public AssignVO getStuAssignFile(AssignVO stuAssign);
 
 	public int existAssignFile(AssignVO assignVo);
+	
+	/**
+	 * 해당 과제 번호의 모든 제출 과제 경로를 가져오는 메서드
+	 * @param assign_no
+	 * @return
+	 */
+	public List<String> getAllAssignPath(int assign_no);
 
 }

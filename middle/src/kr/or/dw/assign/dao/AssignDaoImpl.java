@@ -162,6 +162,19 @@ private static AssignDaoImpl dao;
 		return exist;
 	}
 
+	@Override
+	public List<String> getAllAssignPath(int assign_no) {
+		List<String> assign_pathList = null;
+		try {
+			assign_pathList = smc.queryForList("assign.getAllAssignPath", assign_no);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return assign_pathList;
+	}
+
 
 
 	

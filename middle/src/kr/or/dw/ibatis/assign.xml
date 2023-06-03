@@ -86,4 +86,10 @@
 		FROM assignment
 		WHERE assign_no = #assign_no# AND stu_id = #stu_id#
 	</select>
+	
+	<select id="getAllAssignPath" parameterClass="int" resultClass="String">
+		SELECT assign_path
+		FROM assignment
+		WHERE assign_no = #assign_no#
+	</select>
 </sqlMap>

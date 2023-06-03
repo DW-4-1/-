@@ -71,6 +71,13 @@ public interface IAssignService {
 
 	int existAssignFile(AssignVO assignVo);
 
+	/**
+	 * 해당 과제번호의 모든 과제물 경로 가져오는 메서드
+	 * @param assign_no
+	 * @return
+	 */
+	List<String> getAllAssignPath(int assign_no);
+
 
 
 }

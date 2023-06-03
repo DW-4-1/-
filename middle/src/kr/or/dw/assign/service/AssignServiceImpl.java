@@ -75,6 +75,11 @@ public class AssignServiceImpl implements IAssignService{
 		return dao.existAssignFile(assignVo);
 	}
 
+	@Override
+	public List<String> getAllAssignPath(int assign_no) {
+		return dao.getAllAssignPath(assign_no);
+	}
+
 
 
 

@@ -11,13 +11,11 @@
 <%
 	int assign_no = (int)request.getAttribute("assign_no");
 	DateFormat fomatter = new SimpleDateFormat("yyyy-MM-dd");
+	List<AssignVO> stuList = (List<AssignVO>)request.getAttribute("stuAssignList");
+	
 %>
 <script>
-	$(function(){
-		$('#allDownBtn').on('click', function(){
-			location.href="<%=request.getContextPath()%>/assign/subAssignAllDown.do?assign_no=<%=assign_no%>";
-		})
-	})
+
 </script>
 
 
@@ -73,7 +71,6 @@
 										</tr>
 									</thead>
 										<%
-										List<AssignVO> stuList = (List<AssignVO>)request.getAttribute("stuAssignList");
 										String stu_grade = "";
 										for(AssignVO stu : stuList){
 											
