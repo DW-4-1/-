@@ -43,6 +43,7 @@
 				method : "post",
 				success : function(res){
 					location.href="<%=request.getContextPath()%>/board/stuBoardView.do?bd_no=<%=boardVo.getBd_no()%>";
+					alert('저장이 완료되었습니다.');
 				},
 				error : function(err){
 					alert(err.status);
@@ -70,6 +71,7 @@
 				method : "post",
 				success : function(res){
 					location.href="<%=request.getContextPath()%>/board/stuBoardView.do?bd_no=<%=boardVo.getBd_no()%>";
+					alert('수정이 완료되었습니다.');
 				},
 				error : function(err){
 					alert(err.status);

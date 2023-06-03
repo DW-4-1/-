@@ -85,14 +85,14 @@
 		DELETE students WHERE stu_id = #stu_id#
 	</delete>
 	
-	<update id="studentUpdate" parameterClass="StuVO">
+	<update id="studentUpdate" parameterClass="stuVO">
 		UPDATE students SET 
 							   stu_name = #stu_name#
 							  ,stu_gender = #stu_gender#
 							  ,stu_resnum = #stu_resnum#
+							  ,stu_zipcode = #stu_zipcode#
 							  ,stu_addr = #stu_addr#
 							  ,stu_detailaddr = #stu_detailaddr#
-							  ,stu_zipcode = #stu_zipcode#
 							  ,dept_code = #dept_code#
 							  ,stu_tel = #stu_tel#
 							  ,stu_email = #stu_email#
