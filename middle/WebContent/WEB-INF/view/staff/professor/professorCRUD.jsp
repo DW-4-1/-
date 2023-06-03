@@ -136,7 +136,7 @@
 						<% for(StaffVO staVo : staVoList) {%>
 						<tbody>
 									<tr class="odd" type="var" style="text-align: center; height: 30px;">
-										<th class="1" style="display:none;"><input type="checkbox" class="chk"  name="stu_id" value="<%=staVo.getStaff_id()%>"></th>
+										<th class="1" style="display:none;"><input type="checkbox" class="chk"  name="sta_id" value="<%=staVo.getStaff_id()%>"></th>
 										<td><%=staVo.getStaff_id()%></td>
 										<td><%=staVo.getStaff_name()%></td>
 										<td><%=staVo.getStaff_gender()%></td>

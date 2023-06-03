@@ -5,7 +5,11 @@
 <%@ include file="../header.jsp" %>
 <title>학생관리 페이지입니다.</title>
 <%
-	List<StudentVO> stuVoList = (List)request.getAttribute("stuVoList");
+	List<StudentVO> stuVoList = null;
+
+	if(request.getAttribute("stuVoList") != null){
+	stuVoList = (List)request.getAttribute("stuVoList");
+}
 %>
 <script>
 	$(function(){
