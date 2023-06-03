@@ -82,48 +82,62 @@
 	});
 </script>
 
-
-	<div class="card-header">
-		<h3><%=boardVo.getBd_title()%></h3>
-	</div>
-
-	<div class="card-body p-0">
-		<div class="mailbox-read-info">
-				<%=boardVo.getStu_name() %>
-			<h6>
-				<span class="mailbox-read-time float-right"><%=fomatter.format(boardVo.getBd_wdt())%></span>
-			</h6>
-		</div>
-
-		<div class="mailbox-read-message">
-			<p><%=boardVo.getBd_content()%></p>
-		</div>
-		<div>
-		<% if(reVo != null){ %>
-			<span><%=reVo.getStaff_name()%></span>
-				<span id="re_contentView" style="display:none;"><%=content%></span>
-				<a id="re_contentUpdateForm" style="float:right;">수정</a>
-				<a id="re_contentSave" style="float:right; display:none;">저장</a>
-				<a id="re_contentReset" style="float:right; display:none;">취소</a>
-			<%   }else{	%>
-				<input type="text" name="re_content" style="width:60%;"> 
-				<input type="hidden" name="staff_id" value="<%=staff_id%>">
-				<a id="re_contentInsert">추가</a>	
-			<% 	  }	 %>
-				<input type="text" id="re_contentUpdate" style="display:none;" value="<%=content%>">
-		</div>
-	</div>
-
-	<div class="card-footer">
-		<div class="float-right">
-			<a type="button"
-				href="<%=request.getContextPath()%>/board/stuBoardList.do">목록
-			</a>
-		</div>
-		<hr>
-
-	
-	</div>
-				
+<div class="col-md-7 col-lg-7" style="margin: 0 auto;">
+	<div class="col">
+		<div class="card mb-4 rounded-3 shadow-sm">
+			<div class="card-header py-3">
+				<h4 class="my-0 fw-normal" style="display:inline;">
+					<%=boardVo.getBd_title()%>
+				</h4>
+	            <span class="mailbox-read-time float-right" style="float: right; vertical-align: middle;">&emsp;&emsp;작성일 : <%=fomatter.format(boardVo.getBd_wdt())%>&emsp;</span>
+	            <p style="float: right; margin: auto" >작성자 : <%=boardVo.getStu_name() %></p>
+			</div>
+			<div class="card-body">
+	            <!-- content -->
+				<div class="mailbox-read-message" style="margin: 1em;">
+					<p><%=boardVo.getBd_content()%></p>
+				</div>
+				<br>
+				<hr>
+				<div style="text-align: center">
+				<% 
+					if(reVo != null){ 
+				%>
+					<span><%=reVo.getStaff_name()%></span>
+						<p> id="re_contentView" style="display:none;"><%=content%></p>
+						<button id="re_contentSave" type="button" style="display:none; float: right; width: 4em;" class="btn btn-danger">
+		            		저장
+						</button> 
+						<button id="re_contentUpdateForm" type="button" style="display:none; float: right; width: 4em; margin-right:0.5em;" class="btn btn-primary" onclick="location.href='<%=request.getContextPath()%>/board/stuContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>'">
+							수정
+						</button>
+						<button id="re_contentReset" type="button" style="display:none; float: right; width: 4em; margin-right:0.5em;" class="btn btn-primary" onclick="location.href='<%=request.getContextPath()%>/board/stuContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>'">
+							취소
+						</button>
+				<%
+					} else {
+				%>
+					<input type="hidden" name="staff_id" value="<%=staff_id%>">
 					
+					<!-- 관리자 답변 -->
+					<div class="mb-3">
+					    <input type="text" name="re_content" class="form-control">
+					</div>
+					
+					<button id="re_contentInsert" type="button" class="btn btn-primary" style="width: 6em; float: right;" onclick="location.href='<%=request.getContextPath()%>/board/stuBoardList.do'">
+	            		추가
+	           		</button>
+	           	<%
+					}
+	           	%>
+	           		<button type="button" class="btn btn-outline-dark" style="width: 6em; float: left;" onclick="location.href='<%=request.getContextPath()%>/board/stuBoardList.do'">
+	            		목록
+	           		</button>
+					<input type="text" id="re_contentUpdate" style="display:none;" value="<%=content%>">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <%@ include file="../footer.jsp"%>
