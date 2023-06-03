@@ -66,7 +66,7 @@
 		$('#re_contentSave').on('click', function(){
 			$.ajax({
 				url : "<%=request.getContextPath()%>/board/stuBoardReplyUpdate.do?bd_no=<%=boardVo.getBd_no()%>&staff_id=<%=staff_id%>",
-				data : {"re_contentUpdate" : re_contentUpdate},
+				data : {"re_content" : re_contentUpdate},
 				method : "post",
 				success : function(res){
 					location.href="<%=request.getContextPath()%>/board/stuBoardView.do?bd_no=<%=boardVo.getBd_no()%>";
@@ -104,14 +104,14 @@
 					if(reVo != null){ 
 				%>
 					<span><%=reVo.getStaff_name()%></span>
-						<p> id="re_contentView" style="display:none;"><%=content%></p>
-						<button id="re_contentSave" type="button" style="display:none; float: right; width: 4em;" class="btn btn-danger">
+						<p id="re_contentView" style="display:none;"><%=content%></p>
+						<button id="re_contentSave" style="display:none; float: right; width: 4em;" class="btn btn-danger">
 		            		저장
 						</button> 
-						<button id="re_contentUpdateForm" type="button" style="display:none; float: right; width: 4em; margin-right:0.5em;" class="btn btn-primary" onclick="location.href='<%=request.getContextPath()%>/board/stuContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>'">
+ 						<button id="re_contentUpdateForm" style=" float: right; width: 4em; margin-right:0.5em;" class="btn btn-primary" <%--onclick="location.href='<%=request.getContextPath()%>/board/stuContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>' --%>"> 
 							수정
 						</button>
-						<button id="re_contentReset" type="button" style="display:none; float: right; width: 4em; margin-right:0.5em;" class="btn btn-primary" onclick="location.href='<%=request.getContextPath()%>/board/stuContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>'">
+						<button id="re_contentReset" style="display:none; float: right; width: 4em; margin-right:0.5em;" class="btn btn-primary" <%-- onclick="location.href='<%=request.getContextPath()%>/board/stuContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>'--%>">
 							취소
 						</button>
 				<%
