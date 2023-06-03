@@ -33,8 +33,8 @@ public class SubmitAssignFileAction implements IAction{
 		HttpSession session = req.getSession();
 		String stu_id = (String) session.getAttribute("stu_id");
 		
-		String planFoldName = "" + stu_id;
-		String realPath = "C:/upload/planFile/" + planFoldName;
+		String assignFoldName = "" + stu_id;
+		String realPath = "C:/upload/assignFile/" + assignFoldName;
 		
 		String fileName = "";
 		
@@ -52,11 +52,13 @@ public class SubmitAssignFileAction implements IAction{
 		System.out.println(assign_no);
 		
 		assignVo.setAssign_no(assign_no);
-		assignVo.setAssign_path(planFoldName + "/" + fileName);
+		assignVo.setAssign_path(assignFoldName + "/" + fileName);
 		assignVo.setStu_id(stu_id);
 		
 		IAssignService service = AssignServiceImpl.getInstance();
 		int cnt = 0;
+		
+		
 		cnt = service.submitAssignFile(assignVo);
 		
 

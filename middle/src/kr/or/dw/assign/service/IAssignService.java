@@ -62,5 +62,13 @@ public interface IAssignService {
 	 */
 	int submitAssignFile(AssignVO assignVo);
 
+	/**
+	 * 학생 과제 파일 이름 가져오기
+	 * @param stuAssign
+	 * @return
+	 */
+	AssignVO getStuAssignFile(AssignVO stuAssign);
+
+
 
 }

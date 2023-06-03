@@ -22,10 +22,10 @@ public class SubAssignDownloadAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		String assign_path = req.getParameter("plan_path");
+		String assign_path = req.getParameter("assign_path");
 		String assignName = assign_path.split("/")[1].trim();
 		
-		String realPath = "C:/upload/planFile/" + assign_path;
+		String realPath = "C:/upload/assignFile/" + assign_path;
 		
 		File file = new File(realPath);
 		

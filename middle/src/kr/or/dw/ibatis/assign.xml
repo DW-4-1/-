@@ -69,4 +69,21 @@
 	<insert id="insertAssignFile" parameterClass="assignVO">
 		INSERT INTO assignment VALUES (#assign_no#, #stu_id#, sysdate, #assign_path#)
 	</insert>
+	
+	<select id="existAssignFile" parameterClass="assignVO" resultClass="int">
+		SELECT COUNT(*)
+		FROM assignment
+		WHERE stu_id = #stu_id# AND assign_no = #assign_no#
+	</select>
+	
+	<update id="updateAssignFile">
+		UPDATE assignment SET assign_path = #assign_path#, assign_subdate = sysdate
+		WHERE stu_id = #stu_id# AND assign_no = #assign_no#
+	</update>
+	
+	<select id="getSubAssignFile" parameterClass="assignVO" resultClass="assignVO">
+		SELECT assign_no, assign_subdate, assign_path, stu_id
+		FROM assignment
+		WHERE assign_no = #assign_no# AND stu_id = #stu_id#
+	</select>
 </sqlMap>

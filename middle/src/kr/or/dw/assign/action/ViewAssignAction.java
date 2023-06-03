@@ -36,7 +36,14 @@ public class ViewAssignAction implements IAction{
 		req.setAttribute("assignVo", assignVo);
 
 		if(auth_cd.equals("S")) {
-
+			AssignVO stuAssign = new AssignVO();
+			String stu_id = (String) session.getAttribute("stu_id");
+			stuAssign.setAssign_no(assign_no);
+			stuAssign.setStu_id(stu_id);
+			
+			stuAssign = service.getStuAssignFile(stuAssign);
+			req.setAttribute("stuAssignVo", stuAssign);
+			
 			return "/student/assign/assignView.jsp";
 		}
 

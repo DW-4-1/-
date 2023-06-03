@@ -116,19 +116,39 @@ private static AssignDaoImpl dao;
 	@Override
 	public int submitAssignFile(AssignVO assignVo) {
 		String result = null;
+		int exist = 0;
+		int cnt = 0;
 		try {
-			result = (String) smc.insert("assign.insertAssignFile", assignVo);
+			exist = (int) smc.queryForObject("assign.existAssignFile", assignVo);
+			if(exist != 0) {
+				cnt = smc.update("assign.updateAssignFile", assignVo);
+			}else {
+				result = (String) smc.insert("assign.insertAssignFile", assignVo);
+				if(result == null) {
+					cnt = 1;
+				}
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		int cnt = 0;
-		if(result == null) {
-			cnt = 1;
-		}
+		
 		return cnt;
 	}
 
+	@Override
+	public AssignVO getStuAssignFile(AssignVO stuAssign) {
+		
+		AssignVO assign = null;
+		try {
+			assign = (AssignVO) smc.queryForObject("assign.getSubAssignFile", stuAssign);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return assign;
+	}
 
 
 

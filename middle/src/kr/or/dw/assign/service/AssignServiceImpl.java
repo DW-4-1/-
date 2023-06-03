@@ -65,6 +65,12 @@ public class AssignServiceImpl implements IAssignService{
 		return dao.submitAssignFile(assignVo);
 	}
 
+	@Override
+	public AssignVO getStuAssignFile(AssignVO stuAssign) {
+		return dao.getStuAssignFile(stuAssign);
+	}
+
+
 
 
 

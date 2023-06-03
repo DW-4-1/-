@@ -62,4 +62,13 @@ public interface IAssignDao {
 	 */
 	public int submitAssignFile(AssignVO assignVo);
 
+	/**
+	 * 학생 제출한 과제 이름 가져오기 메서드
+	 * @param stuAssign
+	 * @return
+	 */
+	public AssignVO getStuAssignFile(AssignVO stuAssign);
+
+
+
 }

@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="kr.or.dw.vo.AssignVO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
@@ -8,8 +9,16 @@
 <%@ include file="../header.jsp"%>    
 <%
 	AssignVO assignVo = (AssignVO) request.getAttribute("assignVo");
+	AssignVO stuAssignVo = null;
+	String stu_assignFile = "";
+	if(request.getAttribute("stuAssignVo") != null){
+		stuAssignVo = (AssignVO) request.getAttribute("stuAssignVo");
+		stu_assignFile = stuAssignVo.getAssign_path().split("/")[1];
+	}
 
+	
 	DateFormat fomatter = new SimpleDateFormat("yyyy-MM-dd");
+	DateFormat fomatter2 = new SimpleDateFormat("yyyyMMdd");
 
 %>
 <style>
@@ -52,7 +61,13 @@
 			});
 			$(this).css('display', 'none');
 		});
+		
 	})
+		$(document).on('click', '#assignUpdateBtn', function(){
+			$('#assignfile').css('display', '');
+			$('#assignFileName').css('display', 'none');
+			$(this).css('display', 'none');
+		});
 </script>
 
 <div class="col-md-7 col-lg-7" style="margin: 0 auto;">
@@ -72,10 +87,36 @@
 			<hr>
 			<form id="assign_form" method="post" enctype="multipart/form-data">
 						&nbsp;&nbsp;<span style="font-size: 1.2em;">과제제출</span>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<input type="hidden" name="assign_no" value="<%=assignVo.getAssign_no()%>">
-								<input type="file" id="assignfile" name="assignfile">
+								<%
+									Date todayd = new Date();
+									int today = Integer.parseInt(fomatter2.format(todayd));
+									int start = Integer.parseInt(fomatter2.format(assignVo.getAssign_start()));
+									int end = Integer.parseInt(fomatter2.format(assignVo.getAssign_end()));
+									if(today >= start && today <= end){
+										if(!stu_assignFile.equals("")){
+											
+									%>
+									
+									<a href="<%=request.getContextPath() %>/assign/subAssignDown.do?assign_path=<%=stuAssignVo.getAssign_path() %>" id="assignFileName"><%=stu_assignFile %></a>
+									<input type="button" class="btn btn-primary" id="assignUpdateBtn" value="수정하기" style="float: right;">
+									<%
+											}
+									%>
+									
+								
+								<input type="file" id="assignfile" name="assignfile" style="display : none;">
 								<input type="button" class="btn btn-primary" id="saveAssignBtn" value="제출하기" style="display : none; float: right;">
+										
+								<%
+									}else{
+								%>
+								과제 제출기간이 아닙니다.	
+										
+								<%
+									}
+								%>
 	        </form>
 			<hr>
             <div style="text-align: center">
