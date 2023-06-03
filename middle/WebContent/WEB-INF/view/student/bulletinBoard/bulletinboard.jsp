@@ -72,35 +72,38 @@
 				</table>
 				<br>
 				
+				<!-- 페이지 -->
+				<div style="display: flex; justify-content: center;">
+					<%
+						PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
+			 		%>
+					<%= 
+						pagination.getPaginationHtml(request,new String[] {"search"}) 
+					%>
+				</div>
+				
+				<!-- 검색 -->
 				<div>
 					<div style="display: flex; justify-content: center;">
-						<form method="post" name="search" action="searchbbs.jsp">
+						<form method="get" name="search" action="board-search">
 							<table class="pull-right">
 								<tr>
 									<td>
-										<select class="form-select " name="searchField">
+										<select class="form-select" name="searchCategory">
 											<option value="0">선택</option>
-											<option value="bbsTitle">제목</option>
-											<option value="userID">작성자</option>
+											<option value="1">작성자</option>
+											<option value="2">제목</option>
+											<option value="3">제목 + 내용</option>
 										</select>
 									</td>
 									<td>
 										&nbsp;
-										<input class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search">
+										<input type="text" class="form-control" name="searchKeyword" style="width: 15em; float: right; text-align: center; margin: 0 auto;" placeholder="Search" required>
 									</td>
 									<td>
 										&nbsp;
-										<button type="submit" class="btn btn-outline-dark" style="width:5em;">검색</button>
+										<input type="submit" class="btn btn-outline-dark" style="width:6em;" value="검색">
 									</td>
-									
-									<div style="display: flex; justify-content: center;">
-										<%
-											PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
-								 		%>
-										<%= 
-											pagination.getPaginationHtml(request,new String[] {"search"}) 
-										%>
-									</div>
 								</tr>
 							</table>
 						</form>
