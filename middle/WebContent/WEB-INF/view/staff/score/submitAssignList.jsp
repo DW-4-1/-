@@ -9,10 +9,16 @@
 
 <title>과제 제출물 리스트</title>
 <%
-	String lec_code = request.getParameter("lec_code");
+	int assign_no = (int)request.getAttribute("assign_no");
 	DateFormat fomatter = new SimpleDateFormat("yyyy-MM-dd");
 %>
-
+<script>
+	$(function(){
+		$('#allDownBtn').on('click', function(){
+			location.href="<%=request.getContextPath()%>/assign/subAssignAllDown.do?assign_no=<%=assign_no%>";
+		})
+	})
+</script>
 
 
 <section class="content">
@@ -22,6 +28,7 @@
 				<div class="card-header">
 					<h3 class="card-title">과제 제출 수강생 목록</h3>
 					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
+						<input type="button" id="allDownBtn" class="btn btn-secondary" value="전체 다운로드" style="height: 35px;">
 					</div>
 				</div>
 				<div class="card-body">

@@ -33,7 +33,7 @@
           </div>
           <div class="card-body">
             <!-- content -->
-		<div class="mailbox-read-message" style="margin: 1em; height: 400px;">
+		<div class="mailbox-read-message" style="margin: 1em; height: 300px;">
 			<p><%=assignVo.getAssign_content()%></p>
 		</div>
 			<br>
