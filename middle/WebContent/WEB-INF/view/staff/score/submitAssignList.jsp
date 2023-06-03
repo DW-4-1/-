@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
 <%@page import="kr.or.dw.vo.AssignVO"%>
 <%@page import="kr.or.dw.vo.LectureVO"%>
 <%@page import="java.util.List"%>
@@ -8,6 +10,7 @@
 <title>과제 제출물 리스트</title>
 <%
 	String lec_code = request.getParameter("lec_code");
+	DateFormat fomatter = new SimpleDateFormat("yyyy-MM-dd");
 %>
 
 
@@ -19,7 +22,6 @@
 				<div class="card-header">
 					<h3 class="card-title">과제 제출 수강생 목록</h3>
 					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
-						<input type="button" id="cancelBtn" class="btn btn-secondary" value="뒤로가기" style="height: 35px;">
 					</div>
 				</div>
 				<div class="card-body">
@@ -75,7 +77,7 @@
 												<input type="hidden" name="stu_id" id="stu_id" value="<%=stu.getStu_id()%>">
 											<td><%=stu.getStu_name() %></td>
 											<td><%=stu.getDept_name() %></td>
-											<td><%=stu.getAssign_subdate() %></td>
+											<td><%=fomatter.format(stu.getAssign_subdate()) %></td>
 											<td><input type="button" value="다운로드" id="subAssignDownBtn" onclick="location.href='<%=request.getContextPath()%>/assign/subAssignDown.do?assign_path=<%=stu.getAssign_path()%>'"></td>
 										</tr>
 										<%

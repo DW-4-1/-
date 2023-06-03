@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="kr.or.dw.vo.AssignVO"%>
@@ -11,10 +12,25 @@
 
 	String lec_code = (String)request.getAttribute("lec_code");
 	DateFormat fomatter = new SimpleDateFormat("yyyy-MM-dd");
+	DateFormat fomatter2 = new SimpleDateFormat("yyyyMMdd");
 %>
 <script type="text/javascript">
 	$(function(){
 		
+		$('select[name=sub]').change(
+				function() { //년도 선택하면 해당 년도의 강의만 보이는 함수
+					for (let i = 0; i < $('tr[type=var]').length; i++) {
+						if ($(this).val() == 'all') {
+							$('tr[type=var]').css('display', '');
+						} else if ($(this).val() == $($('tr[type=var]')[i])
+								.attr('name')) {
+							$($('tr[type=var]')[i]).css('display', '');
+						} else {
+							$($('tr[type=var]')[i]).css('display', 'none');
+						}
+					}
+
+		});
 		
 	})
 </script>
@@ -26,7 +42,13 @@
 				<div class="card-header">
 					<h3 class="card-title">과제 목록</h3>
 					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
-
+						<select id="sub" name="sub" style="margin-left: auto;">
+							<option name="sub" value="all">전체보기</option>
+							<option name="sub" value="제출전">제출전</option>
+							<option name="sub" value="제출완료">제출완료</option>
+							<option name="sub" value="제출기간 초과">제출기간 초과</option>
+							
+						</select>
 					</div>
 				</div>
 				
@@ -82,20 +104,28 @@
 									}else{
 										String subState = "제출전";
 										List<AssignVO> assignList = (List)request.getAttribute("assignList");
+										Date todayd = new Date();
+										
 										for(AssignVO vo : assignList){
-											System.out.print(vo.getAssign_path());
+											int today = Integer.parseInt(fomatter2.format(todayd));
+											int start = Integer.parseInt(fomatter2.format(vo.getAssign_start()));
+											int end = Integer.parseInt(fomatter2.format(vo.getAssign_end()));
+											
+										
 											if(vo.getAssign_path() != null && !"".equals(vo.getAssign_path())){
 												subState = "제출완료";
-											}else{
+											}else if(today <= end){
 												subState = "제출전";
+											}else{
+												subState = "제출기간 초과";
 											}
 									%>
-										<tr class="odd" type="var" name="" style="text-align: center; height: 30px;">
+										<tr class="odd" type="var" name="<%=subState %>" style="text-align: center; height: 30px;">
 											<td><%=vo.getLec_name() %></td>
 											<td><a href="<%=request.getContextPath()%>/assign/viewAssign.do?assign_no=<%=vo.getAssign_no()%>"><%= vo.getAssign_name()%></a></td>
 											<td><%=fomatter.format(vo.getAssign_start())%></td>
 											<td><%=fomatter.format(vo.getAssign_end())%></td>
-											<td><%=subState %></td>
+											<td id="subState"><%=subState %></td>
 										</tr>		
 									<% }} %>
 									</tbody>
