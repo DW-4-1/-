@@ -10,7 +10,12 @@
 	BoardVO boardVo = (BoardVO) request.getAttribute("boardVo");
 	ReplyVO reVo = null;
 	if(request.getAttribute("reVo") != null){
-		reVo = (ReplyVO)request.getAttribute("reVo");
+	    reVo = (ReplyVO)request.getAttribute("reVo");
+	}
+
+	String content = "";
+	if (reVo != null) {
+	    content = (reVo.getRe_content() == null) ? "" : reVo.getRe_content();
 	}
 	DateFormat fomatter = new SimpleDateFormat("yyyy-MM-dd");
 	HttpSession stasession = request.getSession();
@@ -53,10 +58,15 @@
 			$('#re_contentSave').show();
 			$('#re_contentReset').show();
 		});
+		let re_contentUpdate;
+		$('#re_contentUpdate').on('keyup', function(){
+			re_contentUpdate = $(this).val();
+			console.log(re_contentUpdate);
+		});
 		$('#re_contentSave').on('click', function(){
 			$.ajax({
 				url : "<%=request.getContextPath()%>/board/stuBoardReplyUpdate.do?bd_no=<%=boardVo.getBd_no()%>&staff_id=<%=staff_id%>",
-				data : {"re_content" : re_content},
+				data : {"re_contentUpdate" : re_contentUpdate},
 				method : "post",
 				success : function(res){
 					location.href="<%=request.getContextPath()%>/board/stuBoardView.do?bd_no=<%=boardVo.getBd_no()%>";
@@ -90,8 +100,8 @@
 		</div>
 		<div>
 		<% if(reVo != null){ %>
-			<span><%=reVo.getStaff_name() %></span>
-				<span id="re_contentView" style="display:none;"><%=reVo.getRe_content() %></span>
+			<span><%=reVo.getStaff_name()%></span>
+				<span id="re_contentView" style="display:none;"><%=content%></span>
 				<a id="re_contentUpdateForm" style="float:right;">수정</a>
 				<a id="re_contentSave" style="float:right; display:none;">저장</a>
 				<a id="re_contentReset" style="float:right; display:none;">취소</a>
@@ -100,7 +110,7 @@
 				<input type="hidden" name="staff_id" value="<%=staff_id%>">
 				<a id="re_contentInsert">추가</a>	
 			<% 	  }	 %>
-				<input type="text" id="re_contentUpdate" style="display:none;" value="<%=reVo.getRe_content()%>">
+				<input type="text" id="re_contentUpdate" style="display:none;" value="<%=content%>">
 		</div>
 	</div>
 

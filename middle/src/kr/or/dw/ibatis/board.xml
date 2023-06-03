@@ -152,7 +152,7 @@
 		SELECT sbr.*, s.staff_name, s.staff_id
 		  FROM stu_board_re sbr, staffs s
 		 WHERE sbr.staff_id = s.staff_id
-		   AND sbr.bd_no = #bd_no#
+		   AND bd_no = #bd_no#
 	</select>
 	
 	<insert id="stuBoardInsert" parameterClass="replyVO">
@@ -178,7 +178,8 @@
 	</insert>
 	
 	<update id="stuBoardReplyUpdate" parameterClass="replyVO">
-		UPDATE stu_board_re SET re_content = #re_content#
+		UPDATE stu_board_re SET re_content = #re_contentUpdate#
 							   ,re_wdt = SYSDATE
+			WHERE bd_no = #bd_no#
 	</update>
 </sqlMap>
