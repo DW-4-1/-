@@ -56,7 +56,7 @@
 						<input type="password" name="stu_pwdChange" class="form-control" placeholder="변경 비밀번호"> 
 						<div class="input-group-append">
 							<div class="input-group-text">
-								<span class="fas fa-envelope"></span>
+								<span class="fas fa-lock"></span>
 							</div>
 						</div>
 					</div>
@@ -65,7 +65,7 @@
 						<input type="password" name="stu_pwdCheck" class="form-control" placeholder="비밀번호 확인"> 
 						<div class="input-group-append">
 							<div class="input-group-text">
-								<span class="fas fa-envelope"></span>
+								<span class="fas fa-lock"></span>
 							</div>
 						</div>
 					</div>

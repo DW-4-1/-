@@ -68,8 +68,7 @@
 			});
 		});
 		
-		let stu_id = null;
-		console.log(stu_id);
+
 		$(document).on('click', '#verCodeBtn', function(e) {
 			stu_id = $('#stu_id').val();
 			if($('#ver_code').val() == ver_code){

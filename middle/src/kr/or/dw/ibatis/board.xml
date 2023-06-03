@@ -178,7 +178,7 @@
 	</insert>
 	
 	<update id="stuBoardReplyUpdate" parameterClass="replyVO">
-		UPDATE stu_board_re SET re_content = #re_contentUpdate#
+		UPDATE stu_board_re SET re_content = #re_content#
 							   ,re_wdt = SYSDATE
 			WHERE bd_no = #bd_no#
 	</update>
