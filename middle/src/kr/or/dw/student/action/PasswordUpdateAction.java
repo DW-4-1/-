@@ -6,6 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.or.dw.student.service.IStudentService;
 import kr.or.dw.student.service.StudentServiceImpl;
@@ -29,20 +30,33 @@ public class PasswordUpdateAction implements IAction{
 		
 		String stu_pass = (String) req.getParameter("pwd");
 		
+		String stu_id = null;
+		HttpSession session = req.getSession();
+		if(session.getAttribute("stu_id") != null) {
+			stu_id = (String) session.getAttribute("stu_id");
+		}else {
+			stu_id = req.getParameter("stu_id");
+		}
+		
 		try {
 			stu_pass = CryptoUtil.sha512(stu_pass);
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
 		stuVo.setStu_pwd(stu_pass);
-		int stu_pwd = service.passwordUpdate(stuVo);
-		req.setAttribute("stu_pwd", stu_pwd);
+		stuVo.setStu_id(stu_id);
 		
+		int result = service.passwordUpdate(stuVo);
+
 		String referer = req.getHeader("referer");
 		
 		System.out.println(referer);
 		
 		if(referer.contains("http://localhost:8080/student/emailPassUpdateResult.do")) {
+			return "/";
+		}
+		
+		if(session.getAttribute("stu_id") == null) {
 			return "/";
 		}
 		return "/student/studentInfo.do";

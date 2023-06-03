@@ -24,9 +24,9 @@ public class Email_StudentPasswordUpdateResultAction implements IAction{
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		IStudentService service = StudentServiceImpl.getInstance();
-		HttpSession session = req.getSession();
-		String stu_id = (String) session.getAttribute("stu_id");
-		StudentVO stuVo = service.stuLogin(stu_id);
+	
+		String stu_id = req.getParameter("stu_id");
+
 		
 		int success = 0;
 		
@@ -35,12 +35,11 @@ public class Email_StudentPasswordUpdateResultAction implements IAction{
 		
 		if(stu_passCge.equals(stu_passChk)) {
 			success = 1;
-			session.getAttribute(stu_passCge);
 		}
 		
 		req.setAttribute("passSuccess", success);
-		req.setAttribute("stuPass", stu_passCge);
-		
+		req.setAttribute("stu_pwd", stu_passCge);
+		req.setAttribute("stu_id", stu_id);
 		
 		
 		return "/student/emailPassUpdateResult.jsp";

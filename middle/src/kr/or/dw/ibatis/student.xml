@@ -32,7 +32,7 @@
 	</update>
 
 	<update id="passwordUpdate" parameterClass="stuVO">
-		UPDATE students SET stu_pwd = #stu_pwd#
+		UPDATE students SET stu_pwd = #stu_pwd# WHERE stu_id = #stu_id#
 	</update>
 	
 	<select id="idEmailCheck" parameterClass="stuVO" resultClass="int">

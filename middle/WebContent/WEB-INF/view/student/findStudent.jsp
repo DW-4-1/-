@@ -68,10 +68,12 @@
 			});
 		});
 		
-		let stu_id = $('#stu_id').val();
+		let stu_id = null;
+		console.log(stu_id);
 		$(document).on('click', '#verCodeBtn', function(e) {
+			stu_id = $('#stu_id').val();
 			if($('#ver_code').val() == ver_code){
-			location.href="<%=request.getContextPath()%>/student/studentPasswordUpdateEmail.do?ID=stu_id";
+			location.href="<%=request.getContextPath()%>/student/studentPasswordUpdateEmail.do?stu_id=" + stu_id;
 		}else{
 			alert("인증코드가 잘못입력되었습니다.");
 		}
