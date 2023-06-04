@@ -6,7 +6,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
-
+<script>
+// 이벤트 추가
+	$(function(){
+		
+		$('#searchBtn').on('click', function(){
+			let search = $('#search').val();
+			location.href="<%=request.getContextPath()%>/board/bulletinBoardList.do?search=" + search;
+		})
+	})
+</script>
 
 
 <section class="content">
@@ -76,7 +85,6 @@
 			
 				<div>
 					<div style="display: flex; justify-content: center;">
-						<form method="post" name="search" action="searchbbs.jsp">
 							<table class="pull-right">
 								<tr>
 									<td>
@@ -91,8 +99,8 @@
 										<input class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search">
 									</td>
 									<td>
-										&nbsp;
-										<button type="submit" class="btn btn-outline-dark" style="width:5em;">검색</button>
+										<!-- 폼태그 지우고 아래 버튼 추가 -->
+										<button type="button" id="searchBtn" class="btn btn-outline-dark" style="width:5em;">검색</button>
 									</td>
 									
 									<div style="display: flex; justify-content: center;">
@@ -105,7 +113,6 @@
 									</div>
 								</tr>
 							</table>
-						</form>
 					</div>
 				</div>
 				

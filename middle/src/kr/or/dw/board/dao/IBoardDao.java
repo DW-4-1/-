@@ -58,9 +58,10 @@ public interface IBoardDao {
 
 	/**
 	 * 문의게시판 전체 레코드 수를 가져오는 메서드
+	 * @param search 
 	 * @return 전체 레코드 수
 	 */
-	public int selectStuBoardCount();
+	public int selectStuBoardCount(String search);
 	
 	/**
 	 * 문의게시판 글 보는 메서드

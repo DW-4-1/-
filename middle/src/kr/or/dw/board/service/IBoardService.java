@@ -52,9 +52,10 @@ public interface IBoardService {
 
 	/**
 	 * 문의 게시판 전체 레코드 수를 가져오는 메서드
+	 * @param search 
 	 * @return 전체 레코드 수
 	 */
-	int selectStuBoardCount();
+	int selectStuBoardCount(String search);
 
 	/**
 	 * 문의 게시판 목록을 가져오는 메서드

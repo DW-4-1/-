@@ -123,10 +123,10 @@ private static BoardDaoImpl dao;
 	}
 
 	@Override
-	public int selectStuBoardCount() {
+	public int selectStuBoardCount(String search) {
 		int totalCount = 0;
 		try {
-			totalCount = (int) smc.queryForObject("board.selectStuBoardCount");
+			totalCount = (int) smc.queryForObject("board.selectStuBoardCount", search);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

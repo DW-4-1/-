@@ -56,8 +56,8 @@ public class BoardServiceImpl implements IBoardService{
 	}
 
 	@Override
-	public int selectStuBoardCount() {
-		return dao.selectStuBoardCount();
+	public int selectStuBoardCount(String search) {
+		return dao.selectStuBoardCount(search);
 	}
 
 	@Override
