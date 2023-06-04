@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BoardVO {
 private int bd_no;
+private int re_no;
 private String bd_title;
 private String staff_id;
 private String stu_id;
@@ -17,6 +18,13 @@ private String att_nm;
 
 
 
+
+public int getRe_no() {
+	return re_no;
+}
+public void setRe_no(int re_no) {
+	this.re_no = re_no;
+}
 public String getStu_name() {
 	return stu_name;
 }

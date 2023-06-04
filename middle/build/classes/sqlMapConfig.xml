@@ -3,7 +3,6 @@
 	PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
 	"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
 <sqlMapConfig>
-	
 	<!-- DB와 연결하는 정보를 properties 파일에 설정해놓고
 		 이 properties 파일의 내용을 읽어올 수 있도록 설정한다.
 	 -->

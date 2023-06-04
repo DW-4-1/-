@@ -40,31 +40,32 @@
 					</thead>
 					<tbody>
 					<% 
+						String replyState = "답변전";
 						if(request.getAttribute("boardList") != null){
 							
 							List<BoardVO> boardList = (List<BoardVO>) request.getAttribute("boardList");
 							DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 							
 							for(BoardVO board : boardList){
-								int bd_no = board.getBd_no();
-								String bd_title = board.getBd_title();
-								String stu_name = board.getStu_name();
-								int bd_hit = board.getBd_hit();
-							
+								if(board.getRe_no() != 0){
+									replyState = "답변완료";
+								}else{
+									replyState = "답변전";
+								}
 					%>
 					<a href="#">
 						<tr>
-							<td>답변전</td>
-							<td><%=bd_no %></td>
+							<td><%=replyState %></td>
+							<td><%=board.getBd_no() %></td>
 							<td>
-								<a href="<%=request.getContextPath()%>/board/stuBoardView.do?bd_no=<%=bd_no%>">
-									<%=bd_title %>
+								<a href="<%=request.getContextPath()%>/board/stuBoardView.do?bd_no=<%=board.getBd_no()%>">
+									<%=board.getBd_title() %>
 								</a>
 							</td>
 							<td>
-								<%=stu_name %>
+								<%=board.getStu_name() %>
 							</td>
-							<td><%=bd_hit %></td>
+							<td><%=board.getBd_hit() %></td>
 							<td><%=formatter.format(board.getBd_wdt()) %></td>
 						</tr>
 					</a>

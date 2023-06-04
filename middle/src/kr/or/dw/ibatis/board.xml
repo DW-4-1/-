@@ -77,18 +77,33 @@
 		UPDATE notice_board SET bd_hit = bd_hit + 1 WHERE bd_no = #bd_no#
 	</update>
 	
-	<select id="selectStuBoardList" parameterClass="Map" resultClass="boardVO">
-		SELECT bd_no, bd_title, bd_content, bd_wdt, bd_hit, b.stu_id, stu_name
+	
+	<resultMap id="get-reno-result" class="boardVO">
+		<result property="re_no" column="re_no" nullValue="0" /> 
+		<result property="bd_no" column="bd_no" nullValue="0" /> 
+		<result property="bd_title" column="bd_title" nullValue="0" /> 
+		<result property="bd_content" column="bd_content" nullValue="0" /> 
+		<result property="bd_wdt" column="bd_wdt" nullValue="0" /> 
+		<result property="bd_hit" column="bd_hit" nullValue="0" /> 
+		<result property="stu_id" column="stu_id" nullValue="0" /> 
+		<result property="stu_name" column="stu_name" nullValue="0" /> 
+    </resultMap>
+	
+	
+	
+	<select id="selectStuBoardList" parameterClass="Map" resultClass="boardVO" resultMap="get-reno-result">
+		SELECT bd_no, bd_title, bd_content, bd_wdt, bd_hit, b.stu_id stu_id, stu_name, re_no
 		FROM (
 				SELECT *
 				FROM (
 					  SELECT rownum rnum, v1.*
 					  FROM (
-							SELECT *
-							FROM stu_board
-					  		WHERE gb_del = 'N'
+							SELECT sb.*, re_no
+							FROM stu_board sb, STU_BOARD_RE sbr
+					  		WHERE sb.bd_no = sbr.bd_no(+)
+					  		AND sb.gb_del = 'N'
 					  		AND bd_title like #search#
-					  		ORDER BY bd_no DESC
+					  		ORDER BY sb.bd_no DESC
 					  		) v1
 					  WHERE rownum <![CDATA[ <= ]]> #end#
 					  ) v2
