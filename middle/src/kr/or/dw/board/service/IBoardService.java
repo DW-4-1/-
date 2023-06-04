@@ -10,9 +10,10 @@ public interface IBoardService {
 
 	/**
 	 * 공지사항 게시판 전체 레코드 수를 가져오는 메서드
+	 * @param search 
 	 * @return 전체 레코드 수
 	 */
-	int selectBoardCount();
+	int selectBoardCount(String search);
 
 	/**
 	 * 공지사항 게시판 목록을 가져오는 메서드

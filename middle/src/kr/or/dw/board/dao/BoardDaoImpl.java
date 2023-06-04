@@ -44,10 +44,10 @@ private static BoardDaoImpl dao;
 	}
 
 	@Override
-	public int selectBoardCount() {
+	public int selectBoardCount(String search) {
 		int totalCount = 0;
 		try {
-			totalCount = (int) smc.queryForObject("board.selectBoardCount");
+			totalCount = (int) smc.queryForObject("board.selectBoardCount", search);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

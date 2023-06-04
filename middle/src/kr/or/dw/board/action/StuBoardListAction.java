@@ -33,6 +33,13 @@ public class StuBoardListAction implements IAction{
 		Map<String, Integer> pagingConfigMap = null;
 		PaginationUtil pagination = new PaginationUtil();
 		String pageParam = req.getParameter("page");	//사용자가 선택한 페이지번호
+		//추가
+		String search = "";
+		if(req.getParameter("search") == null) {
+			search = "%%";
+		}else {
+			search = "%" + req.getParameter("search") + "%";
+		}
 		int page = (pageParam == null ? 1 : Integer.parseInt(pageParam));
 		
 		int totalCount = service.selectStuBoardCount();
@@ -44,6 +51,8 @@ public class StuBoardListAction implements IAction{
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("start", pagingConfigMap.get("start"));
 		paramMap.put("end", pagingConfigMap.get("end"));
+		//추가
+		paramMap.put("search", search);
 		
 		//게시판 목록을 가져온다.
 		List<BoardVO> boardList = service.selectStuBoardList(paramMap);

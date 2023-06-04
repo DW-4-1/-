@@ -26,8 +26,8 @@ public class BoardServiceImpl implements IBoardService{
 	}
 
 	@Override
-	public int selectBoardCount() {
-		return dao.selectBoardCount();
+	public int selectBoardCount(String search) {
+		return dao.selectBoardCount(search);
 	}
 
 	@Override

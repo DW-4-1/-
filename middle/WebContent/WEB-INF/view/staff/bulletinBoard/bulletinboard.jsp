@@ -7,6 +7,17 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>    
 
+<script>
+// 이벤트 추가
+	$(function(){
+		
+		$('#searchBtn').on('click', function(){
+			let search = $('#search').val();
+			location.href="<%=request.getContextPath()%>/board/bulletinBoardList.do?search=" + search;
+		})
+	})
+</script>
+
 <section class="content">
 	<div class="card card-solid">
 		<div class="card-body">
@@ -74,36 +85,35 @@
 				
 				<div>
 					<div style="display: flex; justify-content: center;">
-						<form method="post" name="search" action="searchbbs.jsp">
-							<table class="pull-right">
-								<tr>
-									<td>
-										<select class="form-select " name="searchField">
-											<option value="0">선택</option>
-											<option value="bbsTitle">제목</option>
-											<option value="userID">작성자</option>
-										</select>
-									</td>
-									<td>
-										&nbsp;
-										<input class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search">
-									</td>
-									<td>
-										&nbsp;
-										<button type="submit" class="btn btn-outline-dark" style="width:5em;">검색</button>
-									</td>
-									
-									<div style="display: flex; justify-content: center;">
-										<%
-											PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
-								 		%>
-										<%= 
-											pagination.getPaginationHtml(request,new String[] {"search"}) 
-										%>
-									</div>
-								</tr>
-							</table>
-						</form>
+						<table class="pull-right">
+							<tr>
+								<td>
+									<select class="form-select " name="searchField">
+										<option value="0">선택</option>
+										<option value="bbsTitle">제목</option>
+										<option value="userID">작성자</option>
+									</select>
+								</td>
+								<td>
+									&nbsp;
+									<input  id="search" name="search" class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search">
+								</td>
+								<td>
+									&nbsp;
+<!-- 									폼태그 지우고 아래 버튼 추가 -->
+									<button type="button" id="searchBtn" class="btn btn-outline-dark" style="width:5em;">검색</button>
+								</td>
+								
+								<div style="display: flex; justify-content: center;">
+									<%
+										PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
+							 		%>
+									<%= 
+										pagination.getPaginationHtml(request,new String[] {"search"}) 
+									%>
+								</div>
+							</tr>
+						</table>
 					</div>
 				</div>
 				
