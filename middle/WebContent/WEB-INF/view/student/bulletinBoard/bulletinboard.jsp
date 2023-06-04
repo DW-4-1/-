@@ -85,7 +85,7 @@
 				<!-- 검색 -->
 				<div>
 					<div style="display: flex; justify-content: center;">
-						<form method="get" name="search" action="board-search">
+						<form method="get" name="search" action="/board/boardSearchAction.do">
 							<table class="pull-right">
 								<tr>
 									<td>
