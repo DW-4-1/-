@@ -19,7 +19,7 @@ public interface IBoardDao {
 	 * 공지사항 전체 레코드 수를 가져오는 메서드
 	 * @return 전체 레코드 수
 	 */
-	public int selectBoardCount();
+	public int selectBoardCount(String search);
 	
 	/**
 	 * 공지사항 글 보는 메서드

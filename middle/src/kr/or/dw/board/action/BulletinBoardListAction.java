@@ -34,8 +34,17 @@ public class BulletinBoardListAction implements IAction{
 		PaginationUtil pagination = new PaginationUtil();
 		String pageParam = req.getParameter("page");	//사용자가 선택한 페이지번호
 		int page = (pageParam == null ? 1 : Integer.parseInt(pageParam));
+		// 추가
+		String search = "";
+		if(req.getParameter("search") == null) {
+			search = "%%";
+		}else {
+			search = "%" + req.getParameter("search") + "%";
+		}
 		
-		int totalCount = service.selectBoardCount();
+		
+		
+		int totalCount = service.selectBoardCount(search);
 		
 		pagination.setConfig(page, 10, 10, totalCount);
 		pagingConfigMap = pagination.getConfig();
@@ -44,6 +53,8 @@ public class BulletinBoardListAction implements IAction{
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("start", pagingConfigMap.get("start"));
 		paramMap.put("end", pagingConfigMap.get("end"));
+		//추가
+		paramMap.put("search", search);
 		
 		//게시판 목록을 가져온다.
 		List<BoardVO> boardList = service.selectBoardList(paramMap);

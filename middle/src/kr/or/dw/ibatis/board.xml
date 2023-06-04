@@ -14,6 +14,7 @@
 							SELECT *
 							FROM notice_board
 					  		WHERE gb_del = 'N'
+					  		AND bd_title like #search#	<!-- 추가 -->
 					  		ORDER BY bd_no DESC
 					  		) v1
 					  WHERE rownum <![CDATA[ <= ]]> #end#
@@ -22,10 +23,11 @@
 			) b
 	</select>
 	
-	<select id="selectBoardCount" resultClass="int">
+	<select id="selectBoardCount" resultClass="int" parameterClass="String">
 		SELECT COUNT(*) cnt
 		FROM notice_board
 		WHERE gb_del = 'N'
+		AND bd_title like #search# <!-- 추가 -->
 	</select>
 	
 	<select id="getBulletinBoardView" parameterClass="int" resultClass="boardVO">
@@ -85,6 +87,7 @@
 							SELECT *
 							FROM stu_board
 					  		WHERE gb_del = 'N'
+					  		AND bd_title like #search# <!-- 추가 -->
 					  		ORDER BY bd_no DESC
 					  		) v1
 					  WHERE rownum <![CDATA[ <= ]]> #end#
@@ -94,10 +97,11 @@
 		WHERE b.stu_id = s.stu_id
 	</select>
 	
-	<select id="selectStuBoardCount" resultClass="int">
+	<select id="selectStuBoardCount" resultClass="int" parameterClass="String">
 		SELECT COUNT(*) cnt
 		FROM stu_board
 		WHERE gb_del = 'N'
+		AND bd_title like #search# <!-- 추가 -->
 	</select>
 	
 	<select id="getStuBoardView" parameterClass="int" resultClass="boardVO">
