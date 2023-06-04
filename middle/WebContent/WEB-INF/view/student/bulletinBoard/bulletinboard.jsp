@@ -6,7 +6,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>    
-
+<script>
+// 이벤트 추가
+	$(function(){
+		
+		$('#searchBtn').on('click', function(){
+			let search = $('#search').val();
+			location.href="<%=request.getContextPath()%>/board/bulletinBoardList.do?search=" + search;
+		})
+	})
+</script>
 <section class="content">
 	<div class="card card-solid">
 		<div class="card-body">
@@ -85,28 +94,26 @@
 				<!-- 검색 -->
 				<div>
 					<div style="display: flex; justify-content: center;">
-						<form method="get" name="search" action="/board/boardSearchAction.do">
-							<table class="pull-right">
-								<tr>
-									<td>
-										<select class="form-select" name="searchCategory">
-											<option value="0">선택</option>
-											<option value="1">작성자</option>
-											<option value="2">제목</option>
-											<option value="3">제목 + 내용</option>
-										</select>
-									</td>
-									<td>
-										&nbsp;
-										<input type="text" class="form-control" name="searchKeyword" style="width: 15em; float: right; text-align: center; margin: 0 auto;" placeholder="Search" required>
-									</td>
-									<td>
-										&nbsp;
-										<input type="submit" class="btn btn-outline-dark" style="width:6em;" value="검색">
-									</td>
-								</tr>
-							</table>
-						</form>
+						<table class="pull-right">
+							<tr>
+								<td>
+									<select class="form-select" name="searchCategory">
+										<option value="0">선택</option>
+										<option value="1">작성자</option>
+										<option value="2">제목</option>
+										<option value="3">제목 + 내용</option>
+									</select>
+								</td>
+								<td>
+									&nbsp;
+									<input  id="search" name="search" class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search">
+								</td>
+								<td>
+									&nbsp;
+									<button type="button" id="searchBtn" class="btn btn-outline-dark" style="width:5em;">검색</button>
+								</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 				

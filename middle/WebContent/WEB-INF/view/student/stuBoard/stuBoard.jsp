@@ -6,7 +6,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
-
+<script>
+// 이벤트 추가
+	$(function(){
+		
+		$('#searchBtn').on('click', function(){
+			let search = $('#search').val();
+			location.href="<%=request.getContextPath()%>/board/stuBoardList.do?search=" + search;
+		})
+	})
+</script>
 
 
 <section class="content">
@@ -76,9 +85,16 @@
 				</table>
 				<br>
 			
+					<div style="display: flex; justify-content: center;">
+						<%
+							PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
+				 		%>
+						<%= 
+							pagination.getPaginationHtml(request,new String[] {"search"}) 
+						%>
+					</div>
 				<div>
 					<div style="display: flex; justify-content: center;">
-						<form method="post" name="search" action="searchbbs.jsp">
 							<table class="pull-right">
 								<tr>
 									<td>
@@ -90,24 +106,15 @@
 									</td>
 									<td>
 										&nbsp;
-										<input class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search">
+										<input  id="search" name="search" class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search">
 									</td>
 									<td>
 										&nbsp;
-										<button type="submit" class="btn btn-outline-dark" style="width:5em;">검색</button>
+										<button type="button" id="searchBtn" class="btn btn-outline-dark" style="width:5em;">검색</button>
 									</td>
 									
-									<div style="display: flex; justify-content: center;">
-										<%
-											PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
-								 		%>
-										<%= 
-											pagination.getPaginationHtml(request,new String[] {"search"}) 
-										%>
-									</div>
 								</tr>
 							</table>
-						</form>
 					</div>
 				</div>
 				

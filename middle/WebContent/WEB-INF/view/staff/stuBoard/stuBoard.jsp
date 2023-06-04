@@ -12,7 +12,7 @@
 		
 		$('#searchBtn').on('click', function(){
 			let search = $('#search').val();
-			location.href="<%=request.getContextPath()%>/board/bulletinBoardList.do?search=" + search;
+			location.href="<%=request.getContextPath()%>/board/stuBoardList.do?search=" + search;
 		})
 	})
 </script>
@@ -89,6 +89,14 @@
 				</table>
 				<br>
 			
+					<div style="display: flex; justify-content: center;">
+						<%
+							PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
+				 		%>
+						<%= 
+							pagination.getPaginationHtml(request,new String[] {"search"}) 
+						%>
+					</div>
 				<div>
 					<div style="display: flex; justify-content: center;">
 							<table class="pull-right">
@@ -102,21 +110,13 @@
 									</td>
 									<td>
 										&nbsp;
-										<input class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search">
+										<input  id="search" name="search" class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search">
 									</td>
 									<td>
 										<!-- 폼태그 지우고 아래 버튼 추가 -->
 										<button type="button" id="searchBtn" class="btn btn-outline-dark" style="width:5em;">검색</button>
 									</td>
 									
-									<div style="display: flex; justify-content: center;">
-										<%
-											PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
-								 		%>
-										<%= 
-											pagination.getPaginationHtml(request,new String[] {"search"}) 
-										%>
-									</div>
 								</tr>
 							</table>
 					</div>
