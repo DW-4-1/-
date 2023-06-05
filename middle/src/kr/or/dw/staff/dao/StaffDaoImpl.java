@@ -153,5 +153,18 @@ private static StaffDaoImpl dao;
 		return totalCount;
 	}
 
+	@Override
+	public int passwordUpdat(StaffVO staffVo) {
+		int result = 0;
+		
+		try {
+			result = smc.update("staff.staffPasswordUpdate", staffVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
 
 }

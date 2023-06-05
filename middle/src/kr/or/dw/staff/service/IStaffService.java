@@ -68,5 +68,12 @@ public interface IStaffService {
 	 * @return
 	 */
 	public int selectProfessorCount(String search);
+
+	/**
+	 * 교수의 비밀번호 변경하는 메서드
+	 * @param staffVo
+	 * @return
+	 */
+	public int passwordUpdate(StaffVO staffVo);
 	
 }
