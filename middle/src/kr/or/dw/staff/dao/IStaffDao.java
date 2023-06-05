@@ -75,4 +75,11 @@ public interface IStaffDao {
 	 */
 	public int passwordUpdat(StaffVO staffVo);
 
+	/**
+	 * 교수의 내정보를 수정하는 메서드
+	 * @param staffVo
+	 * @return
+	 */
+	public int staffInfoUpdate(StaffVO staffVo);
+
 }

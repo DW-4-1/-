@@ -81,4 +81,9 @@ public class StaffServiceImpl implements IStaffService{
 		return dao.passwordUpdat(staffVo);
 	}
 
+	@Override
+	public int staffInfoUpdate(StaffVO staffVo) {
+		return dao.staffInfoUpdate(staffVo);
+	}
+
 }
