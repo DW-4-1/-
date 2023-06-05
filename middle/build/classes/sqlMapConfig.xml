@@ -14,7 +14,6 @@
 	<!-- 쿼리문에 사용할 VO객체는 패키지 이름을 포함하는 전체이름을 사용해야 하는데
 		그렇게 되면 문장이 너무 길어질 수 있다. 그래서 전체 이름을 대신할 alias를 설정할 수 있다.
 		(형식) <typeAlias alias = "alias명" type = "클래스의 전체 이름"/> -->
-	<typeAlias alias = "memVO" type = "kr.or.dw.vo.MemberVO" />
 	<typeAlias alias = "lecVO" type = "kr.or.dw.vo.LectureVO" />
 	<typeAlias alias = "stuVO" type = "kr.or.dw.vo.StudentVO" />
 	<typeAlias alias = "staffVO" type = "kr.or.dw.vo.StaffVO" />
@@ -35,7 +34,6 @@
 	<!-- 실행할 SQL문 파일 등록하기 -->
 	<!-- 실행할 SQL문은 XML문서로 따로 만든 후 그 XML문서를 아래와 같이 등록하면 된다. -->
 	<!-- 형식) <sqlMap resource = "경로명/파일명.xml" /> -->
-	<sqlMap resource = "kr/or/dw/ibatis/mymember.xml" />
 	<sqlMap resource = "kr/or/dw/ibatis/lecture.xml" />
 	<sqlMap resource = "kr/or/dw/ibatis/student.xml" />
 	<sqlMap resource = "kr/or/dw/ibatis/staff.xml" />
