@@ -32,7 +32,11 @@
 
 
 <style>
-    
+    	html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+        }
     	.sidebar .nav-link {
 		    font-weight: 500;
 		    color: #333;
@@ -138,6 +142,8 @@
         	background-color:#E2E2E2;
         	transition-duration: 0.2s;
         }
+        th { color : #002437;} 
+        h6 { color : #002437; font-weight : bold;}
 </style>
 
     
@@ -176,10 +182,10 @@
     
 
     
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+<header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow" style="background-color: #002437; height: 70px;">
   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="<%=request.getContextPath() %>/student/main.do" style="text-align: center;">
   	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home align-text-bottom" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-  	&nbspDW 종합정보시스템
+  	<p style="font-size : 22px; display: inline;">&nbspDW 종합정보시스템</p>
   </a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -192,9 +198,9 @@
   </div>
 </header>
 
-<div class="container-fluid">
-  <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse">
+<div class="container-fluid" style="height: 93%;">
+  <div class="row" style="height:100%;">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse" >
       <div class="position-sticky pt-3 sidebar-sticky">
   <ul class="nav flex-column">
     <li id="myInfo" class="nav-item">
