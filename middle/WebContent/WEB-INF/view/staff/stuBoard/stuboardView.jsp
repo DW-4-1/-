@@ -143,7 +143,7 @@
 					</div>
 					
 					<button id="re_contentInsert" type="button" class="btn btn-primary" style="width: 6em; float: right;" onclick="location.href='<%=request.getContextPath()%>/board/stuBoardList.do'">
-	            		추가
+	            		답변등록
 	           		</button>
 	           	<%
 					}
