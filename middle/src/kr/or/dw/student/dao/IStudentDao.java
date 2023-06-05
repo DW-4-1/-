@@ -75,6 +75,13 @@ public interface IStudentDao {
 	 */
 	public int studentUpdate(StudentVO stuVo);
 
+	/**
+	 * 전체 레코드를 가져오는 메서드
+	 * @param search
+	 * @return
+	 */
+	public int selectStuCount(String search);
+
 	
 
 }

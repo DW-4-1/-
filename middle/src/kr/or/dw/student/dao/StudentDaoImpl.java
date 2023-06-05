@@ -154,4 +154,18 @@ private static StudentDaoImpl dao;
 		
 		return cnt;
 	}
+
+	@Override
+	public int selectStuCount(String search) {
+		int totalCount = 0;
+		
+		try {
+			totalCount = (int) smc.queryForObject("selectStuCount", search);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return totalCount;
+	}
 }
