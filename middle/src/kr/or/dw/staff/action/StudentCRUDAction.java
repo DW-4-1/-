@@ -1,6 +1,7 @@
 package kr.or.dw.staff.action;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -26,7 +27,6 @@ public class StudentCRUDAction implements IAction{
 		List<StudentVO> stuVoList = service.getAllStudentInfo();
 		
 		req.setAttribute("stuVoList", stuVoList);
-		
 		
 		return "/staff/student/studentCRUD.jsp";
 	}

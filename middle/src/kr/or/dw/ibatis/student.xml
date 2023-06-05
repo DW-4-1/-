@@ -14,6 +14,7 @@
 		SELECT s.*, d.dept_name
 		  FROM students s, dept d
 		 WHERE s.dept_code = d.dept_code
+		   AND auth_cd = 'S'
 	</select>
 	
 	<select id="studentInfo" parameterClass="String" resultClass="stuVO">
