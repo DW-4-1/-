@@ -50,7 +50,7 @@
 			};
 		});
 		$('#infoBtn').on('click', function(){
-			location.href = "<%=request.getContextPath()%>/student/studentInfo.do";
+			location.href = "<%=request.getContextPath()%>/staff/staffInfo.do";
 		});
 	})
 </script>
@@ -66,7 +66,7 @@
 								<tr>
 									<th style="width: 50%">ID</th>
 									<td><%=staff.getStaff_id()%></td>
-									<input type="hidden" value="<%=staff.getStaff_id()%>" name="stu_id">
+									<input type="hidden" value="<%=staff.getStaff_id()%>" name="staff_id">
 								</tr>
 								<tr>
 									<th>이름</th>
@@ -82,15 +82,15 @@
 								</tr>
 									<tr>
 									<th>우편번호</th>
-									<td><input id="stu_zipcode" name="stu_zipcode" type="text" placeholder="우편번호" readonly onclick="findAddr()" value="<%=staff.getStaff_zipcode() %>"></td>
+									<td><input id="stu_zipcode" name="staff_zipcode" type="text" placeholder="우편번호" readonly onclick="findAddr()" value="<%=staff.getStaff_zipcode() %>"></td>
 								</tr>
 								<tr>
 									<th>주소</th>
-									<td> <input id="stu_addr" name="stu_addr" type="text" placeholder="주소" value="<%= staff.getStaff_addr() %>" readonly></td>
+									<td> <input id="stu_addr" name="staff_addr" type="text" placeholder="주소" value="<%= staff.getStaff_addr() %>" readonly></td>
 								</tr>
 								<tr>
 									<th>상세주소</th>
-									<td><input type="text" placeholder="상세주소" name="stu_detailaddr" value="<%= staff.getStaff_detailaddr() %>"></td>
+									<td><input type="text" placeholder="상세주소" name="staff_detailaddr" value="<%= staff.getStaff_detailaddr() %>"></td>
 								</tr>
 						
 								<script>
@@ -123,7 +123,7 @@
 								</tr>
 								<tr>
 									<th>전화번호</th>
-									<td><input type="text" name="stu_tel" value="<%=staff.getStaff_tel() %>"></td>
+									<td><input type="text" name="staff_tel" value="<%=staff.getStaff_tel() %>"></td>
 								</tr>
 								<tr>
 									<th>이메일</th>

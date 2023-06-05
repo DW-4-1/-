@@ -6,7 +6,7 @@
 <script>
 	$(function(){
 		$('#staffInfoUpdateBtn').on('click', function(){
-			location.href="<%=request.getContextPath()%>/staff/staffupdateInfo.do";
+			location.href="<%=request.getContextPath()%>/staff/staffInfoUpdateForm.do";
 		});
 		$('#passUpdateBtn').on('click', function(){
 			location.href="<%=request.getContextPath()%>/staff/staffPasswordUpdate.do";

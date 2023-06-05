@@ -94,14 +94,6 @@
 			<div class="card">
 				<div class="card-header">
 					<h3 class="card-title">교직원 관리</h3>
-					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
-						<input type="button" id="professorInsertFormBtn" value="추가">
-						<input type="button" id="professorDeleteFormBtn" value="삭제">
-						<input type="button" id="professorUpdateFormBtn" value="수정">
-						<input type="button" id="cancleBtn" value="뒤로가기" style="display:none;">
-						<input type="button" id="deleteBtn" value="삭제" style="display:none;">
-						<input type="button" id="resetBtn" value="취소" style="display:none;">
-					</div>
 				</div>
 				
 				<div class="card-body">
@@ -157,6 +149,20 @@
 							<%	 }	 %>
 								</table>
 							</form>
+							<div style="float: right;"> 
+								<div id="Btn" style="display:none; text-align: center">
+									<input type="button" class="btn btn-danger col-md-2" style="width:4em;" id="deleteBtn" value="삭제">
+									<input type="button" class="btn btn-primary col-md-2" style="width:4em;" id="resetBtn" value="취소">
+								</div>
+								<input type="button" id="professorInsertFormBtn" value="추가">
+								<input type="button" id="professorDeleteFormBtn" value="삭제">
+								<input type="button" id="professorUpdateFormBtn" value="수정">
+								<input type="button" id="cancleBtn" value="뒤로가기" style="display:none;">
+								<input type="button" id="deleteBtn" value="삭제" style="display:none;">
+								<input type="button" id="resetBtn" value="취소" style="display:none;">
+							</div>
+							<br>
+							<br>
 								<div style="display: flex; justify-content: center;">
 										<%
 											PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
