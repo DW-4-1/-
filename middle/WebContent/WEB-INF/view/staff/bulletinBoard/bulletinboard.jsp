@@ -83,6 +83,14 @@
 				</table>
 				<br>
 				
+					<div style="display: flex; justify-content: center;">
+						<%
+							PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
+				 		%>
+						<%= 
+							pagination.getPaginationHtml(request,new String[] {"search"}) 
+						%>
+					</div>
 				<div>
 					<div style="display: flex; justify-content: center;">
 						<table class="pull-right">
@@ -104,14 +112,6 @@
 									<button type="button" id="searchBtn" class="btn btn-outline-dark" style="width:5em;">검색</button>
 								</td>
 								
-								<div style="display: flex; justify-content: center;">
-									<%
-										PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
-							 		%>
-									<%= 
-										pagination.getPaginationHtml(request,new String[] {"search"}) 
-									%>
-								</div>
 							</tr>
 						</table>
 					</div>

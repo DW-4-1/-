@@ -26,7 +26,7 @@
 				<div class="card-header">
 					<h3 class="card-title">과제 제출 수강생 목록</h3>
 					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
-						<input type="button" id="allDownBtn" class="btn btn-secondary" value="전체 다운로드" style="height: 35px;">
+			
 					</div>
 				</div>
 				<div class="card-body">
