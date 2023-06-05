@@ -89,4 +89,10 @@
 						 ,staff_state = #staff_state#
 			WHERE staff_id = #staff_id#
 	</update>
+	
+	<select id="selectProfessorCount" resultClass="int" parameterClass="String">
+		SELECT COUNT(*) cnt
+		  FROM staffs
+		 WHERE auth_cd = 'P'
+	</select>
 </sqlMap>

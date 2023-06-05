@@ -140,5 +140,18 @@ private static StaffDaoImpl dao;
 		return cnt;
 	}
 
+	@Override
+	public int selectProfessorCount(String search) {
+		int totalCount = 0;
+		
+		try {
+			totalCount = (int) smc.queryForObject("staff.selectProfessorCount", search);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return totalCount;
+	}
+
 
 }

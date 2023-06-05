@@ -61,5 +61,12 @@ public interface IStaffService {
 	 * @param staVo
 	 */
 	public int professorUpdate(StaffVO staVo);
+
+	/**
+	 * 교수의 레코드를 가져오는 메서드
+	 * @param search
+	 * @return
+	 */
+	public int selectProfessorCount(String search);
 	
 }
