@@ -99,14 +99,30 @@
 				<div class="mailbox-read-message" style="margin: 1em;">
 					<p><%=boardVo.getBd_content()%></p>
 				</div>
-				<br>
-				<hr>
+				
 				<div style="text-align: center">
 				<% 
 					if(reVo != null){ 
 				%>
-					<span><%=reVo.getStaff_name()%></span>
-						<p id="re_contentView" style="display:none;"><%=content%></p>
+						<!-- 관리자 답변 -->
+				<br>
+				<hr>
+				<div class="card mb-4 rounded-3 shadow-sm">
+					<div class="py-3">
+						<p class="my-0 fw-normal" style="display:inline; margin-left:-18em;">관리자 답변입니다.</p>
+			            <span class="mailbox-read-time float-right" style="float: right; vertical-align: middle;">&emsp;&emsp;작성일 : <%=fomatter.format(boardVo.getBd_wdt())%>&emsp;</span>
+						<hr>
+					</div>
+					<div class="card-body" style="margin-top:-1em">
+			            <!-- content -->
+						<div class="mailbox-read-message" style="text-align:left; vertical-align:top">
+							<p id="re_contentView" style="display:none;"><%=content%></p>
+							<input type="text" id="re_contentUpdate" style="display:none;" value="<%=content%>">
+						</div>
+					</div>
+				</div>
+				<hr>
+				
 						<button id="re_contentSave" style="display:none; float: right; width: 4em;" class="btn btn-danger">
 		            		저장
 						</button> 
@@ -132,10 +148,10 @@
 	           	<%
 					}
 	           	%>
+					<input type="text" id="re_contentUpdate" style="display:none;" value="<%=content%>">
 	           		<button type="button" class="btn btn-outline-dark" style="width: 6em; float: left;" onclick="location.href='<%=request.getContextPath()%>/board/stuBoardList.do'">
 	            		목록
 	           		</button>
-					<input type="text" id="re_contentUpdate" style="display:none;" value="<%=content%>">
 				</div>
 			</div>
 		</div>
