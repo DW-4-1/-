@@ -12,7 +12,7 @@ import kr.or.dw.staff.service.StaffServiceImpl;
 import kr.or.dw.vo.StaffVO;
 import kr.or.dw.web.IAction;
 
-public class StaffInfoAction implements IAction{
+public class StaffUpdateInfoFormAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
@@ -28,11 +28,12 @@ public class StaffInfoAction implements IAction{
 		StaffVO staffVo = new StaffVO();
 		
 		staffVo = service.getstaffInfo(staff_id);
+		
 		req.setAttribute("staffVo", staffVo);
 		
 		req.setAttribute("titleName", "내 정보");
 		
-		return "/staff/mymenu/myMenu.jsp";
+		return "/staff/mymenu/updateInfo.jsp";
 	}
 
 }

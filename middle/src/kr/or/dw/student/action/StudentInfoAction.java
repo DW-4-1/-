@@ -30,6 +30,7 @@ public class StudentInfoAction implements IAction{
 		StudentVO stuVo = new StudentVO();
 		
 		stuVo = service.stdentInfo(stu_id);
+		
 		req.setAttribute("stuVo", stuVo);
 		
 		req.setAttribute("titleName", "내 정보");
