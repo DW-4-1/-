@@ -102,4 +102,11 @@ public interface ILectureDao {
 
 	List<StudentVO> getLectureStudentListForm(String lec_code);
 
+	/**
+	 * 학생의 학과코드 가져오는 메서드
+	 * @param stu_id
+	 * @return
+	 */
+	String getStuDeptCode(String stu_id);
+
 }

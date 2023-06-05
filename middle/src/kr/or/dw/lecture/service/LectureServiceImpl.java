@@ -105,4 +105,9 @@ public class LectureServiceImpl implements ILectureService{
 		public List<StudentVO> getLectureStudentListForm(String lec_code) {
 			return dao.getLectureStudentListForm(lec_code);
 		}
+
+		@Override
+		public String getStuDeptCode(String stu_id) {
+			return dao.getStuDeptCode(stu_id);
+		}
 }

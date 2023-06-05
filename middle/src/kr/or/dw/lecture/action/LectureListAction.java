@@ -27,6 +27,7 @@ public class LectureListAction implements IAction{
 
 		ILectureService service = LectureServiceImpl.getInstance();
 		List<LectureVO> lecList = service.getAllLecture(stu_id);
+	
 		
 		req.setAttribute("lecList", lecList);
 		

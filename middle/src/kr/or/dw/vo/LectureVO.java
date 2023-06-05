@@ -20,10 +20,17 @@ public class LectureVO {
 	private String stu_id;	//학생학번
 	private String stu_name;	//학생이름
 	private String dept_name;	//학과명
+	private String dept_code;	//학과코드
 	private String plan_path; 	//계획안파일 경로
 	
 	
 	
+	public String getDept_code() {
+		return dept_code;
+	}
+	public void setDept_code(String dept_code) {
+		this.dept_code = dept_code;
+	}
 	public String getPlan_path() {
 		return plan_path;
 	}

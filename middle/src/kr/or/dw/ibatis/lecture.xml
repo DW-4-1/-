@@ -20,15 +20,16 @@
 			 , max(plan_path) plan_path
 			 , max(stu_score) stu_score
 			 , max(stu_grade) stu_grade
+			 , max(dept_code) dept_code
 		FROM (
-				SELECT a.lec_code, lec_name, l.STU_ID, a.staff_id, staff_name, lec_loc, lec_day, lec_time, lec_div, lec_credit, lec_year, lec_term, stu_score, stu_grade, plan_path
+				SELECT a.lec_code, lec_name, l.STU_ID, a.staff_id, staff_name, lec_loc, lec_day, lec_time, lec_div, lec_credit, lec_year, lec_term, stu_score, stu_grade, plan_path, dept_code
 				FROM lecture l, ALL_LECTURELIST a, STAFFS s 
 				WHERE l.LEC_CODE = a.LEC_CODE 
 				AND a.staff_id = s.STAFF_ID 
 				AND STU_ID = #stu_id#
 				ORDER BY lec_year DESC, lec_term DESC, LEC_CODE
 				)
-		GROUP BY lec_code
+		GROUP BY lec_code	
 	</select>
 	
 	<select id="selecteLecCode" resultClass="String">
@@ -162,6 +163,12 @@
 		WHERE s.stu_id = l.stu_id
 		AND s.dept_code = d.dept_code
 		AND lec_code = #lec_code#
+	</select>
+	
+	<select id="getStuDeptCode" parameterClass="String" resultClass="String">
+		SELECT dept_code
+		FROM students
+		WHERE stu_id = #stu_id#
 	</select>
 	
 </sqlMap>

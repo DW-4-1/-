@@ -233,6 +233,18 @@ private static LectureDaoImpl dao;
 		
 		return stuList;
 	}
+
+	@Override
+	public String getStuDeptCode(String stu_id) {
+		String stu_dept_code = null;
+		try {
+			stu_dept_code = (String) smc.queryForObject("lecture.getStuDeptCode", stu_id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return stu_dept_code;
+	}
 	
 	
 	
