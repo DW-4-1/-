@@ -4,7 +4,7 @@
 <%
 	int result = (int)request.getAttribute("passResult");
 	int success = (int)request.getAttribute("passSuccess");
-	String pass = (String)request.getAttribute("stuPass");
+	String pass = (String)request.getAttribute("staffPass");
 	if(result == 1 && success == 1) {
 %>
 		alert("비밀번호가 변경되었습니다.");
