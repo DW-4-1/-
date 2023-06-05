@@ -1,6 +1,7 @@
 package kr.or.dw.student.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StudentVO;
@@ -16,10 +17,11 @@ public interface IStudentService {
 
 	/**
 	 * 학생의 정보를 가져오는 메서드
+	 * @param paramMap 
 	 * @param stu_id 
 	 * @return
 	 */
-	public List<StudentVO> getAllStudentInfo();
+	public List<StudentVO> getAllStudentInfo(Map<String, Object> paramMap);
 	
 	/**
 	 * 학생의 정보를 가져오는 메서드
@@ -75,10 +77,9 @@ public interface IStudentService {
 
 	/**
 	 * 전체 레코드를 가져오는 메서드
-	 * @param search
 	 * @return
 	 */
-	public int selectStuCount(String search);
+	public int selectStuCount();
 
 	
 }

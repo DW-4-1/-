@@ -17,11 +17,21 @@
 	<select id="idEmailCheck" parameterClass="staffVO" resultClass="int">
 		SELECT count(*) FROM staffs WHERE staff_id = #staff_id# AND staff_email = #staff_email#
 	</select>
-	<select id="getAllProfessorList" resultClass="StaffVO">
-		SELECT s.*, d.dept_name 
-		  FROM staffs s, dept d 
-		 WHERE auth_cd = 'P'
-		   AND s.dept_code = d.dept_code
+	<select id="getAllProfessorList" resultClass="StaffVO" parameterClass="Map">
+		SELECT *
+		  FROM (
+				SELECT *
+				FROM (
+					  SELECT rownum rnum, v1.*
+					  FROM (
+							SELECT s.*, d.dept_name
+							FROM staffs s, dept d
+							WHERE s.dept_code = d.dept_code
+					  		) v1
+					  WHERE rownum <![CDATA[ <= ]]> #end#
+					  ) v2
+				WHERE v2.rnum <![CDATA[ >= ]]> #start#
+			) b
 	</select>
 	<select id="getDept" resultClass="StaffVO">
 		SELECT dept_code, dept_name

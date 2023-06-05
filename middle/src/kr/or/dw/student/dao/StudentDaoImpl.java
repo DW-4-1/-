@@ -3,6 +3,7 @@ package kr.or.dw.student.dao;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
@@ -40,12 +41,12 @@ private static StudentDaoImpl dao;
 	}
 
 	@Override
-	public List<StudentVO> getAllStudentInfo() {
+	public List<StudentVO> getAllStudentInfo(Map<String, Object> paramMap) {
 		
 		List<StudentVO> stuInfo = null;
 		
 		try {
-			stuInfo = (List) smc.queryForList("student.studentAllInfo");
+			stuInfo = (List) smc.queryForList("student.studentAllInfo", paramMap);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -156,11 +157,11 @@ private static StudentDaoImpl dao;
 	}
 
 	@Override
-	public int selectStuCount(String search) {
+	public int selectStuCount() {
 		int totalCount = 0;
 		
 		try {
-			totalCount = (int) smc.queryForObject("student.selectStuCount", search);
+			totalCount = (int) smc.queryForObject("student.selectStuCount");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

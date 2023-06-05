@@ -1,6 +1,7 @@
 package kr.or.dw.student.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StudentVO;
@@ -19,7 +20,7 @@ public interface IStudentDao {
 	 * @param stu_id 
 	 * @return
 	 */
-	public List<StudentVO> getAllStudentInfo();
+	public List<StudentVO> getAllStudentInfo(Map<String, Object> paramMap);
 
 	/**
 	 * 학생의 정보를 가져오는 메서드
@@ -80,7 +81,7 @@ public interface IStudentDao {
 	 * @param search
 	 * @return
 	 */
-	public int selectStuCount(String search);
+	public int selectStuCount();
 
 	
 

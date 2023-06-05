@@ -1,6 +1,7 @@
 package kr.or.dw.staff.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StaffVO;
@@ -26,9 +27,10 @@ public interface IStaffDao {
 
 	/**
 	 * 모든 교수들을 불러오는 메서드
+	 * @param paramMap 
 	 * @return
 	 */
-	public List<StaffVO> getAllProfessorList();
+	public List<StaffVO> getAllProfessorList(Map<String, Object> paramMap);
 
 	/**
 	 * 
@@ -66,7 +68,7 @@ public interface IStaffDao {
 	 * @param search
 	 * @return
 	 */
-	public int selectProfessorCount(String search);
+	public int selectProfessorCount();
 
 	/**
 	 * 교수의 비밀번호 변경하는 메서드

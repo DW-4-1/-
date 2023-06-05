@@ -1,6 +1,7 @@
 package kr.or.dw.student.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.dw.student.dao.IStudentDao;
 import kr.or.dw.student.dao.StudentDaoImpl;
@@ -30,8 +31,8 @@ public class StudentServiceImpl implements IStudentService{
 	}
 
 	@Override
-	public List<StudentVO> getAllStudentInfo() {
-		return dao.getAllStudentInfo();
+	public List<StudentVO> getAllStudentInfo(Map<String, Object> paramMap) {
+		return dao.getAllStudentInfo(paramMap);
 	}
 
 	@Override
@@ -75,8 +76,8 @@ public class StudentServiceImpl implements IStudentService{
 	}
 
 	@Override
-	public int selectStuCount(String search) {
-		return dao.selectStuCount(search);
+	public int selectStuCount() {
+		return dao.selectStuCount();
 	}
 
 }

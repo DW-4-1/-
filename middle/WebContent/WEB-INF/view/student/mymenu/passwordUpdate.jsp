@@ -45,7 +45,7 @@
 				<div class="btn-container" style="padding-bottom: 5em;">
 					<div style="margin: 0 auto;">
 						<input class="w-10 btn btn-primary" type="submit" id="saveBtn" value="저장" style="width: 5em;"> 
-						<input class="w-10 btn btn-danger" type="submit" id="resetBtn" value="취소" style="width: 5em;">
+						<input class="w-10 btn btn-danger" type="button" id="resetBtn" value="취소" style="width: 5em;">
 					</div>
 				</div>
 			</form>

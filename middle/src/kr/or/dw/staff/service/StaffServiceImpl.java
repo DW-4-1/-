@@ -6,6 +6,7 @@ import kr.or.dw.vo.StaffVO;
 import kr.or.dw.vo.StudentVO;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.dw.staff.dao.IStaffDao;
 
@@ -42,8 +43,8 @@ public class StaffServiceImpl implements IStaffService{
 	}
 
 	@Override
-	public List<StaffVO> getAllProfessorList() {
-		return dao.getAllProfessorList();
+	public List<StaffVO> getAllProfessorList(Map<String, Object> paramMap) {
+		return dao.getAllProfessorList(paramMap);
 	}
 
 	@Override
@@ -72,8 +73,8 @@ public class StaffServiceImpl implements IStaffService{
 	}
 
 	@Override
-	public int selectProfessorCount(String search) {
-		return dao.selectProfessorCount(search);
+	public int selectProfessorCount() {
+		return dao.selectProfessorCount();
 	}
 
 	@Override
