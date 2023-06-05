@@ -88,6 +88,20 @@
     		}
     		
 		});
+		$('select[name=state]').change(
+				function() { //년도 선택하면 해당 년도의 강의만 보이는 함수
+					for (let i = 0; i < $('tr[type=var]').length; i++) {
+						if ($(this).val() == 'all') {
+							$('tr[type=var]').css('display', '');
+						} else if ($(this).val() == $($('tr[type=var]')[i])
+								.attr('name')) {
+							$($('tr[type=var]')[i]).css('display', '');
+						} else {
+							$($('tr[type=var]')[i]).css('display', 'none');
+						}
+					}
+
+		});
 	})
 </script>
 
@@ -98,6 +112,15 @@
 			<div class="card">
 				<div class="card-header">
 					<h2 class="card-title" style="padding-top: 0.2em;">학생 관리</h2>
+					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
+						<select id="state" name="state" style="margin-left: auto;">
+							<option name="state" value="all">전체보기</option>
+							<option name="state" value="재학">재학</option>
+							<option name="state" value="휴학">휴학</option>
+							<option name="state" value="졸업">졸업</option>
+							
+						</select>
+					</div>
 				</div>
 				
 				<div class="card-body">
@@ -130,9 +153,9 @@
 											<th id="up" style="display:none;"></th>
 										</tr>
 										</thead>
-										<% for(StudentVO stuVo : stuVoList) {%>
 										<tbody>
-											<tr style="text-align: center;">
+										<% for(StudentVO stuVo : stuVoList) {%>
+											<tr style="text-align: center;" type="var" name="<%=stuVo.getStu_state()%>">
 												<th class="1" style="display:none;">
 													<input type="checkbox" class="chk" style="display:none; " name="stu_id" value="<%=stuVo.getStu_id()%>">
 												</th>
@@ -150,50 +173,29 @@
 												<td><%=stuVo.getAuth_cd()%></td>
 												<td class="updateTag" style="display:none;"><input type="button" name="update" value="수정" onclick="location.href='<%=request.getContextPath()%>/staff/studentUpdateForm.do?stu_id=<%=stuVo.getStu_id()%>'"></td>
 											</tr>
-										</tbody>
 										<%	 }	 %>
+										</tbody>
 									</table>
 								</form>
-										<div style="float: right;"> 
-											<div id="Btn" style="display:none; text-align: center">
-												<input type="button" class="btn btn-danger col-md-2" style="width:4em;" id="deleteBtn" value="삭제">
-												<input type="button" class="btn btn-primary col-md-2" style="width:4em;" id="resetBtn" value="취소">
-											</div>
-											<input type="button" class="btn btn-primary col-md-2" style="width:4em;" id="studentFormBtn" value="추가">
-											<input type="button" class="btn btn-success col-md-2" style="width:4em;" id="updateFormBtn" value="수정">
-											<input type="button" class="btn btn-danger col-md-2" style="width:4em;" id="deleteFormBtn" value="삭제">
-											<input type="button" class="btn btn-primary col-md-2" style="width:6em; display:none;" id="cancleBtn" value="뒤로가기" >
-										</div>	
-										<br>
-										<br>
-										<div style="display: flex; justify-content: center; margin:0;">
-										<%
-											PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
-								 		%>
-										<%= 
-											pagination.getPaginationHtml(request,new String[] {"search"}) 
-										%>
-										</div>
-								<div style="display: flex; justify-content: center;">
-									<table class="pull-right">
-										<tr>
-											<td>
-												<select class="form-select " name="searchField">
-													<option value="0">선택</option>
-													<option value="bbsTitle">제목</option>
-													<option value="userID">작성자</option>
-												</select>
-											</td>
-											<td>
-												&nbsp;
-												<input  id="search" name="search" class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search">
-											</td>
-											<td>
-												<!-- 폼태그 지우고 아래 버튼 추가 -->
-												<button type="button" id="searchBtn" class="btn btn-outline-dark" style="width:5em;">검색</button>
-											</td>
-										</tr>
-									</table>
+								<div style="float: right;"> 
+									<div id="Btn" style="display:none; text-align: center">
+										<input type="button" class="btn btn-danger col-md-2" style="width:4em;" id="deleteBtn" value="삭제">
+										<input type="button" class="btn btn-primary col-md-2" style="width:4em;" id="resetBtn" value="취소">
+									</div>
+									<input type="button" class="btn btn-primary col-md-2" style="width:4em;" id="studentFormBtn" value="추가">
+									<input type="button" class="btn btn-success col-md-2" style="width:4em;" id="updateFormBtn" value="수정">
+									<input type="button" class="btn btn-danger col-md-2" style="width:4em;" id="deleteFormBtn" value="삭제">
+									<input type="button" class="btn btn-primary col-md-2" style="width:6em; display:none;" id="cancleBtn" value="뒤로가기" >
+								</div>	
+								<br>
+								<br>
+								<div style="display: flex; justify-content: center; margin:0;">
+								<%
+									PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
+						 		%>
+								<%= 
+									pagination.getPaginationHtml(request,new String[] {"search"}) 
+								%>
 								</div>
 							</div>
 						</div>

@@ -86,6 +86,21 @@
       			$('#all').prop('checked', true);
     		}
 		});
+		
+		$('select[name=state]').change(
+				function() { 
+					for (let i = 0; i < $('tr[type=var]').length; i++) {
+						if ($(this).val() == 'all') {
+							$('tr[type=var]').css('display', '');
+						} else if ($(this).val() == $($('tr[type=var]')[i])
+								.attr('name')) {
+							$($('tr[type=var]')[i]).css('display', '');
+						} else {
+							$($('tr[type=var]')[i]).css('display', 'none');
+						}
+					}
+
+		});
 	})
 </script>
 <section class="content">
@@ -94,6 +109,13 @@
 			<div class="card">
 				<div class="card-header">
 					<h3 class="card-title">교직원 관리</h3>
+					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
+						<select id="state" name="state" style="margin-left: auto;">
+							<option name="state" value="all">전체보기</option>
+							<option name="state" value="재직">재직</option>
+							<option name="state" value="퇴직">퇴직</option>
+						</select>
+					</div>
 				</div>
 				
 				<div class="card-body">
@@ -126,9 +148,9 @@
 										<th>직분</th>
 									</tr>
 									</thead>
-						<% for(StaffVO staVo : staVoList) {%>
 						<tbody>
-									<tr class="odd" type="var" style="text-align: center; height: 30px;">
+						<% for(StaffVO staVo : staVoList) {%>
+									<tr class="odd" type="var" style="text-align: center; height: 30px;" name="<%=staVo.getStaff_state()%>">
 										<th class="1" style="display:none;"><input type="checkbox" class="chk"  name="sta_id" value="<%=staVo.getStaff_id()%>"></th>
 										<td><%=staVo.getStaff_id()%></td>
 										<td><%=staVo.getStaff_name()%></td>
@@ -145,8 +167,8 @@
 										<td><%=staVo.getAuth_cd()%></td>
 										<td class="updateTag" style="display:none;"><input type="button" name="update" value="수정" onclick="location.href='<%=request.getContextPath()%>/staff/professorUpdateForm.do?sta_id=<%=staVo.getStaff_id()%>'"></td>
 									</tr>
-									</tbody>
 							<%	 }	 %>
+									</tbody>
 								</table>
 							</form>
 							<div style="float: right;"> 
@@ -166,27 +188,6 @@
 										<%= 
 											pagination.getPaginationHtml(request,new String[] {"search"}) 
 										%>
-								</div>
-								<div style="display: flex; justify-content: center;">
-									<table class="pull-right">
-										<tr>
-											<td>
-												<select class="form-select " name="searchField">
-													<option value="0">선택</option>
-													<option value="bbsTitle">제목</option>
-													<option value="userID">작성자</option>
-												</select>
-											</td>
-											<td>
-												&nbsp;
-												<input  id="search" name="search" class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search">
-											</td>
-											<td>
-												<!-- 폼태그 지우고 아래 버튼 추가 -->
-												<button type="button" id="searchBtn" class="btn btn-outline-dark" style="width:5em;">검색</button>
-											</td>
-										</tr>
-									</table>
 								</div>
 							</div>
 						</div>
