@@ -39,16 +39,15 @@
 			<br>
 			<hr>
             <div style="text-align: center">
-            	<button type="button" class="btn btn-primary" id="contentDelBtn">
-            		삭제
-				</button> 
-				<button type="button" class="btn btn-primary" onclick="location.href='<%=request.getContextPath()%>/assign/updateAssignForm.do?assign_no=<%=assignVo.getAssign_no()%>'">
-					수정
-				</button>
-
-            	<button type="button" class="btn btn-primary" onclick="location.href='<%=request.getContextPath()%>/assign/lectureAssignList.do?lec_code=<%=assignVo.getLec_code()%>'">
+            	<button type="button" class="btn btn-primary" style="float:left; width:5em" onclick="location.href='<%=request.getContextPath()%>/assign/lectureAssignList.do?lec_code=<%=assignVo.getLec_code()%>'">
             		목록
            		</button>
+            	<button type="button" class="btn btn-danger" style="float:right; width:5em" id="contentDelBtn">
+            		삭제
+				</button> 
+				<button type="button" class="btn btn-success" style="float:right; width:5em; margin-right:0.5em;" onclick="location.href='<%=request.getContextPath()%>/assign/updateAssignForm.do?assign_no=<%=assignVo.getAssign_no()%>'">
+					수정
+				</button>
 			</div>
         </div>
       </div>

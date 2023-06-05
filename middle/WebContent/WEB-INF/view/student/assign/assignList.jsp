@@ -47,7 +47,6 @@
 							<option name="sub" value="제출전">제출전</option>
 							<option name="sub" value="제출완료">제출완료</option>
 							<option name="sub" value="제출기간 초과">제출기간 초과</option>
-							
 						</select>
 					</div>
 				</div>

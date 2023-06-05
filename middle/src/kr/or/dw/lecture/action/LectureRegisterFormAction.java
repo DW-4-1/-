@@ -49,7 +49,11 @@ public class LectureRegisterFormAction implements IAction{
 		LectureVO lecVo = new LectureVO();
 		lecVo.setLec_term(lec_term);
 		lecVo.setLec_year(lec_year);
-		
+		String search = "%%";
+		if(req.getParameter("search") != null) {
+			search = "%" + req.getParameter("search") + "%";
+		}
+		lecVo.setSearch(search);
 		lecList = service.getAllLectureRegister(lecVo);
 		
 		List<LectureVO> stuLecList = null;
