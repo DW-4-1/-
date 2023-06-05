@@ -29,7 +29,7 @@ public class UpdateAssignFormAction implements IAction{
 		assignVo = service.viewAssign(assign_no);
 		System.out.println(assignVo.getAssign_name());
 		req.setAttribute("assignVo", assignVo);
-		
+		req.setAttribute("titleName", "과제 조회");
 		return "/staff/score/assignUpdateForm.jsp";
 	}
 

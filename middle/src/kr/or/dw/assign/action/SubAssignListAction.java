@@ -35,7 +35,7 @@ public class SubAssignListAction implements IAction{
 		
 		req.setAttribute("stuAssignList", stuList);
 		req.setAttribute("assign_no", assign_no);
-		
+		req.setAttribute("titleName", "과제 조회");
 		return "/staff/score/submitAssignList.jsp";
 	}
 

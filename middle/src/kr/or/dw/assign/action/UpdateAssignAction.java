@@ -55,7 +55,7 @@ public class UpdateAssignAction implements IAction{
 		int result = 0;
 		result = service.updateAssign(assignVo);
 
-		
+		req.setAttribute("titleName", "과제 조회");
 		
 		return "/assign/viewAssign.do?assign_no=" + assign_no;
 	}

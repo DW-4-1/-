@@ -21,7 +21,7 @@ public class InsertAssignFormAction implements IAction{
 		
 		String lec_code = req.getParameter("lec_code");
 		req.setAttribute("lec_code", lec_code);
-		
+		req.setAttribute("titleName", "과제 조회");
 		return "/staff/score/assignInsertForm.jsp";
 	}
 

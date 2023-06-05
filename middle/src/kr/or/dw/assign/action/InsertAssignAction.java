@@ -54,7 +54,7 @@ public class InsertAssignAction implements IAction{
 		int assign_no = 0;
 		assign_no = service.insertAssign(assignVo);
 		
-		req.setAttribute("titleName", "");
+		req.setAttribute("titleName", "과제 조회");
 		
 		return "/assign/viewAssign.do?assign_no=" + assign_no;
 	}

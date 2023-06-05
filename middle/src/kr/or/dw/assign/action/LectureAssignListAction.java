@@ -35,7 +35,7 @@ public class LectureAssignListAction implements IAction{
 			
 			req.setAttribute("assignList", assignList);
 		}
-		
+		req.setAttribute("titleName", "과제 조회");
 		return "/staff/score/lectureAssignList.jsp";
 	}
 
