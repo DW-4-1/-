@@ -1,3 +1,4 @@
+<%@page import="kr.or.dw.util.PaginationUtil"%>
 <%@page import="kr.or.dw.vo.StaffVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -156,6 +157,14 @@
 							<%	 }	 %>
 								</table>
 							</form>
+								<div style="display: flex; justify-content: center;">
+										<%
+											PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
+								 		%>
+										<%= 
+											pagination.getPaginationHtml(request,new String[] {"search"}) 
+										%>
+								</div>
 							</div>
 						</div>
 					</div>
