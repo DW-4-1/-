@@ -165,6 +165,27 @@
 											pagination.getPaginationHtml(request,new String[] {"search"}) 
 										%>
 								</div>
+								<div style="display: flex; justify-content: center;">
+									<table class="pull-right">
+										<tr>
+											<td>
+												<select class="form-select " name="searchField">
+													<option value="0">선택</option>
+													<option value="bbsTitle">제목</option>
+													<option value="userID">작성자</option>
+												</select>
+											</td>
+											<td>
+												&nbsp;
+												<input  id="search" name="search" class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search">
+											</td>
+											<td>
+												<!-- 폼태그 지우고 아래 버튼 추가 -->
+												<button type="button" id="searchBtn" class="btn btn-outline-dark" style="width:5em;">검색</button>
+											</td>
+										</tr>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>
