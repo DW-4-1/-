@@ -7,8 +7,8 @@
 <%@ include file="../header.jsp"%>
 <script>
 	$(function() {
-		$('select[name=year]').change(
-				function() { //년도 선택하면 해당 년도의 강의만 보이는 함수
+		$('select[name=div]').change(
+				function() { 
 					for (let i = 0; i < $('tr[type=var]').length; i++) {
 						if ($(this).val() == 'all') {
 							$('tr[type=var]').css('display', '');
@@ -37,6 +37,14 @@
 				<div class="card-header">
 					<h3 class="card-title">수강 신청</h3>
 					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
+						<select id="div" name="div" style="margin-left: auto;">
+							<option name="div" value="all">전체보기</option>
+							<option name="전공필수" value="전공필수">전공필수</option>
+							<option name="전공선택" value="전공선택">전공선택</option>
+							<option name="교양" value="교양">교양</option>
+							<option name="교직" value="교직">교직</option>
+							
+						</select>
 					</div>
 				</div>
 
@@ -125,7 +133,7 @@
 											}
 									%>
 									<tbody>
-										<tr class="odd" type="var" name="<%=vo.getLec_year()%>"
+										<tr class="odd" type="var" name="<%=vo.getLec_div()%>"
 											style="text-align: center; height: 30px;">
 											<td class="dtr-control sorting_1" tabindex="0"><%=vo.getLec_code()%></td>
 											<td><%=vo.getLec_name()%></td>
