@@ -150,16 +150,12 @@
 								</table>
 							</form>
 							<div style="float: right;"> 
-								<div id="Btn" style="display:none; text-align: center">
-									<input type="button" class="btn btn-danger col-md-2" style="width:4em;" id="deleteBtn" value="삭제">
-									<input type="button" class="btn btn-primary col-md-2" style="width:4em;" id="resetBtn" value="취소">
-								</div>
-								<input type="button" id="professorInsertFormBtn" value="추가">
-								<input type="button" id="professorDeleteFormBtn" value="삭제">
-								<input type="button" id="professorUpdateFormBtn" value="수정">
-								<input type="button" id="cancleBtn" value="뒤로가기" style="display:none;">
-								<input type="button" id="deleteBtn" value="삭제" style="display:none;">
-								<input type="button" id="resetBtn" value="취소" style="display:none;">
+								<input type="button" class="btn btn-danger col-md-2" style="width:4em; display:none;" id="deleteBtn" value="삭제">
+								<input type="button" class="btn btn-primary col-md-2" style="width:4em; display:none;" id="resetBtn" value="취소">
+								<input type="button" class="btn btn-primary col-md-2" style="width:4em; " id="professorInsertFormBtn" value="추가">
+								<input type="button" class="btn btn-success col-md-2" style="width:4em;" id="professorUpdateFormBtn" value="수정">
+								<input type="button" class="btn btn-danger col-md-2" style="width:4em;" id="professorDeleteFormBtn" value="삭제">
+								<input type="button" class="btn btn-primary col-md-2" style="width:6em; display:none;" id="cancleBtn" value="뒤로가기" >
 							</div>
 							<br>
 							<br>
