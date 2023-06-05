@@ -38,7 +38,7 @@ public class ProfessorUpdateAction implements IAction{
 		
 		service.professorUpdate(staVo);
 		
-		req.setAttribute("titleName", "교수 관리");
+		req.setAttribute("titleName", "교직원 관리");
 		return "/staff/professorCRUD.do";
 	}
 

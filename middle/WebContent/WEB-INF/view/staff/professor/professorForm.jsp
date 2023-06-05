@@ -5,7 +5,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 
-<title>교수추가 페이지 입니다.</title>
+<title>교직원추가 페이지 입니다.</title>
 <script type="text/javascript">
 	$(function(){
 		$('#saveBtn').on('click', function(){
@@ -20,7 +20,7 @@
 	List<StaffVO> staVo = (List)request.getAttribute("dept");
 %>
 <div class="col-md-7 col-lg-8" style="margin: 0 auto;">
-        <br><h2 class="mb-3" style="text-align: center;">교수 추가</h2>
+        <br><h2 class="mb-3" style="text-align: center;">교직원 추가</h2>
 		<form class="needs-validation" id="staffInsertForm" method="post" action="<%=request.getContextPath()%>/staff/professorInsert.do">
 			<div class="row g-3" id="lec_code" name="staff_id" value="ID" required>
 	            
