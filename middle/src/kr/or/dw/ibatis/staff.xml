@@ -69,7 +69,7 @@
 		DELETE staffs WHERE staff_id = #staff_id#
 	</delete>
 	
-	<select id="getstaffInfo" parameterClass="String" resultClass="StaffVO">
+	<select id="getstaffInfo" parameterClass="String" resultClass="staffVO">
 		SELECT s.*, d.dept_name
 		  FROM staffs s, dept d
 		 WHERE s.dept_code = d.dept_code

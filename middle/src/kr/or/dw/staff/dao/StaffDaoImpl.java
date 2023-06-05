@@ -115,11 +115,11 @@ private static StaffDaoImpl dao;
 	}
 
 	@Override
-	public StaffVO getstaffInfo(String sta_id) {
+	public StaffVO getstaffInfo(String staff_id) {
 		StaffVO staVo = new StaffVO();
 		
 		try {
-			staVo = (StaffVO) smc.queryForObject("staff.getstaffInfo", sta_id);
+			staVo = (StaffVO) smc.queryForObject("staff.getstaffInfo", staff_id);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
