@@ -125,7 +125,7 @@
 				
 						<button id="re_contentSave" style="display:none; float: right; width: 4em;" class="btn btn-danger">
 		            		저장
-						</button> 
+						</button>
  						<button id="re_contentUpdateForm" style=" float: right; width: 4em; margin-right:0.5em;" class="btn btn-primary" <%--onclick="location.href='<%=request.getContextPath()%>/board/stuContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>' --%>"> 
 							수정
 						</button>

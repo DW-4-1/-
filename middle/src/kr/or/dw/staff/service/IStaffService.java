@@ -54,7 +54,7 @@ public interface IStaffService {
 	 * @param sta_id
 	 * @return
 	 */
-	public StaffVO getstaffInfo(String sta_id);
+	public StaffVO getstaffInfo(String staff_id);
 
 	/**
 	 * 교수님의 정보를 수정하는 메서드

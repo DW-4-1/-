@@ -53,7 +53,7 @@
 				<form method="post" id="save" action="<%=request.getContextPath()%>/staff/emailstaffPassUpdateResult.do">
 					<input type="hidden" name="staff_id" value="<%=(String)request.getAttribute("staff_id")%>">
 					<div class="input-group mb-3">
-						<input type="password" name="stuaff_pwdChange" class="form-control" placeholder="변경 비밀번호"> 
+						<input type="password" name="staff_pwdChange" class="form-control" placeholder="변경 비밀번호"> 
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-lock"></span>

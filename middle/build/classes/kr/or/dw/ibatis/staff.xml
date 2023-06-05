@@ -69,7 +69,7 @@
 		DELETE staffs WHERE staff_id = #staff_id#
 	</delete>
 	
-	<select id="getstaffInfo" parameterClass="String" resultClass="StaffVO">
+	<select id="getstaffInfo" parameterClass="String" resultClass="staffVO">
 		SELECT s.*, d.dept_name
 		  FROM staffs s, dept d
 		 WHERE s.dept_code = d.dept_code
@@ -97,7 +97,7 @@
 	</select>
 	
 	<update id="staffPasswordUpdate" parameterClass="staffVO">
-		UPDATE staff SET staff_pwd = #staff_pwd#
+		UPDATE staffs SET staff_pwd = #staff_pwd#
 		 WHERE staff_id = #staff_id#
 	</update>
 </sqlMap>

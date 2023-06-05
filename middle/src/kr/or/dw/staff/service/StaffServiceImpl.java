@@ -62,8 +62,8 @@ public class StaffServiceImpl implements IStaffService{
 	}
 
 	@Override
-	public StaffVO getstaffInfo(String sta_id) {
-		return dao.getstaffInfo(sta_id);
+	public StaffVO getstaffInfo(String staff_id) {
+		return dao.getstaffInfo(staff_id);
 	}
 
 	@Override

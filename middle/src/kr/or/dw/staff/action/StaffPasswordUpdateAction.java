@@ -51,19 +51,19 @@ public class StaffPasswordUpdateAction implements IAction{
 		String referer = req.getHeader("referer");
 		
 		System.out.println(referer);
+		req.setAttribute("titleName", "비밀번호 변경");
 		
-		if(referer.contains("http://localhost:8080/staff/emailPassUpdateResult.do")) {
-			return "/";
+		if(referer.contains("http://localhost:8080/staff/emailstaffPassUpdateResult.do")) {
+			return "/staff/staffLoginForm.do";
 		}
 		
 		if(session.getAttribute("staff_id") == null) {
 			return "/";
 		}
+		return "/staff/staffLoginForm.do";
 		
-		req.setAttribute("titleName", "비밀번호 변경");
 		
 		
-		return null;
 	}
 
 }

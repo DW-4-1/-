@@ -45,7 +45,7 @@ public class IdEmailCheckAction implements IAction{
 			ver_code = gson.toJson(ver_code);
 		}
 		
-		
+		System.out.println(ver_code);
 		PrintWriter out = res.getWriter();
 		out.println(ver_code);
 		out.flush();

@@ -22,9 +22,16 @@ public class LectureVO {
 	private String dept_name;	//학과명
 	private String dept_code;	//학과코드
 	private String plan_path; 	//계획안파일 경로
+	private String search;
 	
 	
 	
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
 	public String getDept_code() {
 		return dept_code;
 	}
