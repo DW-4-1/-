@@ -78,10 +78,10 @@ input + input {
 						</tbody>
 					</table>
 				</div>
-				<div style="float: right;">
-					<div style="margin: 0 auto; padding: 1em;">
-						<input class="btn btn-secondary" type="button" id="staffInfoUpdateBtn" value="내 정보 수정하기">
-						<input class="btn btn-secondary" type="button" id="passUpdateBtn" value="비밀번호 변경하기">
+				<div style="argin: 0 auto; padding: 0.5em;">
+					<div>
+						<input class="btn btn-primary" type="button" id="staffInfoUpdateBtn" value="내 정보 수정">
+						<input class="btn btn-danger" type="button" id="passUpdateBtn" value="비밀번호 변경">
 					</div>
 				</div>
 			</div>

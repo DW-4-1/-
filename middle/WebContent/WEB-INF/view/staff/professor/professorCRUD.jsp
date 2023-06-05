@@ -114,6 +114,7 @@
 							<option name="state" value="all">전체보기</option>
 							<option name="state" value="재직">재직</option>
 							<option name="state" value="퇴직">퇴직</option>
+							<option name="state" value="휴직">휴직</option>
 						</select>
 					</div>
 				</div>

@@ -25,24 +25,15 @@ public class ProfessorCRUDAction implements IAction{
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		IStaffService service = StaffServiceImpl.getInstance();
-		List<StaffVO> staVoList = service.getAllProfessorList();
-		
-		req.setAttribute("staVoList", staVoList);
 		
 		// 페이징 처리
 		Map<String, Integer> pagingConfigMap = null;
 		PaginationUtil pagination = new PaginationUtil();
 		String pageParam = req.getParameter("page");	//사용자가 선택한 페이지번호
 		//추가
-		String search = "";
-		if(req.getParameter("search") == null) {
-			search = "%%";
-		}else {
-			search = "%" + req.getParameter("search") + "%";
-		}
 		int page = (pageParam == null ? 1 : Integer.parseInt(pageParam));
 		
-		int totalCount = service.selectProfessorCount(search);
+		int totalCount = service.selectProfessorCount();
 		
 		pagination.setConfig(page, 10, 10, totalCount);
 		pagingConfigMap = pagination.getConfig();
@@ -52,7 +43,8 @@ public class ProfessorCRUDAction implements IAction{
 		paramMap.put("start", pagingConfigMap.get("start"));
 		paramMap.put("end", pagingConfigMap.get("end"));
 		//추가
-		paramMap.put("search", search);
+		List<StaffVO> staVoList = service.getAllProfessorList(paramMap);
+		req.setAttribute("staVoList", staVoList);
 		req.setAttribute("pagingConfigMap", pagination);
 		
 		req.setAttribute("titleName", "교직원 관리");

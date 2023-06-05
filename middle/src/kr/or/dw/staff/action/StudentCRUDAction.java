@@ -27,24 +27,17 @@ public class StudentCRUDAction implements IAction{
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		IStudentService service = StudentServiceImpl.getInstance();
 		
-		List<StudentVO> stuVoList = service.getAllStudentInfo();
 		
-		req.setAttribute("stuVoList", stuVoList);
 		
 		// 페이징 처리
 		Map<String, Integer> pagingConfigMap = null;
 		PaginationUtil pagination = new PaginationUtil();
 		String pageParam = req.getParameter("page");	//사용자가 선택한 페이지번호
 		//추가
-		String search = "";
-		if(req.getParameter("search") == null) {
-			search = "%%";
-		}else {
-			search = "%" + req.getParameter("search") + "%";
-		}
+		
 		int page = (pageParam == null ? 1 : Integer.parseInt(pageParam));
 		
-		int totalCount = service.selectStuCount(search);
+		int totalCount = service.selectStuCount();
 		
 		pagination.setConfig(page, 10, 10, totalCount);
 		pagingConfigMap = pagination.getConfig();
@@ -53,10 +46,13 @@ public class StudentCRUDAction implements IAction{
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("start", pagingConfigMap.get("start"));
 		paramMap.put("end", pagingConfigMap.get("end"));
+		
+		List<StudentVO> stuVoList = service.getAllStudentInfo(paramMap);
 		//추가
-		paramMap.put("search", search);
 		req.setAttribute("pagingConfigMap", pagination);
-
+		req.setAttribute("stuVoList", stuVoList);
+		
+		
 		req.setAttribute("titleName", "학생 관리");
 		return "/staff/student/studentCRUD.jsp";
 	}

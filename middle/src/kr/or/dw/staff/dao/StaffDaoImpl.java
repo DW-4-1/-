@@ -2,6 +2,7 @@ package kr.or.dw.staff.dao;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
@@ -62,12 +63,12 @@ private static StaffDaoImpl dao;
 	}
 
 	@Override
-	public List<StaffVO> getAllProfessorList() {
+	public List<StaffVO> getAllProfessorList(Map<String, Object> paramMap) {
 		
 		List<StaffVO> staVoList = null;
 		
 		try {
-			staVoList = smc.queryForList("staff.getAllProfessorList");
+			staVoList = smc.queryForList("staff.getAllProfessorList", paramMap);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -141,11 +142,11 @@ private static StaffDaoImpl dao;
 	}
 
 	@Override
-	public int selectProfessorCount(String search) {
+	public int selectProfessorCount() {
 		int totalCount = 0;
 		
 		try {
-			totalCount = (int) smc.queryForObject("staff.selectProfessorCount", search);
+			totalCount = (int) smc.queryForObject("staff.selectProfessorCount");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

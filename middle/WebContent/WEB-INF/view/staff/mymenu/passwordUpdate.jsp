@@ -15,14 +15,13 @@
 	*, ::after, ::before {
     	box-sizing: border-box;
 	}
-	.center-input {
-        display: flex;
-        justify-content: right;
-        margin-right: 4.5em;
-    }
     input + input {
 		margin-left: 0.3em;
 	}
+	.btn-container {
+        display: flex;
+        justify-content: center;
+    }
 </style>
 <body>
 
@@ -43,9 +42,11 @@
 					<label for="floatingPassword">비밀번호 확인</label>
 				</div>
 				<br>
-				<div class="center-input" style="padding-bottom: 5em;">
-				<input class="w-10 btn btn-secondary" type="submit" id="saveBtn" value="저장"> 
-				<input class="w-10 btn btn-secondary" type="submit" id="resetBtn" value="취소">
+				<div class="btn-container" style="padding-bottom: 5em;">
+					<div style="margin: 0 auto;">
+						<input class="w-10 btn btn-primary" type="submit" id="saveBtn" value="저장" style="width: 5em;"> 
+						<input class="w-10 btn btn-danger" type="button" id="resetBtn" value="취소" style="width: 5em;">
+					</div>
 				</div>
 			</form>
 		</main>

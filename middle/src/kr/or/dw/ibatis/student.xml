@@ -10,11 +10,21 @@
 		WHERE stu_id = #stu_id#
 	</select>
 	
-	<select id="studentAllInfo" resultClass="stuVO">
-		SELECT s.*, d.dept_name
-		  FROM students s, dept d
-		 WHERE s.dept_code = d.dept_code
-		   AND auth_cd = 'S'
+	<select id="studentAllInfo" resultClass="stuVO" parameterClass="Map">
+		SELECT *
+		  FROM (
+				SELECT *
+				FROM (
+					  SELECT rownum rnum, v1.*
+					  FROM (
+							SELECT s.*, d.dept_name
+							FROM students s, dept d
+							WHERE s.dept_code = d.dept_code
+					  		) v1
+					  WHERE rownum <![CDATA[ <= ]]> #end#
+					  ) v2
+				WHERE v2.rnum <![CDATA[ >= ]]> #start#
+			) b
 	</select>
 	
 	<select id="studentInfo" parameterClass="String" resultClass="stuVO">
@@ -101,7 +111,7 @@
 		WHERE stu_id = #stu_id#
 	</update>
 	
-	<select id="selectStuCount" resultClass="int" parameterClass="String">
+	<select id="selectStuCount" resultClass="int">
 		SELECT COUNT(*) cnt
 		FROM students
 	</select>

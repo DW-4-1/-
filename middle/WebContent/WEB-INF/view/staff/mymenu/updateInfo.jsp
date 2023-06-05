@@ -134,8 +134,8 @@
 					</div>
 					<div style="float: right;">
 						<div style="margin: 0 auto; padding: 1em;">
-							<input class="btn btn-secondary" type="button" id="updateBtn" value="저장하기">
-							<input class="btn btn-secondary" type="button" id="infoBtn" value="내 정보">
+							<input class="btn btn-primary" type="button" id="updateBtn" value="저장하기">
+							<input class="btn btn-danger" type="button" id="infoBtn" value="돌아가기">
 						</div>
 					</div>
 				</div>
