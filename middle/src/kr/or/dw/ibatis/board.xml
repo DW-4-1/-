@@ -110,6 +110,7 @@
 				WHERE v2.rnum <![CDATA[ >= ]]> #start#
 			) b, students s
 		WHERE b.stu_id = s.stu_id
+		ORDER BY bd_no DESC
 	</select>
 	
 	<select id="selectStuBoardCount" resultClass="int" parameterClass="String">

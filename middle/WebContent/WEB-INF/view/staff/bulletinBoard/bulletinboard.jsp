@@ -96,15 +96,15 @@
 						<table class="pull-right">
 							<tr>
 								<td>
-									<select class="form-select " name="searchField">
-										<option value="0">선택</option>
-										<option value="bbsTitle">제목</option>
-										<option value="userID">작성자</option>
-									</select>
+<!-- 									<select class="form-select " name="searchField"> -->
+<!-- 										<option value="0">선택</option> -->
+<!-- 										<option value="bbsTitle">제목</option> -->
+<!-- 										<option value="userID">작성자</option> -->
+<!-- 									</select> -->
 								</td>
 								<td>
 									&nbsp;
-									<input  id="search" name="search" class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search">
+									<input  id="search" name="search" class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search Title">
 								</td>
 								<td>
 									&nbsp;

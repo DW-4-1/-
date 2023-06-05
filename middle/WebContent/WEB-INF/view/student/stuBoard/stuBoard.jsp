@@ -6,14 +6,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
+
 <script>
 // 이벤트 추가
 	$(function(){
-		
 		$('#searchBtn').on('click', function(){
 			let search = $('#search').val();
 			location.href="<%=request.getContextPath()%>/board/stuBoardList.do?search=" + search;
-		})
+		});
+		
 	})
 </script>
 
@@ -98,15 +99,14 @@
 							<table class="pull-right">
 								<tr>
 									<td>
-										<select class="form-select " name="searchField">
-											<option value="0">선택</option>
-											<option value="bbsTitle">제목</option>
-											<option value="userID">작성자</option>
-										</select>
+<!-- 										<select class="form-select " name="searchField" id="searchField"> -->
+<!-- 											<option value="bd_title">제목</option> -->
+<!-- 											<option value="bd_content">내용</option> -->
+<!-- 										</select> -->
 									</td>
 									<td>
 										&nbsp;
-										<input  id="search" name="search" class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search">
+										<input  id="search" name="search" class="form-control" style="width: 15em; float: right; text-align: center; margin: 0 auto;" type="text" placeholder="Search Title">
 									</td>
 									<td>
 										&nbsp;
