@@ -27,6 +27,13 @@
 					}
 
 		});
+		
+		$(document).on('click', '#lecDeleteBtn', function(){
+			let lec_code = $(this).prop('name');
+			if(confirm("강의를 삭제하시겠습니까?")){
+				location.href="<%=request.getContextPath()%>/lecture/lectureDelete.do?lecCode=" + lec_code;
+			};
+		});
 	})
 </script>
 <title>강의관리</title>
@@ -160,7 +167,7 @@
 												<input type="button" value="수정" onclick="location.href='<%=request.getContextPath()%>/lecture/lectureInsertForm.do?lecCode=<%=vo.getLec_code()%>'">
 											</td>
 											<td>
-												<input type="button" value="삭제" onclick="location.href='<%=request.getContextPath()%>/lecture/lectureDelete.do?lecCode=<%=vo.getLec_code()%>'">
+												<input type="button" value="삭제" id="lecDeleteBtn" name="<%=vo.getLec_code()%>">
 											</td>
 										</tr>		
 									</tbody>
