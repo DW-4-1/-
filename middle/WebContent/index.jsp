@@ -42,7 +42,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="login-page box01">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="../../index2.html"><b>굴다리</b>&nbsp;종합정보시스템</a>
+			<a href="../../index2.html"><b>DW</b>&nbsp;종합정보시스템</a>
 		</div>
 
 		<div class="card">
@@ -73,12 +73,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 				</form>
 				<div class="social-auth-links text-center mb-3">
 					<a href="<%=request.getContextPath()%>/student/findStudentPassword.do" id="findPassword" class="btn btn-block btn-danger"> 
-						<i class="fab fa-google-plus mr-2"></i> 비밀번호 찾기 및 변경
+						<!-- <i class="fa-solid fa-link"></i> --> 비밀번호 찾기 및 변경
 					</a>
 				</div>
 				<div class="social-auth-links text-center mb-3">
 					<a href="/staff/staffLoginForm.do" class="btn btn-outline-primary btn-block"> 
-						<i class="fab fa-google-plus mr-2"></i> 교직원 및 관리자 로그인으로 이동
+						<!-- <i class="fab fa-google-plus mr-2"></i> --> 교직원 및 관리자 로그인으로 이동
 					</a>
 				</div>
 			</div>

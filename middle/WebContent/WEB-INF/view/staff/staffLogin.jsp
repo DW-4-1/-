@@ -73,12 +73,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 				</form>
 				<div class="social-auth-links text-center mb-3">
 					<a href="<%=request.getContextPath()%>/staff/findStaffPassword.do" id="findPassword" class="btn btn-block btn-danger"> 
-						<i class="fab fa-google-plus mr-2"></i> 비밀번호 찾기 및 변경
+						<!-- <i class="fab fa-google-plus mr-2"></i> --> 비밀번호 찾기 및 변경
 					</a>
 				</div>
 				<div class="social-auth-links text-center mb-3">
 					<a href="/" class="btn btn-outline-primary btn-block"> 
-						<i class="fab fa-google-plus mr-2"></i> 학생 로그인 페이지로 이동
+						<!-- <i class="fab fa-google-plus mr-2"></i> --> 학생 로그인 페이지로 이동
 					</a>
 				</div>
 			</div>
