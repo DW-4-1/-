@@ -166,5 +166,18 @@ private static StaffDaoImpl dao;
 		return result;
 	}
 
+	@Override
+	public int staffInfoUpdate(StaffVO staffVo) {
+		int result = 0;
+		
+		try {
+			result = smc.update("staff.staffInfoUpdate", staffVo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
 
 }

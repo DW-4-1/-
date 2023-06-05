@@ -82,11 +82,11 @@
 								</tr>
 									<tr>
 									<th>우편번호</th>
-									<td><input id="stu_zipcode" name="staff_zipcode" type="text" placeholder="우편번호" readonly onclick="findAddr()" value="<%=staff.getStaff_zipcode() %>"></td>
+									<td><input id="staff_zipcode" name="staff_zipcode" type="text" placeholder="우편번호" readonly onclick="findAddr()" value="<%=staff.getStaff_zipcode() %>"></td>
 								</tr>
 								<tr>
 									<th>주소</th>
-									<td> <input id="stu_addr" name="staff_addr" type="text" placeholder="주소" value="<%= staff.getStaff_addr() %>" readonly></td>
+									<td> <input id="staff_addr" name="staff_addr" type="text" placeholder="주소" value="<%= staff.getStaff_addr() %>" readonly></td>
 								</tr>
 								<tr>
 									<th>상세주소</th>

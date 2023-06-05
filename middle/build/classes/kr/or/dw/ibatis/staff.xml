@@ -100,4 +100,12 @@
 		UPDATE staffs SET staff_pwd = #staff_pwd#
 		 WHERE staff_id = #staff_id#
 	</update>
+	
+	<update id="staffInfoUpdate" parameterClass="staffVO">
+		UPDATE staffs SET staff_zipcode = #staff_zipcode#
+						 ,staff_addr = #staff_addr#
+						 ,staff_detailaddr = #staff_detailaddr#
+						 ,staff_tel = #staff_tel#
+		 WHERE staff_id = #staff_id#
+	</update>
 </sqlMap>
