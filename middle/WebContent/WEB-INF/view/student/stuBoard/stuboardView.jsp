@@ -1,3 +1,4 @@
+<%@page import="kr.or.dw.vo.ReplyVO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.List"%>
@@ -19,6 +20,14 @@
 				location.href = "<%=request.getContextPath()%>/board/deleteStuContent.do?bd_no=<%=boardVo.getBd_no()%>";
 				};
 		});
+		$('#re_contentView').show();
+		$('#re_contentUpdateForm').on('click', function(){
+			$('#re_contentUpdate').show();
+			$('#re_contentView').hide();
+			$('#re_contentUpdateForm').hide();
+			$('#re_contentSave').show();
+			$('#re_contentReset').show();
+		});
 	});
 </script>
 	
@@ -37,6 +46,29 @@
 			</div>
 			<br>
 			<hr>
+				<% 
+				ReplyVO reVo = null;
+				if(request.getAttribute("reVo") != null){
+				    reVo = (ReplyVO)request.getAttribute("reVo");
+				}
+					if(reVo != null){ 
+				%>
+						<!-- 관리자 답변 -->
+				<div class="card mb-4 rounded-3 shadow-sm">
+					<div class="py-3">
+						<p class="my-0 fw-normal" style="display:inline; margin-left:-18em;">관리자 답변입니다.</p>
+			            <span class="mailbox-read-time float-right" style="float: right; vertical-align: middle;">&emsp;&emsp;작성일 : <%=reVo.getRe_wdt().split(" ")[0]%>&emsp;</span>
+						<hr>
+					</div>
+					<div class="card-body" style="margin-top:-1em">
+			            <!-- content -->
+						<div class="mailbox-read-message" style="text-align:left; vertical-align:top">
+							<p id="re_contentView" style="display:none;"><%=reVo.getRe_content()%></p>
+							<input type="text" id="re_contentUpdate" style="display:none;" value="<%=reVo.getRe_content()%>">
+						</div>
+					</div>
+				</div>
+				<%} %>
 			<div style="text-align: center">
 				<%
 					if (((String)session.getAttribute("stu_id")).equals(boardVo.getStu_id())) {
