@@ -54,6 +54,7 @@ public class PasswordUpdateResultAction implements IAction{
 		req.setAttribute("passSuccess", success);
 		req.setAttribute("stuPass", stu_passCge);
 		
+		req.setAttribute("titleName", "비밀번호 변경 결과");
 		
 		return "/student/mymenu/passwordUpdateResult.jsp";
 	}

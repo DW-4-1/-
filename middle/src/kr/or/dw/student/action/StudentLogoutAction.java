@@ -23,6 +23,8 @@ public class StudentLogoutAction implements IAction{
 		HttpSession session = req.getSession();
 		session.invalidate();
 		
+		req.setAttribute("titleName", "계정");
+		
 		return "/";
 	}
 

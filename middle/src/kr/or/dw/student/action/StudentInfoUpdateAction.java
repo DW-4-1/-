@@ -36,7 +36,11 @@ public class StudentInfoUpdateAction implements IAction{
 		}
 		IStudentService service = StudentServiceImpl.getInstance();
 		service.StudentInfoUpdate(stuVo);
+		
+		req.setAttribute("titleName", "개인정보");
+		
 		return "/student/studentInfo.do";
+		
 	}
 
 }
