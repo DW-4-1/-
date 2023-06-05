@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>교수정보 수정 페이지 입니다.</title>
+<title>교직원정보 수정 페이지 입니다.</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
 <%
 	StaffVO staVo = (StaffVO)request.getAttribute("staVo");

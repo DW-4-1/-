@@ -5,7 +5,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
     
-<title>교수관리 페이지입니다.</title>
+<title>교직원관리 페이지입니다.</title>
 <%
 	List<StaffVO> staVoList = (List)request.getAttribute("staVoList");
 %>
@@ -93,11 +93,11 @@
 		<div class="card-body">
 			<div class="card">
 				<div class="card-header">
-					<h3 class="card-title">교수 관리</h3>
+					<h3 class="card-title">교직원 관리</h3>
 					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
-						<input type="button" id="professorInsertFormBtn" value="교수추가">
-						<input type="button" id="professorDeleteFormBtn" value="교수삭제">
-						<input type="button" id="professorUpdateFormBtn" value="수정하기">
+						<input type="button" id="professorInsertFormBtn" value="추가">
+						<input type="button" id="professorDeleteFormBtn" value="삭제">
+						<input type="button" id="professorUpdateFormBtn" value="수정">
 						<input type="button" id="cancleBtn" value="뒤로가기" style="display:none;">
 						<input type="button" id="deleteBtn" value="삭제" style="display:none;">
 						<input type="button" id="resetBtn" value="취소" style="display:none;">

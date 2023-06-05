@@ -1,4 +1,4 @@
-package kr.or.dw.member.action;
+package kr.or.dw.staff.action;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.dw.web.IAction;
 
-public class MemberFormAction implements IAction{
+public class Email_StaffPasswordUpdateAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
@@ -17,8 +17,12 @@ public class MemberFormAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String staff_id = req.getParameter("staff_id");
+		req.setAttribute("staff_id", staff_id);
 		
-		return "/admin/member/memberForm.jsp";
+		req.setAttribute("titleName", "비밀번호 변경");
+		
+		return "/staff/emailPasswordUpdate.jsp";
 	}
 
 }

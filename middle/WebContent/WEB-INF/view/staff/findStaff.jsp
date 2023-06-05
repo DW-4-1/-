@@ -69,10 +69,10 @@
 		});
 		
 		$(document).on('click', '#verCodeBtn', function(e) {
+			staff_id = $('#staff_id').val();
 			if($('#ver_code').val() == ver_code){
 			alert("인증코드가 일치.");
-				
-<%-- 			location.href="<%=request.getContextPath()%>/staff/staffPasswordUpdate.do"; --%>
+			location.href="<%=request.getContextPath()%>/staff/emailstaffPasswordUpdate.do" + staff_id;
 			}else{
 				alert("인증코드가 잘못입력되었습니다.");
 			}

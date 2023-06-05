@@ -10,10 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.dw.member.action.MemberListAction;
-import kr.or.dw.member.service.IMemberService;
-import kr.or.dw.member.service.MemberServiceImpl;
-import kr.or.dw.vo.MemberVO;
 import kr.or.dw.web.IAction;
 import kr.or.dw.web.URIActionMapper;
 

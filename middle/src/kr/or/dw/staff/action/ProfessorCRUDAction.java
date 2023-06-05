@@ -55,7 +55,7 @@ public class ProfessorCRUDAction implements IAction{
 		paramMap.put("search", search);
 		req.setAttribute("pagingConfigMap", pagination);
 		
-		req.setAttribute("titleName", "교수 관리");
+		req.setAttribute("titleName", "교직원 관리");
 		return "/staff/professor/professorCRUD.jsp";
 	}
 
