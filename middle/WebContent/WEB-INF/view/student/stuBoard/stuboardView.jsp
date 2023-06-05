@@ -56,7 +56,7 @@
 						<!-- 관리자 답변 -->
 				<div class="card mb-4 rounded-3 shadow-sm">
 					<div class="py-3">
-						<p class="my-0 fw-normal" style="display:inline; margin-left:-18em;">관리자 답변입니다.</p>
+						<p class="my-0 fw-normal" style="display:inline; margin-left:20px;">관리자 답변입니다.</p>
 			            <span class="mailbox-read-time float-right" style="float: right; vertical-align: middle;">&emsp;&emsp;작성일 : <%=reVo.getRe_wdt().split(" ")[0]%>&emsp;</span>
 						<hr>
 					</div>

@@ -100,16 +100,16 @@
 					<p><%=boardVo.getBd_content()%></p>
 				</div>
 				
-				<div style="text-align: center">
+				<div>
 				<% 
 					if(reVo != null){ 
 				%>
-						<!-- 관리자 답변 -->
+				<!-- 관리자 답변 -->
 				<br>
 				<hr>
 				<div class="card mb-4 rounded-3 shadow-sm">
 					<div class="py-3">
-						<p class="my-0 fw-normal" style="display:inline; margin-left:-18em;">관리자 답변입니다.</p>
+						<p class="my-0 fw-normal" style="display:inline; margin-left:20px;">관리자 답변입니다.</p>
 			            <span class="mailbox-read-time float-right" style="float: right; vertical-align: middle;">&emsp;&emsp;작성일 : <%=reVo.getRe_wdt().split(" ")[0]%>&emsp;</span>
 						<hr>
 					</div>
@@ -122,14 +122,13 @@
 					</div>
 				</div>
 				<hr>
-				
 						<button id="re_contentSave" style="display:none; float: right; width: 4em;" class="btn btn-danger">
 		            		저장
 						</button>
- 						<button id="re_contentUpdateForm" style=" float: right; width: 4em; margin-right:0.5em;" class="btn btn-primary" <%--onclick="location.href='<%=request.getContextPath()%>/board/stuContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>' --%>"> 
+ 						<button id="re_contentUpdateForm" style=" float: right; width: 4em; margin-right:0.5em;" class="btn btn-primary" <%--onclick="location.href='<%=request.getContextPath()%>/board/stuContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>' --%>> 
 							수정
 						</button>
-						<button id="re_contentReset" style="display:none; float: right; width: 4em; margin-right:0.5em;" class="btn btn-primary" <%-- onclick="location.href='<%=request.getContextPath()%>/board/stuContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>'--%>">
+						<button id="re_contentReset" style="display:none; float: right; width: 4em; margin-right:0.5em;" class="btn btn-primary" <%-- onclick="location.href='<%=request.getContextPath()%>/board/stuContentInsertForm.do?bd_no=<%=boardVo.getBd_no()%>'--%>>
 							취소
 						</button>
 				<%
