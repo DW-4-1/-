@@ -14,7 +14,7 @@ public class Email_StaffPasswordUpdateResultAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
-		return true;
+		return false;
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class Email_StaffPasswordUpdateResultAction implements IAction{
 		
 		req.setAttribute("titleName", "비밀번호 변경 결과");
 		
-		return null;
+		return "/staff/emailPassUpdateResult.jsp";
 	}
 
 }
