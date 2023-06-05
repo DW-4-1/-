@@ -28,6 +28,13 @@
 			location.href="<%=request.getContextPath()%>/lecture/lectureRegister.do?lec_code=" + lec_code;
 			
 		})
+		$(document).on('click', '#searchBtn', function(){
+			let search = $('#search').val();
+			location.href="<%=request.getContextPath()%>/lecture/lectureRegisterForm.do?search=" + search;
+			
+		})
+		
+		
 	})
 </script>
 <section class="content">
@@ -36,6 +43,9 @@
 			<div class="card">
 				<div class="card-header">
 					<h3 class="card-title">수강 신청</h3>
+						<input  id="search" name="search" type="text" placeholder="강의코드 검색" style="float:left;">
+						
+						<button type="button" id="searchBtn" style="float:left;">검색</button>
 					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
 						<select id="div" name="div" style="margin-left: auto;">
 							<option name="div" value="all">전체보기</option>
