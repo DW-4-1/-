@@ -1,3 +1,4 @@
+<%@page import="kr.or.dw.util.PaginationUtil"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.or.dw.vo.StudentVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -153,6 +154,12 @@
 										<%	 }	 %>
 									</table>
 									<div style="float: right;"> 
+										<%
+											PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
+								 		%>
+										<%= 
+											pagination.getPaginationHtml(request,new String[] {"search"}) 
+										%>
 										<div id="Btn" style="display:none; text-align: center">
 											<input type="button" class="btn btn-primary col-md-2" style="width:4em;" id="deleteBtn" value="삭제">
 											<input type="button" class="btn btn-primary col-md-2" style="width:4em;" id="resetBtn" value="취소">
