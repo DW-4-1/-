@@ -29,7 +29,7 @@
 <div class="col-md-7 col-lg-8" style="margin: 0 auto;"><br>
 	<h2 class="mb-3" style="text-align: center;">학생 수정</h2>
 	<form class="needs-validation" id="studentUpdateForm" method="post" action="<%=request.getContextPath()%>/staff/studentUpdate.do">
-		<div class="row g-3" >
+	  <div class="row g-3" >
 		<div class="col-12">
           <label class="studentUpdateForm">ID</label>
           <div class="input-group has-validation">

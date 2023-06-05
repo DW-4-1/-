@@ -9,7 +9,7 @@
 			location.href="<%=request.getContextPath()%>/staff/staffInfoUpdateForm.do";
 		});
 		$('#passUpdateBtn').on('click', function(){
-			location.href="<%=request.getContextPath()%>/staff/staffPasswordUpdate.do";
+			location.href="<%=request.getContextPath()%>/staff/staffPasswordUpdateForm.do";
 		});
 	})
 </script>

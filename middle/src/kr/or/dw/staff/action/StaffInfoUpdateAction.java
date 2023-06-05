@@ -18,7 +18,7 @@ public class StaffInfoUpdateAction implements IAction{
 
 	@Override
 	public boolean isRedirect() {
-		return false;
+		return true;
 	}
 
 	@Override
