@@ -19,6 +19,8 @@ public class FindPwdFormAction implements IAction{
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
+		req.setAttribute("titleName", "비밀번호 찾기");
+		
 		return "/student/findStudent.jsp";
 	}
 

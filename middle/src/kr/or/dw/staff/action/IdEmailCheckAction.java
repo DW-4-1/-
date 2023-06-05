@@ -49,7 +49,7 @@ public class IdEmailCheckAction implements IAction{
 		PrintWriter out = res.getWriter();
 		out.println(ver_code);
 		out.flush();
-		
+		req.setAttribute("titleName", "계정");
 		return null;
 	}
 

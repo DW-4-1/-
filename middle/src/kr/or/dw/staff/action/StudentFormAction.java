@@ -26,6 +26,7 @@ public class StudentFormAction implements IAction{
 		List<StudentVO> staVo = service.getDept();
 		
 		req.setAttribute("dept", staVo);
+		req.setAttribute("titleName", "학생 관리");
 		
 		return "/staff/student/studentForm.jsp";
 	}

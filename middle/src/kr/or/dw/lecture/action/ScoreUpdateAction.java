@@ -36,7 +36,7 @@ public class ScoreUpdateAction implements IAction{
 		int result = 0;
 		result = service.updateScore(lecVo);
 		
-		
+		req.setAttribute("titleName", "수강생 관리");
 		return "/lecture/lectureStudentScoreInsert.do?lec_code=" + lec_code;
 	}
 

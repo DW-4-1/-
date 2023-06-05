@@ -41,6 +41,8 @@ public class Email_StudentPasswordUpdateResultAction implements IAction{
 		req.setAttribute("stu_pwd", stu_passCge);
 		req.setAttribute("stu_id", stu_id);
 		
+		req.setAttribute("titleName", "비밀번호 변경 결과");
+		
 		
 		return "/student/emailPassUpdateResult.jsp";
 	}

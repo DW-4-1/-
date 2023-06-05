@@ -34,6 +34,8 @@ List<LectureVO> lecList = null;
 		
 		req.setAttribute("lecList", lecList);
 		
+		req.setAttribute("titleName", "수강생 관리");
+		
 		return "/staff/score/lectureScoreList.jsp";
 	}
 

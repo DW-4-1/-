@@ -100,4 +100,9 @@
 							  ,stu_state = #stu_state#
 		WHERE stu_id = #stu_id#
 	</update>
+	
+	<select id="selectStuCount" resultClass="int" parameterClass="String">
+		SELECT COUNT(*) cnt
+		FROM students
+	</select>
 </sqlMap>

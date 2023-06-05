@@ -31,7 +31,7 @@ public class LectureStudentListAction implements IAction{
 		stuList = service.getLectureStudentListForm(lec_code);
 		
 		req.setAttribute("stuList", stuList);
-		
+		req.setAttribute("titleName", "수강생 관리");
 		return "/staff/score/lectureStudentList.jsp";
 	}
 

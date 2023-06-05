@@ -50,6 +50,8 @@ public class IdEmailCheckAction implements IAction{
 		out.println(ver_code);
 		out.flush();
 		
+		req.setAttribute("titleName", "이메일 확인");
+		
 		return null;
 	}
 

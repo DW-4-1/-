@@ -22,6 +22,8 @@ public class LectureInsertResultAction implements IAction{
 		
 		req.setAttribute("result", result);
 		
+		req.setAttribute("titleName", "강의 관리");
+		
 		return "/staff/lecture/lectureInsertResult.jsp";
 	}
 

@@ -74,4 +74,9 @@ public class StudentServiceImpl implements IStudentService{
 		return dao.studentUpdate(stuVo);
 	}
 
+	@Override
+	public int selectStuCount(String search) {
+		return dao.selectStuCount(search);
+	}
+
 }

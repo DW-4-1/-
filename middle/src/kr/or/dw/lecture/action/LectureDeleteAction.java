@@ -26,7 +26,7 @@ public class LectureDeleteAction implements IAction{
 		
 		int result = 0;
 		result = service.deleteLecture(lec_code);
-		
+		req.setAttribute("titleName", "강의 관리");
 		return "/lecture/lectureManaging.do";
 	}
 

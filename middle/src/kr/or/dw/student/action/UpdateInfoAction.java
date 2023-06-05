@@ -30,6 +30,8 @@ public class UpdateInfoAction implements IAction{
 		stuVo = service.stdentInfo(stu_id);
 		req.setAttribute("stuVo", stuVo);
 		
+		req.setAttribute("titleName", "내 정보");
+		
 		return "/student/mymenu/updateInfo.jsp";
 	}
 

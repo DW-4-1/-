@@ -38,6 +38,7 @@ public class StudentDeleteAction implements IAction{
 	            service.studentDelete(id);
 	        }
 	    }	    	
+		req.setAttribute("titleName", "학생 관리");
 		return null;
 	}
 	

@@ -20,7 +20,8 @@ public class Email_StudentPasswordUpdateAction implements IAction{
 		String stu_id = req.getParameter("stu_id");
 		req.setAttribute("stu_id", stu_id);
 		
-				
+		req.setAttribute("titleName", "비밀번호 변경");
+		
 		return "/student/emailPasswordUpdate.jsp";
 	}
 

@@ -25,7 +25,7 @@ public class DeleteBulletinContentAction implements IAction{
 		int result = 0;
 		result = service.deleteBulletinContent(bd_no);
 		
-		
+		req.setAttribute("titleName", "게시판");
 		
 		
 		return "/board/bulletinBoardList.do";

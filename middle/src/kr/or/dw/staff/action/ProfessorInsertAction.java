@@ -42,7 +42,7 @@ public class ProfessorInsertAction implements IAction{
 		
 		req.setAttribute("staVoList", vo);
 		
-		
+		req.setAttribute("titleName", "교수 관리");
 		return "/staff/professorCRUD.do";
 	}
 

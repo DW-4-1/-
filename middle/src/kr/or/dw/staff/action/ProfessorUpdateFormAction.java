@@ -31,7 +31,7 @@ public class ProfessorUpdateFormAction implements IAction{
 		req.setAttribute("staVo", staVo);
 		req.setAttribute("dept", vo);
 		
-		
+		req.setAttribute("titleName", "교수 관리");
 		return "/staff/professor/professorUpdateForm.jsp";
 	}
 

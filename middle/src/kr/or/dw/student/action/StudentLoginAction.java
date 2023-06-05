@@ -52,6 +52,8 @@ public class StudentLoginAction implements IAction{
 		}
 		
 		req.setAttribute("result", result);
+		
+		req.setAttribute("titleName", "로그인");
 
 		return "/student/studentLoginResult.jsp";
 	}

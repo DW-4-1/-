@@ -26,6 +26,8 @@ public class DeleteAssignFormAction implements IAction{
 		
 		int result = 0;
 		result = service.deleteAssign(assign_no);
+		
+		req.setAttribute("titleName", "과제 조회");
 
 		return "/assign/lectureAssignList.do?lec_code=" + lec_code;
 	}

@@ -59,6 +59,9 @@ public class PasswordUpdateAction implements IAction{
 		if(session.getAttribute("stu_id") == null) {
 			return "/";
 		}
+		
+		req.setAttribute("titleName", "비밀번호 변경");
+		
 		return "/student/studentInfo.do";
 	}
 

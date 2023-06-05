@@ -30,6 +30,7 @@ public class GradeViewAction implements IAction{
 		List<LectureVO> lecList = service.getAllLecture(stu_id);
 		
 		req.setAttribute("lecList", lecList);
+		req.setAttribute("titleName", "성적 조회");
 		
 		return "/student/lecture/gradeView.jsp";
 	}

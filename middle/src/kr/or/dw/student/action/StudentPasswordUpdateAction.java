@@ -32,6 +32,8 @@ public class StudentPasswordUpdateAction implements IAction{
 		
 		req.setAttribute("stu_id", stuVo);
 		
+		req.setAttribute("titleName", "내 정보");
+		
 		
 		return "/student/mymenu/passwordUpdate.jsp";
 	}

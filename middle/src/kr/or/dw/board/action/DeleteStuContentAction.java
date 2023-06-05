@@ -25,7 +25,7 @@ public class DeleteStuContentAction implements IAction{
 		int result = 0;
 		result = service.deleteStuContent(bd_no);
 		
-		
+		req.setAttribute("titleName", "게시판");
 		
 		
 		return "/board/stuBoardList.do";

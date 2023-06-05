@@ -61,6 +61,9 @@ public class StuBoardListAction implements IAction{
 		req.setAttribute("pagingConfigMap", pagination);
 		HttpSession session = req.getSession();
 		String auth_cd = (String) session.getAttribute("auth_cd");
+		
+		req.setAttribute("titleName", "게시판");
+		
 		if(auth_cd.equals("S")) {
 			return "/student/stuBoard/stuBoard.jsp";
 		}else {

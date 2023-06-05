@@ -26,7 +26,7 @@ public class ProfessorFormAction implements IAction{
 		List<StaffVO> staVo = service.getDept();
 		
 		req.setAttribute("dept", staVo);
-		
+		req.setAttribute("titleName", "교수 관리");
 		return "/staff/professor/professorForm.jsp";
 	}
 

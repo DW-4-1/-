@@ -29,6 +29,8 @@ public class InsertBulletinFormAction implements IAction{
 			req.setAttribute("boardVo", boardVo);
 		}
 		
+		req.setAttribute("titleName", "게시판");
+		
 		return "/staff/bulletinBoard/bulletinboardInsert.jsp";
 	}
 

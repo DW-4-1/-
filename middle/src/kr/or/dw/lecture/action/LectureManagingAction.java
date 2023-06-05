@@ -35,6 +35,8 @@ public class LectureManagingAction implements IAction{
 		
 		req.setAttribute("lecList", lecList);
 		
+		req.setAttribute("titleName", "강의 관리");
+		
 		return "/staff/lecture/lectureManaging.jsp";
 	}
 

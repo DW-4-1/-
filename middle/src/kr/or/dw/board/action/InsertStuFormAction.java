@@ -29,6 +29,8 @@ public class InsertStuFormAction implements IAction{
 			req.setAttribute("boardVo", boardVo);
 		}
 		
+		req.setAttribute("titleName", "게시판");
+		
 		return "/student/stuBoard/stuboardInsert.jsp";
 	}
 
