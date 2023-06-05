@@ -143,6 +143,9 @@
         }
       th { color : #002437;} 
       h6 { color : #002437; font-weight : bold;}
+      table{
+        	text-align : center;
+        }
     </style>
 
     
