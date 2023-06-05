@@ -4,12 +4,11 @@
 
 <footer class="main-footer" style="text-align: center;">
 	<div class="float-right d-none d-sm-inline">
-		Anything you want
 	</div>
 	<strong>
-		Copyright &copy; 2014-2021
-		<a href="https://adminlte.io">
-			AdminLTE.io
+		Copyright &copy; 2023
+		<a href="#">
+			DWuniversity
 		</a>.
 	</strong> 
 		All rights reserved.
