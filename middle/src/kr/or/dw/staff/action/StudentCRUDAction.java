@@ -55,7 +55,9 @@ public class StudentCRUDAction implements IAction{
 		paramMap.put("end", pagingConfigMap.get("end"));
 		//추가
 		paramMap.put("search", search);
-		
+		req.setAttribute("pagingConfigMap", pagination);
+
+		req.setAttribute("titleName", "학생 관리");
 		return "/staff/student/studentCRUD.jsp";
 	}
 

@@ -160,7 +160,7 @@ private static StudentDaoImpl dao;
 		int totalCount = 0;
 		
 		try {
-			totalCount = (int) smc.queryForObject("selectStuCount", search);
+			totalCount = (int) smc.queryForObject("student.selectStuCount", search);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
