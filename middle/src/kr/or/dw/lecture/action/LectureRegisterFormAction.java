@@ -77,7 +77,7 @@ public class LectureRegisterFormAction implements IAction{
 		lecList.removeAll(remove);
 	
 		req.setAttribute("lecList", lecList);
-		
+		req.setAttribute("titleName", "강의 관리");
 		return "/student/lecture/lectureRegister.jsp";
 	}
 

@@ -86,12 +86,7 @@ public class LectureInsertAction implements IAction{
 		}
 		
 		
-		
-		
-		
-		
-		
-		
+		req.setAttribute("titleName", "강의 관리");
 		
 		return "/lecture/lectureInsertResult.do?result=" + result;
 	}

@@ -30,6 +30,8 @@ public class LectureInsertFormAction implements IAction{
 		
 		}
 		
+		req.setAttribute("titleName", "강의");
+		
 		return "/staff/lecture/lectureInsert.jsp";
 	}
 

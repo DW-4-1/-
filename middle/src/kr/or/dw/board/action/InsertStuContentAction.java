@@ -55,6 +55,8 @@ public class InsertStuContentAction implements IAction{
 			}
 		}
 		
+		req.setAttribute("titleName", "게시판");
+		
 		return "/board/stuBoardView.do?bd_no=" + bd_no;
 	}
 

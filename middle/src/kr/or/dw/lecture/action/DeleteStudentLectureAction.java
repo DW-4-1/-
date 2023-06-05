@@ -40,6 +40,7 @@ public class DeleteStudentLectureAction implements IAction{
 		}else {
 			view = "/lecture/lectureStudentList.do?lecCode=" + lec_code;
 		}
+		req.setAttribute("titleName", "수강생 관리");
 		return view;
 	}
 

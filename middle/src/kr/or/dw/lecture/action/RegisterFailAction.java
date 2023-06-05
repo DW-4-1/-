@@ -18,7 +18,7 @@ public class RegisterFailAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		
+		req.setAttribute("titleName", "수강생 관리");
 		return "/student/lecture/registerFail.jsp";
 	}
 

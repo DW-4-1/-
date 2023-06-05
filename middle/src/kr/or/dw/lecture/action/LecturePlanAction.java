@@ -65,6 +65,7 @@ public class LecturePlanAction implements IAction{
 		out.println(result);
 		out.flush();
 		
+		req.setAttribute("titleName", "강의 관리");
 		
 		return null;
 	}

@@ -44,7 +44,7 @@ public class LectureRegisterAction implements IAction{
 		int result = 0;
 		result = service.registerLecture(lecVo);
 		
-		
+		req.setAttribute("titleName", "강의 관리");
 		return "/lecture/lectureRegisterForm.do";
 	}
 

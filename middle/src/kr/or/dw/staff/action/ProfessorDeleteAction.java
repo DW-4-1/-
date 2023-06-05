@@ -27,7 +27,7 @@ public class ProfessorDeleteAction implements IAction{
 	            service.professorDelete(id);
 	        }
 	    }	  
-		
+		req.setAttribute("titleName", "교수 관리");
 		return null;
 	}
 

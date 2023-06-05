@@ -100,7 +100,7 @@ public class LecturePlanDownAction implements IAction{
 			res.setContentType("text/html; charset=utf-8");
 			res.getWriter().println("<h3>파일이 존재하지 않습니다.</h3>");
 		}
-		
+		req.setAttribute("titleName", "강의 관리");
 		
 		return null;
 	}
@@ -146,7 +146,6 @@ public class LecturePlanDownAction implements IAction{
 				}
 				encodedFileName = sb.toString();
 			}
-			
 			return encodedFileName;
 			
 		}

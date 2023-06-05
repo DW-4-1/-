@@ -55,6 +55,8 @@ public class InsertBulletinContentAction implements IAction{
 			}
 		}
 		
+		req.setAttribute("titleName", "게시판");
+		
 		return "/board/bulletinBoardView.do?bd_no=" + bd_no;
 	}
 

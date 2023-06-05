@@ -25,7 +25,7 @@ public class ProfessorCRUDAction implements IAction{
 		List<StaffVO> staVoList = service.getAllProfessorList();
 		
 		req.setAttribute("staVoList", staVoList);
-		
+		req.setAttribute("titleName", "교수 관리");
 		return "/staff/professor/professorCRUD.jsp";
 	}
 

@@ -41,6 +41,7 @@ public class StudentInsertAction implements IAction{
 		
 		
 		req.setAttribute("stuVoList", vo);
+		req.setAttribute("titleName", "학생 관리");
 		return "/staff/studentCRUD.do";
 	}
 

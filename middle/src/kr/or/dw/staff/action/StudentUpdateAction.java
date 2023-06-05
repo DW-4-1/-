@@ -36,6 +36,7 @@ public class StudentUpdateAction implements IAction{
 			e.printStackTrace();
 		}
 		service.studentUpdate(stuVo);
+		req.setAttribute("titleName", "학생 관리");
 		
 		return "/staff/studentCRUD.do";
 	}

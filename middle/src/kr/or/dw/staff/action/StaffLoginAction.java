@@ -51,7 +51,7 @@ public class StaffLoginAction implements IAction{
 		System.out.println("actioin3");
 		
 		req.setAttribute("result", result);
-
+		req.setAttribute("titleName", "로그인");
 		return "/staff/staffLoginResult.jsp";
 	}
 

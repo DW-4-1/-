@@ -37,6 +37,8 @@ public class StuBoardViewAction implements IAction{
 		
 		req.setAttribute("boardVo", boardVo);
 		req.setAttribute("reVo", reVo);
+		
+		req.setAttribute("titleName", "게시판");
 
 		if(auth_cd.equals("S")) {
 			return "/student/stuBoard/stuboardView.jsp";

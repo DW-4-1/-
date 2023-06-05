@@ -30,6 +30,7 @@ public class StudentUpdateFormAction implements IAction{
 		List<StudentVO> staVo = service.getDept();
 		req.setAttribute("stuVo", stuVo);
 		req.setAttribute("dept", staVo);
+		req.setAttribute("titleName", "학생 관리");
 		
 		return "/staff/student/studentUpdateForm.jsp";
 	}

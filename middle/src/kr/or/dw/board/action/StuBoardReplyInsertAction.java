@@ -37,6 +37,7 @@ public class StuBoardReplyInsertAction implements IAction{
 		
 		boardService.stuBoardInsert(reVo);
 		
+		req.setAttribute("titleName", "게시판");
 		
 		return null;
 	}

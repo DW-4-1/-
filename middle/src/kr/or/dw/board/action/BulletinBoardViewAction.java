@@ -35,6 +35,9 @@ public class BulletinBoardViewAction implements IAction{
 
 		HttpSession session = req.getSession();
 		String auth_cd = (String) session.getAttribute("auth_cd");
+		
+		req.setAttribute("titleName", "게시판");
+		
 		if(auth_cd.equals("S")) {
 			return "/student/bulletinBoard/bulletinboardView.jsp";
 		}else {

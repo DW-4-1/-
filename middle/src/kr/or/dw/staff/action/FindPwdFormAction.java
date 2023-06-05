@@ -18,7 +18,7 @@ public class FindPwdFormAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		
+		req.setAttribute("titleName", "계정");
 		return "/staff/findStaff.jsp";
 	}
 
