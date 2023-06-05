@@ -29,8 +29,8 @@
 			<div class="card">
 				<div class="card-header">
 					<h3 class="card-title">과제 목록</h3>
-					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
-						<input type="button" id="insertAssignBtn" class="btn btn-secondary" value="과제추가" style="height: 35px;">
+					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="display:inline;">
+						<input type="button" id="insertAssignBtn" class="btn btn-primary" value="과제 추가" style="width: 7em; margin-right: 1.5em;">
 					</div>
 				</div>
 				
