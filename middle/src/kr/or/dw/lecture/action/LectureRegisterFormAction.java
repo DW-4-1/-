@@ -57,15 +57,24 @@ public class LectureRegisterFormAction implements IAction{
 		
 		List<LectureVO> remove = new ArrayList<>();
 		
-		for(LectureVO stulec : stuLecList) {
-			for(LectureVO lecall : lecList) {
+		String stu_dept_code = "";
+		stu_dept_code = service.getStuDeptCode(stu_id);
+		
+		for(LectureVO lecall : lecList) {
+			if(lecall.getLec_div().equals("전공필수") || lecall.getLec_div().equals("전공선택") || lecall.getLec_div().equals("교직")) {
+				System.out.println();
+				if(!lecall.getDept_code().equals(stu_dept_code)) {
+					remove.add(lecall);
+					continue;
+				}
+			}
+			for(LectureVO stulec : stuLecList) {
 				if(stulec.getLec_code().equals(lecall.getLec_code())) {
 					remove.add(lecall);
 				}
 			}
 		}
 		lecList.removeAll(remove);
-		
 	
 		req.setAttribute("lecList", lecList);
 		

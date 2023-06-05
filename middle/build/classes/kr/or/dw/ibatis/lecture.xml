@@ -126,8 +126,9 @@
 			 , max(lec_year) lec_year
 			 , max(lec_div) lec_div
 			 , max(lec_term) lec_term
+			 , max(dept_code) dept_code
 		FROM (
-				SELECT a.lec_code, lec_name, a.staff_id, staff_name, lec_loc, lec_day, lec_time, lec_div, lec_credit, lec_year, lec_term
+				SELECT a.lec_code, lec_name, a.staff_id, staff_name, lec_loc, lec_day, lec_time, lec_div, lec_credit, lec_year, lec_term, dept_code
 				FROM ALL_LECTURELIST a, STAFFS s 
 				WHERE a.staff_id = s.STAFF_ID 
 				AND lec_term = #lec_term# AND lec_year = #lec_year#
