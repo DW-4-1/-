@@ -46,6 +46,8 @@ public class StuAssignListAction implements IAction{
 		}
 		req.setAttribute("assignList", assignList);
 		
+		req.setAttribute("titleName", "과제 조회");
+		
 		return "/student/assign/assignList.jsp";
 	}
 

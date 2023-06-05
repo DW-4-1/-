@@ -34,6 +34,8 @@ public class ViewAssignAction implements IAction{
 		assignVo = service.viewAssign(assign_no);
 		
 		req.setAttribute("assignVo", assignVo);
+		
+		req.setAttribute("titleName", "과제 조회");
 
 		if(auth_cd.equals("S")) {
 			AssignVO stuAssign = new AssignVO();

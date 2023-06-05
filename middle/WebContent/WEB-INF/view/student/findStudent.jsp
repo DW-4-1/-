@@ -86,7 +86,7 @@
 <body class="login-page box01">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="../../index2.html"><b>굴다리</b>&nbsp;종합정보시스템</a>
+			<a href="../../index2.html"><b>DW</b>&nbsp;종합정보시스템</a>
 		</div>
 		
 		<div class="card">

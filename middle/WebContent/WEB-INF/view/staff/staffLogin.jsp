@@ -35,7 +35,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         right: 0;
         bottom: 0;
         content: "";
-        opacity: 0.85;
+        opacity: 0.99;
 	}
 </style>
 
