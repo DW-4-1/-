@@ -2,10 +2,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+<%@ include file="../header.jsp" %>
+
 <title>교직원정보 수정 페이지 입니다.</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.5.1.js"></script>
 <%
@@ -30,43 +28,83 @@
 	
 </script>
 
-</head>
-<body>
-	<form id="professorUpdateForm" method="post" action="<%=request.getContextPath()%>/staff/professorUpdate.do">
-		<table>
-			<tr>
-				<th>ID</th>
-				<td><input type="text" name="staff_id" required readonly value="<%=staVo.getStaff_id()%>"></td>
-			</tr>
-			<tr>
-				<th>이름</th>
-				<td><input type="text" name="staff_name" required value="<%=staVo.getStaff_name()%>"></td>
-			</tr>
-			<tr>
-				<th>성별</th>
-				<td>
-					<select name="staff_gender">
-						<option value="Male">남</option>
-						<option value="Female">여</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<th>주민등록번호</th>
-				<td><input type="text" name="staff_resnum" required value="<%=staVo.getStaff_resnum()%>"></td>
-			</tr>
-			<tr>
-				<th>우편번호</th>
-				<td><input id="sta_zipcode" name="staff_zipcode" type="text" value="<%=staVo.getStaff_zipcode()%>" readonly onclick="findAddr()" required></td>
-			</tr>
-			<tr>
-				<th>주소</th>
-				<td> <input id="sta_addr" name="staff_addr" type="text" value="<%=staVo.getStaff_addr()%>" readonly required></td>
-			</tr>
-			<tr>
-				<th>상세주소</th>
-				<td><input type="text" name="staff_detailaddr" value="<%=staVo.getStaff_detailaddr()%>" required></td>
-			</tr>
+
+<div class="col-md-7 col-lg-8" style="margin: 0 auto;"><br>
+	<h2 class="mb-3" style="text-align: center;">교직원 수정</h2>
+	<form class="needs-validation" id="professorUpdateForm" method="post" action="<%=request.getContextPath()%>/staff/professorUpdate.do">
+		<div class="row g-3" >
+			
+			<div class="col-12">
+				<label class="professorUpdateForm">ID</label>
+	          	<div class="input-group has-validation">
+		            <input type="text" class="form-control" value="<%=staVo.getStaff_id()%>" name="staff_id" placeholder="아이디를 입력해주세요." readonly required>
+		          	<div class="invalid-feedback">
+		              아이디를 입력해주세요.
+		            </div>
+	          	</div>
+	        </div>
+
+			<div class="col-12">
+		         <label class="professorUpdateForm">이름</label>
+		         <div class="input-group has-validation">
+		           	<input type="text" class="form-control" name="staff_name" value="<%=staVo.getStaff_name()%>" placeholder="이름을 입력해주세요." required>
+	         		<div class="invalid-feedback">		
+		             이름을 입력해주세요.
+	           		</div>
+		         </div>
+	       </div>
+
+			<div class="col-md-12">
+	          <label for="professorUpdateForm" class="form-label">성별</label>
+	          <select class="form-select" name="staff_gender" required>
+	            <option value="">선택</option>
+	            <option value="Male">남성</option>
+				<option value="Female">여성</option>
+	          </select>
+	          <div class="invalid-feedback">
+	            성별을 선택해주세요.
+	          </div>
+	        </div>
+
+			<div class="col-12">
+	          <label class="professorUpdateForm">주민등록번호</label>
+	          <div class="input-group has-validation">
+	            <input type="text" class="form-control" name="staff_resnum" value="<%=staVo.getStaff_resnum()%>" placeholder="주민등록번호를 입력해주세요." required>
+	          	<div class="invalid-feedback">
+	              주민등록번호를 입력해주세요.
+	            </div>
+	          </div>
+	        </div>
+
+			<div class="col-12">
+	          <label class="professorUpdateForm">우편번호</label>
+	          <div class="input-group has-validation">
+	            <input type="text" class="form-control" id="sta_zipcode" name="staff_zipcode" value="<%=staVo.getStaff_zipcode()%>" placeholder="우편번호를 입력해주세요." readonly onclick="findAddr()" required>
+	          	<div class="invalid-feedback">
+	              우편번호를 입력해주세요.
+	            </div>
+	          </div>
+	        </div>
+
+			<div class="col-12">
+	          <label class="professorUpdateForm">주소</label>
+	          <div class="input-group has-validation">
+	            <input type="text" class="form-control" id="sta_addr" name="staff_addr" value="<%=staVo.getStaff_addr()%>" placeholder="주소를 입력해주세요." readonly required>
+	          	<div class="invalid-feedback">
+	              주소를 입력해주세요.
+	            </div>
+	          </div>
+	        </div>
+			
+			<div class="col-12">
+	          <label class="professorUpdateForm">상세주소</label>
+	          <div class="input-group has-validation">
+	            <input type="text" class="form-control" name="staff_detailaddr" value="<%=staVo.getStaff_detailaddr()%>" placeholder="상세주소를 입력해주세요." required>
+	          	<div class="invalid-feedback">
+	              상세주소를 입력해주세요.
+	            </div>
+	          </div>
+	        </div>
 	
 			<script>
 			function findAddr(){
@@ -92,34 +130,60 @@
 			    }).open();
 			}
 			</script>
-			<tr>
-				<th>학과</th>
-				<td>
-					<select name="dept_code">
+			
+			<div class="col-md-12">
+				<label for="professorUpdateForm" class="form-label">학과</label>
+				<select class="form-select" name="dept_code" required>
+					<option value="">선택</option>
 					<% for(StaffVO vo : staList){ %>
 						<option value="<%=vo.getDept_code()%>"><%=vo.getDept_code()%> <%=vo.getDept_name()%></option>
 					<% 	 }	 %>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<th>전화번호</th>
-				<td><input type="text" name="staff_tel" required value="<%=staVo.getStaff_tel()%>"></td>
-			</tr>
-			<tr>
-				<th>이메일</th>
-				<td><input type="text" name="staff_email" required value="<%=staVo.getStaff_email()%>"></td>
-			</tr>
-			<tr>
-				<th>상태</th>
-				<td><input type="text" name="staff_state" required value="<%=staVo.getStaff_state()%>"></td>
-			</tr>
-			<tr>
-				<td><input id="saveBtn" type="button" value="저장"></td>
-				<td><input id="resetBtn" type="button" value="취소"></td>
-			</tr>
-		</table>
-	</form>
-</body>
+				</select>
+	           	<div class="invalid-feedback">
+	             학과를 선택해주세요.
+	           	</div>
+			</div>
+			
+			
+			<div class="col-12">
+	          <label class="professorUpdateForm">전화번호</label>
+	          <div class="input-group has-validation">
+	            <input type="text" class="form-control" name="staff_tel" value="<%=staVo.getStaff_tel()%>" placeholder="전화번호를 입력해주세요." required>
+	          	<div class="invalid-feedback">
+	              전화번호를 입력해주세요.
+	            </div>
+	          </div>
+	        </div>
+	        
+	        <div class="col-12">
+	          <label class="staffInsertForm">이메일</label>
+	          <div class="input-group has-validation">
+	            <input type="text" class="form-control" name="staff_email" value="<%=staVo.getStaff_email()%>" placeholder="이메일을 입력해주세요." required>
+	          	<div class="invalid-feedback">
+	              이메일을 입력해주세요.
+	            </div>
+	          </div>
+	        </div>
+	        
+	        
+	        <div class="col-12">
+	          <label class="staffInsertForm">상태</label>
+	          <div class="input-group has-validation">
+	            <input type="text" class="form-control" name="staff_state" value="<%=staVo.getStaff_state()%>" placeholder="ex) 휴학 재학" required>
+	          	<div class="invalid-feedback">
+	              상태를 입력해주세요.
+	            </div>
+	          </div>
+	        </div>
+	        
+	        <div style="text-align: center">
+				<input type="button" class="btn btn-primary col-md-2" id="saveBtn" value="저장" style="margin-top: 1em;">
+				<input type="button" class="btn btn-danger col-md-2" id="resetBtn" value="취소" style="margin-top: 1em;">
+			</div>
+	        </div>
+		</form>
+	</div>
+	
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-</html>
+
+<%@ include file="../footer.jsp" %>
