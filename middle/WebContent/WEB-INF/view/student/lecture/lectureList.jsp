@@ -5,6 +5,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
+<%
+	String stu_id = (String) session.getAttribute("stu_id");
+%>
 <script>
 	$(function() {
 		$('select[name=year]').change(
@@ -35,6 +38,15 @@
 			
 		})
 		
+		$(document).on('click', '#stuDeleteBtn', function(){
+			let stu_id = "<%=stu_id%>";
+			let lec_code = $(this).prop('name');
+			if(confirm("수강취소 하시겠습니까?")){
+				location.href="<%=request.getContextPath()%>/lecture/deleteStudentLecture.do?stu_id=" + stu_id + "&lec_code=" + lec_code;
+			}
+			console.log(stu_id);
+			console.log(lec_code);
+		})
 		
 		
 	})
@@ -138,7 +150,7 @@
 										</tr>
 									</thead>
 									<%
-										String stu_id = (String) session.getAttribute("stu_id");
+										
 										String disabled = "";
 										for (LectureVO vo : lecList) {
 											String lec_time = "" + vo.getLec_time();
@@ -167,7 +179,7 @@
 												<input type="button" value="다운로드" <%=disabled %> id="planDownBtn" name="<%=vo.getPlan_path()%>">
 											</td>
 											<td>
-											<input type="button" value="수강취소" id="stuDeleteBtn" onclick="location.href='<%=request.getContextPath()%>/lecture/deleteStudentLecture.do?stu_id=<%=stu_id %>&lec_code=<%=vo.getLec_code()%>'">
+											<input type="button" value="수강취소" id="stuDeleteBtn" name="<%=vo.getLec_code()%>">
 											</td>
 										</tr>
 									</tbody>
