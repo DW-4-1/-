@@ -156,16 +156,17 @@
 								</form>
 										<div style="float: right;"> 
 											<div id="Btn" style="display:none; text-align: center">
-												<input type="button" class="btn btn-primary col-md-2" style="width:4em;" id="deleteBtn" value="삭제">
+												<input type="button" class="btn btn-danger col-md-2" style="width:4em;" id="deleteBtn" value="삭제">
 												<input type="button" class="btn btn-primary col-md-2" style="width:4em;" id="resetBtn" value="취소">
 											</div>
 											<input type="button" class="btn btn-primary col-md-2" style="width:4em;" id="studentFormBtn" value="추가">
-											<input type="button" class="btn btn-primary col-md-2" style="width:4em;" id="deleteFormBtn" value="삭제">
-											<input type="button" class="btn btn-primary col-md-2" style="width:4em;" id="updateFormBtn" value="수정">
+											<input type="button" class="btn btn-success col-md-2" style="width:4em;" id="updateFormBtn" value="수정">
+											<input type="button" class="btn btn-danger col-md-2" style="width:4em;" id="deleteFormBtn" value="삭제">
 											<input type="button" class="btn btn-primary col-md-2" style="width:6em; display:none;" id="cancleBtn" value="뒤로가기" >
 										</div>	
 										<br>
-										<div style="display: flex; justify-content: center;">
+										<br>
+										<div style="display: flex; justify-content: center; margin:0;">
 										<%
 											PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
 								 		%>
