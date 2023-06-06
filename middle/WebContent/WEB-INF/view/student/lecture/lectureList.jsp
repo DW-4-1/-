@@ -48,6 +48,10 @@
 			console.log(lec_code);
 		})
 		
+		$(document).on('click', '#lecEvalBtn', function(){
+			let lec_code = $(this).prop('name');
+			location.href="<%=request.getContextPath()%>/lecture/lectureEvaluatioin.do?lec_code=" + lec_code;
+		})
 		
 	})
 </script>
@@ -147,6 +151,11 @@
 												aria-label="CSS grade: activate to sort column ascending">
 												수강취소
 											</th>
+											<th class="sorting" tabindex="0" aria-controls="example2"
+												rowspan="1" colspan="1"
+												aria-label="CSS grade: activate to sort column ascending">
+												강의평가
+											</th>
 										</tr>
 									</thead>
 									<%
@@ -180,6 +189,9 @@
 											</td>
 											<td>
 											<input type="button" value="수강취소" id="stuDeleteBtn" name="<%=vo.getLec_code()%>">
+											</td>
+											<td>
+											<input type="button" value="강의평가" id="lecEvalBtn" name="<%=vo.getLec_code()%>">
 											</td>
 										</tr>
 									</tbody>

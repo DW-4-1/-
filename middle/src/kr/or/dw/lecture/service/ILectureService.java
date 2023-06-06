@@ -2,6 +2,7 @@ package kr.or.dw.lecture.service;
 
 import java.util.List;
 
+import kr.or.dw.vo.EvaluationVO;
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StudentVO;
 
@@ -124,5 +125,22 @@ public interface ILectureService {
 	 * @return
 	 */
 	String getStuDeptCode(String stu_id);
+
+	/**
+	 * 강의평가
+	 * @param evalVo
+	 * @return
+	 */
+	int insertEval(EvaluationVO evalVo);
+
+	String getLecName(String lec_code);
+
+	EvaluationVO getEvalResult(EvaluationVO evalVo);
+
+	int updateEval(EvaluationVO evalVo);
+
+	EvaluationVO getEvalAvg(String lec_code);
+
+	List<String> getQue9List(String lec_code);
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.or.dw.lecture.dao.ILectureDao;
 import kr.or.dw.lecture.dao.LectureDaoImpl;
+import kr.or.dw.vo.EvaluationVO;
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StudentVO;
 
@@ -109,5 +110,35 @@ public class LectureServiceImpl implements ILectureService{
 		@Override
 		public String getStuDeptCode(String stu_id) {
 			return dao.getStuDeptCode(stu_id);
+		}
+
+		@Override
+		public int insertEval(EvaluationVO evalVo) {
+			return dao.insertEval(evalVo);
+		}
+
+		@Override
+		public String getLecName(String lec_code) {
+			return dao.getLecName(lec_code);
+		}
+
+		@Override
+		public EvaluationVO getEvalResult(EvaluationVO evalVo) {
+			return dao.getEvalResult(evalVo);
+		}
+
+		@Override
+		public int updateEval(EvaluationVO evalVo) {
+			return dao.updateEval(evalVo);
+		}
+
+		@Override
+		public EvaluationVO getEvalAvg(String lec_code) {
+			return dao.getEvalAvg(lec_code);
+		}
+
+		@Override
+		public List<String> getQue9List(String lec_code) {
+			return dao.getQue9List(lec_code);
 		}
 }

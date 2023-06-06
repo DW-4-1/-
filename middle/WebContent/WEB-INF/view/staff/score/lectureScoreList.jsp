@@ -107,6 +107,11 @@
 												aria-label="CSS grade: activate to sort column ascending">
 												과제
 											</th>
+											<th class="sorting" tabindex="0" aria-controls="example2"
+												rowspan="1" colspan="1"
+												aria-label="CSS grade: activate to sort column ascending">
+												강의평가
+											</th>
 										</tr>
 									</thead>
 									<%
@@ -125,6 +130,9 @@
 											</td>
 											<td>
 												<input type="button" value="과제관리" onclick="location.href='<%=request.getContextPath()%>/assign/lectureAssignList.do?lec_code=<%=vo.getLec_code()%>'">
+											</td>
+											<td>
+												<input type="button" value="강의평가 결과" onclick="location.href='<%=request.getContextPath()%>/lecture/lectureEvalResultList.do?lec_code=<%=vo.getLec_code()%>'">
 											</td>
 										</tr>		
 									</tbody>

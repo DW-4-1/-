@@ -6,6 +6,7 @@ import java.util.List;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 import kr.or.dw.util.BuildSqlMapClient;
+import kr.or.dw.vo.EvaluationVO;
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StudentVO;
 
@@ -244,6 +245,85 @@ private static LectureDaoImpl dao;
 			e.printStackTrace();
 		}
 		return stu_dept_code;
+	}
+
+	@Override
+	public int insertEval(EvaluationVO evalVo) {
+		int cnt = 0;
+		String result = null;
+		try {
+			result = (String) smc.insert("eval.insertEval", evalVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(result == null) {
+			cnt = 1;
+		}
+		return cnt;
+	}
+
+	@Override
+	public String getLecName(String lec_code) {
+		String lec_name = null;
+		try {
+			lec_name = (String) smc.queryForObject("lecture.getLecName", lec_code);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return lec_name;
+	}
+
+	@Override
+	public EvaluationVO getEvalResult(EvaluationVO evalVo) {
+		EvaluationVO eval = null;
+		try {
+			eval = (EvaluationVO) smc.queryForObject("eval.getEvalVo", evalVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return eval;
+	}
+
+	@Override
+	public int updateEval(EvaluationVO evalVo) {
+		int result = 0;
+		try {
+			result = smc.update("eval.updateEval", evalVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
+	@Override
+	public EvaluationVO getEvalAvg(String lec_code) {
+		EvaluationVO evalAvg = null;
+		try {
+			evalAvg = (EvaluationVO) smc.queryForObject("eval.getEvalAvg", lec_code);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return evalAvg;
+	}
+
+	@Override
+	public List<String> getQue9List(String lec_code) {
+		List<String> que9List = null;
+		try {
+			que9List = smc.queryForList("eval.getQue9List", lec_code);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		return que9List;
 	}
 	
 	
