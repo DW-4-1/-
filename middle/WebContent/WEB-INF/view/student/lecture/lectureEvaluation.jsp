@@ -36,7 +36,49 @@
 <script>
 // 이벤트 추가
 	$(function(){
-		
+		$('#evaluationLecture').on('submit', function(e){
+			if (! $('input[name=que1]:checked').val()) {
+				alert('답변이 완료되지 않았습니다.');
+				e.preventDefault();
+				return false;
+			}
+			if (! $('input[name=que2]:checked').val()) {
+				alert('답변이 완료되지 않았습니다.');
+				e.preventDefault();
+				return false;
+			}
+			if (! $('input[name=que3]:checked').val()) {
+				alert('답변이 완료되지 않았습니다.');
+				e.preventDefault();
+				return false;
+			}
+			if (! $('input[name=que4]:checked').val()) {
+				alert('답변이 완료되지 않았습니다.');
+				e.preventDefault();
+				return false;
+			}
+			if (! $('input[name=que5]:checked').val()) {
+				alert('답변이 완료되지 않았습니다.');
+				e.preventDefault();
+				return false;
+			}
+			if (! $('input[name=que6]:checked').val()) {
+				alert('답변이 완료되지 않았습니다.');
+				e.preventDefault();
+				return false;
+			}
+			if (! $('input[name=que7]:checked').val()) {
+				alert('답변이 완료되지 않았습니다.');
+				e.preventDefault();
+				return false;
+			}
+			if (! $('input[name=que8]:checked').val()) {
+				alert('답변이 완료되지 않았습니다.');
+				e.preventDefault();
+				return false;
+			}
+			
+		})
 		
 	})
 </script>
@@ -141,7 +183,7 @@
 							</tr>
 							<tr>
 								<td colspan="6" style="width: 100%;">
-									<textarea style="height: 150px; width: 100%;" name="que9" id="que9"><%=que9 %></textarea>
+									<textarea style="height: 150px; width: 100%;" name="que9" id="que9" required><%=que9 %></textarea>
 								
 								</td>
 							</tr>
