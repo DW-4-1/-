@@ -37,6 +37,8 @@
 <script src="<%=request.getContextPath()%>/assets/plugins/jquery/jquery.js"></script>
 <script>
 	$(function(){
+	
+		let code_valid = false;
 		let ver_code = null;
 		$('#idEmailChkBtn').on('click', function(){
 			let stu_id = $('#stu_id').val();
@@ -58,6 +60,42 @@
 						alert("인증코드가 전송되었습니다.");
 						$('#ver_code').css("display", "");
 						$('#verCodeBtn').css("display", "");
+						$('#idEmailChkBtn').css("display", "none");
+						code_valid = true;
+						function $ComTimer(){
+						    //prototype extend
+						}
+
+						$ComTimer.prototype = {
+						    comSecond : ""
+						    , fnCallback : function(){}
+						    , timer : ""
+						    , domId : ""
+						    , fnTimer : function(){
+						        var m = Math.floor(this.comSecond / 60) + "분 " + (this.comSecond % 60) + "초";	// 남은 시간 계산
+						        this.comSecond--;					// 1초씩 감소
+						        console.log(m);
+						        this.domId.innerText = m;
+						        if (this.comSecond < 0) {			// 시간이 종료 되었으면..
+						            clearInterval(this.timer);		// 타이머 해제
+						            code_valid = false;
+						            this.domId.innerText = "인증시간 초과";
+						        }
+						    }
+						    ,fnStop : function(){
+						        clearInterval(this.timer);
+						    }
+						}
+
+						var AuthTimer = new $ComTimer()
+
+						AuthTimer.comSecond = 180; // 제한 시간
+
+						AuthTimer.fnCallback = function(){alert("다시인증을 시도해주세요.")}; // 제한 시간 만료 메세지
+
+						AuthTimer.timer =  setInterval(function(){AuthTimer.fnTimer()},1000); 
+
+						AuthTimer.domId = document.getElementById("timer"); 
 					}else{
 						alert("아이디 혹은 이메일이 일치하지 않습니다.");
 					}
@@ -71,11 +109,13 @@
 
 		$(document).on('click', '#verCodeBtn', function(e) {
 			stu_id = $('#stu_id').val();
-			if($('#ver_code').val() == ver_code){
+			if($('#ver_code').val() == ver_code && code_valid == true){
 			location.href="<%=request.getContextPath()%>/student/studentPasswordUpdateEmail.do?stu_id=" + stu_id;
-		}else{
-			alert("인증코드가 잘못입력되었습니다.");
-		}
+			}else if($('#ver_code').val() != ver_code){
+				alert("인증코드가 잘못입력되었습니다.");
+			}else{
+				alert("인증시간이 초과되었습니다.");
+			}
 		});
 	})
 </script>
@@ -118,6 +158,7 @@
 					</div>
 					<div class="input-group mb-3" style="margin-top:1em;">
 						<input type="text" id="ver_code" name="ver_code" class="form-control" placeholder="인증코드 입력" style="display: none">
+						<span id="timer"></span>
 					</div>
 					<div class="row">
 						<div class="col-12">
