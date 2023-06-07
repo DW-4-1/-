@@ -178,4 +178,16 @@
 	 	WHERE lec_code = #lec_code#
 	 	GROUP BY lec_code
 	</select>
+	
+	<select id="getStuLecCnt" parameterClass="String" resultClass="int">
+		SELECT COUNT(*)
+		FROM lecture
+		WHERE stu_id = #stu_id#
+	</select>
+	
+	<select id="getStuEvalCnt" parameterClass="String" resultClass="int">
+		SELECT COUNT(*)
+		FROM evaluation
+		WHERE stu_id = #stu_id#
+	</select>	
 </sqlMap>

@@ -25,14 +25,25 @@ public class GradeViewAction implements IAction{
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		String stu_id = (String) session.getAttribute("stu_id");
-
+		
 		ILectureService service = LectureServiceImpl.getInstance();
-		List<LectureVO> lecList = service.getAllLecture(stu_id);
+		int leccnt = 0;
+		int evalcnt = 0;
+		leccnt = service.getStuLecCnt(stu_id);
+		evalcnt = service.getStuEvalCnt(stu_id);
+		if(leccnt != evalcnt) {
+			return "/student/lecture/gradeFail.jsp";
+		}else {
+			
 		
-		req.setAttribute("lecList", lecList);
-		req.setAttribute("titleName", "성적 조회");
 		
-		return "/student/lecture/gradeView.jsp";
+			List<LectureVO> lecList = service.getAllLecture(stu_id);
+			
+			req.setAttribute("lecList", lecList);
+			req.setAttribute("titleName", "성적 조회");
+			
+			return "/student/lecture/gradeView.jsp";
+		}
 	}
 
 }

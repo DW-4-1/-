@@ -325,6 +325,30 @@ private static LectureDaoImpl dao;
 		} 
 		return que9List;
 	}
+
+	@Override
+	public int getStuLecCnt(String stu_id) {
+		int leccnt = 0;
+		try {
+			leccnt = (int) smc.queryForObject("lecture.getStuLecCnt", stu_id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return leccnt;
+	}
+
+	@Override
+	public int getStuEvalCnt(String stu_id) {
+		int evalcnt = 0;
+		try {
+			evalcnt = (int) smc.queryForObject("lecture.getStuEvalCnt", stu_id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return evalcnt;
+	}
 	
 	
 	
