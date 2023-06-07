@@ -30,7 +30,6 @@ public class ProfessorCRUDAction implements IAction{
 		Map<String, Integer> pagingConfigMap = null;
 		PaginationUtil pagination = new PaginationUtil();
 		String pageParam = req.getParameter("page");	//사용자가 선택한 페이지번호
-		//추가
 		int page = (pageParam == null ? 1 : Integer.parseInt(pageParam));
 		
 		int totalCount = service.selectProfessorCount();
@@ -42,8 +41,9 @@ public class ProfessorCRUDAction implements IAction{
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("start", pagingConfigMap.get("start"));
 		paramMap.put("end", pagingConfigMap.get("end"));
-		//추가
+		
 		List<StaffVO> staVoList = service.getAllProfessorList(paramMap);
+		
 		req.setAttribute("staVoList", staVoList);
 		req.setAttribute("pagingConfigMap", pagination);
 		

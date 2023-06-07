@@ -141,4 +141,14 @@ public class LectureServiceImpl implements ILectureService{
 		public List<String> getQue9List(String lec_code) {
 			return dao.getQue9List(lec_code);
 		}
+
+		@Override
+		public int getStuLecCnt(String stu_id) {
+			return dao.getStuLecCnt(stu_id);
+		}
+
+		@Override
+		public int getStuEvalCnt(String stu_id) {
+			return dao.getStuEvalCnt(stu_id);
+		}
 }

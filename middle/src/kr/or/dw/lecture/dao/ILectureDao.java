@@ -132,4 +132,10 @@ public interface ILectureDao {
 
 	List<String> getQue9List(String lec_code);
 
+
+	int getStuLecCnt(String stu_id);
+
+
+	int getStuEvalCnt(String stu_id);
+
 }
