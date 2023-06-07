@@ -169,4 +169,16 @@ private static StudentDaoImpl dao;
 		
 		return totalCount;
 	}
+
+	@Override
+	public String getStudentName(String stu_id) {
+		String stu_name = null;
+		try {
+			stu_name = (String) smc.queryForObject("student.getStudentName", stu_id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return stu_name;
+	}
 }

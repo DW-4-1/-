@@ -83,6 +83,13 @@ public interface IStudentDao {
 	 */
 	public int selectStuCount();
 
+	/**
+	 * 학생의 이름을 불러오는 메서드
+	 * @param stu_id
+	 * @return
+	 */
+	public String getStudentName(String stu_id);
+
 	
 
 }
