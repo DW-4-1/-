@@ -37,7 +37,7 @@
 <script src="<%=request.getContextPath()%>/assets/plugins/jquery/jquery.js"></script>
 <script>
 	$(function(){
-	
+		
 		let code_valid = false;
 		let ver_code = null;
 		$('#idEmailChkBtn').on('click', function(){
@@ -80,6 +80,7 @@
 						            clearInterval(this.timer);		// 타이머 해제
 						            code_valid = false;
 						            this.domId.innerText = "인증시간 초과";
+						            $('#idEmailChkBtn').css("display", "");
 						        }
 						    }
 						    ,fnStop : function(){
@@ -89,7 +90,7 @@
 
 						var AuthTimer = new $ComTimer()
 
-						AuthTimer.comSecond = 180; // 제한 시간
+						AuthTimer.comSecond = 10; // 제한 시간
 
 						AuthTimer.fnCallback = function(){alert("다시인증을 시도해주세요.")}; // 제한 시간 만료 메세지
 
