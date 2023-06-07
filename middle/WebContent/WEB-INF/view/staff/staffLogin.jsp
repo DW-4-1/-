@@ -47,7 +47,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 		<div class="card">
 			<div class="card-body login-card-body">
-				<p class="login-box-msg">교직원 및 관리자 로그인 페이지 입니다.</p>
+				<p class="login-box-msg">교직원 로그인 페이지 입니다.</p>
+				<p style="font-size: 12px; text-align: center;">초기 비밀번호는 주민번호 뒷자리입니다.</p>
 				<form id="login" action="<%=request.getContextPath()%>/staff/staffLogin.do" method="post">
 					<div class="input-group mb-3">
 						<input type="text" id="stu_id" name="staff_id" class="form-control" placeholder="ID">

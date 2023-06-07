@@ -48,6 +48,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		<div class="card">
 			<div class="card-body login-card-body">
 				<p class="login-box-msg">학생 전용 로그인 페이지 입니다.</p>
+				<p style="font-size: 12px; text-align: center;">초기 비밀번호는 주민번호 뒷자리입니다.</p>
 				<form id="login" action="<%=request.getContextPath()%>/student/studentLogin.do" method="post">
 					<div class="input-group mb-3">
 						<input type="text" id="stu_id" name="stu_id" class="form-control" placeholder="ID">
@@ -78,7 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 				</div>
 				<div class="social-auth-links text-center mb-3">
 					<a href="/staff/staffLoginForm.do" class="btn btn-outline-primary btn-block"> 
-						<!-- <i class="fab fa-google-plus mr-2"></i> --> 교직원 및 관리자 로그인으로 이동
+						<!-- <i class="fab fa-google-plus mr-2"></i> --> 교직원 로그인 페이지로 이동
 					</a>
 				</div>
 			</div>
