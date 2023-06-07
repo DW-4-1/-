@@ -7,6 +7,7 @@ import java.util.Map;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 import kr.or.dw.util.BuildSqlMapClient;
+import kr.or.dw.vo.DateVO;
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StaffVO;
 import kr.or.dw.vo.StudentVO;
@@ -178,6 +179,58 @@ private static StaffDaoImpl dao;
 		}
 		
 		return result;
+	}
+
+	@Override
+	public List<DateVO> getDatelist() {
+		List<DateVO> dateList = null;
+		try {
+			dateList = smc.queryForList("staff.getDateList");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return dateList;
+	}
+
+	@Override
+	public int insertDate(DateVO dateVo) {
+		String result = null;
+		int cnt = 0;
+		try {
+			result = (String) smc.insert("staff.insertDate", dateVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(result == null) {
+			cnt = 1;
+		}
+		return cnt;
+	}
+
+	@Override
+	public DateVO getDate(DateVO yearTerm) {
+		DateVO dateVo = null;
+		try {
+			dateVo = (DateVO) smc.queryForObject("staff.getDate", yearTerm);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return dateVo;
+	}
+
+	@Override
+	public int existDate(DateVO dateVo) {
+		int cnt = 0;
+		try {
+			cnt = (int) smc.queryForObject("staff.existDate", dateVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cnt;
 	}
 
 

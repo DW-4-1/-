@@ -118,4 +118,26 @@
 						 ,staff_tel = #staff_tel#
 		 WHERE staff_id = #staff_id#
 	</update>
+	
+	<select id="getDateList" resultClass="dateVO">
+		SELECT *
+		FROM datelist
+		ORDER BY year DESC, term DESC
+	</select>
+	
+	<insert id="insertDate" parameterClass="dateVO">
+		INSERT INTO datelist VALUES (#year#, #term#, #reg_start#, #reg_end#, #lec_start#, #lec_end#)
+	</insert>
+	
+	<select id="getDate" parameterClass="dateVO" resultClass="dateVO">
+		SELECT *
+		FROM datelist
+		WHERE year = #year# AND term = #term#
+	</select>
+	
+	<select id="existDate" parameterClass="dateVO" resultClass="int">
+		SELECT cnt(*)
+		FROM datelist
+		WHERE year = #year# AND term = #term#
+	</select>
 </sqlMap>

@@ -3,6 +3,7 @@ package kr.or.dw.staff.service;
 import java.util.List;
 import java.util.Map;
 
+import kr.or.dw.vo.DateVO;
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StaffVO;
 import kr.or.dw.vo.StudentVO;
@@ -83,5 +84,13 @@ public interface IStaffService {
 	 * @return
 	 */
 	public int staffInfoUpdate(StaffVO staffVo);
+
+	public List<DateVO> getDateList();
+
+	public int insertDate(DateVO dateVo);
+
+	public DateVO getDate(DateVO yearTerm);
+
+	public int existDate(DateVO dateVo);
 	
 }

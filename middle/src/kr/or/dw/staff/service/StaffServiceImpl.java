@@ -1,6 +1,7 @@
 package kr.or.dw.staff.service;
 
 import kr.or.dw.staff.dao.StaffDaoImpl;
+import kr.or.dw.vo.DateVO;
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.vo.StaffVO;
 import kr.or.dw.vo.StudentVO;
@@ -85,6 +86,26 @@ public class StaffServiceImpl implements IStaffService{
 	@Override
 	public int staffInfoUpdate(StaffVO staffVo) {
 		return dao.staffInfoUpdate(staffVo);
+	}
+
+	@Override
+	public List<DateVO> getDateList() {
+		return dao.getDatelist();
+	}
+
+	@Override
+	public int insertDate(DateVO dateVo) {
+		return dao.insertDate(dateVo);
+	}
+
+	@Override
+	public DateVO getDate(DateVO yearTerm) {
+		return dao.getDate(yearTerm);
+	}
+
+	@Override
+	public int existDate(DateVO dateVo) {
+		return dao.existDate(dateVo);
 	}
 
 }

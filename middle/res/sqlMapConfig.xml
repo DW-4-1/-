@@ -21,6 +21,7 @@
 	<typeAlias alias = "assignVO" type = "kr.or.dw.vo.AssignVO" />
 	<typeAlias alias = "replyVO" type = "kr.or.dw.vo.ReplyVO" />
 	<typeAlias alias = "evalVO" type = "kr.or.dw.vo.EvaluationVO" />
+	<typeAlias alias = "dateVO" type = "kr.or.dw.vo.DateVO" />
 	
 	<!-- DB와 연결을 처리하는 부분 -->
 	<transactionManager type="JDBC">
