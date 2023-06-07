@@ -45,8 +45,10 @@ public class StudentLoginAction implements IAction{
 		}
 		int result = 0;
 		if(vo != null && (cpass.equals(vo.getStu_pwd()) || stu_pwd.equals(vo.getStu_pwd()))) {
+			String stu_name = service.getStudentName(stu_id);
 			result = 1;
 			HttpSession session = req.getSession();
+			session.setAttribute("stu_name", stu_name);
 			session.setAttribute("stu_id", stu_id);
 			session.setAttribute("auth_cd", vo.getAuth_cd());
 		}

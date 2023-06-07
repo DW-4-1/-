@@ -28,7 +28,6 @@ public class StaffLoginAction implements IAction{
 		
 		String staff_id = req.getParameter("staff_id");
 		String staff_pwd = req.getParameter("staff_pwd");
-		
 		IStaffService service = StaffServiceImpl.getInstance();
 		
 		StaffVO vo = service.staffLogin(staff_id);
@@ -43,8 +42,12 @@ public class StaffLoginAction implements IAction{
 		}
 		int result = 0;
 		if(vo != null && (cpass.equals(vo.getStaff_pwd()) || staff_pwd.equals(vo.getStaff_pwd()))) {
+			
+			String staff_name = null;
+			staff_name = service.getStaffName(staff_id);
 			result = 1;
 			HttpSession session = req.getSession();
+			session.setAttribute("staff_name", staff_name);
 			session.setAttribute("staff_id", staff_id);
 			session.setAttribute("auth_cd", vo.getAuth_cd());
 		}

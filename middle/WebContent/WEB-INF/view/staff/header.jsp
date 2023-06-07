@@ -182,6 +182,10 @@
     </svg>
 
 
+    <%
+    	String staff_name = (String)session.getAttribute("staff_name");
+   		String auth_cd =  (String)session.getAttribute("auth_cd");
+    %>
     
 <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow" style="background-color: #002437; height: 70px;">
   	<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="<%=request.getContextPath() %>/staff/main.do" style="text-align: center;">
@@ -207,7 +211,6 @@
       <div class="position-sticky pt-3 sidebar-sticky">
   <ul class="nav flex-column">
   <%
-	String auth_cd = (String) session.getAttribute("auth_cd");
   	if(auth_cd.equals("A")){
   %> 
   	<li id="stu_managing" class="nav-item">
@@ -283,5 +286,6 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2"><%= request.getAttribute("titleName") %></h1>
         <div class="btn-toolbar mb-2 mb-md-0">
+        	<span class="nav-link navbar-nav"><%=staff_name%> <%=auth_cd.equals("P") ? "교수" : "교직원"%></span>
         </div>
       </div>

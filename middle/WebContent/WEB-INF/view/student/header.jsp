@@ -156,7 +156,8 @@
   <body>
   	<%
 		String id = (String) session.getAttribute("stu_id");
-	
+   		String auth_cd =  (String)session.getAttribute("auth_cd");
+		String stu_name = (String)session.getAttribute("stu_name");
 		if(id == null){
 	%>
 		<script>
@@ -256,5 +257,6 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2"><%= request.getAttribute("titleName") %></h1>
         <div class="btn-toolbar mb-2 mb-md-0">
+        	<span class="nav-link navbar-nav"><%=stu_name%> <%=auth_cd.equals("S") ? "학생" : "wtf"%></span>
         </div>
       </div>

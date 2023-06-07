@@ -80,4 +80,9 @@ public class StudentServiceImpl implements IStudentService{
 		return dao.selectStuCount();
 	}
 
+	@Override
+	public String getStudentName(String stu_id) {
+		return dao.getStudentName(stu_id);
+	}
+
 }

@@ -115,4 +115,10 @@
 		SELECT COUNT(*) cnt
 		FROM students
 	</select>
+	
+	<select id="getStudentName" parameterClass="String" resultClass="String">
+		SELECT stu_name
+		  FROM students
+		 WHERE stu_id = #stu_id#
+	</select>
 </sqlMap>
