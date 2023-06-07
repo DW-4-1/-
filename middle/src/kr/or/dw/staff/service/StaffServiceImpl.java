@@ -108,4 +108,9 @@ public class StaffServiceImpl implements IStaffService{
 		return dao.existDate(dateVo);
 	}
 
+	@Override
+	public int updateDate(DateVO dateVo) {
+		return dao.updateDate(dateVo);
+	}
+
 }

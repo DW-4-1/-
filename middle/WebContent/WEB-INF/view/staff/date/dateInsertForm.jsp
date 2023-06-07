@@ -8,17 +8,21 @@
 <title>일정등록</title>
 <body>
 <%
+	String lec_start = "";
+	String lec_end = "";
+	String reg_start = "";
+	String reg_end = "";
 	if(request.getAttribute("dateVo") != null){
 		DateVO dateVo = (DateVO)request.getAttribute("dateVo");
+		lec_start = dateVo.getLec_start().split(" ")[0];
+		lec_end = dateVo.getLec_end().split(" ")[0];
+		reg_start = dateVo.getReg_start().split(" ")[0];
+		reg_end = dateVo.getReg_end().split(" ")[0];
 %>
 	<script>
 		$(function(){
 			$('#year').prop('value', <%=dateVo.getYear()%>);
 			$('#term').val('<%=dateVo.getTerm()%>').prop('selected',true);
-			$('#lec_start').prop('value', <%=dateVo.getLec_start().split(" ")[0]%>);
-			$('#lec_end').prop('value', <%=dateVo.getLec_end().split(" ")[0]%>);
-			$('#reg_start').prop('value', <%=dateVo.getReg_start().split(" ")[0]%>);
-			$('#reg_end').prop('value', <%=dateVo.getReg_end().split(" ")[0]%>);
 		})
 	</script>		
 <%
@@ -50,7 +54,7 @@
 			<div class="col-12">
 	          <label class="form-label">개강일</label>
 	          <div class="input-group has-validation">
-	            <input type="Date" class="form-control" name="lec_start" id="lec_start" required>
+	            <input type="date" class="form-control" name="lec_start" id="lec_start" value="<%=lec_start %>" required>
 	          	<div class="invalid-feedback">
 	              	개강일을 선택해주세요.
 	            </div>
@@ -59,7 +63,7 @@
 			<div class="col-12">
 	          <label class="form-label">종강일</label>
 	          <div class="input-group has-validation">
-	            <input type="Date" class="form-control" name="lec_end" id="lec_end" required>
+	            <input type="date" class="form-control" name="lec_end" id="lec_end" value="<%=lec_end %>" required>
 	          	<div class="invalid-feedback">
 	              	종강일을 선택해주세요.
 	            </div>
@@ -68,7 +72,7 @@
 			<div class="col-12">
 	          <label class="form-label">수강신청 시작일</label>
 	          <div class="input-group has-validation">
-	            <input type="Date" class="form-control" name="reg_start" id="reg_start" required>
+	            <input type="date" class="form-control" name="reg_start" id="reg_start" value="<%=reg_start %>" required>
 	          	<div class="invalid-feedback">
 	              	수강신청 시작일을 선택해주세요.
 	            </div>
@@ -77,7 +81,7 @@
 			<div class="col-12">
 	          <label class="form-label">수강신청 마감일</label>
 	          <div class="input-group has-validation">
-	            <input type="Date" class="form-control" name="reg_end" id="reg_end" required>
+	            <input type="date" class="form-control" name="reg_end" id="reg_end" value="<%=reg_end %>" required>
 	          	<div class="invalid-feedback">
 	              	수강신청 마감일을 선택해주세요.
 	            </div>

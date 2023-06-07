@@ -93,4 +93,6 @@ public interface IStaffDao {
 
 	public int existDate(DateVO dateVo);
 
+	public int updateDate(DateVO dateVo);
+
 }

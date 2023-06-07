@@ -92,5 +92,7 @@ public interface IStaffService {
 	public DateVO getDate(DateVO yearTerm);
 
 	public int existDate(DateVO dateVo);
+
+	public int updateDate(DateVO dateVo);
 	
 }

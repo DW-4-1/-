@@ -233,5 +233,17 @@ private static StaffDaoImpl dao;
 		return cnt;
 	}
 
+	@Override
+	public int updateDate(DateVO dateVo) {
+		int result = 0;
+		try {
+			result = smc.update("staff.updateDate", dateVo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 
 }

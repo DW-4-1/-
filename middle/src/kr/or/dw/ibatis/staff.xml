@@ -136,8 +136,13 @@
 	</select>
 	
 	<select id="existDate" parameterClass="dateVO" resultClass="int">
-		SELECT cnt(*)
+		SELECT count(*)
 		FROM datelist
 		WHERE year = #year# AND term = #term#
 	</select>
+	
+	<update id="updateDate" parameterClass="dateVO">
+		UPDATE datelist SET reg_start = #reg_start#, reg_end = #reg_end#, lec_start = #lec_start#, lec_end = #lec_end#
+		WHERE year = #year# AND term = #term#
+	</update>
 </sqlMap>

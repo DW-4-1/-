@@ -37,7 +37,16 @@ public class DateInsertAction implements IAction{
 		
 		IStaffService service = StaffServiceImpl.getInstance();
 		int result = 0;
-		result = service.insertDate(dateVo);
+		
+		int cnt = 0;
+		cnt = service.existDate(dateVo);
+		if(cnt != 0) {
+			result = service.updateDate(dateVo);
+		}else {
+			result = service.insertDate(dateVo);
+			
+		}
+		
 		
 		return "/staff/dateList.do";
 	}
