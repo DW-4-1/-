@@ -103,7 +103,6 @@
 	<select id="selectProfessorCount" resultClass="int" parameterClass="String">
 		SELECT COUNT(*) cnt
 		  FROM staffs
-		 WHERE auth_cd = 'P'
 	</select>
 	
 	<update id="staffPasswordUpdate" parameterClass="staffVO">
