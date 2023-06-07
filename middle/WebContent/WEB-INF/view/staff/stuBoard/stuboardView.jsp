@@ -132,7 +132,7 @@
 							취소
 						</button>
 				<%
-					} else if("A".equals((String)request.getAttribute("auth_cd"))){
+					} else if(((String)session.getAttribute("auth_cd")).equals("A")){
 				%>
 					<input type="hidden" name="staff_id" value="<%=staff_id%>">
 					
