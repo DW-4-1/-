@@ -22,6 +22,19 @@
 	String staff_id = (String)stasession.getAttribute("staff_id");
 %>
 
+<style>
+	.click:focus {
+		outline: none;
+	}
+	
+	.click {
+		border: white;
+		resize: none; 
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
 <script>
 	$(function(){
 		$('#contentDelBtn').on('click', function(){
@@ -97,7 +110,7 @@
 			<div class="card-body">
 	            <!-- content -->
 				<div class="mailbox-read-message" style="margin: 1em;">
-					<p><%=boardVo.getBd_content()%></p>
+					<textarea class="click" readonly rows="10"><%=boardVo.getBd_content()%></textarea>
 				</div>
 				
 				<div>
@@ -116,8 +129,8 @@
 					<div class="card-body" style="margin-top:-1em">
 			            <!-- content -->
 						<div class="mailbox-read-message" style="text-align:left; vertical-align:top">
-							<p id="re_contentView" style="display:none;"><%=content%></p>
-							<input type="text" id="re_contentUpdate" style="display:none;" value="<%=content%>">
+							<textarea id="re_contentView" rows="10" class="click" style="display:none;" readonly><%=content%></textarea>
+							<textarea id="re_contentUpdate" rows="10" class="click" style="display:none;"><%=content%></textarea>
 						</div>
 					</div>
 				</div>
@@ -138,7 +151,7 @@
 					
 					<!-- 관리자 답변 -->
 					<div class="mb-3">
-					    <input type="text" name="re_content" class="form-control">
+					    <textarea name="re_content" class="form-control click" readonly></textarea>
 					</div>
 					
 					<button id="re_contentInsert" type="button" class="btn btn-primary" style="width: 6em; float: right;" onclick="location.href='<%=request.getContextPath()%>/board/stuBoardList.do'">

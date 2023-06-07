@@ -12,6 +12,19 @@
 
 %>
 
+<style>
+	#click:focus {
+		outline: none;
+	}
+	
+	#click {
+		border: white;
+		resize: none; 
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
 <script>
 	$(function(){
 		$('#contentDelBtn').on('click', function(){
@@ -33,7 +46,7 @@
           <div class="card-body">
             <!-- content -->
 		<div class="mailbox-read-message" style="margin: 1em;">
-			<p><%=boardVo.getBd_content()%></p>
+			<textarea id="click" readonly rows="10"><%=boardVo.getBd_content()%></textarea>
 		</div>
 			<br>
 			<hr>

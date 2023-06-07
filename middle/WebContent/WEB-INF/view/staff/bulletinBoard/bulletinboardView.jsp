@@ -11,6 +11,18 @@
 	DateFormat fomatter = new SimpleDateFormat("yyyy-MM-dd");
 
 %>
+<style>
+	#click:focus {
+		outline: none;
+	}
+	
+	#click {
+		border: white;
+		resize: none; 
+		width: 100%;
+		height: 100%;
+	}
+</style>
 
 <script>
 	$(function(){
@@ -32,8 +44,8 @@
           </div>
           <div class="card-body">
             <!-- content -->
-		<div class="mailbox-read-message" style="margin: 1em;">
-			<p><%=boardVo.getBd_content()%></p>
+		<div class="mailbox-read-message" style="margin: 1em; height: 300px">
+			<textarea id="click" readonly rows="10"><%=boardVo.getBd_content()%></textarea>
 		</div>
 			<br>
 			<hr>
