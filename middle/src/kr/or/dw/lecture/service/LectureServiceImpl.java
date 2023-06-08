@@ -1,6 +1,7 @@
 package kr.or.dw.lecture.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.dw.lecture.dao.ILectureDao;
 import kr.or.dw.lecture.dao.LectureDaoImpl;
@@ -77,9 +78,9 @@ public class LectureServiceImpl implements ILectureService{
 		}
 
 		@Override
-		public List<LectureVO> getAllLectureRegister(LectureVO lecVo) {
+		public List<LectureVO> getAllLectureRegister(Map<String, Object> paramMap) {
 			
-			return dao.getAllLectureRegister(lecVo);
+			return dao.getAllLectureRegister(paramMap);
 		}
 
 		@Override
@@ -150,5 +151,10 @@ public class LectureServiceImpl implements ILectureService{
 		@Override
 		public int getStuEvalCnt(String stu_id) {
 			return dao.getStuEvalCnt(stu_id);
+		}
+
+		@Override
+		public int selectLectureCount(Map<String, Object> paramMap) {
+			return dao.selectLectureCount(paramMap);
 		}
 }

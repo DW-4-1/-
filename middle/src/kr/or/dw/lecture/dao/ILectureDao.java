@@ -1,6 +1,7 @@
 package kr.or.dw.lecture.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.dw.vo.EvaluationVO;
 import kr.or.dw.vo.LectureVO;
@@ -70,7 +71,7 @@ public interface ILectureDao {
 	String getPlanPath(String lec_code);
 
 
-	List<LectureVO> getAllLectureRegister(LectureVO lecVo);
+	List<LectureVO> getAllLectureRegister(Map<String, Object> paramMap);
 
 	/**
 	 * 수강신청 메서드
@@ -137,5 +138,8 @@ public interface ILectureDao {
 
 
 	int getStuEvalCnt(String stu_id);
+
+
+	int selectLectureCount(Map<String, Object> paramMap);
 
 }

@@ -5,7 +5,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +18,7 @@ import kr.or.dw.lecture.service.ILectureService;
 import kr.or.dw.lecture.service.LectureServiceImpl;
 import kr.or.dw.staff.service.IStaffService;
 import kr.or.dw.staff.service.StaffServiceImpl;
+import kr.or.dw.util.PaginationUtil;
 import kr.or.dw.vo.DateVO;
 import kr.or.dw.vo.LectureVO;
 import kr.or.dw.web.IAction;
@@ -70,37 +73,40 @@ public class LectureRegisterFormAction implements IAction{
 			LectureVO lecVo = new LectureVO();
 			lecVo.setLec_term(lec_term);
 			lecVo.setLec_year(lec_year);
+			
+			//페이징처리
+			Map<String, Integer> pagingConfigMap = null;
+			PaginationUtil pagination = new PaginationUtil();
+			String pageParam = req.getParameter("page");	//사용자가 선택한 페이지번호
+			int page = (pageParam == null ? 1 : Integer.parseInt(pageParam));
+			
 			String search = "%%";
 			if(req.getParameter("search") != null) {
 				search = "%" + req.getParameter("search") + "%";
 			}
-			lecVo.setSearch(search);
-			lecList = service.getAllLectureRegister(lecVo);
+			Map<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("search", search);
+			paramMap.put("year", lec_year);
+			paramMap.put("term", lec_term);
+			
+			int totalCount = service.selectLectureCount(paramMap);
+
+
+			pagination.setConfig(page, 10, 10, totalCount);
+			pagingConfigMap = pagination.getConfig();
+			
+			paramMap.put("start", pagingConfigMap.get("start"));
+			paramMap.put("end", pagingConfigMap.get("end"));
+			
+			lecList = service.getAllLectureRegister(paramMap);
 			
 			List<LectureVO> stuLecList = null;
 			stuLecList = service.getAllLecture(stu_id);
 			
-			List<LectureVO> remove = new ArrayList<>();
 			
-			String stu_dept_code = "";
-			stu_dept_code = service.getStuDeptCode(stu_id);
 			
-			for(LectureVO lecall : lecList) {
-				if(lecall.getLec_div().equals("전공필수") || lecall.getLec_div().equals("전공선택") || lecall.getLec_div().equals("교직")) {
-					System.out.println();
-					if(!lecall.getDept_code().equals(stu_dept_code)) {
-						remove.add(lecall);
-						continue;
-					}
-				}
-				for(LectureVO stulec : stuLecList) {
-					if(stulec.getLec_code().equals(lecall.getLec_code())) {
-						remove.add(lecall);
-					}
-				}
-			}
-			lecList.removeAll(remove);
-		
+			req.setAttribute("pagingConfigMap", pagination);
+			req.setAttribute("stuLecList", stuLecList);
 			req.setAttribute("lecList", lecList);
 			req.setAttribute("titleName", "강의 관리");
 			return "/student/lecture/lectureRegister.jsp";

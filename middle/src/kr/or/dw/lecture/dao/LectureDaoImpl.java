@@ -2,6 +2,7 @@ package kr.or.dw.lecture.dao;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
@@ -156,10 +157,10 @@ private static LectureDaoImpl dao;
 	}
 
 	@Override
-	public List<LectureVO> getAllLectureRegister(LectureVO lecVo) {
+	public List<LectureVO> getAllLectureRegister(Map<String, Object> paramMap) {
 		List<LectureVO> lecList = null;
 		try {
-			lecList = smc.queryForList("lecture.getAllLectureRegister", lecVo);
+			lecList = smc.queryForList("lecture.getAllLectureRegister", paramMap);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -348,6 +349,18 @@ private static LectureDaoImpl dao;
 			e.printStackTrace();
 		}
 		return evalcnt;
+	}
+
+	@Override
+	public int selectLectureCount(Map<String, Object> paramMap) {
+		int cnt = 0;
+		try {
+			cnt = (int) smc.queryForObject("lecture.selectLectureCount", paramMap);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cnt;
 	}
 	
 	

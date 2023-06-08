@@ -1,6 +1,7 @@
 package kr.or.dw.lecture.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.dw.vo.EvaluationVO;
 import kr.or.dw.vo.LectureVO;
@@ -79,10 +80,10 @@ public interface ILectureService {
 
 	/**
 	 * 현재 년도, 학기에 맞는 강의 리스트 가져오기
-	 * @param lecVo
+	 * @param paramMap
 	 * @return
 	 */
-	List<LectureVO> getAllLectureRegister(LectureVO lecVo);
+	List<LectureVO> getAllLectureRegister(Map<String, Object> paramMap);
 
 	/**
 	 * 수강신청
@@ -146,5 +147,7 @@ public interface ILectureService {
 	int getStuLecCnt(String stu_id);
 
 	int getStuEvalCnt(String stu_id);
+
+	int selectLectureCount(Map<String, Object> paramMap);
 
 }

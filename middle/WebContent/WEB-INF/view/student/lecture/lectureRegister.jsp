@@ -1,3 +1,4 @@
+<%@page import="kr.or.dw.util.PaginationUtil"%>
 <%@page import="java.util.HashSet"%>
 <%@page import="java.util.Set"%>
 <%@page import="kr.or.dw.vo.LectureVO"%>
@@ -127,11 +128,19 @@
 									<% 
 										
 										String disabled = "";
-									
+										String reg_disabled = "";
+										List <LectureVO> stuLecList = (List) request.getAttribute("stuLecList");
 										List<LectureVO> lecList = (List) request.getAttribute("lecList");
-											
+										
 										for (LectureVO vo : lecList) {
-		
+											for(LectureVO stuLecVo : stuLecList){
+												if(vo.getLec_code().equals(stuLecVo.getLec_code())){
+													reg_disabled = "disabled";
+													break;
+												}else{
+													reg_disabled = "";
+												}
+											}
 											String lec_time = "" + vo.getLec_time();
 											if(vo.getPlan_path() == null || vo.getPlan_path().equals("")){
 												disabled = "disabled";
@@ -155,7 +164,7 @@
 											<td><%=vo.getLec_div()%></td>
 											<td><%=vo.getLec_credit()%></td>
 											<td>
-												<input type="button" value="수강신청" id="lectureRegBtn" name="<%=vo.getLec_code()%>">
+												<input type="button" value="수강신청" id="lectureRegBtn" name="<%=vo.getLec_code()%>" <%=reg_disabled %>>
 											</td>
 										</tr>
 									</tbody>
@@ -163,6 +172,15 @@
 									} 
 									%>
 								</table>
+								<br>
+								<div style="display: flex; justify-content: center;">
+								<%
+									PaginationUtil pagination = (PaginationUtil) request.getAttribute("pagingConfigMap");
+						 		%>
+								<%= 
+									pagination.getPaginationHtml(request,new String[] {"search"}) 
+								%>
+								</div>
 							</div>
 						</div>
 					</div>
