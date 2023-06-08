@@ -130,7 +130,7 @@
 			            <!-- content -->
 						<div class="mailbox-read-message" style="text-align:left; vertical-align:top">
 							<textarea id="re_contentView" rows="10" class="click" style="display:none;" readonly><%=content%></textarea>
-							<textarea id="re_contentUpdate" rows="10" class="click" style="display:none;"><%=content%></textarea>
+							<textarea id="re_contentUpdate" rows="10" class="form-control" style="display:none;"><%=content%></textarea>
 						</div>
 					</div>
 				</div>
