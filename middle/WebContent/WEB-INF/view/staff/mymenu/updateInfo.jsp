@@ -106,12 +106,12 @@
 								            var roadAddr = data.roadAddress; // 도로명 주소 변수
 								            var jibunAddr = data.jibunAddress; // 지번 주소 변수
 								            // 우편번호와 주소 정보를 해당 필드에 넣는다.
-								            document.getElementById('stu_zipcode').value = data.zonecode;
+								            document.getElementById('staff_zipcode').value = data.zonecode;
 								            if(roadAddr !== ''){
-								                document.getElementById("stu_addr").value = roadAddr;
+								                document.getElementById("staff_addr").value = roadAddr;
 								            } 
 								            else if(jibunAddr !== ''){
-								                document.getElementById("stu_addr").value = jibunAddr;
+								                document.getElementById("staff_addr").value = jibunAddr;
 								            }
 								        }
 								    }).open();
