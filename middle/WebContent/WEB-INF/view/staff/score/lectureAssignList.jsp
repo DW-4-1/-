@@ -18,6 +18,11 @@
 			let lec_code = "<%=lec_code%>";
 			location.href="<%=request.getContextPath()%>/assign/insertAssignForm.do?lec_code=" + lec_code;
 		})
+
+		$('#backBtn').on('click', function(){
+			let lec_code = "<%=lec_code%>";
+			location.href="<%=request.getContextPath()%>/lecture/lectureScoreList.do?lec_code=" + lec_code;
+		})
 		
 		
 	})
@@ -31,6 +36,7 @@
 					<h3 class="card-title">과제 목록</h3>
 					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="display:inline;">
 						<input type="button" id="insertAssignBtn" class="btn btn-primary" value="과제 추가" style="width: 7em; margin-right: 1.5em;">
+						<input type="button" id="backBtn" class="btn btn-success" value="뒤로가기" style="width: 7em; margin-right: 1.5em;">
 					</div>
 				</div>
 				
