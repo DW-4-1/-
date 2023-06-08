@@ -14,11 +14,12 @@
 %>
 
 <style>
-	#click:focus {
+	.click:focus {
 		outline: none;
 	}
 	
-	#click {
+	.click {
+		border: white;
 		resize: none; 
 		width: 100%;
 		height: 100%;
@@ -32,7 +33,16 @@
 				location.href = "<%=request.getContextPath()%>/assign/deleteAssign.do?assign_no=<%=assignVo.getAssign_no()%>&lec_code=<%=assignVo.getLec_code()%>";
 				};
 		});
+		let test2 = $('.click');
+		let sch2 = test2.prop('scrollHeight');
+		test2.css('height', sch2);
 	});
+	
+	function autoResize(textarea) {
+		  textarea.style.height = 'auto';
+		  console.log(textarea.scrollHeight)
+		  textarea.style.height = textarea.scrollHeight + 'px';
+	}
 </script>
 
 <div class="col-md-7 col-lg-7" style="margin: 0 auto;">
@@ -45,8 +55,8 @@
           </div>
           <div class="card-body">
             <!-- content -->
-		<div class="mailbox-read-message" style="margin: 1em; height: 300px;">
-			<textarea id="click" style="border: 0px" readonly><%=assignVo.getAssign_content()%></textarea>
+		<div class="mailbox-read-message" style="margin: 1em;">
+			<textarea class="click" readonly style="overflow: hidden;" onkeyup="autoResize(this)" onkeydown="autoResize(this)"><%=assignVo.getAssign_content()%></textarea>
 		</div>
 			<br>
 			<hr>

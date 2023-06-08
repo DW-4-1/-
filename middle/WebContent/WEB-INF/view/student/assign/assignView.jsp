@@ -22,6 +22,17 @@
 
 %>
 <style>
+	.click:focus {
+		outline: none;
+	}
+	
+	.click {
+		border: white;
+		resize: none; 
+		width: 100%;
+		height: 100%;
+	}
+
 	input[type=file]::file-selector-button {
 	  width: 100px;
 	  height: 30px;
@@ -68,6 +79,16 @@
 			$('#assignFileName').css('display', 'none');
 			$(this).css('display', 'none');
 		});
+	$(function(){
+	let test2 = $('.click');
+		let sch2 = test2.prop('scrollHeight');
+		test2.css('height', sch2);		
+	})
+	function autoResize(textarea) {
+		  textarea.style.height = 'auto';
+		  console.log(textarea.scrollHeight)
+		  textarea.style.height = textarea.scrollHeight + 'px';
+	}
 </script>
 
 <div class="col-md-7 col-lg-7" style="margin: 0 auto;">
@@ -80,8 +101,8 @@
           </div>
           <div class="card-body">
             <!-- content -->
-		<div class="mailbox-read-message" style="margin: 1em; height: 300px;">
-			<p><%=assignVo.getAssign_content()%></p>
+		<div class="mailbox-read-message" style="margin: 1em;">
+			<textarea class="click" readonly style="overflow: hidden;" onkeyup="autoResize(this)" onkeydown="autoResize(this)"><%=assignVo.getAssign_content()%></textarea>
 		</div>
 			<br>
 			<hr>
