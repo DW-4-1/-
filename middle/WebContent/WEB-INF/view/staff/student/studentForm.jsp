@@ -166,17 +166,6 @@
             </div>
           </div>
         </div>
-		
-		<div class="col-12">
-          <label class="staffInsertForm">졸업예정일</label>
-          <div class="input-group has-validation">
-            <input type="Date" class="form-control" name="stu_grddate" required>
-          	<div class="invalid-feedback">
-              졸업예정일을 입력해주세요.
-            </div>
-          </div>
-        </div>
-        
         
 		<div class="col-12">
           <label class="staffInsertForm">비밀번호</label>
