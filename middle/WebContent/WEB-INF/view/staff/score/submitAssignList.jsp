@@ -34,8 +34,8 @@ $(function(){
 			<div class="card">
 				<div class="card-header">
 					<h3 class="card-title">과제 제출 수강생 목록</h3>
-					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
-						<input type="button" id="backBtn" class="btn btn-success" value="뒤로가기" style="width: 7em; margin-right: 1.5em;">
+					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="display:inline;">
+						<input type="button" id="backBtn" class="btn btn-secondary" value="돌아가기" style="width: 7em; margin-right: 1.5em;">
 					</div>
 				</div>
 				<div class="card-body">
