@@ -31,10 +31,11 @@
 		});
 		let re_content;
 		let sta_id;
-		$('input[name=re_content]').on('keyup', function(){
+		$('#re_content').on('keyup', function(){
 			re_content = $(this).val();
+			console.log(re_content);
 			staff_id = $('input[name=staff_id]').val();
-			console.log($('input[name=staff_id]').val());
+// 			console.log($('input[name=staff_id]').val());
 			});
 		$('#re_contentInsert').on('click', function(){
 			$.ajax({
@@ -90,11 +91,12 @@
 		let test = $('.click2');
 		let sch = test.prop('scrollHeight');
 		test.css('height', sch);
+		
 	});
 		
 	function autoResize(textarea) {
 			  textarea.style.height = 'auto';
-			  console.log(textarea.scrollHeight)
+// 			  console.log(textarea.scrollHeight)
 			  textarea.style.height = textarea.scrollHeight + 'px';
 	}
 </script>
@@ -177,10 +179,10 @@
 					
 					<!-- 관리자 답변 -->
 					<div class="mb-3">
-					    <textarea name="re_content" class="form-control" readonly style="overflow:hidden;" onkeyup="autoResize(this)" onkeydown="autoResize(this)"></textarea>
+					    <textarea id="re_content" name="re_content" class="form-control" style="overflow:hidden;" onkeyup="autoResize(this)" onkeydown="autoResize(this)"></textarea>
 					</div>
 					
-					<button id="re_contentInsert" type="button" class="btn btn-primary" style="width: 6em; float: right;" onclick="location.href='<%=request.getContextPath()%>/board/stuBoardList.do'">
+					<button id="re_contentInsert" type="button" class="btn btn-primary" style="width: 6em; float: right;">
 	            		답변등록
 	           		</button>
 	           	<%
