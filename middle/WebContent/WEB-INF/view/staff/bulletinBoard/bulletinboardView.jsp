@@ -12,11 +12,11 @@
 
 %>
 <style>
-	#click:focus {
+	.click:focus {
 		outline: none;
 	}
 	
-	#click {
+	.click {
 		border: white;
 		resize: none; 
 		width: 100%;
@@ -31,7 +31,15 @@
 				location.href = "<%=request.getContextPath()%>/board/deleteBulletinContent.do?bd_no=<%=boardVo.getBd_no()%>";
 				};
 		});
+		let test2 = $('.click');
+		let sch2 = test2.prop('scrollHeight');
+		test2.css('height', sch2);
 	});
+		function autoResize(textarea) {
+			  textarea.style.height = 'auto';
+			  console.log(textarea.scrollHeight)
+			  textarea.style.height = textarea.scrollHeight + 'px';
+		}
 </script>
 
 <div class="col-md-7 col-lg-7" style="margin: 0 auto;">
@@ -44,8 +52,8 @@
           </div>
           <div class="card-body">
             <!-- content -->
-		<div class="mailbox-read-message" style="margin: 1em; height: 300px">
-			<textarea id="click" readonly rows="10"><%=boardVo.getBd_content()%></textarea>
+		<div class="mailbox-read-message" style="margin: 1em;">
+			<textarea class="click" readonly style="overflow: hidden;" onkeyup="autoResize(this)" onkeydown="autoResize(this)"><%=boardVo.getBd_content()%></textarea>
 		</div>
 			<br>
 			<hr>

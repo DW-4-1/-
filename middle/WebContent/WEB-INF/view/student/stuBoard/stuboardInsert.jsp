@@ -9,7 +9,19 @@
 		boardVo = (BoardVO) request.getAttribute("boardVo");
 	}
 %>
-
+<script>
+$(function(){
+	let test2 = $('.click');
+	let sch2 = test2.prop('scrollHeight');
+	test2.css('height', sch2);
+});
+	
+	function autoResize(textarea) {
+				  textarea.style.height = 'auto';
+				  console.log(textarea.scrollHeight)
+				  textarea.style.height = textarea.scrollHeight + 'px';
+	}
+</script>
 
 <h3 class="card-title" style="text-align: center; margin: 1em;">문의하기</h3>
 <form method="post" action="<%=request.getContextPath()%>/board/stuContentInsert.do">
@@ -39,7 +51,7 @@
 				<div class="mailbox-read-message" style="margin: 1em;">
 					<div class="col-12">
 			          <div class="input-group has-validation">
-			            <textarea class="form-control" rows="9.9" id="inputDescription" name="bd_content" placeholder="내용을 입력해주세요." required><%=boardVo != null ? boardVo.getBd_content() : ""%></textarea>
+			            <textarea class="form-control click" id="inputDescription" name="bd_content" style="overflow:hidden;" placeholder="내용을 입력해주세요." onkeyup="autoResize(this)" onkeydown="autoResize(this)" required><%=boardVo != null ? boardVo.getBd_content() : ""%></textarea>
 			          	<div class="invalid-feedback">
 			              내용을 입력해주세요.
 			            </div>

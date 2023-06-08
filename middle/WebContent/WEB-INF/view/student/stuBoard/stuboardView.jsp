@@ -28,15 +28,40 @@
 			$('#re_contentSave').show();
 			$('#re_contentReset').show();
 		});
+		
+		let test2 = $('.click');
+		let sch2 = test2.prop('scrollHeight');
+		test2.css('height', sch2);
+
+		let test = $('.click2');
+		let sch = test.prop('scrollHeight');
+		test.css('height', sch);
 	});
+	
+	function autoResize(textarea) {
+		  textarea.style.height = 'auto';
+		  console.log(textarea.scrollHeight)
+		  textarea.style.height = textarea.scrollHeight + 'px';
+	}
 </script>
 
 <style>
-	#click:focus {
+	.click:focus {
 		outline: none;
 	}
 	
-	#click {
+	.click {
+		border: white;
+		resize: none; 
+		width: 100%;
+		height: 100%;
+	}
+
+	.click2:focus {
+		outline: none;
+	}
+	
+	.click2 {
 		border: white;
 		resize: none; 
 		width: 100%;
@@ -55,7 +80,7 @@
 			<div class="card-body">
 		            <!-- content -->
 				<div class="mailbox-read-message" style="margin: 1em;">
-					<textarea id="click" rows="10" readonly><%=boardVo.getBd_content()%></textarea>
+					<textarea class="click" readonly style="overflow: hidden;" onkeyup="autoResize(this)" onkeydown="autoResize(this)"><%=boardVo.getBd_content()%></textarea>
 				</div>
 				<br>
 				<hr>
@@ -76,8 +101,8 @@
 						<div class="card-body" style="margin-top:-1em">
 				            <!-- content -->
 							<div class="mailbox-read-message" style="text-align:left; vertical-align:top">
-								<p id="re_contentView" style="display:none;"><%=reVo.getRe_content()%></p>
-								<input type="text" id="re_contentUpdate" style="display:none;" value="<%=reVo.getRe_content()%>">
+								<textarea id="re_contentView" class="click2" style="display:none;" readonly>><%=reVo.getRe_content()%></textarea>
+								<textarea id="re_contentUpdate" class="form-control" style="display:none; overflow:hidden;" onkeyup="autoResize(this)" onkeydown="autoResize(this)"><%=reVo.getRe_content()%></textarea>
 							</div>
 						</div>
 					</div>

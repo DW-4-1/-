@@ -22,19 +22,6 @@
 	String staff_id = (String)stasession.getAttribute("staff_id");
 %>
 
-<style>
-	.click:focus {
-		outline: none;
-	}
-	
-	.click {
-		border: white;
-		resize: none; 
-		width: 100%;
-		height: 100%;
-	}
-</style>
-
 <script>
 	$(function(){
 		$('#contentDelBtn').on('click', function(){
@@ -94,8 +81,47 @@
 		$('#re_contentReset').on('click', function(){
 			location.href="<%=request.getContextPath()%>/board/stuBoardView.do?bd_no=<%=boardVo.getBd_no()%>";
 		});
+		
+		
+		let test2 = $('.click');
+		let sch2 = test2.prop('scrollHeight');
+		test2.css('height', sch2);
+		
+		let test = $('.click2');
+		let sch = test.prop('scrollHeight');
+		test.css('height', sch);
 	});
+		
+	function autoResize(textarea) {
+			  textarea.style.height = 'auto';
+			  console.log(textarea.scrollHeight)
+			  textarea.style.height = textarea.scrollHeight + 'px';
+	}
 </script>
+
+<style>
+	.click:focus {
+		outline: none;
+	}
+	
+	.click {
+		border: white;
+		resize: none; 
+		width: 100%;
+		height: 100%;
+	}
+	
+	.click2:focus {
+		outline: none;
+	}
+	
+	.click2 {
+		border: white;
+		resize: none; 
+		width: 100%;
+		height: 100%;
+	}
+</style>
 
 <div class="col-md-7 col-lg-7" style="margin: 0 auto;">
 	<div class="col">
@@ -110,7 +136,7 @@
 			<div class="card-body">
 	            <!-- content -->
 				<div class="mailbox-read-message" style="margin: 1em;">
-					<textarea class="click" readonly rows="10"><%=boardVo.getBd_content()%></textarea>
+					<textarea class="click" readonly style="overflow:hidden"><%=boardVo.getBd_content()%></textarea>
 				</div>
 				
 				<div>
@@ -129,8 +155,8 @@
 					<div class="card-body" style="margin-top:-1em">
 			            <!-- content -->
 						<div class="mailbox-read-message" style="text-align:left; vertical-align:top">
-							<textarea id="re_contentView" rows="10" class="click" style="display:none;" readonly><%=content%></textarea>
-							<textarea id="re_contentUpdate" rows="10" class="form-control" style="display:none;"><%=content%></textarea>
+							<textarea id="re_contentView" class="click2" style="display:none; overflow:hidden;" readonly><%=content%></textarea>
+							<textarea id="re_contentUpdate" class="form-control click2" style="display:none; overflow:hidden;" onkeyup="autoResize(this)" onkeydown="autoResize(this)"><%=content%></textarea>
 						</div>
 					</div>
 				</div>
@@ -151,7 +177,7 @@
 					
 					<!-- 관리자 답변 -->
 					<div class="mb-3">
-					    <textarea name="re_content" class="form-control click" readonly></textarea>
+					    <textarea name="re_content" class="form-control" readonly style="overflow:hidden;" onkeyup="autoResize(this)" onkeydown="autoResize(this)"></textarea>
 					</div>
 					
 					<button id="re_contentInsert" type="button" class="btn btn-primary" style="width: 6em; float: right;" onclick="location.href='<%=request.getContextPath()%>/board/stuBoardList.do'">
@@ -160,7 +186,7 @@
 	           	<%
 					}
 	           	%>
-					<input type="text" id="re_contentUpdate" style="display:none;" value="<%=content%>">
+					<textarea type="text" id="re_contentUpdate" class="click" style="display:none; overflow:hidden;"><%=content%></textarea>
 	           		<button type="button" class="btn btn-outline-dark" style="width: 6em; float: left;" onclick="location.href='<%=request.getContextPath()%>/board/stuBoardList.do'">
 	            		목록
 	           		</button>
