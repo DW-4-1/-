@@ -23,19 +23,30 @@ public class SubAssignListAction implements IAction{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		IAssignService service = AssignServiceImpl.getInstance();
 
 		int assign_no = Integer.parseInt(req.getParameter("assign_no"));
+		String lec_code = req.getParameter("lec_code");
 		
 		List<AssignVO> stuList = null;
-
+		List<AssignVO> assignList = null;
 		
-		IAssignService service = AssignServiceImpl.getInstance();
 		
+		
+		
+		assignList = service.getLectureAssignList(lec_code);
 		stuList = service.getSubStudentList(assign_no);
 		
+		req.setAttribute("lec_code", lec_code);
+		System.out.println(lec_code);
+		if(assignList != null) {
+			
+			req.setAttribute("assignList", assignList);
+		}
 		req.setAttribute("stuAssignList", stuList);
 		req.setAttribute("assign_no", assign_no);
 		req.setAttribute("titleName", "과제 조회");
+		
 		return "/staff/score/submitAssignList.jsp";
 	}
 

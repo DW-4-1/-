@@ -12,10 +12,19 @@
 	int assign_no = (int)request.getAttribute("assign_no");
 	DateFormat fomatter = new SimpleDateFormat("yyyy-MM-dd");
 	List<AssignVO> stuList = (List<AssignVO>)request.getAttribute("stuAssignList");
+
+	String lec_code = (String)request.getAttribute("lec_code");
+// 	String assignList = (String)request.getAttribute("assignList");
 	
+	LectureVO vo = new LectureVO();
 %>
 <script>
-
+$(function(){
+	$('#backBtn').on('click', function(){
+		let lec_code = "<%=lec_code%>";
+		location.href="<%=request.getContextPath()%>/assign/lectureAssignList.do?lec_code="+lec_code;
+	});
+})
 </script>
 
 
@@ -26,7 +35,7 @@
 				<div class="card-header">
 					<h3 class="card-title">과제 제출 수강생 목록</h3>
 					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
-			
+						<input type="button" id="backBtn" class="btn btn-success" value="뒤로가기" style="width: 7em; margin-right: 1.5em;">
 					</div>
 				</div>
 				<div class="card-body">
