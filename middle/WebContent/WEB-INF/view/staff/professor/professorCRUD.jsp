@@ -61,7 +61,7 @@
 		})
 		$('#professorUpdateFormBtn').on('click', function(){
 			$('#up').show();
-			$('td[class=updateTag]').show();
+			$('.updateTag').show();
 			$('#professorInsertFormBtn').hide();
 			$('#professorDeleteFormBtn').hide();
 			$('#professorUpdateFormBtn').hide();
@@ -147,6 +147,7 @@
 										<th>상태</th>
 										<th>고용일</th>
 										<th>직분</th>
+										<th class="updateTag" style="display:none;"></th>
 									</tr>
 									</thead>
 						<tbody>
