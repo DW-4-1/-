@@ -52,16 +52,16 @@ input + input {
 								<td><%=staff.getStaff_resnum()%></td>
 							</tr>
 							<tr>
+								<th>우편번호</th>
+								<td><%=staff.getStaff_zipcode()%></td>
+							</tr>
+							<tr>
 								<th>주소</th>
 								<td><%=staff.getStaff_addr()%></td>
 							</tr>
 							<tr>
 								<th>상세주소</th>
 								<td><%=staff.getStaff_detailaddr()%></td>
-							</tr>
-							<tr>
-								<th>우편번호</th>
-								<td><%=staff.getStaff_zipcode()%></td>
 							</tr>
 							<tr>
 								<th>학과명</th>
