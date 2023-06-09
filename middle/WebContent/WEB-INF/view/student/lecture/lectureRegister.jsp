@@ -47,16 +47,16 @@
 						<input  id="search" name="search" type="text" placeholder="강의코드 검색" style="float:left;">
 						
 						<button type="button" id="searchBtn" style="float:left;">검색</button>
-					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;">
-						<select id="div" name="div" style="margin-left: auto;">
-							<option name="div" value="all">전체보기</option>
-							<option name="전공필수" value="전공필수">전공필수</option>
-							<option name="전공선택" value="전공선택">전공선택</option>
-							<option name="교양" value="교양">교양</option>
-							<option name="교직" value="교직">교직</option>
+<!-- 					<div class="d-flex flex-row-reverse bd-highlight d-grid gap-2" style="height: 2em; display:inline;"> -->
+<!-- 						<select id="div" name="div" style="margin-left: auto;"> -->
+<!-- 							<option name="div" value="all">전체보기</option> -->
+<!-- 							<option name="전공필수" value="전공필수">전공필수</option> -->
+<!-- 							<option name="전공선택" value="전공선택">전공선택</option> -->
+<!-- 							<option name="교양" value="교양">교양</option> -->
+<!-- 							<option name="교직" value="교직">교직</option> -->
 							
-						</select>
-					</div>
+<!-- 						</select> -->
+<!-- 					</div> -->
 				</div>
 
 				<div class="card-body">
